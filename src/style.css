@@ -118,36 +118,15 @@ body {
 }
 
 .logo {
-  font-size: 1.5rem;
   display: flex;
-  align-items: baseline;
-  gap: 0.25rem;
-  text-decoration: none;
-  color: white;
-}
-
-.logo .pixel {
-  font-family: var(--font-pixel);
-  font-size: 1.25rem;
-}
-
-.logo .amp {
-  background: white;
-  color: black;
-  width: 20px;
-  height: 20px;
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-size: 0.75rem;
-  position: relative;
-  top: -2px;
+  text-decoration: none;
 }
 
-.logo .proof {
-  font-family: var(--font-proof);
-  font-weight: 900;
+.logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 /* Buttons */
