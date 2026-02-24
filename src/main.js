@@ -37,7 +37,7 @@ const initInteractions = () => {
     const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData.entries());
 
-    statusEl.textContent = 'Engineering your growth audit...';
+    statusEl.textContent = 'Processing your application...';
     statusEl.style.color = 'var(--text-muted)';
 
     try {
