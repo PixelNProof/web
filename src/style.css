@@ -32,9 +32,12 @@
   box-sizing: border-box;
 }
 
-html {
+html,
+body {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -43,7 +46,13 @@ body {
   font-family: var(--font-main);
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
 }
 
 .container {
@@ -192,7 +201,7 @@ h3 {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background: rgba(5, 5, 5, 0.98);
   backdrop-filter: blur(15px);
@@ -931,10 +940,6 @@ h3 {
     -webkit-overflow-scrolling: touch;
     gap: 1.5rem;
     padding-bottom: 1.5rem;
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
   }
 
   /* Hide the connecting line */
@@ -983,10 +988,6 @@ h3 {
     -webkit-overflow-scrolling: touch;
     gap: 1.5rem;
     padding-bottom: 1.5rem;
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
     margin-top: 0;
   }
 
@@ -1390,15 +1391,6 @@ h3 {
 
   .agency-studio {
     font-size: 9vw;
-  }
-
-  /* Fix overflow logic: Match negative margins with new 1rem container padding */
-  .methodology-blueprint,
-  .creative-work-grid {
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 
   /* Scroll cards: tighter on small screens */
