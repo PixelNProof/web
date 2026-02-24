@@ -125,14 +125,14 @@ h3 {
 }
 
 .logo-img {
-  height: 55px;
+  height: 48px;
   width: auto;
   display: block;
 }
 
 @media (max-width: 768px) {
   .logo-img {
-    height: 40px;
+    height: 38px;
   }
 }
 
@@ -531,6 +531,38 @@ h3 {
 }
 
 /* Why Us (Creative Overhaul) */
+.why-us-section {
+  padding: var(--section-padding);
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 8rem;
+  align-items: center;
+}
+
+.why-us-section .right {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  justify-content: center;
+}
+
+.value-prop h3 {
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5rem;
+}
+
+.value-prop p {
+  color: var(--text-muted);
+  max-width: 480px;
+  line-height: 1.6;
+}
+
 .massive-statement {
   font-size: 5.5rem;
   line-height: 0.9;
@@ -598,7 +630,7 @@ h3 {
 }
 
 .footer-logo {
-  height: 55px;
+  height: 48px;
   margin-bottom: 2rem;
 }
 
@@ -747,6 +779,11 @@ h3 {
   }
 
   .split-layout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .testimonial-grid {
     grid-template-columns: 1fr;
     gap: 4rem;
   }
