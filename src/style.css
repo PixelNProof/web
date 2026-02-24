@@ -864,31 +864,96 @@ h3 {
     gap: 4rem;
   }
 
-  .creative-work-grid {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-
-  /* Methodology: stack vertically */
+  /* ===== HORIZONTAL SCROLL: METHODOLOGY ===== */
   .methodology-blueprint {
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
+  /* Hide the connecting line */
   .methodology-blueprint::before {
     display: none;
   }
 
   .blueprint-step {
-    width: 80%;
+    flex: 0 0 75vw;
+    max-width: 75vw;
+    scroll-snap-align: center;
     text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+  }
+
+  /* Subtle scroll indicator */
+  .methodology-blueprint::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  .methodology-blueprint::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+  }
+
+  .methodology-blueprint::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
   }
 
   .step-indicator {
     width: 70px;
     height: 70px;
     font-size: 0.7rem;
+  }
+
+  /* ===== HORIZONTAL SCROLL: SELECTED WORK ===== */
+  .creative-work-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .work-item {
+    flex: 0 0 80vw;
+    max-width: 80vw;
+    scroll-snap-align: center;
+  }
+
+  .work-item.staggered {
+    margin-top: 0;
+  }
+
+  .creative-work-grid::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  .creative-work-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+  }
+
+  .creative-work-grid::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
   }
 
   /* Footer */
@@ -1023,58 +1088,59 @@ h3 {
     overflow: hidden;
   }
 
-  /* ---- METHODOLOGY ---- */
+  /* ---- METHODOLOGY (tighter inside scroll cards) ---- */
   .methodology-blueprint {
-    margin-top: 3rem;
-    gap: 1.5rem;
+    margin-top: 2rem;
   }
 
   .blueprint-step {
-    width: 100%;
+    flex: 0 0 70vw;
+    max-width: 70vw;
+    padding: 2rem 1.5rem;
   }
 
   .blueprint-step h4 {
     font-size: 1.1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
 
   .step-indicator {
-    width: 60px;
-    height: 60px;
-    font-size: 0.6rem;
-    margin-bottom: 1.5rem;
+    width: 55px;
+    height: 55px;
+    font-size: 0.55rem;
+    margin-bottom: 1rem;
   }
 
   .blueprint-list {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     line-height: 1.8;
   }
 
   .see-process-btn {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
   }
 
-  /* ---- SELECTED WORK ---- */
+  /* ---- SELECTED WORK (tighter in scroll cards) ---- */
+  .work-item {
+    flex: 0 0 75vw;
+    max-width: 75vw;
+  }
+
   .work-visual {
     aspect-ratio: 16/10;
-    /* Less tall on mobile */
-  }
-
-  .work-item {
-    overflow: hidden;
-    /* Prevent ghost numbers from overflowing */
   }
 
   .work-item::before {
-    font-size: 4rem;
-    top: -1rem;
-    left: 0;
-    opacity: 0.5;
+    font-size: 3.5rem;
+    top: -0.5rem;
+    left: 0.5rem;
+    opacity: 0.4;
   }
 
   .work-details h4 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .work-details .category {
@@ -1216,7 +1282,22 @@ h3 {
 
   .agency-studio {
     font-size: 9vw;
-    /* Prevent cutoff */
+  }
+
+  /* Scroll cards: tighter on small screens */
+  .blueprint-step {
+    flex: 0 0 78vw;
+    max-width: 78vw;
+    padding: 1.8rem 1.2rem;
+  }
+
+  .work-item {
+    flex: 0 0 85vw;
+    max-width: 85vw;
+  }
+
+  .work-visual {
+    aspect-ratio: 16/12;
   }
 
   .massive-statement {
@@ -1245,10 +1326,6 @@ h3 {
 
   .footer-tagline {
     font-size: 0.55rem;
-  }
-
-  .work-visual {
-    aspect-ratio: 16/12;
   }
 
   .your-move-header .huge {
