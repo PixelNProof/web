@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
-  /* Official Brand Kit */
+  /* Final Brand Kit (Boss Spec) */
   --bg-primary: #0F1115;
-  /* Deep Black/Charcoal */
-  --bg-secondary: #131722;
-  /* Dark Navy Interior */
+  /* Charcoal Black */
+  --bg-secondary: #11141a;
+  /* Slightly lighter for contrast */
   --text-primary: #F5F7FA;
+  /* Off-White */
   --text-muted: #6B7280;
-  --accent: #2563EB;
-  /* Electric Blue */
-  --accent-hover: #1D4ED8;
+  --accent: #FFCC00;
+  /* Signature Yellow */
+  --accent-hover: #e6b800;
 
   /* Layout */
   --container-max-width: 1400px;
@@ -22,7 +23,7 @@
   --font-main: 'Inter', sans-serif;
 
   /* Shadows */
-  --cylindrical-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.4);
+  --cylindrical-shadow: 0 10px 30px -10px rgba(255, 204, 0, 0.4);
 }
 
 * {
@@ -163,7 +164,7 @@ h3 {
 .btn-primary:hover {
   background-color: var(--accent-hover);
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px -10px rgba(37, 99, 235, 0.6);
+  box-shadow: 0 15px 40px -10px rgba(255, 204, 0, 0.6);
 }
 
 .btn-secondary {
@@ -479,7 +480,7 @@ h3 {
   background-color: var(--bg-secondary);
   padding: 8rem 4rem;
   border-radius: 40px;
-  border: 1px solid rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(255, 204, 0, 0.1);
 }
 
 .cta-box h2 {
