@@ -954,12 +954,13 @@ h3 {
     scroll-snap-align: start;
   }
 
-  /* ===== STACKED LAYOUT: METHODOLOGY ===== */
+  /* ===== STRICT STACK: METHODOLOGY ===== */
   .methodology-blueprint {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 2rem;
   }
 
   /* Hide the connecting line */
@@ -1080,7 +1081,7 @@ h3 {
 /* --- MOBILE (≤768px) --- */
 @media (max-width: 768px) {
   :root {
-    --section-padding: 3.5rem 0;
+    --section-padding: 5rem 0;
   }
 
   .logo-img {
@@ -1099,18 +1100,19 @@ h3 {
   }
 
   .hero-huge-text h1 {
-    font-size: 14vw;
+    font-size: 18vw;
     line-height: 0.9;
   }
 
   .hero-huge-text h1 .serif-italic {
-    font-size: 11vw;
+    font-size: 14vw;
     margin-top: 0.5rem;
   }
 
   .hero-subtitle {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     letter-spacing: 0.2em;
+    margin-bottom: 2rem;
   }
 
   .hero-ctas {
@@ -1187,9 +1189,10 @@ h3 {
   }
 
   .agency-studio {
-    font-size: 9vw;
+    font-size: 12vw;
     gap: 0.4rem;
     overflow: hidden;
+    margin-top: -1rem;
   }
 
   /* ---- METHODOLOGY (scroll cards) ---- */
@@ -1374,20 +1377,21 @@ h3 {
   }
 
   :root {
-    --section-padding: 4rem 0;
+    --section-padding: 4.5rem 0;
   }
 
   .hero-huge-text h1 {
-    font-size: 16vw;
+    font-size: 20vw;
   }
 
   .hero-huge-text h1 .serif-italic {
-    font-size: 13vw;
+    font-size: 16vw;
   }
 
   .hero-subtitle {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     letter-spacing: 0.15em;
+    margin-bottom: 2rem;
   }
 
   .section-label {
@@ -1403,7 +1407,8 @@ h3 {
   }
 
   .agency-studio {
-    font-size: 9vw;
+    font-size: 14vw;
+    margin-top: -1.5rem;
   }
 
   /* Scroll cards: tighter on small screens */
@@ -1423,7 +1428,7 @@ h3 {
   }
 
   .massive-statement {
-    font-size: 8vw;
+    font-size: 11vw;
   }
 
   .value-prop h3 {
