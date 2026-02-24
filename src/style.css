@@ -931,13 +931,10 @@ h3 {
     gap: 4rem;
   }
 
-  /* ===== HORIZONTAL SCROLL: METHODOLOGY ===== */
+  /* ===== STACKED LAYOUT: METHODOLOGY ===== */
   .methodology-blueprint {
     flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    flex-wrap: wrap;
     gap: 1.5rem;
     padding-bottom: 1.5rem;
   }
@@ -948,29 +945,13 @@ h3 {
   }
 
   .blueprint-step {
-    flex: 0 0 75vw;
-    max-width: 75vw;
-    scroll-snap-align: center;
+    flex: 1 1 100%;
+    max-width: 100%;
     text-align: center;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 20px;
     padding: 2.5rem 2rem;
-  }
-
-  /* Subtle scroll indicator */
-  .methodology-blueprint::-webkit-scrollbar {
-    height: 3px;
-  }
-
-  .methodology-blueprint::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 10px;
-  }
-
-  .methodology-blueprint::-webkit-scrollbar-thumb {
-    background: var(--accent);
-    border-radius: 10px;
   }
 
   .step-indicator {
@@ -979,22 +960,18 @@ h3 {
     font-size: 0.7rem;
   }
 
-  /* ===== HORIZONTAL SCROLL: SELECTED WORK ===== */
+  /* ===== STACKED LAYOUT: SELECTED WORK ===== */
   .creative-work-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
     padding-bottom: 1.5rem;
     margin-top: 0;
   }
 
   .work-item {
-    flex: 0 0 80vw;
-    max-width: 80vw;
-    scroll-snap-align: center;
+    width: 100%;
+    max-width: 100%;
   }
 
   .work-item.staggered {
@@ -1395,14 +1372,14 @@ h3 {
 
   /* Scroll cards: tighter on small screens */
   .blueprint-step {
-    flex: 0 0 78vw;
-    max-width: 78vw;
+    flex: 1 1 100%;
+    max-width: 100%;
     padding: 1.8rem 1.2rem;
   }
 
   .work-item {
-    flex: 0 0 85vw;
-    max-width: 85vw;
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 
   .work-visual {
