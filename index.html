@@ -69,32 +69,34 @@
 <body>
   <div class="analytical-grid"></div>
 
-  <!-- Fixed Sidebars (Pixel & Proof Branding) -->
+  <!-- Fixed Sidebars (Branded Refinement) -->
   <div class="sidebar sidebar-left">
     <div class="sidebar-item">PIXEL // PROOF</div>
-    <div class="sidebar-item">ANALYTIC GROWTH</div>
-    <div class="sidebar-item">EST. 2026</div>
+    <div class="sidebar-item">STRATEGY</div>
+    <div class="sidebar-item">DESIGN</div>
   </div>
   <div class="sidebar sidebar-right">
-    <div class="sidebar-item">AUDIT</div>
-    <div class="sidebar-item">ENGINEER</div>
-    <div class="sidebar-item">OPTIMIZE</div>
+    <div class="sidebar-item">ENGINEERING</div>
+    <div class="sidebar-item">GROWTH</div>
     <div class="sidebar-item">SCALE</div>
   </div>
 
-  <!-- Sticky Navigation -->
+  <!-- Sticky Navigation (Refined) -->
   <nav id="main-nav">
     <div class="container nav-content">
       <a href="/" class="logo">
         <img src="/src/assets/logo/PixelnProof_LOGO.svg" alt="Pixel & Proof" class="logo-img">
       </a>
       <div class="nav-links">
-        <a href="#services">Work</a>
-        <a href="#method">Process</a>
-        <button class="btn-primary" onclick="scrollToContact()">Get Audit</button>
+        <a href="#app">Home</a>
+        <a href="#why-us">About</a>
+        <button class="btn-primary" onclick="scrollToContact()">Work with us</button>
       </div>
     </div>
   </nav>
+
+  <!-- Floating Button -->
+  <a href="#services" id="floating-case-study">Case Study</a>
 
   <div id="app">
     <!-- Hero -->
@@ -105,6 +107,10 @@
           <span class="serif-italic">converts.</span>
         </h1>
         <p class="hero-subtitle">MARKETING THAT PROVES IT.</p>
+        <div class="hero-ctas">
+          <button class="btn-primary" onclick="scrollToContact()">Work with us</button>
+          <a href="#services" class="btn-secondary">Our Work</a>
+        </div>
       </div>
     </section>
 
@@ -125,72 +131,61 @@
     </section>
 
     <!-- Our Process -->
-    <section id="method" class="process-section container">
-      <h2 class="section-label reveal-up">THE GROWTH LOGIC</h2>
-
-      <div class="process-step reveal-up">
-        <div class="step-num shadow-text">01</div>
-        <div class="step-content">
-          <h3>AUDIT <span class="serif-italic">Infrastructure.</span></h3>
-          <p class="step-summary">We map every leak in your conversion funnel and identify the hidden scaling
-            opportunities your data is missing.</p>
-          <ul class="clean-list">
-            <li>KPI AUDIT // FUNNEL MAPPING</li>
-            <li>CHANNEL INTEGRATIONS // STACK OPTIMIZATION</li>
+    <section id="method" class="process-section container reveal-up">
+      <h2 class="section-label">OUR METHODOLOGY</h2>
+      <div class="case-grid"> <!-- Reusing grid for consistent tabular look -->
+        <div class="case-card">
+          <span class="case-category">PHASE 01</span>
+          <h4>AUDIT</h4>
+          <ul class="clean-list technical-list">
+            <li>FUNNEL DIAGNOSTICS</li>
+            <li>STACK OPTIMIZATION</li>
+            <li>KPI CALIBRATION</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <span class="case-category">PHASE 02</span>
+          <h4>ENGINEER</h4>
+          <ul class="clean-list technical-list">
+            <li>NARRATIVE DESIGN</li>
+            <li>ACQUISITION LOOPS</li>
+            <li>HIGH-FIDELITY ASSETS</li>
+          </ul>
+        </div>
+        <div class="case-card asymmetric">
+          <span class="case-category">PHASE 03</span>
+          <h4>OPTIMIZE</h4>
+          <ul class="clean-list technical-list">
+            <li>REGRESSION TESTING</li>
+            <li>CREATIVE VELOCITY</li>
+            <li>CRO SPRINT LOGIC</li>
           </ul>
         </div>
       </div>
-
-      <div class="process-step reveal-up">
-        <div class="step-num shadow-text">02</div>
-        <div class="step-content">
-          <h3>ENGINEER <span class="serif-italic">Acquisition.</span></h3>
-          <p class="step-summary">Building high-fidelity narratives and acquisition systems that turn aesthetic
-            excellence into measurable revenue.</p>
-        </div>
-      </div>
-
-      <div class="process-step reveal-up">
-        <div class="step-num shadow-text">03</div>
-        <div class="step-content">
-          <h3>OPTIMIZE <span class="serif-italic">Performance.</span></h3>
-          <p class="step-summary">Continuous CRO and creative testing. We refine every pixel until the math proves the
-            growth.</p>
-        </div>
-      </div>
-
-      <div class="process-step reveal-up">
-        <div class="step-num shadow-text">04</div>
-        <div class="step-content">
-          <h3>SCALE <span class="serif-italic">Regression.</span></h3>
-          <p class="step-summary">Aggressive multi-channel scaling backed by regression analytics to ensure sustainable
-            profit at massive volume.</p>
-        </div>
+      <div class="hero-ctas" style="justify-content: flex-start; margin-top: 4rem;">
+        <button class="btn-primary" onclick="scrollToContact()">See our process</button>
       </div>
     </section>
 
-    <!-- Case Studies -->
+    <!-- Case Studies (Work) -->
     <section id="services" class="case-studies-section container reveal-up">
-      <h2 class="section-label">ENGINEERED SUCCESS</h2>
+      <h2 class="section-label">SELECTED WORK</h2>
       <div class="case-grid">
-        <a href="#" class="case-card">
-          <div class="case-image">
-            <div class="placeholder-overlay">FINTECH $14M+</div>
-          </div>
-          <div class="case-info">
-            <span class="case-category">STRATEGY / ACQUISITION</span>
-            <h4>SCALING FINTECH TO <span class="serif-italic">$50M ARR.</span></h4>
-          </div>
-        </a>
-        <a href="#" class="case-card">
-          <div class="case-image">
-            <div class="placeholder-overlay">D2C REVENUE</div>
-          </div>
-          <div class="case-info">
-            <span class="case-category">CRO / PERFORMANCE</span>
-            <h4>RE-ENGINEERING THE <span class="serif-italic">POST-CLICK.</span></h4>
-          </div>
-        </a>
+        <div class="case-card">
+          <div class="placeholder-overlay">FINTECH $50M</div>
+          <h4>SCALING FINTECH</h4>
+          <span class="case-category">STRATEGY / GROWTH</span>
+        </div>
+        <div class="case-card asymmetric">
+          <div class="placeholder-overlay">D2C REVENUE</div>
+          <h4>RE-ENGINEERING</h4>
+          <span class="case-category">CRO / CREATIVE</span>
+        </div>
+        <div class="case-card">
+          <div class="placeholder-overlay">SaaS SCALE</div>
+          <h4>SaaS ACQUISITION</h4>
+          <span class="case-category">PAID MEDIA</span>
+        </div>
       </div>
     </section>
 
@@ -216,13 +211,64 @@
       </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section container reveal-up">
+      <h2 class="section-label">VOICES OF SUCCESS</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="quote">"Transformative growth. Their logic-first approach turned our CPA around within weeks."</p>
+          <p class="author">CEO | GLOBAL FINTECH</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">"Aesthetics that don't just look good, but scale. P&P is in a league of their own."</p>
+          <p class="author">FOUNDER | D2C RETAIL</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Work With Us Section -->
+    <section id="why-us" class="why-us-section container reveal-up">
+      <div class="split-layout">
+        <div class="left">
+          <h2 class="huge serif-italic">Why Pixel & <br>Proof?</h2>
+        </div>
+        <div class="right">
+          <div class="value-prop">
+            <h3>DATA-DRIVEN PRECISION</h3>
+            <p>We don't guess. We engineer growth through regression analytics and deep psychographic mapping.</p>
+          </div>
+          <div class="value-prop">
+            <h3>AESTHETIC EXCELLENCE</h3>
+            <p>High-fidelity design that commands attention and forces engagement across the entire funnel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section class="final-cta-section container reveal-up">
+      <div class="cta-box">
+        <h2 class="huge">READY TO GROW?</h2>
+        <p>Your movement starts here.</p>
+        <div class="hero-ctas">
+          <button class="btn-primary" onclick="scrollToContact()">Work with us</button>
+          <button class="btn-secondary" onclick="scrollToContact()">Get Quote</button>
+        </div>
+      </div>
+    </section>
+
     <footer class="container main-footer">
       <div class="footer-grid">
         <div class="logo">
-          <img src="/assets/logo.svg" alt="Pixel & Proof" class="logo-img">
+          <img src="/src/assets/logo/PixelnProof_LOGO.svg" alt="Pixel & Proof" class="logo-img">
+        </div>
+        <div class="social-links">
+          <a href="#">INSTAGRAM</a>
+          <a href="#">LINKEDIN</a>
+          <a href="#">EMAIL</a>
         </div>
         <div class="footer-links">
-          <a href="#">CASE STUDIES</a>
+          <a href="#services">SELECTED WORK</a>
           <a href="#contact">CONTACT US</a>
           <a href="#">PRIVACY</a>
         </div>
