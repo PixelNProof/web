@@ -278,8 +278,8 @@ h3 {
 /* Floating Case Study Button */
 #floating-case-study {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 2.5rem;
+  right: 3rem;
   background: var(--accent);
   color: #000;
   padding: 1.2rem 2.4rem;
@@ -1043,207 +1043,267 @@ h3 {
     display: block;
   }
 
-  /* ---- SECTION DIVIDERS (subtle lines between sections) ---- */
+  /* ---- SECTION DIVIDERS ---- */
   .quote-section,
   .global-360,
   .process-section,
   .case-studies-section,
-  .contact-section,
   .testimonials-section,
   .why-us-section,
   .final-cta-section {
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 4rem;
+  }
+
+  /* ---- SECTION LABELS (consistent across all sections) ---- */
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent);
+    margin-bottom: 2rem;
   }
 
   /* ---- QUOTE ---- */
+  .quote-section {
+    text-align: center;
+    padding: 4rem 1.5rem;
+  }
+
   .quote-text {
-    font-size: clamp(1.4rem, 5vw, 2rem);
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
     margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
   }
 
   .quote-author {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   /* ---- GLOBAL 360 / PIXEL & PROOF branding ---- */
   .global-360 {
     text-align: center;
     overflow: hidden;
+    padding: 4rem 1.5rem;
   }
 
   .global-360 h2 {
-    font-size: clamp(1.8rem, 7vw, 3rem);
+    font-size: clamp(1.6rem, 6vw, 2.5rem);
+    margin-bottom: 0.5rem;
   }
 
   .global-360 p {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 0.05em;
     margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.4);
   }
 
   .agency-studio {
-    font-size: 10vw;
-    /* Prevent text cutoff */
-    gap: 0.5rem;
+    font-size: 9vw;
+    gap: 0.4rem;
     overflow: hidden;
   }
 
-  /* ---- METHODOLOGY (tighter inside scroll cards) ---- */
+  /* ---- METHODOLOGY (scroll cards) ---- */
+  .process-section {
+    padding: 4rem 0;
+  }
+
   .methodology-blueprint {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 
   .blueprint-step {
-    flex: 0 0 70vw;
-    max-width: 70vw;
+    flex: 0 0 72vw;
+    max-width: 72vw;
     padding: 2rem 1.5rem;
+    border-color: rgba(255, 204, 0, 0.12);
   }
 
   .blueprint-step h4 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 0.8rem;
+    letter-spacing: 0.08em;
   }
 
   .step-indicator {
-    width: 55px;
-    height: 55px;
-    font-size: 0.55rem;
+    width: 52px;
+    height: 52px;
+    font-size: 0.5rem;
     margin-bottom: 1rem;
   }
 
   .blueprint-list {
-    font-size: 0.65rem;
-    line-height: 1.8;
+    font-size: 0.6rem;
+    line-height: 2;
   }
 
   .see-process-btn {
     margin-top: 2rem;
-    margin-bottom: 1rem;
-
+    margin-bottom: 0;
+    text-align: center;
   }
 
-  /* ---- SELECTED WORK (tighter in scroll cards) ---- */
+  /* ---- SELECTED WORK (scroll cards) ---- */
+  .case-studies-section {
+    padding: 4rem 0;
+  }
+
   .work-item {
-    flex: 0 0 75vw;
-    max-width: 75vw;
+    flex: 0 0 78vw;
+    max-width: 78vw;
   }
 
   .work-visual {
     aspect-ratio: 16/10;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
   }
 
   .work-item::before {
-    font-size: 3.5rem;
+    font-size: 3rem;
     top: -0.5rem;
     left: 0.5rem;
-    opacity: 0.4;
+    opacity: 0.3;
+  }
+
+  .work-details {
+    padding: 0 0.25rem;
   }
 
   .work-details h4 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;
   }
 
   .work-details .category {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     margin-bottom: 0.5rem;
-  }
-
-  /* ---- "LOOKING TO GROW" CTA ---- */
-  .contact-section {
-    text-align: center;
-  }
-
-  .your-move-header .normal {
-    font-size: 1.2rem;
-    letter-spacing: 0.1em;
-  }
-
-  .your-move-header .huge {
-    font-size: 10vw;
+    letter-spacing: 0.2em;
   }
 
   /* ---- TESTIMONIALS ---- */
+  .testimonials-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .testimonial-grid {
+    margin-top: 2rem;
+    gap: 2.5rem;
+  }
+
+  .testimonial-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+  }
+
   .testimonial-card .quote {
-    font-size: 1.5rem;
-    line-height: 1.3;
-    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    line-height: 1.35;
+    margin-bottom: 1.2rem;
   }
 
   .testimonial-card .author {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
   }
 
-  /* ---- WHY US ---- */
+  /* ---- WHY US / ABOUT ---- */
+  .why-us-section {
+    padding: 4rem 1.5rem;
+  }
+
   .massive-statement {
-    font-size: clamp(2.2rem, 9vw, 4rem);
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .split-layout {
+    gap: 2.5rem;
   }
 
   .value-prop {
     max-width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+
+  .value-prop h3 {
+    font-size: 0.6rem;
+    margin-bottom: 0.8rem;
   }
 
   .value-prop p {
     max-width: 100%;
+    font-size: 0.85rem;
+    line-height: 1.6;
   }
 
   .why-us-section .right {
-    gap: 3rem;
+    gap: 1.5rem;
   }
 
   /* ---- CTA PREMIUM ---- */
+  .final-cta-section {
+    padding: 3rem 0;
+  }
+
   .cta-box-premium {
     padding: 4rem 1.5rem;
-    border-radius: 25px;
+    border-radius: 20px;
   }
 
   .cta-title {
-    font-size: 8vw;
+    font-size: 7vw;
     margin-bottom: 2rem;
   }
 
   .cta-buttons .btn-primary,
   .cta-buttons .btn-secondary {
     width: 100%;
-    max-width: 280px;
+    max-width: 260px;
     text-align: center;
     display: block;
   }
 
   /* ---- FOOTER ---- */
   .social-house-footer {
-    padding: 5rem 0 5rem;
-    /* Extra bottom padding to clear floating button */
+    padding: 4rem 0 5rem;
   }
 
   .footer-top {
-    padding-bottom: 3rem;
-    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
   }
 
   .social-link {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     width: 100%;
     justify-content: space-between;
   }
 
   .footer-logo {
-    height: 36px;
+    height: 34px;
   }
 
   .footer-bottom {
     padding-bottom: 4rem;
-    /* Space for floating button */
   }
 
-  /* ---- FLOATING CASE STUDY BUTTON ---- */
+  /* ---- FLOATING BUTTON ---- */
   #floating-case-study {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.6rem;
-    bottom: 4rem;
-    /* Higher so it doesn't block footer links */
-    right: 1rem;
+    padding: 0.7rem 1.4rem;
+    font-size: 0.55rem;
+    bottom: 5rem;
+    right: 1.5rem;
   }
 }
+
 
 /* --- SMALL MOBILE (≤480px) --- */
 @media (max-width: 480px) {
