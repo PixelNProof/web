@@ -410,6 +410,7 @@ h3 {
   align-items: center;
   margin-bottom: 5rem;
   width: 100%;
+  white-space: nowrap;
 }
 
 .section-label::before {
@@ -422,11 +423,13 @@ h3 {
   margin-right: 1.5rem;
   box-shadow: 0 0 15px var(--accent);
   animation: pulse-dot 2.5s infinite alternate;
+  flex-shrink: 0;
 }
 
 .section-label::after {
   content: '';
   flex-grow: 1;
+  min-width: 20px;
   height: 1px;
   margin-left: 2rem;
   background: linear-gradient(90deg, rgba(255, 204, 0, 0.3) 0%, rgba(255, 255, 255, 0.02) 100%);
@@ -1139,6 +1142,7 @@ h3 {
 
   .section-label::after {
     margin-left: 1rem;
+    min-width: 15px;
   }
 
   /* ---- QUOTE ---- */
@@ -1373,7 +1377,7 @@ h3 {
   }
 
   .section-label {
-    font-size: 0.65rem;
+    font-size: 0.55rem;
   }
 
   .quote-text {
