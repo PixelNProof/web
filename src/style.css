@@ -156,6 +156,88 @@ h3 {
   color: var(--accent);
 }
 
+/* Mobile Menu Styles */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  position: relative;
+  z-index: 10001;
+}
+
+.mobile-menu-toggle span {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-primary);
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle span:nth-child(1) {
+  top: 0;
+}
+
+.mobile-menu-toggle span:nth-child(2) {
+  bottom: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 5, 5, 0.98);
+  backdrop-filter: blur(15px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  text-align: center;
+}
+
+.mobile-link {
+  font-family: var(--font-main);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+}
+
+.mobile-link:hover,
+.mobile-link.active {
+  color: var(--accent);
+}
+
 /* Buttons Base */
 .btn-primary {
   background-color: var(--accent);
@@ -261,7 +343,7 @@ h3 {
 
 /* Quote Section Refinement */
 .quote-section {
-  padding: 12rem 0;
+  padding: var(--section-padding);
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -319,6 +401,12 @@ h3 {
 
 .agency-studio .x-mark {
   color: var(--accent);
+}
+
+.process-section,
+.case-studies-section,
+.final-cta-section {
+  padding: var(--section-padding);
 }
 
 /* Blueprint Methodology (Phase 5) */
@@ -503,7 +591,7 @@ h3 {
 
 /* Testimonials Section */
 .testimonials-section {
-  padding: 12rem 0;
+  padding: var(--section-padding);
   background-color: var(--bg-secondary);
 }
 
@@ -791,6 +879,52 @@ h3 {
   .nav-links {
     display: none;
     /* Simplification for now, or could add mobile menu */
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--text-primary);
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 1001;
+  }
+
+  .mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .mobile-nav-overlay.active {
+    transform: translateX(0);
+  }
+
+  .mobile-link {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    margin: 1.5rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+
+  .mobile-nav-overlay.active .mobile-link {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .methodology-blueprint::before {

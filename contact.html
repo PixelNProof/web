@@ -120,7 +120,9 @@
 
         .premium-input-group {
             position: relative;
-            margin-bottom: 3.5rem;
+            margin-bottom: 2.5rem;
+            padding-top: 2rem;
+            /* Give label space to float up */
         }
 
         .premium-input-group input,
@@ -129,38 +131,42 @@
             background: transparent;
             border: none;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.5rem 0;
+            padding: 1rem 0;
             color: white;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-family: var(--font-proof);
             transition: all 0.4s ease;
             outline: none;
+            position: relative;
+            z-index: 2;
         }
 
         .premium-input-group label {
             position: absolute;
-            top: 1.5rem;
             left: 0;
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
+            top: 2.5rem;
             color: var(--text-muted);
+            font-size: 1rem;
+            letter-spacing: 0.1em;
             pointer-events: none;
             transition: all 0.4s ease;
+            z-index: 1;
         }
 
         .premium-input-group input:focus~label,
-        .premium-input-group input:not(:placeholder-shown)~label {
-            top: -1.5rem;
+        .premium-input-group input:not(:placeholder-shown)~label,
+        .premium-input-group textarea:focus~label,
+        .premium-input-group textarea:not(:placeholder-shown)~label {
+            top: 0;
             color: var(--contact-accent);
-            font-size: 0.6rem;
+            font-size: 0.7rem;
         }
 
         .premium-input-group input:focus,
         .premium-input-group textarea:focus {
             border-bottom-color: var(--contact-accent);
         }
+
 
         .portal-info-strip {
             display: grid;
@@ -227,7 +233,8 @@
             }
 
             .contact-portal-hero {
-                padding-top: 150px;
+                padding-top: 220px;
+                /* Increased to prevent overlap */
             }
 
             .nav-links {
@@ -277,13 +284,25 @@
         <div class="container nav-content">
             <a href="/" class="logo">
                 <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="logo-img">
-            </a>
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/#services">Work</a>
-            </div>
+                <div class="nav-links desktop-only">
+                    <a href="/">Home</a>
+                    <a href="/#services">Work</a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                </button>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <div class="mobile-nav-content">
+            <a href="/" class="mobile-link">Home</a>
+            <a href="/#services" class="mobile-link">Work</a>
+        </div>
+    </div>
+
 
     <main class="contact-portal-hero container">
         <div class="portal-grid">

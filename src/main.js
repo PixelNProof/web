@@ -4,6 +4,12 @@ import './style.css'
  * Interaction Controller
  */
 const initInteractions = () => {
+  // 0. Prevent Scroll to Middle on Load
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   // 1. Reveal Animations
   const observerOptions = { threshold: 0.1 };
   const revealElements = document.querySelectorAll('.reveal-up');
@@ -26,6 +32,31 @@ const initInteractions = () => {
     } else {
       nav.classList.remove('scrolled');
     }
+  });
+
+  // 3. Mobile Menu Toggle
+  const mobileToggles = document.querySelectorAll('.mobile-menu-toggle');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  mobileToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      if (mobileNav) {
+        mobileNav.classList.toggle('active');
+        document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+      }
+    });
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileToggles.forEach(t => t.classList.remove('active'));
+      if (mobileNav) {
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
   });
 
   // 4. Contact Form Handling

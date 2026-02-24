@@ -87,13 +87,26 @@
       <a href="/" class="logo">
         <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="logo-img">
       </a>
-      <div class="nav-links">
+      <div class="nav-links desktop-only">
         <a href="#app">Home</a>
         <a href="#why-us">About</a>
         <a href="/contact" class="btn-primary mini">Work with us</a>
       </div>
+      <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <div class="mobile-nav-content">
+      <a href="#app" class="mobile-link">Home</a>
+      <a href="#why-us" class="mobile-link">About</a>
+      <a href="/contact" class="mobile-link active">Work with us</a>
+    </div>
+  </div>
 
   <!-- Floating Button -->
   <a href="#services" id="floating-case-study">Case Study</a>
