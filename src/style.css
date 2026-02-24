@@ -101,12 +101,12 @@ h3 {
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 2.5rem 0;
+  padding: 1.5rem 0;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #main-nav.scrolled {
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(253, 185, 19, 0.1);
@@ -119,9 +119,8 @@ h3 {
 }
 
 .logo-img {
-  height: auto;
-  width: 200px;
-  /* Slightly larger logo */
+  height: 40px;
+  width: auto;
   display: block;
 }
 
@@ -311,55 +310,80 @@ h3 {
   color: var(--accent);
 }
 
-/* Process Section (Revised v2) */
-.process-section {
-  padding: 12rem 0;
-}
-
-.process-step {
+/* Blueprint Methodology (Phase 5) */
+.methodology-blueprint {
   display: flex;
-  align-items: flex-start;
-  gap: 8rem;
-  margin-bottom: 12rem;
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 6rem;
+  position: relative;
 }
 
-.process-step:last-child {
-  border-bottom: none;
+.methodology-blueprint::before {
+  content: '';
+  position: absolute;
+  top: 45px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 204, 0, 0.2) 50%, transparent 100%);
+  z-index: 0;
 }
 
-.step-num {
-  font-size: 15rem;
-  line-height: 0.8;
-  color: rgba(255, 255, 255, 0.03);
-  font-weight: 900;
-  width: 250px;
-  flex-shrink: 0;
-}
-
-.step-content {
+.blueprint-step {
   flex: 1;
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
 
-.step-content h3 {
-  font-size: clamp(2.5rem, 4vw, 5rem);
-  letter-spacing: -0.03em;
-  margin-bottom: 2.5rem;
+.step-indicator {
+  width: 90px;
+  height: 90px;
+  background-color: var(--bg-secondary);
+  border: 1px solid rgba(255, 204, 0, 0.3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 2rem;
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  color: var(--accent);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
 }
 
-.step-content h3 .serif-italic {
-  display: block;
-  font-size: 0.6em;
-  margin-top: -0.5rem;
+.blueprint-step:hover .step-indicator {
+  border-color: var(--accent);
+  box-shadow: 0 0 30px rgba(255, 204, 0, 0.2);
+  transform: scale(1.1);
 }
 
-.step-summary {
-  font-size: 1.25rem;
+.blueprint-step h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.1em;
+}
+
+.blueprint-list {
+  list-style: none;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  max-width: 700px;
-  margin-bottom: 3rem;
-  line-height: 1.6;
+  letter-spacing: 0.05em;
+  line-height: 2;
+  text-transform: uppercase;
+}
+
+.blueprint-list li::before {
+  content: '// ';
+  color: var(--accent);
+  opacity: 0.5;
+}
+
+.see-process-btn {
+  margin-top: 6rem;
+  text-align: center;
 }
 
 /* Hero Section Refinement */

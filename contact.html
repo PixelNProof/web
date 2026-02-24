@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | PIXEL & PROOF</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        .contact-page-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 10rem;
+            align-items: flex-start;
+        }
+
+        .contact-info-portal {
+            padding-top: 2rem;
+        }
+
+        .info-block {
+            margin-bottom: 4rem;
+        }
+
+        .info-block h3 {
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.3em;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-block p,
+        .info-block a {
+            font-size: 2rem;
+            font-family: var(--font-proof);
+            font-style: italic;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .info-block a:hover {
+            color: var(--accent);
+        }
+
+        .timeline {
+            border-left: 1px solid rgba(255, 204, 0, 0.2);
+            padding-left: 2rem;
+            margin-top: 2rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.05rem;
+            top: 0.5rem;
+            width: 7px;
+            height: 7px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline h4 {
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body class="bg-primary">
+    <nav id="main-nav" class="scrolled">
+        <div class="container nav-content">
+            <a href="/" class="logo">
+                <img src="/src/assets/logo/PixelnProof_LOGO.svg" alt="Pixel & Proof" class="logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#services">Work</a>
+                <a href="/" class="btn-primary mini">Exit</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact-page-hero">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-form-portal">
+                    <h1 class="huge-statement">LET'S <br> <span class="serif-italic">connect.</span></h1>
+                    <p class="hero-subtitle" style="margin-bottom: 4rem; text-align: left;">READY TO SCALE YOUR BIZZ?
+                    </p>
+
+                    <form id="contact-form">
+                        <div class="form-grid" style="display: flex; flex-direction: column; gap: 2rem;">
+                            <input type="text" name="name" placeholder="Full Name" required
+                                style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; color: white; font-size: 1.25rem;">
+                            <input type="email" name="email" placeholder="Work Email" required
+                                style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; color: white; font-size: 1.25rem;">
+                            <input type="text" name="company" placeholder="Company Name" required
+                                style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; color: white; font-size: 1.25rem;">
+                            <textarea name="message" placeholder="How can we help?"
+                                style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; color: white; font-size: 1.25rem; min-height: 150px;"></textarea>
+                            <button type="submit" class="btn-primary"
+                                style="align-self: flex-start; margin-top: 2rem;">SUBMIT APPLICATION</button>
+                        </div>
+                        <div id="form-status" style="margin-top: 2rem;"></div>
+                    </form>
+                </div>
+
+                <div class="contact-info-portal">
+                    <div class="info-block">
+                        <h3>DIRECT LINE</h3>
+                        <a href="mailto:hello@pixelandproof.agency">hello@pixelandproof.agency</a>
+                    </div>
+                    <div class="info-block">
+                        <h3>SOCIALS</h3>
+                        <a href="#">INSTAGRAM</a>
+                        <a href="#">LINKEDIN</a>
+                    </div>
+                    <div class="info-block">
+                        <h3>NEXT STEPS</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4>01 / STRATEGY CALL</h4>
+                                <p>We'll dive deep into your metrics and identify immediate levers.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4>02 / BLUEPRINT</h4>
+                                <p>Delivery of a custom execution road-map for your growth.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4>03 / SCALE</h4>
+                                <p>Execution of high-fidelity assets and media spend.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
