@@ -42,7 +42,43 @@ body {
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 4rem;
+}
+
+/* Sidebar Styling (Boat House Aesthetic) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.sidebar-left {
+  left: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-right {
+  right: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-item {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--text-muted);
+  text-transform: uppercase;
 }
 
 /* Typography Utilities */
@@ -52,6 +88,13 @@ body {
 
 .proof-font {
   font-family: var(--font-proof);
+}
+
+.serif-italic {
+  font-family: var(--font-proof);
+  font-style: italic;
+  text-transform: none;
+  font-weight: 400;
 }
 
 h1,
@@ -146,48 +189,59 @@ h3 {
   width: 100%;
 }
 
-/* Hero Oversized */
+/* Hero Oversized (Revised v2) */
 .hero-oversized {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding-top: 100px;
-  /* Offset for nav */
+  text-align: center;
+  padding-top: 60px;
 }
 
 .hero-huge-text h1 {
-  font-size: 8rem;
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-  max-width: 1200px;
-  margin-bottom: 2rem;
+  font-size: 10rem;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  max-width: 1400px;
+  margin-bottom: 3rem;
+  font-weight: 900;
+}
+
+.hero-huge-text h1 .serif-italic {
+  display: block;
+  font-size: 7rem;
+  margin-top: -1rem;
+  letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  color: var(--accent);
   text-transform: uppercase;
 }
 
-/* Quote Section */
+/* Quote Section Refinement */
 .quote-section {
-  padding: var(--section-padding);
+  padding: 12rem 0;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .quote-text {
   font-family: var(--font-proof);
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 4.5rem);
   font-weight: 400;
   font-style: italic;
-  line-height: 1.2;
-  margin-bottom: 2rem;
-  max-width: 1000px;
+  line-height: 1.1;
+  margin-bottom: 3rem;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
+  letter-spacing: -0.02em;
 }
 
 .quote-author {
@@ -232,124 +286,134 @@ h3 {
   color: var(--accent);
 }
 
-/* Process Section */
+/* Process Section (Revised v2) */
 .process-section {
-  padding: var(--section-padding);
-}
-
-.section-label {
-  font-size: 1rem;
-  letter-spacing: 0.2em;
-  color: var(--accent);
-  margin-bottom: 6rem;
+  padding: 12rem 0;
 }
 
 .process-step {
   display: flex;
   align-items: flex-start;
-  gap: 4rem;
-  margin-bottom: 8rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 4rem;
+  gap: 8rem;
+  margin-bottom: 12rem;
+  padding-bottom: 6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .process-step:last-child {
   border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
 }
 
 .step-num {
-  font-size: 12rem;
+  font-size: 15rem;
   line-height: 0.8;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.03);
   font-weight: 900;
-  width: 200px;
+  width: 250px;
+  flex-shrink: 0;
 }
 
 .step-content {
   flex: 1;
-  padding-top: 1rem;
 }
 
 .step-content h3 {
-  font-size: 3rem;
-  letter-spacing: -0.02em;
-  margin-bottom: 2rem;
+  font-size: clamp(2.5rem, 4vw, 5rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 2.5rem;
 }
 
-.step-content p {
-  font-size: 1.5rem;
-  color: var(--text-muted);
-  max-width: 600px;
-  margin-bottom: 1rem;
+.step-content h3 .serif-italic {
+  display: block;
+  font-size: 0.6em;
+  margin-top: -0.5rem;
 }
 
-.clean-list {
-  list-style: none;
-}
-
-.clean-list li {
+.step-summary {
   font-size: 1.25rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin-bottom: 3rem;
+  line-height: 1.6;
 }
 
-/* Case Studies */
+/* Case Studies Section (Visual Grid) */
 .case-studies-section {
-  padding: var(--section-padding);
+  padding: 12rem 0;
   background-color: var(--bg-secondary);
 }
 
-.case-list {
-  display: flex;
-  flex-direction: column;
-  margin-top: 4rem;
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  margin-top: 6rem;
 }
 
-.case-link {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.case-card {
   text-decoration: none;
   color: var(--text-primary);
-  font-size: 4rem;
-  font-weight: 900;
-  text-transform: uppercase;
+  display: block;
+  overflow: hidden;
+}
+
+.case-image {
+  aspect-ratio: 4/5;
+  background-color: #1a1a1a;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.case-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-card:hover .case-image img {
+  transform: scale(1.05);
+}
+
+.case-info h4 {
+  font-size: 2rem;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
-  transition: all 0.3s ease;
 }
 
-.case-link:first-child {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.case-link span:last-child {
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+.case-category {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
   color: var(--accent);
-  opacity: 0;
-  transform: translateX(-20px);
-  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
-.case-link:hover {
-  color: var(--accent);
-  padding-left: 2rem;
+.placeholder-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.5em;
+  background: linear-gradient(45deg, #000 0%, #111 100%);
 }
 
-.case-link:hover span:last-child {
-  opacity: 1;
-  transform: translateX(0);
+.shadow-text {
+  text-shadow: 0 0 50px rgba(255, 253, 19, 0.05);
 }
 
 /* Contact / Your Move */
 .contact-section {
-  padding: 12rem 0;
+  padding: 16rem 0;
   text-align: center;
 }
 
@@ -361,11 +425,11 @@ h3 {
 }
 
 .your-move-header h2.huge {
-  font-size: 12vw;
-  line-height: 0.85;
-  letter-spacing: -0.05em;
+  font-size: 15vw;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
   color: var(--accent);
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 }
 
 .contact-wrapper {
@@ -439,6 +503,33 @@ input::placeholder {
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+  .sidebar {
+    display: none;
+  }
+
+  .container {
+    padding: 0 2rem;
+  }
+
+  .hero-huge-text h1 {
+    font-size: 6rem;
+  }
+
+  .hero-huge-text h1 .serif-italic {
+    font-size: 4rem;
+  }
+
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-step {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-huge-text h1 {
     font-size: 6rem;

@@ -1,64 +1,17 @@
 import './style.css'
 
 /**
- * Metric Counter Logic
- */
-class MetricCounter {
-  constructor(element) {
-    this.element = element;
-    this.target = parseFloat(element.getAttribute('data-target'));
-    this.prefix = element.getAttribute('data-prefix') || '';
-    this.suffix = element.getAttribute('data-suffix') || '';
-    this.duration = 2000;
-    this.hasAnimated = false;
-  }
-
-  animate() {
-    if (this.hasAnimated) return;
-    this.hasAnimated = true;
-
-    let startTime = null;
-    const step = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / this.duration, 1);
-      const current = progress * this.target;
-
-      // Format for decimals if target is float
-      const displayValue = this.target % 1 !== 0
-        ? current.toFixed(1)
-        : Math.floor(current);
-
-      this.element.textContent = `${this.prefix}${displayValue}${this.suffix}`;
-
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      }
-    };
-    window.requestAnimationFrame(step);
-  }
-}
-
-/**
  * Interaction Controller
  */
 const initInteractions = () => {
-  // 1. Reveal Animations & Counters
+  // 1. Reveal Animations
   const observerOptions = { threshold: 0.1 };
   const revealElements = document.querySelectorAll('.reveal-up');
-  const metricElements = document.querySelectorAll('.metric-card .value');
-  const counters = Array.from(metricElements).map(el => new MetricCounter(el));
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-
-        // If it's a metric card, start the counter
-        if (entry.target.classList.contains('metric-card')) {
-          const valueEl = entry.target.querySelector('.value');
-          const counter = counters.find(c => c.element === valueEl);
-          if (counter) counter.animate();
-        }
       }
     });
   }, observerOptions);

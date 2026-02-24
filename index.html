@@ -69,6 +69,19 @@
 <body>
   <div class="analytical-grid"></div>
 
+  <!-- Fixed Sidebars (Boat House Style) -->
+  <div class="sidebar sidebar-left">
+    <div class="sidebar-item">CALIFORNIA</div>
+    <div class="sidebar-item">NEW YORK</div>
+    <div class="sidebar-item">LONDON</div>
+  </div>
+  <div class="sidebar sidebar-right">
+    <div class="sidebar-item">STRATEGY</div>
+    <div class="sidebar-item">IDEATION</div>
+    <div class="sidebar-item">EXECUTION</div>
+    <div class="sidebar-item">SCALE</div>
+  </div>
+
   <!-- Sticky Navigation -->
   <nav id="main-nav">
     <div class="container nav-content">
@@ -76,9 +89,8 @@
         <img src="/src/assets/logo/PixelnProof_LOGO.svg" alt="Pixel & Proof" class="logo-img">
       </a>
       <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#method">Method</a>
-        <a href="#calculator">Calculator</a>
+        <a href="#services">Work</a>
+        <a href="#method">Process</a>
         <button class="btn-primary" onclick="scrollToContact()">Get Audit</button>
       </div>
     </div>
@@ -88,15 +100,18 @@
     <!-- Hero -->
     <section class="hero-oversized container">
       <div class="hero-huge-text reveal-up">
-        <h1>BIG MOMENTS FOR DISRUPTIVE BRANDS</h1>
-        <p class="hero-subtitle">EXPLORE OUR ONE OF A KIND APPROACH.</p>
+        <h1>
+          BIG MOMENTS <br>
+          <span class="serif-italic">for Disruptive Brands.</span>
+        </h1>
+        <p class="hero-subtitle">STRATEGY x DESIGN x GROWTH</p>
       </div>
     </section>
 
     <!-- Testimonial Quote -->
     <section class="quote-section container reveal-up">
-      <h3 class="quote-text">"A one of a kind process with unparalleled results."</h3>
-      <p class="quote-author">TECH INNOVATORS | CMO</p>
+      <h3 class="quote-text">"A one of a kind process with <span class="serif-italic">unparalleled results.</span>"</h3>
+      <p class="quote-author">TECH INNOVATORS / <span class="serif-italic">CMO</span></p>
     </section>
 
     <!-- Global 360 -->
@@ -113,56 +128,69 @@
       <h2 class="section-label reveal-up">OUR PROCESS</h2>
 
       <div class="process-step reveal-up">
-        <div class="step-num proof-font">1</div>
+        <div class="step-num shadow-text">01</div>
         <div class="step-content">
-          <h3>THE STRATEGY</h3>
+          <h3>THE STRATEGY <span class="serif-italic">Architecture.</span></h3>
+          <p class="step-summary">KPI targets, competitive research, and brand affinity indexing to build a rock-solid
+            growth foundation.</p>
           <ul class="clean-list">
-            <li>KPI TARGETS</li>
-            <li>COMPETITION RESEARCH</li>
-            <li>BRAND AFFINITY INDEX</li>
-            <li>CHANNEL INTEGRATIONS</li>
-            <li>CAMPAIGN POSITIONING</li>
-            <li>REGRESSION ANALYTICS</li>
-            <li>CONSUMER PSYCHOGRAPHICS</li>
+            <li>KPI TARGETS // CHANNEL INTEGRATIONS</li>
+            <li>REGRESSION ANALYTICS // PYSCHOGRAPHICS</li>
           </ul>
         </div>
       </div>
 
       <div class="process-step reveal-up">
-        <div class="step-num proof-font">2</div>
+        <div class="step-num shadow-text">02</div>
         <div class="step-content">
-          <h3>IDEATION</h3>
-          <p>Begin with a captivating perspective, gazing upward from beneath the earth's surface. Creating a narrative
-            that converts.</p>
+          <h3>IDEATION <span class="serif-italic">Narrative.</span></h3>
+          <p class="step-summary">Creating high-fidelity stories that bridge the gap between aesthetic excellence and
+            hard
+            performance data.</p>
         </div>
       </div>
 
       <div class="process-step reveal-up">
-        <div class="step-num proof-font">3</div>
+        <div class="step-num shadow-text">03</div>
         <div class="step-content">
-          <h3>EXECUTION</h3>
-          <p>MAKING THE IMPOSSIBLE POSSIBLE - ON BUDGET.</p>
-          <p>Creating a movement across all tactics.</p>
+          <h3>EXECUTION <span class="serif-italic">Engineering.</span></h3>
+          <p class="step-summary">MAKING THE IMPOSSIBLE POSSIBLE. Building custom acquisition infrastructure at scale.
+          </p>
         </div>
       </div>
 
       <div class="process-step reveal-up">
-        <div class="step-num proof-font">4</div>
+        <div class="step-num shadow-text">04</div>
         <div class="step-content">
-          <h3>SCALE</h3>
-          <p>An ecosystem of content that's always learning and evolving.</p>
-          <p>Driving engagement at all stages of the funnel.</p>
+          <h3>SCALE <span class="serif-italic">Optimization.</span></h3>
+          <p class="step-summary">An ecosystem that's always learning. Continuous CRO and multi-channel scaling logic.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- Case Studies -->
     <section id="services" class="case-studies-section container reveal-up">
-      <h2 class="section-label">ONE COHESIVE NARRATIVE</h2>
-      <div class="case-list">
-        <a href="#" class="case-link"><span>BRAND ALPHA</span> <span>[SEE CASE STUDY]</span></a>
-        <a href="#" class="case-link"><span>BRAND BETA</span> <span>[SEE CASE STUDY]</span></a>
-        <a href="#" class="case-link"><span>BRAND GAMMA</span> <span>[SEE CASE STUDY]</span></a>
+      <h2 class="section-label">SELECTED WORK</h2>
+      <div class="case-grid">
+        <a href="#" class="case-card">
+          <div class="case-image">
+            <div class="placeholder-overlay">FINTECH SCALE</div>
+          </div>
+          <div class="case-info">
+            <span class="case-category">STRATEGY / GROWTH</span>
+            <h4>SCALING TO $50M <span class="serif-italic">ARR.</span></h4>
+          </div>
+        </a>
+        <a href="#" class="case-card">
+          <div class="case-image">
+            <div class="placeholder-overlay">D2C REVENUE</div>
+          </div>
+          <div class="case-info">
+            <span class="case-category">CREATIVE / CRO</span>
+            <h4>RE-ENGINEERING <span class="serif-italic">CONVERSION.</span></h4>
+          </div>
+        </a>
       </div>
     </section>
 
