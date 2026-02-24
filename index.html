@@ -81,7 +81,7 @@
     <div class="sidebar-item">SCALE</div>
   </div>
 
-  <!-- Sticky Navigation (Refined) -->
+  <!-- Sticky Navigation (Creative Agency Redesign) -->
   <nav id="main-nav">
     <div class="container nav-content">
       <a href="/" class="logo">
@@ -90,7 +90,7 @@
       <div class="nav-links">
         <a href="#app">Home</a>
         <a href="#why-us">About</a>
-        <button class="btn-primary" onclick="scrollToContact()">Work with us</button>
+        <a href="#contact" class="btn-primary mini">Work with us</a>
       </div>
     </div>
   </nav>
@@ -108,7 +108,7 @@
         </h1>
         <p class="hero-subtitle">MARKETING THAT PROVES IT.</p>
         <div class="hero-ctas">
-          <button class="btn-primary" onclick="scrollToContact()">Work with us</button>
+          <a href="#contact" class="btn-primary">Work with us</a>
           <a href="#services" class="btn-secondary">Our Work</a>
         </div>
       </div>
@@ -167,33 +167,45 @@
       </div>
     </section>
 
-    <!-- Case Studies (Work) -->
+    <!-- Selected Work (Elite Agency Execution) -->
     <section id="services" class="case-studies-section container reveal-up">
       <h2 class="section-label">SELECTED WORK</h2>
-      <div class="case-grid">
-        <div class="case-card">
-          <div class="placeholder-overlay">FINTECH $50M</div>
-          <h4>SCALING FINTECH</h4>
-          <span class="case-category">STRATEGY / GROWTH</span>
+      <div class="creative-work-grid">
+        <div class="work-item" data-num="01">
+          <div class="work-visual">
+            <div class="placeholder-overlay">FINTECH $50M</div>
+          </div>
+          <div class="work-details">
+            <span class="category">STRATEGY / GROWTH</span>
+            <h4>SCALING THE <span class="serif-italic">UNSCALABLE.</span></h4>
+          </div>
         </div>
-        <div class="case-card asymmetric">
-          <div class="placeholder-overlay">D2C REVENUE</div>
-          <h4>RE-ENGINEERING</h4>
-          <span class="case-category">CRO / CREATIVE</span>
+        <div class="work-item staggered" data-num="02">
+          <div class="work-visual">
+            <div class="placeholder-overlay">D2C REVENUE</div>
+          </div>
+          <div class="work-details">
+            <span class="category">CRO / PERFORMANCE</span>
+            <h4>RE-ENGINEERING <span class="serif-italic">REVENUE.</span></h4>
+          </div>
         </div>
-        <div class="case-card">
-          <div class="placeholder-overlay">SaaS SCALE</div>
-          <h4>SaaS ACQUISITION</h4>
-          <span class="case-category">PAID MEDIA</span>
+        <div class="work-item" data-num="03">
+          <div class="work-visual">
+            <div class="placeholder-overlay">SaaS ACQUISITION</div>
+          </div>
+          <div class="work-details">
+            <span class="category">PAID MEDIA / SCALE</span>
+            <h4>THE SaaS <span class="serif-italic">VELOCITY.</span></h4>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Form (Your Move) -->
+    <!-- Contact Form (Grow your bizz) -->
     <section id="contact" class="contact-section container reveal-up">
       <div class="your-move-header">
-        <h2 class="normal">PROVE YOUR</h2>
-        <h2 class="huge">GROWTH</h2>
+        <h2 class="normal">LOOKING TO GROW</h2>
+        <h2 class="huge">YOUR BIZZ?</h2>
       </div>
       <div class="compact contact-wrapper">
         <form id="contact-form">
@@ -201,12 +213,12 @@
             <input type="text" name="name" placeholder="Full Name" required>
             <input type="email" name="email" placeholder="Work Email" required>
             <input type="text" name="company" placeholder="Company Name" required>
-            <button type="submit" class="btn-primary full-width">REQUEST AN AUDIT</button>
+            <button type="submit" class="btn-primary full-width">WORK WITH US</button>
           </div>
           <div id="form-status"></div>
-          <!-- Placeholder for reCAPTCHA -->
-          <div style="font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 1rem;">SECURED BY
-            RECAPTCHA</div>
+          <div
+            style="font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 1rem; letter-spacing: 0.2em;">
+            SECURED BY RECAPTCHA</div>
         </form>
       </div>
     </section>
@@ -226,54 +238,61 @@
       </div>
     </section>
 
-    <!-- Why Work With Us Section -->
+    <!-- Why Pixel & Proof (Visual Overhaul) -->
     <section id="why-us" class="why-us-section container reveal-up">
+      <h2 class="section-label">WHY PIXEL & PROOF</h2>
       <div class="split-layout">
         <div class="left">
-          <h2 class="huge serif-italic">Why Pixel & <br>Proof?</h2>
+          <h2 class="massive-statement">AESTHETIC <br> <span class="serif-italic">excellence</span> <br> MEETS ROI.</h2>
         </div>
         <div class="right">
           <div class="value-prop">
-            <h3>DATA-DRIVEN PRECISION</h3>
-            <p>We don't guess. We engineer growth through regression analytics and deep psychographic mapping.</p>
+            <h3>ANALYTIC DEPTH</h3>
+            <p>We don't just design; we engineer. Every pixel is weight-tested for conversion performance and brand
+              resonance.</p>
           </div>
           <div class="value-prop">
-            <h3>AESTHETIC EXCELLENCE</h3>
-            <p>High-fidelity design that commands attention and forces engagement across the entire funnel.</p>
+            <h3>CREATIVE VELOCITY</h3>
+            <p>Our agile methodology allows us to deploy high-fidelity campaigns at the speed of culture. Scale faster,
+              stay relevant.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Final Call to Action -->
+    <!-- Final CTA & Elite Footer -->
     <section class="final-cta-section container reveal-up">
-      <div class="cta-box">
-        <h2 class="huge">READY TO GROW?</h2>
-        <p>Your movement starts here.</p>
-        <div class="hero-ctas">
-          <button class="btn-primary" onclick="scrollToContact()">Work with us</button>
-          <button class="btn-secondary" onclick="scrollToContact()">Get Quote</button>
+      <div class="cta-box-premium">
+        <div class="cta-inner">
+          <h2 class="cta-title">ARE YOU READY TO <br> <span class="serif-italic">work w us?</span></h2>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-primary">WORK WITH US</a>
+            <a href="#contact" class="btn-secondary">GET QUOTE</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <footer class="container main-footer">
-      <div class="footer-grid">
-        <div class="logo">
-          <img src="/src/assets/logo/PixelnProof_LOGO.svg" alt="Pixel & Proof" class="logo-img">
+    <footer class="social-house-footer container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="/src/assets/logo/PixelnProof_LOGO.svg" alt="P&P" class="footer-logo">
+          <p class="footer-tagline">PERFORMANCE DESIGN AGENCY.</p>
         </div>
-        <div class="social-links">
-          <a href="#">INSTAGRAM</a>
-          <a href="#">LINKEDIN</a>
-          <a href="#">EMAIL</a>
+        <div class="footer-socials">
+          <a href="#" class="social-link">INSTAGRAM <span class="arrow">↗</span></a>
+          <a href="#" class="social-link">LINKEDIN <span class="arrow">↗</span></a>
+          <a href="#" class="social-link">EMAIL <span class="arrow">↗</span></a>
         </div>
-        <div class="footer-links">
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 PIXEL & PROOF. ALL RIGHTS RESERVED.</p>
+        <div class="footer-nav">
           <a href="#services">SELECTED WORK</a>
           <a href="#contact">CONTACT US</a>
           <a href="#">PRIVACY</a>
         </div>
       </div>
-      <div class="footer-bottom">&copy; 2026 PIXEL & PROOF // ANALYTICAL GROWTH SYSTEMS</div>
     </footer>
   </div>
 
