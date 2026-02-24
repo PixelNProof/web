@@ -976,7 +976,7 @@ h3 {
     margin-right: -1.5rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    margin-top: 3rem;
+    margin-top: 0;
   }
 
   .work-item {
@@ -1154,7 +1154,7 @@ h3 {
 
   /* ---- METHODOLOGY (scroll cards) ---- */
   .methodology-blueprint {
-    margin-top: 1.5rem;
+    margin-top: 0;
   }
 
   .blueprint-step {
@@ -1364,6 +1364,15 @@ h3 {
     font-size: 9vw;
   }
 
+  /* Fix overflow logic: Match negative margins with new 1rem container padding */
+  .methodology-blueprint,
+  .creative-work-grid {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   /* Scroll cards: tighter on small screens */
   .blueprint-step {
     flex: 0 0 78vw;
@@ -1381,7 +1390,7 @@ h3 {
   }
 
   .massive-statement {
-    font-size: 9vw;
+    font-size: 8vw;
   }
 
   .value-prop h3 {
@@ -1397,7 +1406,7 @@ h3 {
   }
 
   .cta-title {
-    font-size: 10vw;
+    font-size: 8vw;
   }
 
   .social-link {
