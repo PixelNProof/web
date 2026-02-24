@@ -395,10 +395,18 @@ h3 {
   left: -2rem;
   font-size: 10rem;
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.05);
+  /* Increased slightly */
   z-index: -1;
   font-family: var(--font-main);
+  transition: color 0.4s ease;
 }
+
+.work-item:hover::before {
+  color: rgba(255, 204, 0, 0.08);
+  /* Glow yellow on hover */
+}
+
 
 .work-visual {
   aspect-ratio: 4/5;
