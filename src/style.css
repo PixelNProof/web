@@ -15,7 +15,7 @@
 
   /* Layout */
   --container-max-width: 1400px;
-  --section-padding: 12rem 0;
+  --section-padding: 6rem 0;
 
   /* Typography */
   --font-pixel: 'Silkscreen', cursive;
@@ -444,8 +444,12 @@ h3 {
   }
 }
 
+.quote-section,
+.global-360,
 .process-section,
 .case-studies-section,
+.testimonials-section,
+.why-us-section,
 .final-cta-section {
   padding: var(--section-padding);
 }
@@ -523,7 +527,10 @@ h3 {
 
 .see-process-btn {
   margin-top: 3rem;
+  margin-bottom: 2rem;
   text-align: center;
+  position: relative;
+  z-index: 10;
 }
 
 /* Hero Section Refinement */
@@ -888,7 +895,7 @@ h3 {
   }
 
   :root {
-    --section-padding: 8rem 0;
+    --section-padding: 4.5rem 0;
   }
 
   /* Nav: hide desktop links, show hamburger */
@@ -1003,11 +1010,17 @@ h3 {
     border-radius: 10px;
   }
 
-  /* Footer */
+  /* Footer Order Fix */
+  .social-house-footer {
+    display: flex;
+    flex-direction: column;
+  }
+
   .footer-top {
     flex-direction: column;
     align-items: flex-start;
     gap: 4rem;
+    order: 1;
   }
 
   .footer-socials {
@@ -1018,6 +1031,7 @@ h3 {
     flex-direction: column;
     gap: 2rem;
     align-items: flex-start;
+    order: 2;
   }
 
   .footer-nav {
@@ -1041,7 +1055,7 @@ h3 {
 /* --- MOBILE (≤768px) --- */
 @media (max-width: 768px) {
   :root {
-    --section-padding: 4rem 0;
+    --section-padding: 3.5rem 0;
   }
 
   .logo-img {
@@ -1183,8 +1197,10 @@ h3 {
 
   .see-process-btn {
     margin-top: 2rem;
-    margin-bottom: 0;
+    margin-bottom: 3rem;
     text-align: center;
+    position: relative;
+    z-index: 10;
   }
 
   /* ---- SELECTED WORK (scroll cards) ---- */
