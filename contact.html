@@ -4,159 +4,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | PIXEL & PROOF</title>
+    <title>Connect | PIXEL & PROOF</title>
     <link rel="stylesheet" href="/src/style.css">
     <style>
-        .contact-page-hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 0;
+        :root {
+            --contact-accent: #FFCC00;
         }
 
-        .contact-layout {
+        body {
+            background-color: #050505;
+            overflow-x: hidden;
+        }
+
+        .creative-background-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .creative-background-grid::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(255, 204, 0, 0.03) 0%, transparent 50%);
+        }
+
+        .contact-portal-hero {
+            padding-top: 180px;
+            padding-bottom: 120px;
+            min-height: 100vh;
+        }
+
+        .portal-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 10rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 12rem;
             align-items: flex-start;
         }
 
-        .contact-info-portal {
-            padding-top: 2rem;
-        }
-
-        .info-block {
+        .portal-left h1 {
+            font-size: 8rem;
+            line-height: 0.85;
+            letter-spacing: -0.05em;
             margin-bottom: 4rem;
         }
 
-        .info-block h3 {
-            font-size: 0.75rem;
-            color: var(--accent);
-            letter-spacing: 0.3em;
-            margin-bottom: 1.5rem;
-        }
-
-        .info-block p,
-        .info-block a {
-            font-size: 2rem;
-            font-family: var(--font-proof);
-            font-style: italic;
-            color: var(--text-primary);
-            text-decoration: none;
+        .portal-left h1 .serif-italic {
             display: block;
-            transition: color 0.3s ease;
+            color: var(--contact-accent);
+            font-size: 6rem;
+            margin-left: 1rem;
         }
 
-        .info-block a:hover {
-            color: var(--accent);
-        }
-
-        .timeline {
-            border-left: 1px solid rgba(255, 204, 0, 0.2);
+        .manifesto-statement {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-left: 2px solid var(--contact-accent);
             padding-left: 2rem;
-            margin-top: 2rem;
+            margin-top: 6rem;
+            max-width: 400px;
+            line-height: 1.6;
         }
 
-        .timeline-item {
-            margin-bottom: 2rem;
+        /* Redesigned Form */
+        .lead-capture-container {
+            background: rgba(10, 10, 10, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 5rem;
+            border-radius: 40px;
             position: relative;
         }
 
-        .timeline-item::before {
-            content: '';
+        .lead-capture-container::before {
+            content: 'LP-CAPT-V6';
             position: absolute;
-            left: -2.05rem;
-            top: 0.5rem;
-            width: 7px;
-            height: 7px;
-            background: var(--accent);
-            border-radius: 50%;
+            top: 2rem;
+            right: 3rem;
+            font-family: var(--font-pixel);
+            font-size: 0.6rem;
+            color: rgba(255, 204, 0, 0.3);
+            letter-spacing: 0.2em;
         }
 
-        .timeline h4 {
-            font-size: 0.8rem;
-            margin-bottom: 0.5rem;
+        .form-header {
+            margin-bottom: 4rem;
         }
 
-        .timeline p {
-            font-size: 0.9rem;
+        .form-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-header p {
+            color: var(--accent);
+            font-family: var(--font-pixel);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+        }
+
+        .premium-input-group {
+            position: relative;
+            margin-bottom: 3.5rem;
+        }
+
+        .premium-input-group input,
+        .premium-input-group textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+            color: white;
+            font-size: 1.4rem;
+            font-family: var(--font-proof);
+            transition: all 0.4s ease;
+            outline: none;
+        }
+
+        .premium-input-group label {
+            position: absolute;
+            top: 1.5rem;
+            left: 0;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
             color: var(--text-muted);
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        .premium-input-group input:focus~label,
+        .premium-input-group input:not(:placeholder-shown)~label {
+            top: -1.5rem;
+            color: var(--contact-accent);
+            font-size: 0.6rem;
+        }
+
+        .premium-input-group input:focus,
+        .premium-input-group textarea:focus {
+            border-bottom-color: var(--contact-accent);
+        }
+
+        .portal-info-strip {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 6rem;
+        }
+
+        .info-segment h4 {
+            font-size: 0.7rem;
+            letter-spacing: 0.4em;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .info-segment .content {
+            font-family: var(--font-proof);
+            font-size: 1.8rem;
+            font-style: italic;
+        }
+
+        .info-segment a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-segment a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 1200px) {
+            .portal-grid {
+                grid-template-columns: 1fr;
+                gap: 8rem;
+            }
+
+            .portal-left h1 {
+                font-size: 15vw;
+            }
+
+            .lead-capture-container {
+                padding: 3rem;
+            }
         }
     </style>
 </head>
 
-<body class="bg-primary">
+<body>
+    <div class="creative-background-grid"></div>
+
     <nav id="main-nav" class="scrolled">
         <div class="container nav-content">
             <a href="/" class="logo">
-                <img src="/src/assets/logo/PixelnProof_LOGO.svg" alt="Pixel & Proof" class="logo-img">
+                <img src="/assets/logo.svg" alt="Pixel & Proof" class="logo-img">
             </a>
             <div class="nav-links">
                 <a href="/">Home</a>
                 <a href="/#services">Work</a>
-                <a href="/" class="btn-primary mini">Exit</a>
+                <a href="/" class="btn-primary mini">Exit Portal</a>
             </div>
         </div>
     </nav>
 
-    <section class="contact-page-hero">
-        <div class="container">
-            <div class="contact-layout">
-                <div class="contact-form-portal">
-                    <h1 class="huge-statement">LET'S <br> <span class="serif-italic">connect.</span></h1>
-                    <p class="hero-subtitle" style="margin-bottom: 4rem; text-align: left;">READY TO SCALE YOUR BIZZ?
-                    </p>
-
-                    <form id="contact-form">
-                        <div class="form-grid" style="display: flex; flex-direction: column; gap: 2rem;">
-                            <input type="text" name="name" placeholder="Full Name" required
-                                style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; color: white; font-size: 1.25rem;">
-                            <input type="email" name="email" placeholder="Work Email" required
-                                style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; color: white; font-size: 1.25rem;">
-                            <input type="text" name="company" placeholder="Company Name" required
-                                style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; color: white; font-size: 1.25rem;">
-                            <textarea name="message" placeholder="How can we help?"
-                                style="background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; color: white; font-size: 1.25rem; min-height: 150px;"></textarea>
-                            <button type="submit" class="btn-primary"
-                                style="align-self: flex-start; margin-top: 2rem;">SUBMIT APPLICATION</button>
-                        </div>
-                        <div id="form-status" style="margin-top: 2rem;"></div>
-                    </form>
+    <main class="contact-portal-hero container">
+        <div class="portal-grid">
+            <div class="portal-left reveal-up">
+                <h1>LET'S <br> <span class="serif-italic">scale.</span></h1>
+                <div class="manifesto-statement">
+                    WE DON'T DO "GET QUOTES". WE DO QUANTIFIABLE GROWTH LOGIC FOR BRANDS THAT DEMAND MORE.
                 </div>
 
-                <div class="contact-info-portal">
-                    <div class="info-block">
-                        <h3>DIRECT LINE</h3>
-                        <a href="mailto:hello@pixelandproof.agency">hello@pixelandproof.agency</a>
-                    </div>
-                    <div class="info-block">
-                        <h3>SOCIALS</h3>
-                        <a href="#">INSTAGRAM</a>
-                        <a href="#">LINKEDIN</a>
-                    </div>
-                    <div class="info-block">
-                        <h3>NEXT STEPS</h3>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <h4>01 / STRATEGY CALL</h4>
-                                <p>We'll dive deep into your metrics and identify immediate levers.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <h4>02 / BLUEPRINT</h4>
-                                <p>Delivery of a custom execution road-map for your growth.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <h4>03 / SCALE</h4>
-                                <p>Execution of high-fidelity assets and media spend.</p>
-                            </div>
+                <div style="margin-top: 8rem;">
+                    <p
+                        style="font-family: var(--font-pixel); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.3em; margin-bottom: 2rem;">
+                        LOGIC FLOW / NEXT 48H</p>
+                    <div style="display: flex; gap: 4rem;">
+                        <div>
+                            <h5 style="font-size: 0.8rem; margin-bottom: 1rem;">01 / SYNC</h5>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Audit existing funnels & data.</p>
+                        </div>
+                        <div>
+                            <h5 style="font-size: 0.8rem; margin-bottom: 1rem;">02 / BLUEPRINT</h5>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Custom delivery roadmap.</p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="portal-right reveal-up">
+                <div class="lead-capture-container">
+                    <div class="form-header">
+                        <h2>START THE ENGINE</h2>
+                        <p>ENTRY APPLICATION</p>
+                    </div>
+
+                    <form id="contact-form">
+                        <div class="premium-input-group">
+                            <input type="text" name="name" id="name" placeholder=" " required>
+                            <label for="name">Full Name</label>
+                        </div>
+
+                        <div class="premium-input-group">
+                            <input type="email" name="email" id="email" placeholder=" " required>
+                            <label for="email">Work Email</label>
+                        </div>
+
+                        <div class="premium-input-group">
+                            <input type="text" name="company" id="company" placeholder=" " required>
+                            <label for="company">Company / Brand</label>
+                        </div>
+
+                        <div class="premium-input-group">
+                            <textarea name="message" id="message" placeholder=" " rows="4"></textarea>
+                            <label for="message">Your Objective</label>
+                        </div>
+
+                        <button type="submit" class="btn-primary"
+                            style="width: 100%; padding: 1.5rem; font-size: 1rem;">PROVE GROWTH</button>
+                        <div id="form-status" style="margin-top: 2rem; font-size: 0.8rem; text-align: center;"></div>
+                    </form>
+                </div>
+            </div>
         </div>
-    </section>
 
+        <div class="portal-info-strip reveal-up">
+            <div class="info-segment">
+                <h4>DIRECT CONNECT</h4>
+                <div class="content"><a href="mailto:hello@pixelandproof.agency">hello@pixelandproof.agency</a></div>
+            </div>
+            <div class="info-segment" style="text-align: right;">
+                <h4>GLOBAL STUDIO</h4>
+                <div class="content">REMOTE / <span class="serif-italic">High Velocity.</span></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script type="module" src="/src/main.js"></script>
-</body>
-
-</html>
+    <script>
+        // Reveal Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.to('.reveal-up', {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: 'power4.out'
+            });
+        });
+  </style >
+</body >
+</html >

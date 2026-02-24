@@ -101,12 +101,16 @@ h3 {
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #main-nav.scrolled {
-  padding: 1rem 0;
+  padding: 0.8rem 0;
+  min-height: 80px;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(253, 185, 19, 0.1);
@@ -119,7 +123,7 @@ h3 {
 }
 
 .logo-img {
-  height: 40px;
+  height: 65px;
   width: auto;
   display: block;
 }
@@ -587,7 +591,7 @@ h3 {
 }
 
 .footer-logo {
-  height: 45px;
+  height: 65px;
   margin-bottom: 2rem;
 }
 
