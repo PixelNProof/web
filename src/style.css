@@ -56,6 +56,7 @@ iframe {
 }
 
 .container {
+  width: 100%;
   max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 4rem;
@@ -930,6 +931,8 @@ h3 {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
+    width: 100%;
+    max-width: 100vw;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 1.5rem;
@@ -989,6 +992,8 @@ h3 {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
+    width: 100%;
+    max-width: 100vw;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 1.5rem;
