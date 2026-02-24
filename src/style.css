@@ -398,6 +398,32 @@ h3 {
   color: var(--accent);
 }
 
+/* Section Labels — Premium Treatment */
+.section-label {
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--accent);
+  margin-bottom: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.section-label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.4;
+}
+
 .process-section,
 .case-studies-section,
 .final-cta-section {
@@ -409,7 +435,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   gap: 2rem;
-  margin-top: 6rem;
+  margin-top: 3rem;
   position: relative;
 }
 
@@ -476,7 +502,7 @@ h3 {
 }
 
 .see-process-btn {
-  margin-top: 6rem;
+  margin-top: 3rem;
   text-align: center;
 }
 
@@ -493,7 +519,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6rem;
-  margin-top: 8rem;
+  margin-top: 3rem;
   align-items: start;
 }
 
@@ -594,7 +620,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 6rem;
-  margin-top: 4rem;
+  margin-top: 2.5rem;
 }
 
 .testimonial-card .quote {
