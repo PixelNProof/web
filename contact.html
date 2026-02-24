@@ -41,8 +41,9 @@
         }
 
         .contact-portal-hero {
-            padding-top: 260px;
-            padding-bottom: 120px;
+            padding-top: 280px;
+            /* Safe distance from nav */
+            padding-bottom: 80px;
             min-height: 100vh;
         }
 
@@ -162,11 +163,12 @@
         }
 
         .portal-info-strip {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 6rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 4rem 0;
+            border-top: 1px solid rgba(255, 204, 0, 0.1);
+            margin-top: 8rem;
+            align-items: center;
         }
 
         .info-segment h4 {
@@ -204,6 +206,60 @@
 
             .lead-capture-container {
                 padding: 3rem;
+            }
+        }
+
+        /* Responsiveness */
+        @media (max-width: 1200px) {
+            .portal-left h1 {
+                font-size: 12vw;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .portal-grid {
+                grid-template-columns: 1fr;
+                gap: 6rem;
+            }
+
+            .contact-portal-hero {
+                padding-top: 150px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portal-info-strip {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: left;
+                margin-top: 4rem;
+            }
+
+            .info-segment {
+                text-align: left !important;
+            }
+
+            .info-segment .content a {
+                font-size: 1.2rem;
+                /* Reduced to fit mobile */
+            }
+
+            .lead-capture-container {
+                padding: 3rem 2rem;
+            }
+
+            .portal-left h1 {
+                font-size: 20vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portal-left h1 {
+                font-size: 22vw;
             }
         }
     </style>

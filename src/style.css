@@ -125,9 +125,15 @@ h3 {
 }
 
 .logo-img {
-  height: 65px;
+  height: 55px;
   width: auto;
   display: block;
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    height: 40px;
+  }
 }
 
 .nav-links {
@@ -197,16 +203,15 @@ h3 {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  z-index: 1002;
-  background-color: var(--accent);
-  color: white;
-  padding: 1rem 2rem;
+  background: var(--accent);
+  color: #000;
+  padding: 1.2rem 2.4rem;
   border-radius: 100px;
   text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  z-index: 1001;
+  font-weight: 700;
   box-shadow: var(--cylindrical-shadow);
   transition: all 0.3s ease;
 }
@@ -593,7 +598,7 @@ h3 {
 }
 
 .footer-logo {
-  height: 65px;
+  height: 55px;
   margin-bottom: 2rem;
 }
 
@@ -707,5 +712,137 @@ h3 {
   .cta-buttons {
     flex-direction: column;
     width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero-huge-text h1 {
+    font-size: 15vw;
+  }
+
+  .massive-statement {
+    font-size: 6vw;
+  }
+
+  .creative-work-grid {
+    grid-template-columns: 1fr;
+    gap: 6rem;
+  }
+
+  .methodology-blueprint {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  .blueprint-step {
+    width: 45%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .split-layout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .nav-links {
+    display: none;
+    /* Simplification for now, or could add mobile menu */
+  }
+
+  .methodology-blueprint::before {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 6rem 0;
+  }
+
+  .hero-huge-text h1 {
+    font-size: 16vw;
+    line-height: 0.9;
+    margin-top: 4rem;
+  }
+
+  .massive-statement {
+    font-size: 10vw;
+  }
+
+  .blueprint-step {
+    width: 100%;
+    text-align: center;
+  }
+
+  .blueprint-list {
+    align-items: center;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+
+  .footer-socials {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .social-link {
+    font-size: 1.5rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-box-premium {
+    padding: 6rem 2rem;
+    border-radius: 30px;
+  }
+
+  .agency-studio {
+    font-size: 10vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-huge-text h1 {
+    font-size: 20vw;
+    margin-top: 6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+  }
+
+  .quote-text {
+    font-size: 1.6rem;
+  }
+
+  .agency-studio {
+    font-size: 12vw;
   }
 }
