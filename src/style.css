@@ -927,8 +927,22 @@ h3 {
   }
 
   .testimonial-grid {
-    grid-template-columns: 1fr;
-    gap: 4rem;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    /* Keeps scrolling locked inside the container bounds cleanly */
+    scroll-padding-left: 0;
+  }
+
+  .testimonial-card {
+    /* 85% width leaves 15% for the next card, hinting at more content */
+    flex: 0 0 85%;
+    max-width: 400px;
+    scroll-snap-align: start;
   }
 
   /* ===== STACKED LAYOUT: METHODOLOGY ===== */
@@ -960,18 +974,23 @@ h3 {
     font-size: 0.7rem;
   }
 
-  /* ===== STACKED LAYOUT: SELECTED WORK ===== */
+  /* ===== PREMIUM HORIZONTAL SCROLL: SELECTED WORK ===== */
   .creative-work-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 4rem;
-    padding-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
     margin-top: 0;
+    scroll-padding-left: 0;
   }
 
   .work-item {
-    width: 100%;
-    max-width: 100%;
+    flex: 0 0 85%;
+    max-width: 400px;
+    scroll-snap-align: start;
   }
 
   .work-item.staggered {
@@ -1378,8 +1397,8 @@ h3 {
   }
 
   .work-item {
-    flex: 1 1 100%;
-    max-width: 100%;
+    flex: 0 0 85%;
+    max-width: 85%;
   }
 
   .work-visual {
