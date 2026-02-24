@@ -929,7 +929,7 @@ h3 {
 /* --- MOBILE (≤768px) --- */
 @media (max-width: 768px) {
   :root {
-    --section-padding: 6rem 0;
+    --section-padding: 5rem 0;
   }
 
   /* Logo scales nicely */
@@ -938,29 +938,29 @@ h3 {
   }
 
   #main-nav {
-    min-height: 65px;
+    min-height: 60px;
     padding: 0.5rem 0;
   }
 
-  /* Hero: BIG but fits the screen */
+  /* ---- HERO ---- */
   .hero-oversized {
-    min-height: 85vh;
+    min-height: 80vh;
     padding-top: 80px;
   }
 
   .hero-huge-text h1 {
-    font-size: 15vw;
-    line-height: 0.85;
+    font-size: 14vw;
+    line-height: 0.9;
   }
 
   .hero-huge-text h1 .serif-italic {
-    font-size: 12vw;
-    margin-top: 0;
+    font-size: 11vw;
+    margin-top: 0.5rem;
   }
 
   .hero-subtitle {
-    font-size: 0.75rem;
-    letter-spacing: 0.25em;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
   }
 
   .hero-ctas {
@@ -975,87 +975,206 @@ h3 {
     width: 100%;
     max-width: 280px;
     text-align: center;
+    display: block;
   }
 
-  /* Quote */
+  /* ---- SECTION DIVIDERS (subtle lines between sections) ---- */
+  .quote-section,
+  .global-360,
+  .process-section,
+  .case-studies-section,
+  .contact-section,
+  .testimonials-section,
+  .why-us-section,
+  .final-cta-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* ---- QUOTE ---- */
   .quote-text {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    margin-bottom: 1.5rem;
   }
 
-  /* Global 360 */
+  .quote-author {
+    font-size: 0.7rem;
+  }
+
+  /* ---- GLOBAL 360 / PIXEL & PROOF branding ---- */
+  .global-360 {
+    text-align: center;
+    overflow: hidden;
+  }
+
   .global-360 h2 {
-    font-size: clamp(2rem, 8vw, 4rem);
+    font-size: clamp(1.8rem, 7vw, 3rem);
   }
 
   .global-360 p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     letter-spacing: 0.05em;
+    margin-bottom: 2rem;
   }
 
   .agency-studio {
-    font-size: 12vw;
-    gap: 1rem;
+    font-size: 10vw;
+    /* Prevent text cutoff */
+    gap: 0.5rem;
+    overflow: hidden;
   }
 
-  /* Methodology */
+  /* ---- METHODOLOGY ---- */
+  .methodology-blueprint {
+    margin-top: 3rem;
+    gap: 1.5rem;
+  }
+
   .blueprint-step {
     width: 100%;
   }
 
   .blueprint-step h4 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
   }
 
-  /* Work Grid */
+  .step-indicator {
+    width: 60px;
+    height: 60px;
+    font-size: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .blueprint-list {
+    font-size: 0.7rem;
+    line-height: 1.8;
+  }
+
+  .see-process-btn {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  /* ---- SELECTED WORK ---- */
+  .work-visual {
+    aspect-ratio: 16/10;
+    /* Less tall on mobile */
+  }
+
+  .work-item {
+    overflow: hidden;
+    /* Prevent ghost numbers from overflowing */
+  }
+
   .work-item::before {
-    font-size: 5rem;
-    top: -2rem;
-    left: -1rem;
+    font-size: 4rem;
+    top: -1rem;
+    left: 0;
+    opacity: 0.5;
   }
 
   .work-details h4 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
-  /* "Looking to Grow" section */
+  .work-details .category {
+    font-size: 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ---- "LOOKING TO GROW" CTA ---- */
+  .contact-section {
+    text-align: center;
+  }
+
+  .your-move-header .normal {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+  }
+
   .your-move-header .huge {
-    font-size: 12vw;
+    font-size: 10vw;
   }
 
-  /* Why Us */
+  /* ---- TESTIMONIALS ---- */
+  .testimonial-card .quote {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-card .author {
+    font-size: 0.65rem;
+  }
+
+  /* ---- WHY US ---- */
   .massive-statement {
-    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-size: clamp(2.2rem, 9vw, 4rem);
   }
 
-  /* CTA Premium */
+  .value-prop {
+    max-width: 100%;
+  }
+
+  .value-prop p {
+    max-width: 100%;
+  }
+
+  .why-us-section .right {
+    gap: 3rem;
+  }
+
+  /* ---- CTA PREMIUM ---- */
   .cta-box-premium {
-    padding: 5rem 1.5rem;
+    padding: 4rem 1.5rem;
     border-radius: 25px;
   }
 
   .cta-title {
-    font-size: 10vw;
-    margin-bottom: 2.5rem;
+    font-size: 8vw;
+    margin-bottom: 2rem;
   }
 
-  /* Footer */
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    display: block;
+  }
+
+  /* ---- FOOTER ---- */
   .social-house-footer {
-    padding: 6rem 0 3rem;
+    padding: 5rem 0 5rem;
+    /* Extra bottom padding to clear floating button */
+  }
+
+  .footer-top {
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
   }
 
   .social-link {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .footer-logo {
-    height: 38px;
+    height: 36px;
   }
 
-  /* Floating Case Study Button – smaller on mobile */
+  .footer-bottom {
+    padding-bottom: 4rem;
+    /* Space for floating button */
+  }
+
+  /* ---- FLOATING CASE STUDY BUTTON ---- */
   #floating-case-study {
     padding: 0.8rem 1.5rem;
-    font-size: 0.65rem;
-    bottom: 1rem;
+    font-size: 0.6rem;
+    bottom: 4rem;
+    /* Higher so it doesn't block footer links */
     right: 1rem;
   }
 }
@@ -1067,63 +1186,76 @@ h3 {
   }
 
   :root {
-    --section-padding: 5rem 0;
+    --section-padding: 4rem 0;
   }
 
   .hero-huge-text h1 {
-    font-size: 18vw;
+    font-size: 16vw;
   }
 
   .hero-huge-text h1 .serif-italic {
-    font-size: 14vw;
+    font-size: 13vw;
   }
 
   .hero-subtitle {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
   }
 
   .section-label {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   .quote-text {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   .global-360 h2 {
-    font-size: 7vw;
+    font-size: 6vw;
   }
 
   .agency-studio {
-    font-size: 14vw;
+    font-size: 9vw;
+    /* Prevent cutoff */
   }
 
   .massive-statement {
-    font-size: 11vw;
+    font-size: 9vw;
   }
 
   .value-prop h3 {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   .value-prop p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .testimonial-card .quote {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 
   .cta-title {
-    font-size: 12vw;
+    font-size: 10vw;
   }
 
   .social-link {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .footer-tagline {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
+  }
+
+  .work-visual {
+    aspect-ratio: 16/12;
+  }
+
+  .your-move-header .huge {
+    font-size: 12vw;
+  }
+
+  #floating-case-study {
+    bottom: 4.5rem;
   }
 }
