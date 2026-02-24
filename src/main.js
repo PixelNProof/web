@@ -28,7 +28,6 @@ const initInteractions = () => {
     }
   });
 
-  // 3. Calculator removed
   // 4. Contact Form Handling
   const contactForm = document.getElementById('contact-form');
   const statusEl = document.getElementById('form-status');
