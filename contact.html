@@ -204,50 +204,107 @@
             text-align: right;
         }
 
+        /* ====================================
+           CONTACT PAGE RESPONSIVE BREAKPOINTS
+           ==================================== */
+
+        /* Tablet landscape */
         @media (max-width: 1200px) {
-            .portal-grid {
-                grid-template-columns: 1fr;
-                gap: 8rem;
-            }
-
-            .portal-left h1 {
-                font-size: 15vw;
-            }
-
-            .lead-capture-container {
-                padding: 3rem;
-            }
-        }
-
-        /* Responsiveness */
-        @media (max-width: 1200px) {
-            .portal-left h1 {
-                font-size: 12vw;
-            }
-        }
-
-        @media (max-width: 991px) {
             .portal-grid {
                 grid-template-columns: 1fr;
                 gap: 6rem;
             }
 
-            .contact-portal-hero {
-                padding-top: 220px;
-                /* Increased to prevent overlap */
+            .portal-left h1 {
+                font-size: clamp(4rem, 12vw, 8rem);
             }
 
-            .nav-links {
-                display: none;
+            .portal-left h1 .serif-italic {
+                font-size: clamp(3rem, 9vw, 6rem);
+            }
+
+            .lead-capture-container {
+                padding: 3.5rem;
             }
         }
 
+        /* Tablet portrait */
+        @media (max-width: 991px) {
+            .contact-portal-hero {
+                padding-top: 140px;
+                padding-bottom: 60px;
+            }
+
+            .portal-grid {
+                gap: 4rem;
+            }
+
+            .nav-links {
+                display: none !important;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .manifesto-statement {
+                font-size: 0.9rem;
+                margin-top: 3rem;
+            }
+
+            /* Collapse inline timeline to stack */
+            .portal-left div[style*="display: flex; gap: 4rem"] {
+                flex-direction: column;
+                gap: 2rem !important;
+            }
+        }
+
+        /* Mobile */
         @media (max-width: 768px) {
+            .contact-portal-hero {
+                padding-top: 120px;
+                padding-bottom: 40px;
+            }
+
+            .portal-left h1 {
+                font-size: 16vw;
+                margin-bottom: 2rem;
+            }
+
+            .portal-left h1 .serif-italic {
+                font-size: 12vw;
+                margin-left: 0;
+            }
+
+            .manifesto-statement {
+                font-size: 0.8rem;
+                padding-left: 1.5rem;
+                max-width: 100%;
+            }
+
+            .lead-capture-container {
+                padding: 2.5rem 1.5rem;
+                border-radius: 25px;
+            }
+
+            .form-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .form-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .premium-input-group input,
+            .premium-input-group textarea {
+                font-size: 1rem;
+            }
+
             .portal-info-strip {
                 grid-template-columns: 1fr;
-                gap: 3rem;
-                text-align: left;
+                gap: 2.5rem;
                 margin-top: 4rem;
+                padding: 3rem 0;
             }
 
             .info-segment,
@@ -255,23 +312,41 @@
                 text-align: left;
             }
 
-            .info-segment .content a {
-                font-size: 1.2rem;
-                /* Reduced to fit mobile */
+            .info-segment .content {
+                font-size: 1.3rem;
             }
 
-            .lead-capture-container {
-                padding: 3rem 2rem;
+            .info-segment .content a {
+                font-size: 1.1rem;
+                word-break: break-all;
+            }
+        }
+
+        /* Small mobile */
+        @media (max-width: 480px) {
+            .contact-portal-hero {
+                padding-top: 100px;
             }
 
             .portal-left h1 {
                 font-size: 20vw;
             }
-        }
 
-        @media (max-width: 480px) {
-            .portal-left h1 {
-                font-size: 22vw;
+            .portal-left h1 .serif-italic {
+                font-size: 15vw;
+            }
+
+            .lead-capture-container {
+                padding: 2rem 1.2rem;
+                border-radius: 20px;
+            }
+
+            .form-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .info-segment .content {
+                font-size: 1.1rem;
             }
         }
     </style>

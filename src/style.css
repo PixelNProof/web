@@ -130,11 +130,6 @@ h3 {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .logo-img {
-    height: 38px;
-  }
-}
 
 .nav-links {
   display: flex;
@@ -784,88 +779,81 @@ h3 {
   color: var(--accent);
 }
 
+/* ============================================
+   RESPONSIVE BREAKPOINTS (Clean, No Duplicates)
+   ============================================ */
+
+/* --- TABLET LANDSCAPE / SMALL DESKTOP (≤1200px) --- */
 @media (max-width: 1200px) {
+  .hero-huge-text h1 {
+    font-size: 13vw;
+  }
+
+  .hero-huge-text h1 .serif-italic {
+    font-size: 10vw;
+  }
+
   .massive-statement {
-    font-size: 4rem;
+    font-size: clamp(3rem, 6vw, 5.5rem);
   }
 
   .creative-work-grid {
-    grid-template-columns: 1fr;
-    gap: 8rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
   }
 
   .work-item.staggered {
     margin-top: 0;
   }
 
+  .work-item::before {
+    font-size: 6rem;
+  }
+
   .cta-title {
-    font-size: 10vw;
-  }
-}
-
-@media (max-width: 768px) {
-  .massive-statement {
-    font-size: 3rem;
-  }
-
-  .footer-top {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5rem;
-  }
-
-  .footer-socials {
-    align-items: flex-start;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: 2.5rem;
-    align-items: flex-start;
-  }
-
-  .footer-nav {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-}
-
-@media (max-width: 1200px) {
-  .hero-huge-text h1 {
-    font-size: 15vw;
-  }
-
-  .massive-statement {
-    font-size: 6vw;
-  }
-
-  .creative-work-grid {
-    grid-template-columns: 1fr;
-    gap: 6rem;
+    font-size: 8vw;
   }
 
   .methodology-blueprint {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 4rem;
+    gap: 3rem;
   }
 
   .blueprint-step {
     width: 45%;
     text-align: center;
   }
-}
 
-@media (max-width: 991px) {
-  .container {
-    padding: 0 2rem;
+  .global-360 h2 {
+    font-size: 4rem;
   }
 
+  .agency-studio {
+    font-size: 8vw;
+  }
+}
+
+/* --- TABLET PORTRAIT (≤991px) --- */
+@media (max-width: 991px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  :root {
+    --section-padding: 8rem 0;
+  }
+
+  /* Nav: hide desktop links, show hamburger */
+  .nav-links {
+    display: none !important;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  /* Grids to single column */
   .split-layout {
     grid-template-columns: 1fr;
     gap: 4rem;
@@ -876,86 +864,34 @@ h3 {
     gap: 4rem;
   }
 
-  .nav-links {
-    display: none;
-    /* Simplification for now, or could add mobile menu */
+  .creative-work-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
   }
 
-  .mobile-menu-toggle {
-    display: block;
-    cursor: pointer;
-    font-size: 2rem;
-    color: var(--text-primary);
-    background: none;
-    border: none;
-    padding: 0;
-    z-index: 1001;
-  }
-
-  .mobile-nav-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
+  /* Methodology: stack vertically */
+  .methodology-blueprint {
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    z-index: 1000;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .mobile-nav-overlay.active {
-    transform: translateX(0);
-  }
-
-  .mobile-link {
-    font-size: 2.5rem;
-    color: var(--text-primary);
-    text-decoration: none;
-    margin: 1.5rem 0;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-  }
-
-  .mobile-nav-overlay.active .mobile-link {
-    opacity: 1;
-    transform: translateY(0);
+    gap: 3rem;
   }
 
   .methodology-blueprint::before {
     display: none;
   }
-}
-
-@media (max-width: 768px) {
-  :root {
-    --section-padding: 6rem 0;
-  }
-
-  .hero-huge-text h1 {
-    font-size: 16vw;
-    line-height: 0.9;
-    margin-top: 4rem;
-  }
-
-  .massive-statement {
-    font-size: 10vw;
-  }
 
   .blueprint-step {
-    width: 100%;
+    width: 80%;
     text-align: center;
   }
 
-  .blueprint-list {
-    align-items: center;
+  .step-indicator {
+    width: 70px;
+    height: 70px;
+    font-size: 0.7rem;
   }
 
+  /* Footer */
   .footer-top {
     flex-direction: column;
     align-items: flex-start;
@@ -964,19 +900,12 @@ h3 {
 
   .footer-socials {
     align-items: flex-start;
-    width: 100%;
-  }
-
-  .social-link {
-    font-size: 1.5rem;
-    width: 100%;
-    justify-content: space-between;
   }
 
   .footer-bottom {
     flex-direction: column;
-    align-items: flex-start;
     gap: 2rem;
+    align-items: flex-start;
   }
 
   .footer-nav {
@@ -984,36 +913,217 @@ h3 {
     gap: 1.5rem;
   }
 
+  /* CTA */
+  .cta-box-premium {
+    padding: 8rem 3rem;
+    border-radius: 40px;
+  }
+
   .cta-buttons {
     flex-direction: column;
-  }
-
-  .cta-box-premium {
-    padding: 6rem 2rem;
-    border-radius: 30px;
-  }
-
-  .agency-studio {
-    font-size: 10vw;
+    align-items: center;
+    width: 100%;
   }
 }
 
-@media (max-width: 480px) {
+/* --- MOBILE (≤768px) --- */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 6rem 0;
+  }
+
+  /* Logo scales nicely */
+  .logo-img {
+    height: 38px;
+  }
+
+  #main-nav {
+    min-height: 65px;
+    padding: 0.5rem 0;
+  }
+
+  /* Hero: BIG but fits the screen */
+  .hero-oversized {
+    min-height: 85vh;
+    padding-top: 80px;
+  }
+
   .hero-huge-text h1 {
-    font-size: 20vw;
-    margin-top: 6rem;
+    font-size: 15vw;
+    line-height: 0.85;
+  }
+
+  .hero-huge-text h1 .serif-italic {
+    font-size: 12vw;
+    margin-top: 0;
   }
 
   .hero-subtitle {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
   }
 
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  /* Quote */
   .quote-text {
-    font-size: 1.6rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  /* Global 360 */
+  .global-360 h2 {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+
+  .global-360 p {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
   }
 
   .agency-studio {
     font-size: 12vw;
+    gap: 1rem;
+  }
+
+  /* Methodology */
+  .blueprint-step {
+    width: 100%;
+  }
+
+  .blueprint-step h4 {
+    font-size: 1.2rem;
+  }
+
+  /* Work Grid */
+  .work-item::before {
+    font-size: 5rem;
+    top: -2rem;
+    left: -1rem;
+  }
+
+  .work-details h4 {
+    font-size: 1.4rem;
+  }
+
+  /* "Looking to Grow" section */
+  .your-move-header .huge {
+    font-size: 12vw;
+  }
+
+  /* Why Us */
+  .massive-statement {
+    font-size: clamp(2.5rem, 10vw, 5rem);
+  }
+
+  /* CTA Premium */
+  .cta-box-premium {
+    padding: 5rem 1.5rem;
+    border-radius: 25px;
+  }
+
+  .cta-title {
+    font-size: 10vw;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Footer */
+  .social-house-footer {
+    padding: 6rem 0 3rem;
+  }
+
+  .social-link {
+    font-size: 1.3rem;
+  }
+
+  .footer-logo {
+    height: 38px;
+  }
+
+  /* Floating Case Study Button – smaller on mobile */
+  #floating-case-study {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.65rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* --- SMALL MOBILE (≤480px) --- */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  :root {
+    --section-padding: 5rem 0;
+  }
+
+  .hero-huge-text h1 {
+    font-size: 18vw;
+  }
+
+  .hero-huge-text h1 .serif-italic {
+    font-size: 14vw;
+  }
+
+  .hero-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+  }
+
+  .quote-text {
+    font-size: 1.4rem;
+  }
+
+  .global-360 h2 {
+    font-size: 7vw;
+  }
+
+  .agency-studio {
+    font-size: 14vw;
+  }
+
+  .massive-statement {
+    font-size: 11vw;
+  }
+
+  .value-prop h3 {
+    font-size: 0.7rem;
+  }
+
+  .value-prop p {
+    font-size: 0.85rem;
+  }
+
+  .testimonial-card .quote {
+    font-size: 1.6rem;
+  }
+
+  .cta-title {
+    font-size: 12vw;
+  }
+
+  .social-link {
+    font-size: 1.1rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.6rem;
   }
 }
