@@ -994,10 +994,9 @@ h3 {
 /* --- MOBILE (≤768px) --- */
 @media (max-width: 768px) {
   :root {
-    --section-padding: 5rem 0;
+    --section-padding: 4rem 0;
   }
 
-  /* Logo scales nicely */
   .logo-img {
     height: 38px;
   }
@@ -1043,7 +1042,7 @@ h3 {
     display: block;
   }
 
-  /* ---- SECTION DIVIDERS ---- */
+  /* ---- UNIFORM SECTION DIVIDERS ---- */
   .quote-section,
   .global-360,
   .process-section,
@@ -1052,10 +1051,9 @@ h3 {
   .why-us-section,
   .final-cta-section {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 4rem;
   }
 
-  /* ---- SECTION LABELS (consistent across all sections) ---- */
+  /* ---- SECTION LABELS ---- */
   .section-label {
     font-size: 0.65rem;
     letter-spacing: 0.35em;
@@ -1065,26 +1063,19 @@ h3 {
   }
 
   /* ---- QUOTE ---- */
-  .quote-section {
-    text-align: center;
-    padding: 4rem 1.5rem;
-  }
-
   .quote-text {
     font-size: clamp(1.3rem, 5vw, 1.8rem);
     margin-bottom: 1.5rem;
-    padding: 0 0.5rem;
   }
 
   .quote-author {
     font-size: 0.65rem;
   }
 
-  /* ---- GLOBAL 360 / PIXEL & PROOF branding ---- */
+  /* ---- GLOBAL 360 ---- */
   .global-360 {
     text-align: center;
     overflow: hidden;
-    padding: 4rem 1.5rem;
   }
 
   .global-360 h2 {
@@ -1094,7 +1085,6 @@ h3 {
 
   .global-360 p {
     font-size: 0.75rem;
-    letter-spacing: 0.05em;
     margin-bottom: 2rem;
     color: rgba(255, 255, 255, 0.4);
   }
@@ -1106,10 +1096,6 @@ h3 {
   }
 
   /* ---- METHODOLOGY (scroll cards) ---- */
-  .process-section {
-    padding: 4rem 0;
-  }
-
   .methodology-blueprint {
     margin-top: 1.5rem;
   }
@@ -1124,7 +1110,6 @@ h3 {
   .blueprint-step h4 {
     font-size: 1rem;
     margin-bottom: 0.8rem;
-    letter-spacing: 0.08em;
   }
 
   .step-indicator {
@@ -1146,10 +1131,6 @@ h3 {
   }
 
   /* ---- SELECTED WORK (scroll cards) ---- */
-  .case-studies-section {
-    padding: 4rem 0;
-  }
-
   .work-item {
     flex: 0 0 78vw;
     max-width: 78vw;
@@ -1168,29 +1149,19 @@ h3 {
     opacity: 0.3;
   }
 
-  .work-details {
-    padding: 0 0.25rem;
-  }
-
   .work-details h4 {
     font-size: 1.15rem;
-    margin-bottom: 0.3rem;
   }
 
   .work-details .category {
     font-size: 0.55rem;
     margin-bottom: 0.5rem;
-    letter-spacing: 0.2em;
   }
 
   /* ---- TESTIMONIALS ---- */
-  .testimonials-section {
-    padding: 4rem 1.5rem;
-  }
-
   .testimonial-grid {
     margin-top: 2rem;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .testimonial-card {
@@ -1208,14 +1179,9 @@ h3 {
 
   .testimonial-card .author {
     font-size: 0.6rem;
-    letter-spacing: 0.15em;
   }
 
   /* ---- WHY US / ABOUT ---- */
-  .why-us-section {
-    padding: 4rem 1.5rem;
-  }
-
   .massive-statement {
     font-size: clamp(2rem, 8vw, 3.5rem);
     margin-bottom: 2rem;
@@ -1249,10 +1215,6 @@ h3 {
   }
 
   /* ---- CTA PREMIUM ---- */
-  .final-cta-section {
-    padding: 3rem 0;
-  }
-
   .cta-box-premium {
     padding: 4rem 1.5rem;
     border-radius: 20px;
@@ -1303,6 +1265,7 @@ h3 {
     right: 1.5rem;
   }
 }
+
 
 
 /* --- SMALL MOBILE (≤480px) --- */
