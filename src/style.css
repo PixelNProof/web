@@ -934,13 +934,22 @@ h3 {
     -webkit-overflow-scrolling: touch;
     gap: 1.5rem;
     padding-bottom: 2rem;
-    /* Keeps scrolling locked inside the container bounds cleanly */
-    scroll-padding-left: 0;
+    padding-left: 1.5rem;
+    /* Match container padding */
+    padding-right: 1.5rem;
+    scroll-padding-left: 1.5rem;
+  }
+
+  /* Add trailing space so the last card doesn't stick to the right edge */
+  .testimonial-grid::after {
+    content: '';
+    flex: 0 0 1px;
+    padding-right: 1.5rem;
   }
 
   .testimonial-card {
-    /* 85% width leaves 15% for the next card, hinting at more content */
-    flex: 0 0 85%;
+    /* 85vw width keeps cards consistent and leaves room to peek */
+    flex: 0 0 85vw;
     max-width: 400px;
     scroll-snap-align: start;
   }
@@ -984,11 +993,19 @@ h3 {
     gap: 1.5rem;
     padding-bottom: 2rem;
     margin-top: 0;
-    scroll-padding-left: 0;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    scroll-padding-left: 1.5rem;
+  }
+
+  .creative-work-grid::after {
+    content: '';
+    flex: 0 0 1px;
+    padding-right: 1.5rem;
   }
 
   .work-item {
-    flex: 0 0 85%;
+    flex: 0 0 85vw;
     max-width: 400px;
     scroll-snap-align: start;
   }
