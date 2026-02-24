@@ -75,33 +75,7 @@ const initInteractions = () => {
     }
   });
 
-  // 3. ROAS Calculator
-  const calcInputs = ['calc-spend', 'calc-cr', 'calc-aov'];
-  const updateCalculator = () => {
-    const spend = parseFloat(document.getElementById('calc-spend').value) || 0;
-    const cr = parseFloat(document.getElementById('calc-cr').value) || 0;
-    const aov = parseFloat(document.getElementById('calc-aov').value) || 0;
-
-    const conversions = (spend / 5) * (cr / 100); // Assuming $5 cost per click avg
-    const revenue = (spend * (cr / 100) * aov) / 5; // Simplified mockup logic
-    const projectedRevenue = (spend / 10) * (cr) * (aov / 10); // More aggressive growth mockup
-
-    // Logical ROAS calc: (Revenue / Spend)
-    const totalRevenue = (spend * (cr / 100) * aov * 5); // Example multiplier for proof
-    const roas = totalRevenue / spend;
-
-    const revEl = document.getElementById('res-revenue');
-    const roasEl = document.getElementById('res-roas');
-
-    revEl.textContent = `$${Math.round(totalRevenue).toLocaleString()}`;
-    roasEl.textContent = `${roas.toFixed(1)}x`;
-  };
-
-  calcInputs.forEach(id => {
-    document.getElementById(id).addEventListener('input', updateCalculator);
-  });
-  updateCalculator();
-
+  // 3. Calculator removed
   // 4. Contact Form Handling
   const contactForm = document.getElementById('contact-form');
   const statusEl = document.getElementById('form-status');
