@@ -561,8 +561,12 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6rem;
-  margin-top: 0;
+  margin: 0 auto;
   align-items: start;
+  width: 100%;
+  max-width: var(--container-max-width);
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 .work-item {
@@ -662,7 +666,11 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 6rem;
-  margin-top: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--container-max-width);
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 .testimonial-card .quote {
