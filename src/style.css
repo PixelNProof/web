@@ -15,7 +15,7 @@
 
   /* Layout */
   --container-max-width: 1400px;
-  --section-padding: 6rem 0;
+  --section-padding: 6rem;
 
   /* Typography */
   --font-pixel: 'Silkscreen', cursive;
@@ -466,7 +466,8 @@ h3 {
 .testimonials-section,
 .why-us-section,
 .final-cta-section {
-  padding: var(--section-padding);
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
 }
 
 /* Blueprint Methodology (Phase 5) */
@@ -658,7 +659,8 @@ h3 {
 
 /* Testimonials Section */
 .testimonials-section {
-  padding: var(--section-padding);
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
   background-color: var(--bg-secondary);
 }
 
@@ -691,7 +693,8 @@ h3 {
 
 /* Why Us (Creative Overhaul) */
 .why-us-section {
-  padding: var(--section-padding);
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
 }
 
 .split-layout {
@@ -1120,7 +1123,7 @@ h3 {
 /* --- MOBILE (≤768px) --- */
 @media (max-width: 768px) {
   :root {
-    --section-padding: 5rem 0;
+    --section-padding: 5rem;
   }
 
   .logo-img {
@@ -1419,7 +1422,7 @@ h3 {
   }
 
   :root {
-    --section-padding: 4.5rem 0;
+    --section-padding: 4.5rem;
   }
 
   .hero-huge-text h1 {
