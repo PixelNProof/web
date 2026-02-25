@@ -876,7 +876,7 @@ h3 {
 
   .creative-work-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
   }
 
   .work-item.staggered {
@@ -909,6 +909,26 @@ h3 {
   .agency-studio {
     font-size: 8vw;
   }
+
+  .split-layout {
+    gap: 3rem;
+  }
+
+  .why-us-section .right {
+    gap: 3rem;
+  }
+
+  .testimonial-grid {
+    gap: 3rem;
+  }
+
+  .cta-box-premium {
+    padding: 8rem 2rem;
+  }
+
+  .footer-nav {
+    gap: 2rem;
+  }
 }
 
 /* --- TABLET PORTRAIT (≤991px) --- */
@@ -934,7 +954,11 @@ h3 {
   /* Grids to single column */
   .split-layout {
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 3rem;
+  }
+
+  .why-us-section .right {
+    gap: 2.5rem;
   }
 
   .testimonial-grid {
@@ -1082,7 +1106,7 @@ h3 {
 
   /* CTA */
   .cta-box-premium {
-    padding: 8rem 3rem;
+    padding: 6rem 2rem;
     border-radius: 40px;
   }
 
