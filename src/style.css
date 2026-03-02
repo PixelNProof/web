@@ -333,66 +333,39 @@ h3 {
   text-transform: uppercase;
 }
 
-/* Quote Section Refinement */
-.quote-section {
-  padding: var(--section-padding);
+/* Yellow Conversion Banner */
+.conversion-banner-section {
+  background-color: var(--accent);
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.quote-text {
-  font-family: var(--font-proof);
-  font-size: clamp(2rem, 5vw, 4.5rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.1;
-  margin-bottom: 3rem;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  letter-spacing: -0.02em;
-}
-
-.quote-author {
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-/* Global 360 */
-.global-360 {
-  padding: var(--section-padding);
-  background-color: var(--bg-secondary);
-}
-
-.global-360 h2 {
-  font-size: 6rem;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  margin-bottom: 1rem;
-}
-
-.global-360 p {
-  font-size: 1.25rem;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-  margin-bottom: 4rem;
-}
-
-.agency-studio {
+.conversion-banner-content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  font-size: 10vw;
-  font-weight: 900;
-  line-height: 1;
+  gap: 1.5rem;
 }
 
-.agency-studio .x-mark {
-  color: var(--accent);
+.banner-italic {
+  font-family: var(--font-proof);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--bg-primary);
+  margin-bottom: 0;
+}
+
+.banner-bold {
+  font-family: var(--font-main);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--bg-primary);
+  text-transform: uppercase;
 }
 
 /* Section Labels — Premium Treatment */
@@ -445,8 +418,7 @@ h3 {
   }
 }
 
-.quote-section,
-.global-360,
+.conversion-banner-section,
 .process-section,
 .case-studies-section,
 .testimonials-section,
@@ -1140,30 +1112,6 @@ h3 {
     font-size: 0.65rem;
   }
 
-  /* ---- GLOBAL 360 ---- */
-  .global-360 {
-    text-align: center;
-    overflow: hidden;
-  }
-
-  .global-360 h2 {
-    font-size: clamp(1.6rem, 6vw, 2.5rem);
-    margin-bottom: 0.5rem;
-  }
-
-  .global-360 p {
-    font-size: 0.75rem;
-    margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.4);
-  }
-
-  .agency-studio {
-    font-size: 9vw;
-    gap: 0.4rem;
-    overflow: hidden;
-    margin-top: 1.5rem;
-  }
-
   /* ---- METHODOLOGY (scroll cards) ---- */
   .methodology-blueprint {
     margin-top: 3.5rem;
@@ -1434,15 +1382,6 @@ h3 {
 
   .quote-text {
     font-size: 1.3rem;
-  }
-
-  .global-360 h2 {
-    font-size: 6vw;
-  }
-
-  .agency-studio {
-    font-size: 9vw;
-    margin-top: 1rem;
   }
 
   /* Scroll cards: tighter on small screens */
