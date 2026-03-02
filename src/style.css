@@ -777,30 +777,72 @@ h3 {
   justify-content: center;
 }
 
-.value-prop h3 {
-  font-family: var(--font-pixel);
-  font-size: 0.8rem;
-  color: var(--accent);
-  letter-spacing: 0.2em;
-  margin-bottom: 1.5rem;
-}
-
-.value-prop p {
-  color: var(--text-muted);
-  max-width: 480px;
-  line-height: 1.6;
-}
-
-.massive-statement {
-  font-size: 5.5rem;
+.builders-headline {
+  font-family: var(--font-main);
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 900;
   line-height: 0.9;
   letter-spacing: -0.04em;
   color: var(--text-primary);
+  margin-bottom: 1.5rem;
 }
 
-.massive-statement .serif-italic {
+.builders-subtext {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 700;
   color: var(--accent);
-  font-size: 1.1em;
+  letter-spacing: -0.01em;
+}
+
+.builders-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.builders-intro {
+  font-family: var(--font-proof);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.builders-list {
+  list-style: none;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 2.2;
+  margin-bottom: 3rem;
+}
+
+.builders-list li::before {
+  content: '✓ ';
+  color: var(--accent);
+  margin-right: 1rem;
+  font-family: var(--font-pixel);
+  font-size: 0.9rem;
+}
+
+.builders-closing {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.builders-closing .cross-out {
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: line-through;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+}
+
+.builders-closing .highlight-text {
+  color: var(--text-primary);
+  font-weight: 900;
+  display: inline-block;
+  margin-top: 0.5rem;
 }
 
 /* Final CTA Premium */
@@ -1384,32 +1426,27 @@ h3 {
   }
 
   /* ---- WHY US / ABOUT ---- */
-  .massive-statement {
-    font-size: clamp(2rem, 8vw, 3.5rem);
+  .builders-headline {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .builders-subtext {
+    font-size: 1.1rem;
+  }
+
+  .builders-intro {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .builders-list {
+    font-size: 1rem;
     margin-bottom: 2rem;
   }
 
-  .split-layout {
-    gap: 2.5rem;
-  }
-
-  .value-prop {
-    max-width: 100%;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 14px;
-    padding: 1.5rem;
-  }
-
-  .value-prop h3 {
-    font-size: 0.6rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .value-prop p {
-    max-width: 100%;
-    font-size: 0.85rem;
-    line-height: 1.6;
+  .builders-closing {
+    font-size: 1.25rem;
   }
 
   .why-us-section .right {
