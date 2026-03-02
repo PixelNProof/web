@@ -396,72 +396,91 @@ h3 {
   margin-top: 2.5rem;
 }
 
-/* Yellow Conversion Banner */
-.conversion-banner-section {
-  background-color: var(--accent);
-  padding: 8rem 0;
+/* Premium Audit Section (Phase 20 Refinement) */
+.premium-audit-section {
+  background-color: #fce16a !important;
+  /* Muted, premium yellow */
+  padding: 12rem 0 !important;
+  /* Increased breathing room */
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* Subtle Dot Grid for UI appeal */
-.conversion-banner-section::before {
+/* Subtle Texture Overlay (Premium Noise) */
+.premium-audit-section::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.04;
   pointer-events: none;
 }
 
-.conversion-banner-content {
+
+
+.premium-audit-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 4rem;
+  /* Specific vertical spacing from badge to headline */
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  max-width: 1100px !important;
+  /* Hard constraint for text balance */
+  margin: 0 auto;
 }
 
-.banner-status-badge {
+.audit-status-badge {
   display: inline-block;
-  padding: 0.4rem 0.8rem;
-  background: rgba(0, 0, 0, 0.05);
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   font-family: var(--font-pixel);
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--bg-primary);
-  margin-bottom: 1rem;
 }
 
-.banner-statement {
+.audit-statement {
   font-family: var(--font-main);
-  font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+  font-size: clamp(1.35rem, 3vw, 2.2rem) !important;
   font-weight: 500;
   color: var(--bg-primary);
-  line-height: 1.2;
+  line-height: 1.1;
   letter-spacing: -0.01em;
-  text-transform: none;
-  /* Sentence case */
+  text-transform: none !important;
+  /* Sentence case enforced */
+  margin-bottom: -1.75rem;
 }
 
-.banner-bold {
+.audit-headline {
   font-family: var(--font-main);
-  font-size: clamp(3rem, 8vw, 7rem);
-  font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -0.05em;
+  font-size: clamp(2.5rem, 6.5vw, 5.2rem) !important;
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.04em !important;
   color: var(--bg-primary);
-  text-transform: uppercase;
-  margin-top: 0.5rem;
+  text-transform: none !important;
+  /* Sentence case enforced */
+  margin-top: 0;
 }
+
+.audit-headline .emphasis {
+  font-weight: 900 !important;
+  font-size: 1.05em;
+  display: inline-block;
+}
+
+
 
 
 /* The Gap Section */
@@ -621,7 +640,6 @@ h3 {
   }
 }
 
-.conversion-banner-section,
 .process-section,
 .case-studies-section,
 .testimonials-section,
@@ -630,6 +648,7 @@ h3 {
   padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
 }
+
 
 /* Blueprint Methodology (Phase 5) */
 .methodology-blueprint {
