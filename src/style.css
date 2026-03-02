@@ -399,37 +399,70 @@ h3 {
 /* Yellow Conversion Banner */
 .conversion-banner-section {
   background-color: var(--accent);
-  padding-top: var(--section-padding);
-  padding-bottom: var(--section-padding);
+  padding: 8rem 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle Dot Grid for UI appeal */
+.conversion-banner-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
 }
 
 .conversion-banner-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
-.banner-italic {
-  font-family: var(--font-proof);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-style: italic;
-  font-weight: 400;
+.banner-status-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--bg-primary);
-  margin-bottom: 0;
+  margin-bottom: 1rem;
+}
+
+.banner-statement {
+  font-family: var(--font-main);
+  font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+  font-weight: 500;
+  color: var(--bg-primary);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  /* Sentence case */
 }
 
 .banner-bold {
   font-family: var(--font-main);
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
   color: var(--bg-primary);
   text-transform: uppercase;
+  margin-top: 0.5rem;
 }
+
 
 /* The Gap Section */
 .the-gap-section {
