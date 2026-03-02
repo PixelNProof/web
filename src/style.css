@@ -396,34 +396,22 @@ h3 {
   margin-top: 2.5rem;
 }
 
-/* Premium Audit Section (Phase 24 Creative Polish) */
+/* Premium Audit Section (Phase 25 Minimalist Revision) */
 .premium-audit-section {
   background-color: var(--accent) !important;
-  /* Solid bold brand yellow */
-  padding: 12rem 0 !important;
-  /* Increased "Clean Room" spacing */
+  /* Flat solid brand yellow */
+  padding: 10rem 0 !important;
+  /* Standard premium spacing */
   text-align: center;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid #111;
-  border-bottom: 1px solid #111;
+  border-top: 1.5px solid #111;
+  border-bottom: 1.5px solid #111;
 }
 
-/* Abstract UI Asset Polish (Phase 24) */
 .premium-audit-section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/assets/agency_abstract_performance_bg.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.1;
-  /* Minimal strategic depth */
-  pointer-events: none;
-  z-index: 1;
+  content: none !important;
+  /* Remove background graphics */
 }
 
 .premium-audit-content {
@@ -432,82 +420,32 @@ h3 {
   align-items: center;
   position: relative;
   z-index: 2;
-  max-width: 900px !important;
-  /* Strict boutique constraint */
+  max-width: 850px !important;
+  /* STRICT 850px LIMIT */
   margin: 0 auto;
-  padding: 5rem 2rem;
+  padding: 0 2rem;
 }
-
-/* UI Identifier Detail */
-.ui-identifier {
-  font-family: var(--font-pixel);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  color: #111;
-  opacity: 0.5;
-  margin-bottom: 2.5rem;
-}
-
-/* Architectural Framing Brackets */
-.corner-bracket {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 1.5px solid #111;
-  opacity: 0.2;
-}
-
-.corner-bracket.top-left {
-  top: 0;
-  left: 0;
-  border-right: 0;
-  border-bottom: 0;
-}
-
-.corner-bracket.top-right {
-  top: 0;
-  right: 0;
-  border-left: 0;
-  border-bottom: 0;
-}
-
-.corner-bracket.bottom-left {
-  bottom: 0;
-  left: 0;
-  border-right: 0;
-  border-top: 0;
-}
-
-.corner-bracket.bottom-right {
-  bottom: 0;
-  right: 0;
-  border-left: 0;
-  border-top: 0;
-}
-
 
 .audit-statement {
   font-family: var(--font-main);
-  font-size: clamp(28px, 3vw, 32px) !important;
-  /* Refined proportions */
+  font-size: 32px !important;
+  /* Line 1: Hardcoded 32px */
   font-weight: 500;
   color: #111 !important;
-  line-height: 1.1;
-  letter-spacing: 0.02em;
-  /* Broad editorial spacing */
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   text-transform: none !important;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
   margin-top: 0;
 }
 
 .audit-headline {
   font-family: var(--font-main);
-  font-size: clamp(56px, 5.5vw, 64px) !important;
-  /* PROPORTIONAL SIZE */
+  font-size: 56px !important;
+  /* Line 2: Hardcoded 56px */
   font-weight: 400;
-  line-height: 0.95;
-  /* Super tight for cohesive feel */
-  letter-spacing: -0.04em !important;
+  line-height: 1;
+  letter-spacing: -0.02em !important;
   color: #111 !important;
   text-transform: none !important;
   margin-top: 0;
@@ -516,10 +454,14 @@ h3 {
 
 .audit-headline .emphasis {
   font-weight: 700 !important;
-  /* ALL BOLD converting */
-  font-size: clamp(64px, 6vw, 72px) !important;
-  /* EXACT PIXEL TARGET */
+  font-size: 64px !important;
+  /* Line 3: Hardcoded 64px */
+  text-transform: uppercase !important;
+  /* UPPERCASE emphasis */
+  color: #111 !important;
+  /* Absolute visibility on yellow */
   display: inline-block;
+  margin-top: 0.2rem;
 }
 
 
