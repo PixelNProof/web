@@ -306,47 +306,94 @@ h3 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 60px;
+  padding-top: 80px;
+  max-width: 1280px;
+  margin: 0 auto;
+  /* Ensure centering */
+  position: relative;
 }
 
 .hero-headline {
-  font-size: clamp(3.5rem, 6.5vw, 6.5rem);
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  max-width: 1400px;
-  margin-bottom: 2rem;
+  /* Targeted scale 5.6rem (approx -12% for better balance) */
+  font-size: clamp(2.8rem, 5.5vw, 5.6rem);
+  line-height: 1.0;
+  /* even tighter for punch */
+  letter-spacing: -0.05em;
+  max-width: 1100px;
+  /* Constrain to prevent orphans like "It." */
+  margin-bottom: 2.5rem;
   font-weight: 900;
-  text-transform: uppercase;
+  text-transform: none;
+  color: var(--text-primary);
 }
 
 .hero-headline .serif-italic {
   display: inline-block;
-  font-size: clamp(3.5rem, 6vw, 6rem);
-  letter-spacing: -0.02em;
-  margin-left: 0.5rem;
+  font-size: 1.08em;
+  letter-spacing: -0.01em;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  color: var(--accent);
   text-transform: lowercase;
+  font-weight: 400;
+  /* Lighter script weight for elegance */
 }
 
 .hero-headline .accent-text {
-  color: var(--accent);
+  color: rgba(255, 204, 0, 0.85);
+  /* Elegantly softened */
+  text-transform: uppercase;
 }
 
 .hero-subtitle-new {
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
   font-weight: 400;
-  color: var(--text-muted);
-  max-width: 700px;
-  line-height: 1.6;
-  margin: 0 auto 3.5rem auto;
+  color: rgba(255, 255, 255, 0.7);
+  /* Subtle but readable */
+  max-width: 720px;
+  line-height: 1.7;
+  margin: 0 auto 4rem auto;
+  /* Breathable gap */
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-ctas .btn-primary {
+  background-color: var(--accent);
+  color: #050505;
+  box-shadow: 0 4px 20px rgba(255, 204, 0, 0.15);
+  transform: scale(1);
+}
+
+.hero-ctas .btn-primary:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(255, 204, 0, 0.25);
+}
+
+.hero-ctas .btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+}
+
+.hero-ctas .btn-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.03);
+  color: white;
 }
 
 .hero-micro-proof {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 /* Yellow Conversion Banner */
@@ -988,15 +1035,11 @@ h3 {
 
 /* --- TABLET LANDSCAPE / SMALL DESKTOP (≤1200px) --- */
 @media (max-width: 1200px) {
-  .hero-huge-text h1 {
-    font-size: 13vw;
-  }
-
-  .hero-huge-text h1 .serif-italic {
+  .hero-headline {
     font-size: 10vw;
   }
 
-  .massive-statement {
+  .huge-statement {
     font-size: clamp(3rem, 6vw, 5.5rem);
   }
 
@@ -1059,12 +1102,8 @@ h3 {
     text-align: center;
   }
 
-  .global-360 h2 {
+  .global-360-placeholder h2 {
     font-size: 4rem;
-  }
-
-  .agency-studio {
-    font-size: 8vw;
   }
 
   .split-layout {
@@ -1202,20 +1241,21 @@ h3 {
   /* ---- HERO ---- */
   .hero-oversized {
     min-height: 80vh;
-    padding-top: 80px;
+    padding-top: 60px;
   }
 
   .hero-headline {
-    font-size: 10vw;
+    font-size: 11vw;
+    line-height: 1.1;
   }
 
   .hero-headline .serif-italic {
-    font-size: 10vw;
+    font-size: 1.1em;
   }
 
   .hero-subtitle-new {
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
   }
 
   .hero-micro-proof {
@@ -1537,20 +1577,19 @@ h3 {
   }
 
   .hero-headline {
-    font-size: 12vw;
+    font-size: 13vw;
   }
 
   .hero-headline .serif-italic {
-    font-size: 12vw;
+    font-size: 1.1em;
   }
 
   .hero-subtitle-new {
-    font-size: 0.85rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
   }
 
   .hero-micro-proof {
-    font-size: 0.6rem;
+    font-size: 0.65rem;
   }
 
   .section-label {
