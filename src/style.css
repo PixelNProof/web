@@ -396,17 +396,19 @@ h3 {
   margin-top: 2.5rem;
 }
 
-/* Premium Audit Section (Phase 20 Refinement) */
+/* Premium Audit Section (Phase 21 Final Polish) */
 .premium-audit-section {
-  background-color: #e8d05a !important;
-  /* Softer, premium yellow avoiding over-saturation */
-  padding: 8rem 0 !important;
-  /* Elegant spacing without being oversized */
+  background: linear-gradient(180deg, #edde74 0%, #eadd6e 100%) !important;
+  /* Softer, premium yellow gradient */
+  padding: 10rem 0 !important;
+  /* Increased elegant spacing */
   text-align: center;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid #111;
+  /* Charcoal divider */
+  border-bottom: 1px solid #111;
+  /* Charcoal divider */
 }
 
 /* Subtle Texture Overlay (Premium Noise) */
@@ -418,7 +420,8 @@ h3 {
   width: 100%;
   height: 100%;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.04;
+  opacity: 0.03;
+  /* Ultra-subtle texture */
   pointer-events: none;
 }
 
@@ -428,51 +431,37 @@ h3 {
   align-items: center;
   position: relative;
   z-index: 2;
-  max-width: 1000px !important;
-  /* Centered max-width container to prevent over-stretching */
+  max-width: 960px !important;
+  /* Constrained under 1000px */
   margin: 0 auto;
-}
-
-.audit-status-badge {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  font-family: var(--font-pixel);
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--bg-primary);
-  margin-bottom: 2.5rem;
-  /* Increased vertical spacing between label and headline */
 }
 
 .audit-statement {
   font-family: var(--font-main);
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important;
-  /* Reduced scale */
+  font-size: clamp(1.4rem, 2.8vw, 2rem) !important;
   font-weight: 500;
-  /* Medium weight for first line */
-  color: var(--bg-primary);
+  /* Medium weight */
+  color: #111 !important;
+  /* Charcoal */
   line-height: 1.2;
   letter-spacing: -0.01em;
   text-transform: none !important;
   /* Enforced sentence case */
-  margin-bottom: 0.25rem;
-  /* Tightened spacing to next line */
+  margin-bottom: 0.5rem;
+  /* Clean rhythm */
   margin-top: 0;
 }
 
 .audit-headline {
   font-family: var(--font-main);
-  font-size: clamp(2rem, 5vw, 4.2rem) !important;
-  /* Reduced scale by 15% */
+  font-size: clamp(2.4rem, 5.5vw, 4.6rem) !important;
+  /* Balanced scale */
   font-weight: 400;
-  /* Regular weight to contrast with the bold emphasis */
+  /* Regular weight */
   line-height: 1.05;
   letter-spacing: -0.03em !important;
-  color: var(--bg-primary);
+  color: #111 !important;
+  /* Charcoal */
   text-transform: none !important;
   /* Enforced sentence case */
   margin-top: 0;
@@ -482,8 +471,7 @@ h3 {
 .audit-headline .emphasis {
   font-weight: 700 !important;
   /* Bold emphasis only on 'converting?' */
-  font-size: 1.05em;
-  /* Slightly larger emphasis */
+  font-size: 1.08em;
   display: inline-block;
 }
 
