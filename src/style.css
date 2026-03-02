@@ -438,8 +438,8 @@ h3 {
 
 .audit-statement {
   font-family: var(--font-main);
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem) !important;
-  /* Reduced 10% */
+  font-size: clamp(28px, 3vw, 32px) !important;
+  /* EXACT 28px to 32px */
   font-weight: 500;
   /* Medium weight */
   color: #111 !important;
@@ -456,8 +456,8 @@ h3 {
 
 .audit-headline {
   font-family: var(--font-main);
-  font-size: clamp(2.2rem, 5vw, 4.1rem) !important;
-  /* Reduced ~10% */
+  font-size: clamp(56px, 5vw, 64px) !important;
+  /* EXACT 56px to 64px */
   font-weight: 400;
   /* Regular weight */
   line-height: 1;
@@ -474,8 +474,8 @@ h3 {
 .audit-headline .emphasis {
   font-weight: 700 !important;
   /* Bold, but not extra-heavy */
-  font-size: 1em;
-  /* No extra scaling */
+  font-size: clamp(64px, 6vw, 72px) !important;
+  /* EXACT 64px to 72px */
   display: inline-block;
 }
 
