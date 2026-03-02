@@ -475,35 +475,53 @@ h3 {
 }
 
 .gap-heading {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  /* Slightly increased for presence */
   line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
   color: var(--text-primary);
+  text-transform: none !important;
+  /* Force normal casing */
 }
 
 .gap-subheading {
   color: var(--text-muted);
   font-weight: 400;
   display: block;
-  margin-top: 0.5rem;
+  margin-top: 0.8rem;
+  font-size: 0.55em;
+  /* Proportional scale */
 }
 
 .gap-list {
   list-style: none;
-  font-family: var(--font-pixel);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  letter-spacing: 0.1em;
-  line-height: 2.5;
-  margin-bottom: 3rem;
+  font-family: var(--font-main);
+  /* Switched for clarity/less shouting */
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  /* Premium vertical rhythm */
+}
+
+.gap-list li {
+  position: relative;
+  padding-left: 2rem;
+  opacity: 0.9;
 }
 
 .gap-list li::before {
-  content: '✕ ';
-  color: rgba(255, 255, 255, 0.2);
-  margin-right: 1.5rem;
-  font-size: 0.7rem;
+  content: '→';
+  /* Cleaner, directional marker */
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 900;
+  opacity: 0.8;
 }
 
 .gap-result {
