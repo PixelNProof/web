@@ -230,10 +230,10 @@ h3 {
   color: var(--accent);
 }
 
-/* Buttons Base */
 .btn-primary {
   background-color: var(--accent);
-  color: white;
+  color: #000;
+  /* Ensure black text explicitly */
   border: none;
   padding: 1.25rem 2.5rem;
   border-radius: 100px;
@@ -243,13 +243,15 @@ h3 {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: var(--cylindrical-shadow);
+  box-shadow: 0 4px 15px -2px rgba(255, 204, 0, 0.2);
+  /* Cleaner, modern shadow */
 }
 
 .btn-primary:hover {
   background-color: var(--accent-hover);
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px -10px rgba(255, 204, 0, 0.6);
+  box-shadow: 0 10px 25px -5px rgba(255, 204, 0, 0.35);
+  /* Tighter hover shadow */
 }
 
 .btn-secondary {
@@ -329,14 +331,16 @@ h3 {
 
 .hero-headline .serif-italic {
   display: inline-block;
-  font-size: 1.08em;
+  font-size: 1.15em;
+  /* Slightly larger for visual balance */
   letter-spacing: -0.01em;
   margin-left: 0.2rem;
   margin-right: 0.2rem;
   color: var(--accent);
+  /* Ensure pure brand yellow */
   text-transform: lowercase;
-  font-weight: 400;
-  /* Lighter script weight for elegance */
+  font-weight: 600;
+  /* Increased from 400 to balance with "PROVES" */
 }
 
 .hero-headline .accent-text {
@@ -349,11 +353,11 @@ h3 {
   font-size: clamp(1rem, 1.6vw, 1.15rem);
   font-weight: 400;
   color: rgba(255, 255, 255, 0.7);
-  /* Subtle but readable */
   max-width: 720px;
   line-height: 1.7;
   margin: 0 auto 4rem auto;
-  /* Breathable gap */
+  text-wrap: balance;
+  /* Prevent widow/orphan words */
 }
 
 .hero-ctas {
@@ -393,7 +397,53 @@ h3 {
   letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
-  margin-top: 2.5rem;
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Logo Marquee (Phase 27) */
+.logo-marquee-container {
+  overflow: hidden;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: -webkit-linear-gradient(left, transparent, black 15%, black 85%, transparent);
+}
+
+.logo-marquee-track {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  width: fit-content;
+  animation: scrollMarquee 20s linear infinite;
+}
+
+.logo-marquee-item {
+  font-family: var(--font-main);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.25);
+  /* Grayscale/subtle */
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.logo-marquee-item:hover {
+  color: var(--accent);
+  /* Color on hover */
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Premium Audit Section (Phase 25 Minimalist Revision) */
@@ -489,7 +539,8 @@ h3 {
   color: var(--text-muted);
   font-weight: 400;
   display: block;
-  margin-top: 0.8rem;
+  margin-top: 0.1rem;
+  /* Tightened visually group with headline */
   font-size: 0.55em;
   /* Proportional scale */
 }
@@ -561,6 +612,14 @@ h3 {
   width: 100%;
   height: 100%;
   min-height: 400px;
+  position: sticky;
+  top: 120px;
+  /* Keep sticky while scrolling bullets */
+}
+
+/* Ensure the split layout allows sticky to work */
+.the-gap-section .split-layout {
+  align-items: flex-start;
 }
 
 .gap-visual .placeholder-image {
