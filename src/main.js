@@ -109,21 +109,21 @@ window.scrollToContact = () => {
   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
 };
 
-// Phase 28: Dynamic Testimonials
+// Phase 29: Elevated Testimonial Data
 const testimonials = [
   {
-    quote: "Transformative growth. Their logic-first approach turned our CPA around within weeks.",
-    punchline: "weeks.",
-    author: "CEO",
-    company: "GLOBAL FINTECH",
-    avatar: "GF"
+    quote: "Our CPA dropped 42% in 60 days. They didn't redesign us — they re-architected our funnel.",
+    punchline: "re-architected our funnel.",
+    author: "HEAD OF GROWTH",
+    company: "SERIES B FINTECH",
+    avatar: "SF"
   },
   {
-    quote: "Aesthetics that don't just look good, but scale. P&P is in a league of their own.",
-    punchline: "their own.",
+    quote: "They declined three of our initial briefs. The one they accepted changed how we think about performance.",
+    punchline: "changed how we think about performance.",
     author: "FOUNDER",
-    company: "D2C RETAIL",
-    avatar: "DR"
+    company: "D2C BRAND — 7-FIGURE REVENUE",
+    avatar: "D2"
   }
 ];
 
@@ -158,3 +158,30 @@ document.querySelectorAll('button, a').forEach(el => {
 
 initInteractions();
 renderTestimonials();
+
+// Phase 29: Stat Counter Animation
+const animateCounters = () => {
+  const statEls = document.querySelectorAll('.stat-number');
+  if (!statEls.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        let current = 0;
+        const step = Math.ceil(target / 40);
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = current;
+          if (current >= target) clearInterval(timer);
+        }, 30);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  statEls.forEach(el => observer.observe(el));
+};
+
+animateCounters();

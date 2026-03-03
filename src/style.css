@@ -15,7 +15,8 @@
 
   /* Layout */
   --container-max-width: 1400px;
-  --section-padding: 6rem;
+  --section-padding: 10rem;
+  /* Phase 29: Elevated breathing room */
 
   /* Typography */
   --font-pixel: 'Silkscreen', cursive;
@@ -392,13 +393,201 @@ h3 {
 }
 
 .hero-micro-proof {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
-  margin-top: 3.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Phase 29 — Hero Eyebrow */
+.hero-eyebrow {
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0.85;
+}
+
+/* Phase 29 — Stat Block */
+.hero-stat-block {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  justify-content: center;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hero-stat .stat-number {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-family: var(--font-main);
+}
+
+.hero-stat .stat-suffix {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.hero-stat .stat-label {
+  font-family: var(--font-pixel);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.hero-stat-divider {
+  width: 1px;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Phase 29 — Framework Eyebrow */
+.framework-eyebrow {
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.25);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* Phase 29 — Step Summary */
+.step-summary {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  font-style: italic;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Phase 29 — Work Meta */
+.work-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.work-meta-item {
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+
+/* Phase 29 — Work Item Left Border Reveal */
+.work-item {
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.work-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -8px;
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+.work-item:hover::after {
+  width: 3px;
+}
+
+/* Phase 29 — CTA Eyebrow & Subline */
+.cta-eyebrow {
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.25);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.cta-subline {
+  font-family: var(--font-proof);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--text-muted);
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Phase 29 — Footer Positioning Statement */
+.footer-positioning {
+  padding: 4rem 0 5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  margin-bottom: 4rem;
+}
+
+.footer-positioning p {
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+/* Phase 29 — Micro-Interaction: Blueprint Step Hover Lift */
+.blueprint-step {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blueprint-step:hover {
+  transform: translateY(-6px);
+}
+
+/* Phase 29 — Social Link Arrow Shift */
+.social-link .arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.social-link:hover .arrow {
+  transform: translate(3px, -3px);
+}
+
+/* Phase 29 — Stagger Delays for Reveal Animations */
+.blueprint-step:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.blueprint-step:nth-child(3) {
+  transition-delay: 0.16s;
 }
 
 /* Logo Marquee (Phase 27) */
