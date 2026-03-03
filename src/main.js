@@ -59,39 +59,40 @@ const initInteractions = () => {
     });
   });
 
-  // 4. Contact Form Handling
+  // 4. Contact Form Handling (guard: only runs if form is present)
   const contactForm = document.getElementById('contact-form');
   const statusEl = document.getElementById('form-status');
 
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData.entries());
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData.entries());
 
-    statusEl.textContent = 'Processing your application...';
-    statusEl.style.color = 'var(--text-muted)';
+      statusEl.textContent = 'Processing your application...';
+      statusEl.style.color = 'var(--text-muted)';
 
-    try {
-      // Mock API call to /api/contact
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
 
-      if (response.ok) {
-        statusEl.textContent = 'Application received. Data is being processed.';
-        statusEl.style.color = '#10B981'; // Success Green
-        contactForm.reset();
-        trackEvent('form_submit', { category: 'contact' });
-      } else {
-        throw new Error('Verification failed');
+        if (response.ok) {
+          statusEl.textContent = 'Application received. Data is being processed.';
+          statusEl.style.color = '#10B981';
+          contactForm.reset();
+          trackEvent('form_submit', { category: 'contact' });
+        } else {
+          throw new Error('Verification failed');
+        }
+      } catch (error) {
+        statusEl.textContent = 'Transmission error. Please check inputs.';
+        statusEl.style.color = '#EF4444';
       }
-    } catch (error) {
-      statusEl.textContent = 'Transmission error. Please check inputs.';
-      statusEl.style.color = '#EF4444'; // Error Red
-    }
-  });
+    });
+  }
 };
 
 /**
