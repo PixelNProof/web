@@ -15,8 +15,7 @@
 
   /* Layout */
   --container-max-width: 1400px;
-  --section-padding: 7rem; /* Balanced breathing room */
-  /* Phase 29: Elevated breathing room */
+  --section-padding: 6rem;
 
   /* Typography */
   --font-pixel: 'Silkscreen', cursive;
@@ -59,10 +58,10 @@ iframe {
 
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 /* Sidebar Removal & Utility Refinement */
@@ -512,30 +511,14 @@ h3 {
   line-height: 1.8;
 }
 
-/* Phase 29 - Work Item Left Border Reveal: scoped to visual only */
+/* Creative Work Grid */
 .work-item {
   position: relative;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.work-item .work-visual {
-  position: relative;
-  overflow: visible;
-}
-
-.work-item .work-visual::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -6px;
-  width: 0;
-  height: 100%;
-  background: var(--accent);
-  transition: width 0.4s ease;
-}
-
-.work-item:hover .work-visual::after {
-  width: 3px;
+.work-item:hover {
+  transform: scale(1.02);
 }
 
 /* Phase 29 â€” CTA Eyebrow & Subline */
@@ -649,208 +632,56 @@ h3 {
   }
 }
 
-/* ===========================================
-   Phase 30: Diagnostic Banner (Creative Redesign)
-   =========================================== */
-
-.diagnostic-banner {
+/* Premium Audit Section (Reverted & Polished) */
+.premium-audit-section {
   background-color: var(--accent);
+  padding: 8rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
   border-top: 2px solid #111;
   border-bottom: 2px solid #111;
-  padding: 0;
-  overflow: hidden;
-  position: relative;
 }
 
-.diagnostic-inner {
-  display: grid;
-  grid-template-columns: 140px 1fr 280px;
-  gap: 0;
-  align-items: stretch;
-  min-height: 560px;
-  max-width: 1280px;
+.premium-audit-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 850px;
   margin: 0 auto;
-  padding: 0 5rem;
 }
 
-.diagnostic-index {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 4rem 2.5rem 4rem 0;
-  border-right: 1.5px solid rgba(0, 0, 0, 0.12);
-  gap: 1rem;
-}
-
-.diag-num {
-  font-family: var(--font-pixel);
-  font-size: 0.65rem;
-  letter-spacing: 0.25em;
-  color: rgba(0, 0, 0, 0.35);
-  display: block;
-}
-
-.diag-rule {
-  display: block;
-  width: 1px;
-  height: 4rem;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.diag-label {
-  font-family: var(--font-pixel);
-  font-size: 0.55rem;
-  letter-spacing: 0.2em;
-  color: rgba(0, 0, 0, 0.45);
-  text-transform: uppercase;
-  line-height: 1.8;
-}
-
-.diagnostic-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 5rem 4rem;
-  gap: 1.5rem;
-}
-
-.diag-premise {
+.audit-statement {
   font-family: var(--font-proof);
   font-style: italic;
-  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.55);
-  letter-spacing: 0;
-  margin: 0;
-  text-transform: none;
-}
-
-.diag-question {
-  font-family: var(--font-main);
-  font-size: clamp(3.8rem, 8vw, 8.5rem);
-  font-weight: 900;
-  line-height: 0.88;
-  letter-spacing: -0.05em;
-  color: #0a0a0a;
-  text-transform: none;
-  margin: 0;
-}
-
-.diag-question .diag-emphasis {
-  display: block;
-  font-family: var(--font-proof);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 0.85em;
-  color: rgba(0, 0, 0, 0.9);
-  letter-spacing: -0.03em;
-}
-
-.diagnostic-annotation {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0;
-  padding: 4rem 0 4rem 3rem;
-  border-left: 1.5px solid rgba(0, 0, 0, 0.12);
-}
-
-.diag-annotation-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  transition: background 0.2s ease;
-}
-
-.diag-annotation-item:last-child {
-  border-bottom: none;
-}
-
-.annot-label {
-  font-family: var(--font-pixel);
-  font-size: 0.55rem;
-  letter-spacing: 0.2em;
-  color: rgba(0, 0, 0, 0.35);
-  text-transform: uppercase;
-}
-
-.annot-text {
-  font-family: var(--font-main);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 0.75);
+  color: #111;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
   letter-spacing: -0.01em;
-  line-height: 1.3;
 }
 
-.diagnostic-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 5rem;
-  background: #0a0a0a;
-  gap: 2rem;
-}
-
-.diag-footer-label {
-  font-family: var(--font-pixel);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  color: rgba(255, 255, 255, 0.3);
-  text-transform: uppercase;
-}
-
-.diag-cta {
+.audit-headline {
   font-family: var(--font-main);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  text-decoration: none;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: opacity 0.25s ease;
-  white-space: nowrap;
+  font-size: clamp(3.5rem, 6vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #111;
+  margin: 0;
 }
 
-.diag-cta:hover {
-  opacity: 0.8;
-}
-
-.diag-cta .diag-arrow {
+.audit-headline .emphasis {
   display: inline-block;
-  transition: transform 0.25s ease;
+  font-weight: 900;
+  font-size: clamp(4rem, 7vw, 5.5rem);
+  text-transform: uppercase;
+  color: #111;
+  margin-top: 0.2rem;
+  letter-spacing: -0.01em;
 }
 
-.diag-cta:hover .diag-arrow {
-  transform: translateX(5px);
-}
-
-@media (max-width: 900px) {
-  .diagnostic-inner {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    padding: 0 2rem;
-  }
-  .diagnostic-index,
-  .diagnostic-annotation {
-    display: none;
-  }
-  .diagnostic-body {
-    padding: 5rem 0;
-  }
-  .diagnostic-footer {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 2rem;
-    gap: 1rem;
-  }
-}
 /* The Gap Section */
 .the-gap-section {
   padding-top: var(--section-padding);
@@ -900,7 +731,8 @@ h3 {
 }
 
 .gap-list li::before {
-  content: '\2192'; /* arrow unicode - encoding safe */
+  content: '\2192';
+  /* arrow unicode - encoding safe */
   /* Cleaner, directional marker */
   position: absolute;
   left: 0;
