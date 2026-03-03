@@ -108,6 +108,47 @@ window.scrollToContact = () => {
   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
 };
 
+// Phase 28: Dynamic Testimonials
+const testimonials = [
+  {
+    quote: "Transformative growth. Their logic-first approach turned our CPA around within weeks.",
+    punchline: "weeks.",
+    author: "CEO",
+    company: "GLOBAL FINTECH",
+    avatar: "GF"
+  },
+  {
+    quote: "Aesthetics that don't just look good, but scale. P&P is in a league of their own.",
+    punchline: "their own.",
+    author: "FOUNDER",
+    company: "D2C RETAIL",
+    avatar: "DR"
+  }
+];
+
+const renderTestimonials = () => {
+  const grid = document.getElementById('testimonialGrid');
+  if (!grid) return;
+
+  grid.innerHTML = testimonials.map(t => {
+    // Only italicize the punchline for readability
+    const formattedQuote = t.quote.replace(t.punchline, `<span class="serif-italic">${t.punchline}</span>`);
+
+    return `
+      <div class="testimonial-card">
+        <p class="quote">"${formattedQuote}"</p>
+        <div class="testimonial-author-block">
+          <div class="author-avatar">${t.avatar}</div>
+          <div class="author-details">
+            <span class="author-name">${t.author}</span>
+            <span class="author-company">${t.company}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+};
+
 document.querySelectorAll('button, a').forEach(el => {
   el.addEventListener('click', () => {
     trackEvent('click', { text: el.textContent.trim(), id: el.id });
@@ -115,3 +156,4 @@ document.querySelectorAll('button, a').forEach(el => {
 });
 
 initInteractions();
+renderTestimonials();

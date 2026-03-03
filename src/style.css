@@ -711,7 +711,7 @@ h3 {
 }
 
 
-/* Blueprint Methodology (Phase 5) */
+/* Blueprint Methodology (Phase 5 + Phase 28 Polish) */
 .methodology-blueprint {
   display: flex;
   justify-content: space-between;
@@ -720,15 +720,32 @@ h3 {
   position: relative;
 }
 
-.methodology-blueprint::before {
-  content: '';
+/* Animated SVG Line */
+.blueprint-line {
   position: absolute;
   top: 45px;
   left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 204, 0, 0.2) 50%, transparent 100%);
+  width: 80%;
+  height: 20px;
   z-index: 0;
+  pointer-events: none;
+}
+
+.blueprint-line path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-dasharray: 8 16;
+  /* Dashed marching ants */
+  stroke-dashoffset: 0;
+  opacity: 0.3;
+  animation: marchingAnts 30s linear infinite;
+}
+
+@keyframes marchingAnts {
+  to {
+    stroke-dashoffset: -1000;
+  }
 }
 
 .blueprint-step {
@@ -788,6 +805,13 @@ h3 {
   text-align: center;
   position: relative;
   z-index: 10;
+  backdrop-filter: blur(10px);
+  /* Keep button popping over patterns */
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100px;
+  /* Match button radius for perfect blur clipping */
 }
 
 /* Hero Section Refinement */
@@ -917,19 +941,64 @@ h3 {
 }
 
 .testimonial-card .quote {
-  font-family: var(--font-proof);
-  font-size: 2.5rem;
-  font-style: italic;
-  line-height: 1.2;
+  font-family: var(--font-main);
+  /* Cleaner font for the bulk text */
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.4;
   margin-bottom: 2.5rem;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.testimonial-card .quote .serif-italic {
+  font-family: var(--font-proof);
+  font-style: italic;
+  font-weight: 400;
   color: var(--text-primary);
 }
 
-.testimonial-card .author {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  color: var(--accent);
+.testimonial-author-block {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+.author-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.author-name {
+  font-size: 0.85rem;
   font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.author-company {
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
 /* Why Us (Creative Overhaul) */
@@ -986,18 +1055,40 @@ h3 {
 
 .builders-list {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.builders-list li {
+  background: rgba(255, 255, 255, 0.03);
+  /* Subtle card background */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Card border */
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
   font-size: 1.15rem;
-  color: var(--text-muted);
-  line-height: 2.2;
-  margin-bottom: 3rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  /* Increased contrast to white */
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.builders-list li:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(5px);
 }
 
 .builders-list li::before {
-  content: '✓ ';
+  content: '✓';
   color: var(--accent);
-  margin-right: 1rem;
+  margin-right: 1.25rem;
   font-family: var(--font-pixel);
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  /* Bolder checkmarks */
 }
 
 .builders-closing {
