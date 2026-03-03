@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
   /* Phase 4: Creative Agency Overhaul */
@@ -15,7 +15,7 @@
 
   /* Layout */
   --container-max-width: 1400px;
-  --section-padding: 10rem;
+  --section-padding: 7rem; /* Balanced breathing room */
   /* Phase 29: Elevated breathing room */
 
   /* Typography */
@@ -512,24 +512,29 @@ h3 {
   line-height: 1.8;
 }
 
-/* Phase 29 â€” Work Item Left Border Reveal */
+/* Phase 29 - Work Item Left Border Reveal: scoped to visual only */
 .work-item {
   position: relative;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.work-item::after {
+.work-item .work-visual {
+  position: relative;
+  overflow: visible;
+}
+
+.work-item .work-visual::after {
   content: '';
   position: absolute;
   top: 0;
-  left: -8px;
+  left: -6px;
   width: 0;
   height: 100%;
   background: var(--accent);
   transition: width 0.4s ease;
 }
 
-.work-item:hover::after {
+.work-item:hover .work-visual::after {
   width: 3px;
 }
 
@@ -1414,7 +1419,7 @@ h3 {
 }
 
 .builders-list li::before {
-  content: 'âœ“';
+  content: '\2713';
   color: var(--accent);
   margin-right: 1.25rem;
   font-family: var(--font-pixel);
