@@ -2030,458 +2030,210 @@ h3 {
   }
 }
 
+
 /* ===========================================
-   PHASE 31: STRUCTURAL REFACTOR & ALIGNMENT
+   PHASE 33: ULTIMATE LAYOUT REFINEMENT
    =========================================== */
 
-/* 1. Global Overflow & Constraints */
-html,
-body {
-  overflow-x: hidden !important;
-  max-width: 100vw !important;
-  width: 100% !important;
+/* 1. Global Layout System */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
-/* 2. Container & Padding Standardization */
 .container {
-  width: 100% !important;
+  width: 100%;
   max-width: 1280px !important;
   margin: 0 auto !important;
-  padding-left: 4rem !important;
-  padding-right: 4rem !important;
+  padding: 0 2rem !important; /* Uniform padding as requested */
 }
 
+/* Base text constraint */
+p:not(.hero-subtitle-new):not(.hero-eyebrow):not(.cta-subline):not(.gap-outro) {
+  max-width: 650px;
+}
+
+/* 2. Section Spacing Rhythm */
 :root {
-  --section-padding: 7rem;
+  --section-padding-desktop: 8rem;
+  --section-padding-large: 10rem;
+  --section-padding-tablet: 6rem;
+  --section-padding-mobile: 4.5rem;
 }
 
-/* Remove fixed heights where they cause issues */
 section {
+  padding: var(--section-padding-desktop) 0;
   min-height: 0;
   height: auto;
 }
 
-.hero-oversized {}
-
-/* 3. Text Constraints */
-p:not(.hero-subtitle-new):not(.hero-eyebrow):not(.cta-eyebrow):not(.gap-outro) {
-  max-width: 750px;
+.hero-oversized, .final-cta-section {
+  padding: var(--section-padding-large) 0;
 }
 
-/* 4. Split Layout Normalization (55/45 Desktop) */
-.split-layout {
-  display: grid !important;
-  grid-template-columns: 1.2fr 1fr !important;
-  /* ~55/45 */
-  gap: 4rem !important;
-  align-items: start !important;
-}
-
-/* 5. Mobile Menu Overlay & Hamburger Setup */
-.mobile-menu-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 10002;
-  position: relative;
-  width: 40px;
-  height: 40px;
-}
-
-.mobile-menu-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background-color: var(--text-primary);
-  margin: 6px auto;
-  transition: all 0.3s ease;
-  transform-origin: center;
-}
-
-.mobile-menu-toggle.active span:nth-child(1) {
-  transform: translateY(4px) rotate(45deg);
-}
-
-.mobile-menu-toggle.active span:nth-child(2) {
-  transform: translateY(-4px) rotate(-45deg);
-}
-
-.mobile-nav-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(5, 5, 5, 0.98);
-  backdrop-filter: blur(20px);
-  z-index: 10000;
+/* 3. Hero Section Refinement */
+.hero-oversized {
+  min-height: 90vh;
   display: flex !important;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+  text-align: center;
 }
-
-.mobile-nav-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.mobile-nav-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
-}
-
-.mobile-nav-content .mobile-link {
-  font-family: var(--font-main);
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: color 0.3s ease;
-}
-
-.mobile-nav-content .mobile-link:hover,
-.mobile-nav-content .mobile-link.active {
-  color: var(--accent);
-}
-
-/* 6. Responsive Breakpoints Rules */
-
-/* Tablet & Mobile Mix */
-@media (max-width: 1024px) {
-  .container {
-    padding-left: 2.5rem !important;
-    padding-right: 2.5rem !important;
-  }
-
-  :root {
-    --section-padding: 5rem;
-  }
-
-  .split-layout {
-    grid-template-columns: 1fr !important;
-    gap: 3rem !important;
-  }
-}
-
-/* Mobile Strict */
-@media (max-width: 768px) {
-  .desktop-only {
-    display: none !important;
-  }
-
-  .mobile-menu-toggle {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .container {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
-  }
-
-  :root {
-    --section-padding: 4rem;
-  }
-
-  /* Ensure headings don't overflow */
-  h1,
-  h2,
-  h3,
-  .section-label,
-  .massive-statement {
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-    hyphens: auto !important;
-    max-width: 100% !important;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100% !important;
-    text-align: center !important;
-    justify-content: center !important;
-  }
-
-  .hero-ctas,
-  .cta-buttons {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    width: 100% !important;
-    gap: 1rem !important;
-  }
-
-  /* Stack grid architectures */
-  .methodology-blueprint {
-    flex-direction: column !important;
-    gap: 2rem !important;
-  }
-
-  .creative-work-grid {
-    flex-direction: column !important;
-    gap: 3rem !important;
-  }
-
-  .work-item {
-    width: 100% !important;
-    flex: none !important;
-  }
-
-  .testimonial-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .gap-list {
-    gap: 1.5rem !important;
-  }
-
-  /* Remove blueprint connecting line on mobile to prevent overflow */
-  .blueprint-line {
-    display: none !important;
-  }
-
-  /* Footer Re-stack */
-  .footer-top,
-  .footer-bottom,
-  .footer-socials,
-  .footer-nav {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 1.5rem !important;
-  }
-}
-
-/* Tiny Mobile */
-@media (max-width: 480px) {
-  .container {
-    padding-left: 1.25rem !important;
-    padding-right: 1.25rem !important;
-  }
-
-  .gap-heading {
-    font-size: 2.2rem !important;
-  }
-}
-
-/* ===========================================
-   PHASE 32: STRICT STRUCTURAL REFACTOR
-   =========================================== */
-
-/* 1. Global Overflow & Strict Bounds */
-html,
-body {
-  overflow-x: hidden !important;
-  max-width: 100% !important;
-  width: 100% !important;
-  /* Prevent horizontal stretch */
-}
-
-/* 2. Container Standard */
-.container {
+.hero-huge-text {
   width: 100%;
-  max-width: 1280px !important;
-  margin: 0 auto;
-  padding-left: 5rem !important;
-  padding-right: 5rem !important;
 }
-
-/* 3. Section Vertical Rhythm */
-section {
-  padding-top: var(--section-padding);
-  padding-bottom: var(--section-padding);
-  min-height: 0;
-  height: auto;
-}
-
-/* Hero is the only allowed fixed height */
-.hero-oversized {
-  min-height: 100vh;
-  padding-top: max(8rem, 15vh);
-}
-
-/* Eliminate trailing fixed heights from older sections */
-.contact-portal-hero {
-  min-height: 80vh;
-}
-
-/* 4. Text Width Constraints (Scannability) */
-p,
-ul,
-.builders-subtext {
-  max-width: 750px;
-}
-
-.hero-subtitle-new,
-.hero-eyebrow,
-.gap-outro,
-.cta-subline {
-  max-width: none;
-}
-
-/* 5. Typography Fluidity */
-h1,
 .hero-headline {
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.05;
+}
+
+/* 4. Grid System & Stats */
+.hero-stat-block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  text-align: center;
+  border: none;
+  max-width: 900px;
+  margin: 3rem auto 0;
+}
+.hero-stat-divider { display: none; }
+
+/* 5. Split Layout Sections */
+.split-layout {
+  display: grid !important;
+  grid-template-columns: 1.2fr 1fr !important;
+  gap: 4rem !important;
+  align-items: center !important;
+}
+.split-layout .left, .split-layout .right {
+  text-align: left;
+}
+
+/* 6. Process / Framework Section */
+.methodology-blueprint {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  text-align: left;
+}
+#method .section-label, #method .framework-eyebrow {
+  text-align: center;
+}
+
+/* 7. Work / Portfolio Grid */
+.creative-work-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 3rem !important;
+  margin-top: 3rem;
+}
+.work-item {
+  width: 100% !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+/* 8. Alignment Hierarchy Overrides */
+.hero-ctas {
+  justify-content: center;
+}
+.gap-content, .builders-content {
+  text-align: left !important;
+}
+
+/* Responsive Headings as requested */
+h1, .hero-headline {
   font-size: clamp(3rem, 7vw, 6.5rem) !important;
 }
-
 .gap-heading {
   font-size: clamp(2rem, 5vw, 4rem) !important;
 }
-
-h3,
-.audit-statement {
+h3, .audit-statement {
   font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
 }
-
 .massive-statement {
   font-size: clamp(3rem, 8vw, 7.5rem) !important;
 }
 
-/* 6. Split Layout Normalization (~60/40) */
-.split-layout {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  /* 60/40 Split */
-  gap: 5rem;
-  align-items: start;
-}
-
-/* Ensure images don't break grid */
-.split-layout .right {
-  width: 100%;
-  overflow: hidden;
-}
-
-/* 7. Hover and interactions */
-.btn-primary,
-.btn-secondary {
-  white-space: normal;
-  text-align: center;
-}
-
-/* ===========================================
-   PHASE 32: RESPONSIVE BREAKPOINTS
-   =========================================== */
-
-/* Tablet (max 1024px) */
+/* 10. Responsiveness */
 @media (max-width: 1024px) {
-  :root {
-    --section-padding: var(--section-padding-tablet);
+  section {
+    padding: var(--section-padding-tablet) 0;
   }
-
-  .container {
-    padding-left: 3rem !important;
-    padding-right: 3rem !important;
+  .hero-oversized, .final-cta-section {
+    padding: calc(var(--section-padding-tablet) + 2rem) 0;
   }
-
-  .split-layout {
-    grid-template-columns: 1fr;
-    /* Single column stack */
-    gap: 4rem;
-  }
-
-  .hero-ctas,
-  .cta-buttons {
-    flex-wrap: wrap;
-    gap: 1.5rem;
+  .hero-stat-block, .creative-work-grid {
+    grid-template-columns: 1fr 1fr !important;
   }
 }
 
-/* Mobile Strict (max 768px) */
 @media (max-width: 768px) {
-  :root {
-    --section-padding: var(--section-padding-mobile);
+  section {
+    padding: var(--section-padding-mobile) 0;
   }
-
-  .container {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
+  .hero-oversized, .final-cta-section {
+    padding: calc(var(--section-padding-mobile) + 1rem) 0;
   }
-
-  /* Avoid text touching edges on small screens */
-  h1,
-  h2,
-  h3,
-  p {
+  
+  .split-layout, 
+  .hero-stat-block, 
+  .methodology-blueprint, 
+  .creative-work-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+  
+  .hero-ctas, .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+  .hero-ctas .btn-primary, .hero-ctas .btn-secondary,
+  .cta-buttons .btn-primary, .cta-buttons .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  h1, h2, h3, p {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
   }
-
-  /* CTA Buttons Vertical Stack */
-  .hero-ctas,
-  .cta-buttons {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* Stacking complex sections */
-  .methodology-blueprint {
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .blueprint-line {
-    display: none;
-    /* Hide SVG connector */
-  }
-
-  .creative-work-grid {
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .work-item {
-    width: 100%;
-    margin: 0 !important;
-    /* Remove horizontal staggering */
-    transform: none !important;
-  }
-
-  .testimonial-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  /* Footer Re-stacking */
-  .footer-top,
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-
-  .footer-socials {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-  }
 }
 
-/* Mobile Utility Resets */
+/* Phase 31 Mobile Menu Toggle (Preserved) */
+.mobile-menu-toggle {
+  display: none; background: transparent; border: none; cursor: pointer;
+  padding: 0.5rem; z-index: 10002; position: relative; width: 40px; height: 40px;
+}
+.mobile-menu-toggle span {
+  display: block; width: 24px; height: 2px;
+  background-color: var(--text-primary); margin: 6px auto;
+  transition: all 0.3s ease; transform-origin: center;
+}
+.mobile-menu-toggle.active span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
+.mobile-menu-toggle.active span:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
+.mobile-nav-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+  background: rgba(5, 5, 5, 0.98); backdrop-filter: blur(20px);
+  z-index: 10000; display: flex !important; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+}
+.mobile-nav-overlay.active { opacity: 1; pointer-events: auto; }
+.mobile-nav-content { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
+.mobile-nav-content .mobile-link {
+  font-family: var(--font-main); font-size: 1.8rem; font-weight: 700;
+  color: var(--text-primary); text-decoration: none; text-transform: uppercase;
+  letter-spacing: 0.05em; transition: color 0.3s ease;
+}
+.mobile-nav-content .mobile-link:hover, .mobile-nav-content .mobile-link.active { color: var(--accent); }
 @media (max-width: 768px) {
-  .desktop-only {
-    display: none !important;
-  }
-
-  .mobile-menu-toggle {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-  }
+  .desktop-only { display: none !important; }
+  .mobile-menu-toggle { display: flex !important; flex-direction: column; justify-content: center; }
 }
