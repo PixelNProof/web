@@ -59,29 +59,17 @@ iframe {
   height: auto;
 }
 
-
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
 
 /* Sidebar Removal & Utility Refinement */
 .sidebar {
   display: none;
-}
-
-.desktop-only {
-  display: block;
-}
-
-.mobile-only {
-  display: none;
-}
-
-@media (max-width: 1024px) {
-  .desktop-only {
-    display: none !important;
-  }
-
-  .mobile-only {
-    display: block !important;
-  }
 }
 
 
@@ -315,7 +303,20 @@ h3 {
   width: 100%;
 }
 
+/* Hero Oversized (Revised v2) */
+.hero-oversized {
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 80px;
+  max-width: 1280px;
+  margin: 0 auto;
+  /* Ensure centering */
+  position: relative;
+}
 
 .hero-headline {
   /* Targeted scale 5.6rem (approx -12% for better balance) */
@@ -838,6 +839,7 @@ h3 {
   align-items: center;
   margin-bottom: 5rem;
   width: 100%;
+  white-space: nowrap;
 }
 
 .section-label::before {
@@ -1003,6 +1005,10 @@ h3 {
   gap: 6rem;
   margin: 0 auto;
   align-items: start;
+  width: 100%;
+  max-width: var(--container-max-width);
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 .work-item {
@@ -1104,6 +1110,10 @@ h3 {
   grid-template-columns: repeat(2, 1fr);
   gap: 6rem;
   margin: 0 auto;
+  width: 100%;
+  max-width: var(--container-max-width);
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 .testimonial-card .quote {
@@ -1195,9 +1205,7 @@ h3 {
   line-height: 0.9;
   letter-spacing: -0.04em;
   color: var(--text-primary);
-  margin-bottom: 4rem;
-  /* Standardized margin */
-  word-wrap: break-word;
+  margin-bottom: 1.5rem;
 }
 
 .builders-subtext {
@@ -1205,7 +1213,6 @@ h3 {
   font-weight: 700;
   color: var(--accent);
   letter-spacing: -0.01em;
-  margin-bottom: 3rem;
 }
 
 .builders-content {
@@ -1307,7 +1314,7 @@ h3 {
 }
 
 .cta-title {
-  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-size: 8vw;
   line-height: 0.85;
   margin-bottom: 4rem;
   color: var(--text-primary);
@@ -1325,8 +1332,7 @@ h3 {
 
 /* Social House Footer */
 .social-house-footer {
-  padding-top: 10rem;
-  padding-bottom: 4rem;
+  padding: 10rem 0 4rem;
 }
 
 .footer-top {
@@ -1334,8 +1340,8 @@ h3 {
   justify-content: space-between;
   align-items: flex-end;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
   margin-bottom: 4rem;
-  padding-bottom: 2rem;
 }
 
 .footer-logo {
@@ -1405,11 +1411,638 @@ h3 {
   color: var(--accent);
 }
 
+/* ============================================
+   RESPONSIVE BREAKPOINTS (Clean, No Duplicates)
+   ============================================ */
+
+/* --- TABLET LANDSCAPE / SMALL DESKTOP (â‰¤1200px) --- */
+@media (max-width: 1200px) {
+  .hero-headline {
+    font-size: 10vw;
+  }
+
+  .huge-statement {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+  }
+
+  .creative-work-grid,
+  .testimonial-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 3rem;
+    padding-bottom: 2rem;
+    margin-top: 0;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    scroll-padding-left: 4rem;
+  }
+
+  .creative-work-grid::after,
+  .testimonial-grid::after {
+    content: '';
+    flex: 0 0 1px;
+    padding-right: 4rem;
+  }
+
+  .creative-work-grid::-webkit-scrollbar,
+  .testimonial-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .work-item,
+  .testimonial-card {
+    flex: 0 0 55vw;
+    max-width: 600px;
+    scroll-snap-align: start;
+  }
+
+  .work-item.staggered {
+    margin-top: 0;
+  }
+
+  .work-item::before {
+    font-size: 6rem;
+  }
+
+  .cta-title {
+    font-size: 8vw;
+  }
+
+  .methodology-blueprint {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .blueprint-step {
+    width: 45%;
+    text-align: center;
+  }
+
+  .global-360-placeholder h2 {
+    font-size: 4rem;
+  }
+
+  .split-layout {
+    gap: 3rem;
+  }
+
+  .why-us-section .right {
+    gap: 3rem;
+  }
+
+  .cta-box-premium {
+    padding: 8rem 2rem;
+  }
+
+  .footer-nav {
+    gap: 2rem;
+  }
+}
+
+/* --- TABLET PORTRAIT (â‰¤991px) --- */
+@media (max-width: 991px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  :root {
+    --section-padding: 4.5rem 0;
+  }
+
+  /* Nav: hide desktop links, show hamburger */
+  .nav-links {
+    display: none !important;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  /* Grids to single column */
+  .split-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .creative-work-grid,
+  .testimonial-grid {
+    gap: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    scroll-padding-left: 1.5rem;
+  }
+
+  .creative-work-grid::after,
+  .testimonial-grid::after {
+    padding-right: 1.5rem;
+  }
+
+  .work-item,
+  .testimonial-card {
+    flex: 0 0 75vw;
+    max-width: 450px;
+  }
+
+  .why-us-section .right {
+    gap: 2.5rem;
+  }
+
+  /* Horizontal Carousels removed from 991px breakpoint to enable 2-column grid on iPads */
+
+  /* Footer Order Fix */
+  .social-house-footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4rem;
+    order: 1;
+  }
+
+  .footer-socials {
+    align-items: flex-start;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    order: 2;
+  }
+
+  .footer-bottom p {
+    order: 2;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    order: 1;
+  }
+
+  /* CTA */
+  .cta-box-premium {
+    padding: 6rem 2rem;
+    border-radius: 40px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+/* --- MOBILE (â‰¤768px) --- */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 5rem;
+  }
+
+  .logo-img {
+    height: 38px;
+  }
+
+  #main-nav {
+    min-height: 60px;
+    padding: 0.5rem 0;
+  }
+
+  /* ---- HERO ---- */
+  .hero-oversized {
+    min-height: 80vh;
+    padding-top: 60px;
+  }
+
+  .hero-headline {
+    font-size: 11vw;
+    line-height: 1.1;
+  }
+
+  .hero-headline .serif-italic {
+    font-size: 1.1em;
+  }
+
+  .hero-subtitle-new {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-micro-proof {
+    font-size: 0.7rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    display: block;
+  }
+
+  /* ---- UNIFORM SECTION DIVIDERS ---- */
+  .quote-section,
+  .global-360,
+  .process-section,
+  .case-studies-section,
+  .testimonials-section,
+  .why-us-section,
+  .final-cta-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* ---- SECTION LABELS ---- */
+  .section-label {
+    font-size: 1.4rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 4rem;
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .section-label::before {
+    width: 8px;
+    height: 8px;
+    margin-right: 1rem;
+  }
+
+  .section-label::after {
+    margin-left: 1rem;
+    min-width: 15px;
+  }
+
+  /* ---- QUOTE ---- */
+  .quote-text {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .quote-author {
+    font-size: 0.65rem;
+  }
+
+  /* ---- THE GAP SECTION ---- */
+  .gap-visual {
+    min-height: 250px;
+  }
+
+  .gap-heading {
+    margin-bottom: 2rem;
+  }
+
+  .gap-list {
+    margin-bottom: 2rem;
+  }
+
+  /* ---- METHODOLOGY (scroll cards) ---- */
+  .methodology-blueprint {
+    margin-top: 3.5rem;
+    gap: 3rem;
+  }
+
+  .blueprint-step {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 380px;
+    padding: 3rem 2rem;
+    border-color: rgba(255, 204, 0, 0.12);
+  }
+
+  .blueprint-step h4 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .step-indicator {
+    width: 52px;
+    height: 52px;
+    font-size: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .blueprint-list {
+    font-size: 0.6rem;
+    line-height: 2;
+  }
+
+  .see-process-btn {
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* ---- SELECTED WORK (scroll cards) ---- */
+  .creative-work-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    margin-top: 0;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    scroll-padding-left: 1.5rem;
+  }
+
+  .creative-work-grid::after {
+    content: '';
+    flex: 0 0 1px;
+    padding-right: 1.5rem;
+  }
+
+  .creative-work-grid::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  .creative-work-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+  }
+
+  .creative-work-grid::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+  }
+
+  .work-item {
+    flex: 0 0 78vw;
+    max-width: 78vw;
+    scroll-snap-align: start;
+  }
+
+  .work-item.staggered {
+    margin-top: 0;
+  }
+
+  .work-visual {
+    aspect-ratio: 16/10;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .work-item::before {
+    font-size: 3rem;
+    top: -0.5rem;
+    left: 0.5rem;
+    opacity: 0.3;
+  }
+
+  .work-details h4 {
+    font-size: 1.15rem;
+  }
+
+  .work-details .category {
+    font-size: 0.55rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ---- TESTIMONIALS ---- */
+  .testimonial-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    scroll-padding-left: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .testimonial-grid::after {
+    content: '';
+    flex: 0 0 1px;
+    padding-right: 1.5rem;
+  }
+
+  .testimonial-card {
+    flex: 0 0 85vw;
+    max-width: 400px;
+    scroll-snap-align: start;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+  }
+
+  .testimonial-card .quote {
+    font-size: 1.3rem;
+    line-height: 1.35;
+    margin-bottom: 1.2rem;
+  }
+
+  .testimonial-card .author {
+    font-size: 0.6rem;
+  }
+
+  /* ---- WHY US / ABOUT ---- */
+  .builders-headline {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .builders-subtext {
+    font-size: 1.1rem;
+  }
+
+  .builders-intro {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .builders-list {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .builders-closing {
+    font-size: 1.25rem;
+  }
+
+  .why-us-section .right {
+    gap: 1.5rem;
+  }
+
+  /* ---- CTA PREMIUM ---- */
+  .cta-box-premium {
+    padding: 4rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .cta-title {
+    font-size: 7vw;
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-secondary {
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+    display: block;
+  }
+
+  /* ---- FOOTER ---- */
+  .social-house-footer {
+    padding: 4rem 0 5rem;
+  }
+
+  .footer-top {
+    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .social-link {
+    font-size: 1.1rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    height: 34px;
+  }
+
+  .footer-bottom {
+    padding-bottom: 4rem;
+  }
+
+  /* ---- FLOATING BUTTON ---- */
+  #floating-case-study {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.55rem;
+    bottom: 5rem;
+    right: 1.5rem;
+  }
+}
+
+
+
+/* --- SMALL MOBILE (â‰¤480px) --- */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  :root {
+    --section-padding: 4.5rem;
+  }
+
+  .hero-headline {
+    font-size: 13vw;
+  }
+
+  .hero-headline .serif-italic {
+    font-size: 1.1em;
+  }
+
+  .hero-subtitle-new {
+    font-size: 0.9rem;
+  }
+
+  .hero-micro-proof {
+    font-size: 0.65rem;
+  }
+
+  .section-label {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+  }
+
+  .quote-text {
+    font-size: 1.3rem;
+  }
+
+  /* Scroll cards: tighter on small screens */
+  .blueprint-step {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 380px;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .work-item {
+    flex: 0 0 85%;
+    max-width: 85%;
+  }
+
+  .work-visual {
+    aspect-ratio: 16/12;
+  }
+
+  .massive-statement {
+    font-size: 11vw;
+  }
+
+  .value-prop h3 {
+    font-size: 0.65rem;
+  }
+
+  .value-prop p {
+    font-size: 0.8rem;
+  }
+
+  .testimonial-card .quote {
+    font-size: 1.3rem;
+  }
+
+  .cta-title {
+    font-size: 8vw;
+  }
+
+  .social-link {
+    font-size: 1rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.55rem;
+  }
+
+  .your-move-header .huge {
+    font-size: 12vw;
+  }
+
+  #floating-case-study {
+    bottom: 4.5rem;
+  }
+}
+
+
 /* ===========================================
-   RESPONSIVE DESIGN & MOBILE FIXES
+   PHASE 33: ULTIMATE LAYOUT REFINEMENT
    =========================================== */
 
-/* Base overrides for consistency */
+/* 1. Global Layout System */
 html, body {
   overflow-x: hidden;
   max-width: 100%;
@@ -1417,163 +2050,151 @@ html, body {
 
 .container {
   width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important; /* Uniform padding as requested */
 }
 
-.split-layout {
-  align-items: start; /* Fix overlapping by ensuring top alignment vs center */
+/* Base text constraint */
+p:not(.hero-subtitle-new):not(.hero-eyebrow):not(.cta-subline):not(.gap-outro) {
+  max-width: 650px;
 }
 
-/* --- Mobile Menu & Overlay --- */
-.mobile-menu-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 10002;
-  position: relative;
-  width: 40px;
-  height: 40px;
+/* 2. Section Spacing Rhythm */
+:root {
+  --section-padding-desktop: 8rem;
+  --section-padding-large: 10rem;
+  --section-padding-tablet: 6rem;
+  --section-padding-mobile: 4.5rem;
 }
 
-.mobile-menu-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background-color: var(--text-primary);
-  margin: 6px auto;
-  transition: all 0.3s ease;
-  transform-origin: center;
+section {
+  padding: var(--section-padding-desktop) 0;
+  min-height: 0;
+  height: auto;
 }
 
-.mobile-menu-toggle.active span:nth-child(1) {
-  transform: translateY(4px) rotate(45deg);
+.hero-oversized, .final-cta-section {
+  padding: var(--section-padding-large) 0;
 }
 
-.mobile-menu-toggle.active span:nth-child(2) {
-  transform: translateY(-4px) rotate(-45deg);
-}
-
-.mobile-nav-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(5, 5, 5, 0.98);
-  backdrop-filter: blur(20px);
-  z-index: 10000;
+/* 3. Hero Section Refinement */
+.hero-oversized {
+  min-height: 90vh;
   display: flex !important;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+  text-align: center;
+}
+.hero-huge-text {
+  width: 100%;
+}
+.hero-headline {
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.05;
 }
 
-.mobile-nav-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
+/* 4. Grid System & Stats */
+.hero-stat-block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  text-align: center;
+  border: none;
+  max-width: 900px;
+  margin: 3rem auto 0;
+}
+.hero-stat-divider { display: none; }
+
+/* 5. Split Layout Sections */
+.split-layout {
+  display: grid !important;
+  grid-template-columns: 1.2fr 1fr !important;
+  gap: 4rem !important;
+  align-items: center !important;
+}
+.split-layout .left, .split-layout .right {
+  text-align: left;
 }
 
-.mobile-nav-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
+/* 6. Process / Framework Section */
+.methodology-blueprint {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  text-align: left;
+}
+#method .section-label, #method .framework-eyebrow {
+  text-align: center;
 }
 
-.mobile-nav-content .mobile-link {
-  font-family: var(--font-main);
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: color 0.3s ease;
+/* 7. Work / Portfolio Grid */
+.creative-work-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 3rem !important;
+  margin-top: 3rem;
+}
+.work-item {
+  width: 100% !important;
+  margin: 0 !important;
+  transform: none !important;
 }
 
-.mobile-nav-content .mobile-link:hover,
-.mobile-nav-content .mobile-link.active {
-  color: var(--accent);
+/* 8. Alignment Hierarchy Overrides */
+.hero-ctas {
+  justify-content: center;
+}
+.gap-content, .builders-content {
+  text-align: left !important;
 }
 
-/* TABLET (max-width: 1024px) */
+/* Responsive Headings as requested */
+h1, .hero-headline {
+  font-size: clamp(3rem, 7vw, 6.5rem) !important;
+}
+.gap-heading {
+  font-size: clamp(2rem, 5vw, 4rem) !important;
+}
+h3, .audit-statement {
+  font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
+}
+.massive-statement {
+  font-size: clamp(3rem, 8vw, 7.5rem) !important;
+}
+
+/* 10. Responsiveness */
 @media (max-width: 1024px) {
-  .desktop-only {
-    display: none !important;
+  section {
+    padding: var(--section-padding-tablet) 0;
   }
-  .mobile-only {
-    display: block !important;
+  .hero-oversized, .final-cta-section {
+    padding: calc(var(--section-padding-tablet) + 2rem) 0;
   }
-  .mobile-menu-toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  .hero-stat-block, .creative-work-grid {
+    grid-template-columns: 1fr 1fr !important;
   }
+}
 
-  /* Typography Scales */
-  h1, .hero-headline { font-size: clamp(3rem, 7vw, 5rem); }
-  .gap-heading { font-size: clamp(2rem, 5vw, 3.5rem); }
-  .audit-headline .emphasis { font-size: clamp(3rem, 6vw, 4.5rem); }
-  .massive-statement { font-size: clamp(3rem, 8vw, 6rem); }
-
-  /* Layout Scales */
-  section { padding: var(--section-padding-tablet) 0; }
-  .hero-oversized, .final-cta-section { padding: 8rem 0; }
-
-  .split-layout {
-    grid-template-columns: 1fr;
-    gap: 4rem;
+@media (max-width: 768px) {
+  section {
+    padding: var(--section-padding-mobile) 0;
+  }
+  .hero-oversized, .final-cta-section {
+    padding: calc(var(--section-padding-mobile) + 1rem) 0;
   }
   
-  .gap-visual .placeholder-image {
-    aspect-ratio: 16/9; /* Fix extreme height on tablet */
+  .split-layout, 
+  .hero-stat-block, 
+  .methodology-blueprint, 
+  .creative-work-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
   }
-
-  .creative-work-grid,
-  .testimonial-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .work-item.staggered { margin-top: 0; }
-
-  .methodology-blueprint {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .blueprint-line { display: none; }
-}
-
-/* MOBILE (max-width: 768px) */
-@media (max-width: 768px) {
-  section { padding: var(--section-padding-mobile) 0; }
-  .hero-oversized, .final-cta-section { padding: 6rem 0; }
-
-  .split-layout,
-  .methodology-blueprint,
-  .creative-work-grid,
-  .testimonial-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  /* Hero Adjustments */
-  .hero-stat-block {
-    flex-direction: column; /* Revert back to original flex layout logic */
-    gap: 2.5rem;
-    margin-top: 2rem;
-    padding-top: 2rem;
-  }
-  .hero-stat-divider { display: none; }
-
+  
   .hero-ctas, .cta-buttons {
     display: flex;
     flex-direction: column;
@@ -1586,31 +2207,49 @@ html, body {
     justify-content: center;
     text-align: center;
   }
-
-  /* Specific Resizing for Premium UI on Mobile */
+  
   .cta-box-premium {
     padding: 4rem 1.5rem;
     border-radius: 30px;
   }
   
-  .gap-outro {
-    font-size: 1.5rem; /* Ensure it scales down cleanly */
-    margin-bottom: 2rem;
+  .social-house-footer {
+    padding: 6rem 0 4rem;
   }
 
-  .social-house-footer {
-    padding-top: 6rem;
-    padding-bottom: 2rem;
+  h1, h2, h3, p {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
   }
-  .footer-top {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
-  }
-  .footer-socials { align-items: flex-start; }
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
-  }
+}
+
+/* Phase 31 Mobile Menu Toggle (Preserved) */
+.mobile-menu-toggle {
+  display: none; background: transparent; border: none; cursor: pointer;
+  padding: 0.5rem; z-index: 10002; position: relative; width: 40px; height: 40px;
+}
+.mobile-menu-toggle span {
+  display: block; width: 24px; height: 2px;
+  background-color: var(--text-primary); margin: 6px auto;
+  transition: all 0.3s ease; transform-origin: center;
+}
+.mobile-menu-toggle.active span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
+.mobile-menu-toggle.active span:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
+.mobile-nav-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+  background: rgba(5, 5, 5, 0.98); backdrop-filter: blur(20px);
+  z-index: 10000; display: flex !important; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+}
+.mobile-nav-overlay.active { opacity: 1; pointer-events: auto; }
+.mobile-nav-content { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
+.mobile-nav-content .mobile-link {
+  font-family: var(--font-main); font-size: 1.8rem; font-weight: 700;
+  color: var(--text-primary); text-decoration: none; text-transform: uppercase;
+  letter-spacing: 0.05em; transition: color 0.3s ease;
+}
+.mobile-nav-content .mobile-link:hover, .mobile-nav-content .mobile-link.active { color: var(--accent); }
+@media (max-width: 768px) {
+  .desktop-only { display: none !important; }
+  .mobile-menu-toggle { display: flex !important; flex-direction: column; justify-content: center; }
 }
