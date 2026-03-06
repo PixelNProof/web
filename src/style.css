@@ -169,23 +169,32 @@ h3 {
 /* Mobile Menu Styles */
 .mobile-menu-toggle {
   display: none;
-  background: none;
+  background: transparent;
   border: none;
   cursor: pointer;
+  padding: 0.5rem;
   z-index: 10002;
+  position: relative;
+  width: 40px;
+  height: 40px;
 }
 
-.mobile-menu-toggle line {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.mobile-menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-primary);
+  margin: 6px auto;
+  transition: all 0.3s ease;
   transform-origin: center;
 }
 
-.mobile-menu-toggle.active .top-line {
-  transform: translateY(9px) rotate(45deg);
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
 }
 
-.mobile-menu-toggle.active .bottom-line {
-  transform: translateY(-9px) rotate(-45deg);
+.mobile-menu-toggle.active span:nth-child(2) {
+  transform: translateY(-4px) rotate(-45deg);
 }
 
 .mobile-nav-overlay {
@@ -195,41 +204,41 @@ h3 {
   width: 100%;
   height: 100vh;
   background: rgba(5, 5, 5, 0.98);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(20px);
   z-index: 10000;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  visibility: hidden;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 
 .mobile-nav-overlay.active {
   opacity: 1;
-  visibility: visible;
+  pointer-events: auto;
 }
 
 .mobile-nav-content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2.5rem;
-  text-align: center;
 }
 
-.mobile-link {
+.mobile-nav-content .mobile-link {
   font-family: var(--font-main);
-  font-size: 2.5rem;
-  font-weight: 900;
+  font-size: 1.8rem;
+  font-weight: 700;
   color: var(--text-primary);
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.05em;
   transition: color 0.3s ease;
 }
 
-.mobile-link:hover,
-.mobile-link.active {
+.mobile-nav-content .mobile-link:hover,
+.mobile-nav-content .mobile-link.active {
   color: var(--accent);
 }
 
@@ -305,17 +314,19 @@ h3 {
 
 /* Hero Oversized (Revised v2) */
 .hero-oversized {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  min-height: 100vh;
   padding-top: 80px;
-  max-width: 1280px;
-  margin: 0 auto;
-  /* Ensure centering */
   position: relative;
+  width: 100%;
+}
+
+.hero-huge-text {
+  width: 100%;
 }
 
 .hero-headline {
@@ -326,7 +337,7 @@ h3 {
   letter-spacing: -0.05em;
   max-width: 1100px;
   /* Constrain to prevent orphans like "It." */
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2.5rem auto;
   font-weight: 900;
   text-transform: none;
   color: var(--text-primary);
@@ -416,14 +427,16 @@ h3 {
 }
 
 /* Phase 29 â€” Stat Block */
+.hero-metrics-section {
+  padding: 4rem 0;
+  text-align: center;
+}
+
 .hero-stat-block {
   display: flex;
   align-items: center;
   gap: 3rem;
   justify-content: center;
-  margin-top: 4rem;
-  padding-top: 3rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .hero-stat {
@@ -645,7 +658,7 @@ h3 {
 /* Premium Audit Section (Reverted & Polished) */
 .premium-audit-section {
   background-color: var(--accent);
-
+  padding: var(--section-padding) 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1006,9 +1019,6 @@ h3 {
   margin: 0 auto;
   align-items: start;
   width: 100%;
-  max-width: var(--container-max-width);
-  padding-left: 4rem;
-  padding-right: 4rem;
 }
 
 .work-item {
@@ -1111,9 +1121,6 @@ h3 {
   gap: 6rem;
   margin: 0 auto;
   width: 100%;
-  max-width: var(--container-max-width);
-  padding-left: 4rem;
-  padding-right: 4rem;
 }
 
 .testimonial-card .quote {
@@ -1430,13 +1437,15 @@ h3 {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    width: 100%;
-    max-width: 100%;
+    width: calc(100% + 8rem);
+    max-width: none;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 3rem;
     padding-bottom: 2rem;
     margin-top: 0;
+    margin-left: -4rem;
+    margin-right: -4rem;
     padding-left: 4rem;
     padding-right: 4rem;
     scroll-padding-left: 4rem;
@@ -1513,7 +1522,7 @@ h3 {
   }
 
   :root {
-    --section-padding: 4.5rem 0;
+    --section-padding: var(--section-padding-tablet);
   }
 
   /* Nav: hide desktop links, show hamburger */
@@ -1534,6 +1543,10 @@ h3 {
   .creative-work-grid,
   .testimonial-grid {
     gap: 2rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    width: calc(100% + 3rem);
+    max-width: none;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     scroll-padding-left: 1.5rem;
@@ -1608,7 +1621,7 @@ h3 {
 /* --- MOBILE (â‰¤768px) --- */
 @media (max-width: 768px) {
   :root {
-    --section-padding: 5rem;
+    --section-padding: var(--section-padding-mobile);
   }
 
   .logo-img {
@@ -1758,8 +1771,10 @@ h3 {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    width: 100%;
-    max-width: 100%;
+    width: calc(100% + 3rem);
+    max-width: none;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 1.5rem;
@@ -1827,8 +1842,10 @@ h3 {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    width: 100%;
-    max-width: 100%;
+    width: calc(100% + 3rem);
+    max-width: none;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 1.5rem;
@@ -1955,7 +1972,7 @@ h3 {
   }
 
   :root {
-    --section-padding: 4.5rem;
+    --section-padding: 4rem;
   }
 
   .hero-headline {
@@ -2037,219 +2054,4 @@ h3 {
   }
 }
 
-
-/* ===========================================
-   PHASE 33: ULTIMATE LAYOUT REFINEMENT
-   =========================================== */
-
-/* 1. Global Layout System */
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
-.container {
-  width: 100%;
-  max-width: 1280px !important;
-  margin: 0 auto !important;
-  padding: 0 2rem !important; /* Uniform padding as requested */
-}
-
-/* Base text constraint */
-p:not(.hero-subtitle-new):not(.hero-eyebrow):not(.cta-subline):not(.gap-outro) {
-  max-width: 650px;
-}
-
-/* 2. Section Spacing Rhythm */
-:root {
-  --section-padding-desktop: 8rem;
-  --section-padding-large: 10rem;
-  --section-padding-tablet: 6rem;
-  --section-padding-mobile: 4.5rem;
-}
-
-section {
-  padding: var(--section-padding-desktop) 0;
-  min-height: 0;
-  height: auto;
-}
-
-.hero-oversized, .final-cta-section {
-  padding: var(--section-padding-large) 0;
-}
-
-/* 3. Hero Section Refinement */
-.hero-oversized {
-  min-height: 90vh;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.hero-huge-text {
-  width: 100%;
-}
-.hero-headline {
-  max-width: 1000px;
-  margin: 0 auto;
-  line-height: 1.05;
-}
-
-/* 4. Grid System & Stats */
-.hero-stat-block {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  text-align: center;
-  border: none;
-  max-width: 900px;
-  margin: 3rem auto 0;
-}
-.hero-stat-divider { display: none; }
-
-/* 5. Split Layout Sections */
-.split-layout {
-  display: grid !important;
-  grid-template-columns: 1.2fr 1fr !important;
-  gap: 4rem !important;
-  align-items: center !important;
-}
-.split-layout .left, .split-layout .right {
-  text-align: left;
-}
-
-/* 6. Process / Framework Section */
-.methodology-blueprint {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4rem;
-  text-align: left;
-}
-#method .section-label, #method .framework-eyebrow {
-  text-align: center;
-}
-
-/* 7. Work / Portfolio Grid */
-.creative-work-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 3rem !important;
-  margin-top: 3rem;
-}
-.work-item {
-  width: 100% !important;
-  margin: 0 !important;
-  transform: none !important;
-}
-
-/* 8. Alignment Hierarchy Overrides */
-.hero-ctas {
-  justify-content: center;
-}
-.gap-content, .builders-content {
-  text-align: left !important;
-}
-
-/* Responsive Headings as requested */
-h1, .hero-headline {
-  font-size: clamp(3rem, 7vw, 6.5rem) !important;
-}
-.gap-heading {
-  font-size: clamp(2rem, 5vw, 4rem) !important;
-}
-h3, .audit-statement {
-  font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
-}
-.massive-statement {
-  font-size: clamp(3rem, 8vw, 7.5rem) !important;
-}
-
-/* 10. Responsiveness */
-@media (max-width: 1024px) {
-  section {
-    padding: var(--section-padding-tablet) 0;
-  }
-  .hero-oversized, .final-cta-section {
-    padding: calc(var(--section-padding-tablet) + 2rem) 0;
-  }
-  .hero-stat-block, .creative-work-grid {
-    grid-template-columns: 1fr 1fr !important;
-  }
-}
-
-@media (max-width: 768px) {
-  section {
-    padding: var(--section-padding-mobile) 0;
-  }
-  .hero-oversized, .final-cta-section {
-    padding: calc(var(--section-padding-mobile) + 1rem) 0;
-  }
-  
-  .split-layout, 
-  .hero-stat-block, 
-  .methodology-blueprint, 
-  .creative-work-grid {
-    grid-template-columns: 1fr !important;
-    gap: 3rem !important;
-  }
-  
-  .hero-ctas, .cta-buttons {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
-  }
-  .hero-ctas .btn-primary, .hero-ctas .btn-secondary,
-  .cta-buttons .btn-primary, .cta-buttons .btn-secondary {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .cta-box-premium {
-    padding: 4rem 1.5rem;
-    border-radius: 30px;
-  }
-  
-  .social-house-footer {
-    padding: 6rem 0 4rem;
-  }
-
-  h1, h2, h3, p {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-  }
-}
-
-/* Phase 31 Mobile Menu Toggle (Preserved) */
-.mobile-menu-toggle {
-  display: none; background: transparent; border: none; cursor: pointer;
-  padding: 0.5rem; z-index: 10002; position: relative; width: 40px; height: 40px;
-}
-.mobile-menu-toggle span {
-  display: block; width: 24px; height: 2px;
-  background-color: var(--text-primary); margin: 6px auto;
-  transition: all 0.3s ease; transform-origin: center;
-}
-.mobile-menu-toggle.active span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
-.mobile-menu-toggle.active span:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
-.mobile-nav-overlay {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-  background: rgba(5, 5, 5, 0.98); backdrop-filter: blur(20px);
-  z-index: 10000; display: flex !important; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
-}
-.mobile-nav-overlay.active { opacity: 1; pointer-events: auto; }
-.mobile-nav-content { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
-.mobile-nav-content .mobile-link {
-  font-family: var(--font-main); font-size: 1.8rem; font-weight: 700;
-  color: var(--text-primary); text-decoration: none; text-transform: uppercase;
-  letter-spacing: 0.05em; transition: color 0.3s ease;
-}
-.mobile-nav-content .mobile-link:hover, .mobile-nav-content .mobile-link.active { color: var(--accent); }
-@media (max-width: 768px) {
-  .desktop-only { display: none !important; }
-  .mobile-menu-toggle { display: flex !important; flex-direction: column; justify-content: center; }
-}
+
