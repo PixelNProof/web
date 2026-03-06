@@ -707,20 +707,18 @@ h3 {
 
 /* The Gap Section */
 .the-gap-section {
-  padding-top: var(--section-padding);
-  padding-bottom: var(--section-padding);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .gap-heading {
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
-  /* Slightly increased for presence */
+  font-size: clamp(1.8rem, 4vw, 3rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
   color: var(--text-primary);
   text-transform: none !important;
-  /* Force normal casing */
 }
 
 .gap-subheading {
@@ -728,23 +726,19 @@ h3 {
   font-weight: 400;
   display: block;
   margin-top: 0.1rem;
-  /* Tightened visually group with headline */
   font-size: 0.55em;
-  /* Proportional scale */
 }
 
 .gap-list {
   list-style: none;
   font-family: var(--font-main);
-  /* Switched for clarity/less shouting */
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   color: var(--text-primary);
-  line-height: 1.6;
-  margin-bottom: 4rem;
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
-  /* Premium vertical rhythm */
+  gap: 1rem;
 }
 
 .gap-list li {
@@ -755,8 +749,6 @@ h3 {
 
 .gap-list li::before {
   content: '\2192';
-  /* arrow unicode - encoding safe */
-  /* Cleaner, directional marker */
   position: absolute;
   left: 0;
   color: var(--accent);
@@ -765,8 +757,8 @@ h3 {
 }
 
 .gap-result {
-  margin-bottom: 3rem;
-  padding: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
   background: rgba(255, 255, 255, 0.02);
   border-left: 3px solid var(--accent);
   border-radius: 0 12px 12px 0;
@@ -783,14 +775,14 @@ h3 {
 }
 
 .gap-result p {
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.01em;
 }
 
 .gap-outro {
-  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
   font-weight: 900;
   color: var(--accent);
   letter-spacing: -0.02em;
@@ -800,10 +792,9 @@ h3 {
 .gap-visual {
   width: 100%;
   height: 100%;
-  min-height: 400px;
+  min-height: 350px;
   position: sticky;
   top: 120px;
-  /* Keep sticky while scrolling bullets */
 }
 
 /* Ensure the split layout allows sticky to work */
