@@ -12,11 +12,40 @@
 </head>
 <body class="bg-primary text-white font-main antialiased overflow-x-hidden">
 
-  <!-- Nav -->
-  <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex items-center justify-between bg-primary/80 backdrop-blur-sm border-b border-white/5">
-    <a href="/" class="font-pixel text-accent text-xs tracking-[0.3em] uppercase">PixelNProof</a>
-    <a href="/" class="text-white/50 hover:text-white font-bold uppercase tracking-widest text-[10px] transition-colors">&larr; Back to Home</a>
-  </nav>
+  <!-- Global Noise/Grain Overlay (matches index.html) -->
+  <div class="fixed inset-0 w-full h-full pointer-events-none z-[9999] opacity-[0.05] contrast-150 brightness-150 mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+
+  <!-- Navigation (exact match to index.html) -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-primary/80 backdrop-blur-md border-b border-white/5 px-6 py-4">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="/" class="hover:opacity-80 transition-opacity">
+        <img src="/assets/logo_1.PNG" alt="Pixel &amp; Proof" class="h-8 w-auto">
+      </a>
+      <div class="hidden md:flex items-center space-x-8 text-[10px] font-bold uppercase tracking-widest">
+        <a href="/#services" class="hover:text-accent transition-colors">Work</a>
+        <a href="/#agency-mission" class="hover:text-accent transition-colors">About</a>
+        <a href="/contact" class="text-accent border border-accent/20 px-5 py-2 rounded-full hover:bg-accent hover:text-black transition-all">Work with us</a>
+      </div>
+      <button class="md:hidden text-white mobile-menu-toggle" aria-label="Toggle Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu Overlay (exact match to index.html) -->
+  <div
+    class="fixed inset-0 bg-[#050505]/95 backdrop-blur-3xl z-40 hidden flex-col justify-center items-center opacity-0 transition-opacity duration-500 mobile-nav-overlay"
+    id="mobileNav">
+    <div class="flex flex-col space-y-8 text-center text-3xl font-black uppercase tracking-tighter mobile-nav-content">
+      <a href="/#services" class="text-white hover:text-accent transition-colors mobile-link">Work</a>
+      <a href="/#agency-mission" class="text-white hover:text-accent transition-colors mobile-link">About</a>
+      <a href="/contact"
+        class="text-accent hover:text-white transition-colors mobile-link mt-8 text-xl tracking-widest border border-accent/30 px-8 py-4 rounded-full">Work
+        with us</a>
+    </div>
+  </div>
 
   <!-- Hero -->
   <section class="min-h-[40vh] flex flex-col justify-end px-6 pt-32 pb-16 max-w-7xl mx-auto">

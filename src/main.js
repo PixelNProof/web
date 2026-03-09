@@ -29,23 +29,48 @@ const initInteractions = () => {
   const mobileNav = document.getElementById('mobileNav');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  mobileToggles.forEach(toggle => {
-    toggle.addEventListener('click', () => {
-      toggle.classList.toggle('active');
-      if (mobileNav) {
-        mobileNav.classList.toggle('active');
-        document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+  const hamburgerIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" /></svg>`;
+  const closeIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>`;
+
+  let isMenuOpen = false;
+
+  const toggleMenu = () => {
+    isMenuOpen = !isMenuOpen;
+    
+    if (mobileNav) {
+      if (isMenuOpen) {
+        // Open Sequence
+        mobileNav.classList.remove('hidden');
+        // Small delay to allow display flex to apply before opacity transition
+        setTimeout(() => {
+          mobileNav.classList.remove('opacity-0');
+          mobileNav.classList.add('opacity-100');
+        }, 10);
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+      } else {
+        // Close Sequence
+        mobileNav.classList.remove('opacity-100');
+        mobileNav.classList.add('opacity-0');
+        setTimeout(() => {
+          mobileNav.classList.add('hidden');
+        }, 500); // match the duration-500 tailwind class
+        document.body.style.overflow = '';
       }
+    }
+
+    // Update Icon on all toggles
+    mobileToggles.forEach(toggle => {
+      toggle.innerHTML = isMenuOpen ? closeIcon : hamburgerIcon;
     });
+  };
+
+  mobileToggles.forEach(toggle => {
+    toggle.addEventListener('click', toggleMenu);
   });
 
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
-      mobileToggles.forEach(t => t.classList.remove('active'));
-      if (mobileNav) {
-        mobileNav.classList.remove('active');
-        document.body.style.overflow = '';
-      }
+      if (isMenuOpen) toggleMenu();
     });
   });
 

@@ -2,472 +2,157 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connect | PIXEL & PROOF</title>
-    <link rel="stylesheet" href="/src/style.css">
-    <style>
-        :root {
-            --contact-accent: #FFCC00;
-        }
-
-        body {
-            background-color: #050505;
-            overflow-x: hidden;
-            padding-top: 90px;
-            /* Push everything below the fixed nav */
-        }
-
-        .creative-background-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .creative-background-grid::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 70% 30%, rgba(255, 204, 0, 0.03) 0%, transparent 50%);
-        }
-
-        .contact-portal-hero {
-            padding-top: 40px;
-            padding-bottom: 80px;
-            min-height: calc(100vh - 90px);
-        }
-
-        .portal-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12rem;
-            align-items: flex-start;
-        }
-
-        .portal-left h1 {
-            font-size: 8rem;
-            line-height: 0.85;
-            letter-spacing: -0.05em;
-            margin-bottom: 4rem;
-        }
-
-        .portal-left h1 .serif-italic {
-            display: block;
-            color: var(--contact-accent);
-            font-size: 6rem;
-            margin-left: 1rem;
-        }
-
-        .manifesto-statement {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-weight: 700;
-            border-left: 2px solid var(--contact-accent);
-            padding-left: 2rem;
-            margin-top: 6rem;
-            max-width: 400px;
-            line-height: 1.6;
-        }
-
-        /* Redesigned Form */
-        .lead-capture-container {
-            background: rgba(10, 10, 10, 0.5);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 5rem;
-            border-radius: 40px;
-            position: relative;
-        }
-
-        .lead-capture-container::before {
-            content: 'LP-CAPT-V6';
-            position: absolute;
-            top: 2rem;
-            right: 3rem;
-            font-family: var(--font-pixel);
-            font-size: 0.6rem;
-            color: rgba(255, 204, 0, 0.3);
-            letter-spacing: 0.2em;
-        }
-
-        .form-header {
-            margin-bottom: 4rem;
-        }
-
-        .form-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .form-header p {
-            color: var(--accent);
-            font-family: var(--font-pixel);
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-        }
-
-        .premium-input-group {
-            position: relative;
-            margin-bottom: 2.5rem;
-            padding-top: 2rem;
-            /* Give label space to float up */
-        }
-
-        .premium-input-group input,
-        .premium-input-group textarea {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1rem 0;
-            color: white;
-            font-size: 1.2rem;
-            font-family: var(--font-proof);
-            transition: all 0.4s ease;
-            outline: none;
-            position: relative;
-            z-index: 2;
-        }
-
-        .premium-input-group label {
-            position: absolute;
-            left: 0;
-            top: 2.5rem;
-            color: var(--text-muted);
-            font-size: 1rem;
-            letter-spacing: 0.1em;
-            pointer-events: none;
-            transition: all 0.4s ease;
-            z-index: 1;
-        }
-
-        .premium-input-group input:focus~label,
-        .premium-input-group input:not(:placeholder-shown)~label,
-        .premium-input-group textarea:focus~label,
-        .premium-input-group textarea:not(:placeholder-shown)~label {
-            top: 0;
-            color: var(--contact-accent);
-            font-size: 0.7rem;
-        }
-
-        .premium-input-group input:focus,
-        .premium-input-group textarea:focus {
-            border-bottom-color: var(--contact-accent);
-        }
-
-
-        .portal-info-strip {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding: 4rem 0;
-            border-top: 1px solid rgba(255, 204, 0, 0.1);
-            margin-top: 8rem;
-            align-items: center;
-        }
-
-        .info-segment h4 {
-            font-size: 0.7rem;
-            letter-spacing: 0.4em;
-            color: var(--accent);
-            margin-bottom: 2rem;
-        }
-
-        .info-segment .content {
-            font-family: var(--font-proof);
-            font-size: 1.8rem;
-            font-style: italic;
-        }
-
-        .info-segment a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .info-segment a:hover {
-            color: var(--accent);
-        }
-
-        .info-segment.right-align {
-            text-align: right;
-        }
-
-        /* ====================================
-           CONTACT PAGE RESPONSIVE BREAKPOINTS
-           ==================================== */
-
-        /* Tablet landscape */
-        @media (max-width: 1200px) {
-            .portal-grid {
-                grid-template-columns: 1fr;
-                gap: 6rem;
-            }
-
-            .portal-left h1 {
-                font-size: clamp(4rem, 12vw, 8rem);
-            }
-
-            .portal-left h1 .serif-italic {
-                font-size: clamp(3rem, 9vw, 6rem);
-            }
-
-            .lead-capture-container {
-                padding: 3.5rem;
-            }
-        }
-
-        /* Tablet portrait */
-        @media (max-width: 991px) {
-            .contact-portal-hero {
-                padding-top: 30px;
-                padding-bottom: 60px;
-            }
-
-            .portal-grid {
-                gap: 4rem;
-            }
-
-            .nav-links {
-                display: none !important;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .manifesto-statement {
-                font-size: 0.9rem;
-                margin-top: 3rem;
-            }
-
-            /* Collapse inline timeline to stack */
-            .portal-left div[style*="display: flex; gap: 4rem"] {
-                flex-direction: column;
-                gap: 2rem !important;
-            }
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .contact-portal-hero {
-                padding-top: 20px;
-                padding-bottom: 40px;
-            }
-
-            .portal-left h1 {
-                font-size: 18vw;
-                margin-bottom: 2rem;
-            }
-
-            .portal-left h1 .serif-italic {
-                font-size: 14vw;
-                margin-left: 0;
-            }
-
-            .manifesto-statement {
-                font-size: 0.8rem;
-                padding-left: 1.5rem;
-                max-width: 100%;
-            }
-
-            .lead-capture-container {
-                padding: 2.5rem 1.5rem;
-                border-radius: 25px;
-            }
-
-            .form-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .form-header {
-                margin-bottom: 2.5rem;
-            }
-
-            .premium-input-group input,
-            .premium-input-group textarea {
-                font-size: 1rem;
-            }
-
-            .portal-info-strip {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-                margin-top: 4rem;
-                padding: 3rem 0;
-            }
-
-            .info-segment,
-            .info-segment.right-align {
-                text-align: left;
-            }
-
-            .info-segment .content {
-                font-size: 1.3rem;
-            }
-
-            .info-segment .content a {
-                font-size: 1.1rem;
-                word-break: break-all;
-            }
-        }
-
-        /* Small mobile */
-        @media (max-width: 480px) {
-            .contact-portal-hero {
-                padding-top: 10px;
-            }
-
-            .portal-left h1 {
-                font-size: 20vw;
-            }
-
-            .portal-left h1 .serif-italic {
-                font-size: 15vw;
-            }
-
-            .lead-capture-container {
-                padding: 2rem 1.2rem;
-                border-radius: 20px;
-            }
-
-            .form-header h2 {
-                font-size: 1.5rem;
-            }
-
-            .info-segment .content {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect | PIXEL &amp; PROOF</title>
+  <meta name="description" content="Start the conversation with Pixel & Proof. Apply to work with us and let's build measurable growth together.">
+  <link rel="stylesheet" href="/src/style.css">
 </head>
 
-<body>
-    <div class="creative-background-grid"></div>
+<body class="bg-black text-white overflow-x-hidden">
 
-    <nav id="main-nav" class="scrolled">
-        <div class="container nav-content">
-            <a href="/" class="logo">
-                <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="logo-img">
-            </a>
-            <div class="nav-links desktop-only">
-                <a href="/">Home</a>
-                <a href="/#services">Work</a>
-            </div>
-            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-            </button>
-        </div>
+  <!-- Global Noise/Grain Overlay (matches index.html) -->
+  <div class="fixed inset-0 w-full h-full pointer-events-none z-[9999] opacity-[0.05] contrast-150 brightness-150 mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+
+  <!-- Simplified Navigation (exact match to index.html) -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-primary/80 backdrop-blur-md border-b border-white/5 px-6 py-4">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="/" class="hover:opacity-80 transition-opacity">
+        <img src="/assets/logo_1.PNG" alt="Pixel &amp; Proof" class="h-8 w-auto">
+      </a>
+      <div class="hidden md:flex items-center space-x-8 text-[10px] font-bold uppercase tracking-widest">
+        <a href="/#services" class="hover:text-accent transition-colors">Work</a>
+        <a href="/#agency-mission" class="hover:text-accent transition-colors">About</a>
+        <a href="/contact" class="text-accent border border-accent/20 px-5 py-2 rounded-full hover:bg-accent hover:text-black transition-all">Work with us</a>
+      </div>
+      <button class="md:hidden text-white mobile-menu-toggle" aria-label="Toggle Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+        </svg>
+      </button>
     </nav>
+  </header>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-nav-overlay" id="mobileNav">
-        <div class="mobile-nav-content">
-            <a href="/" class="mobile-link">Home</a>
-            <a href="/#services" class="mobile-link">Work</a>
-        </div>
+  <!-- Mobile Menu Overlay (exact match to index.html) -->
+  <div
+    class="fixed inset-0 bg-[#050505]/95 backdrop-blur-3xl z-40 hidden flex-col justify-center items-center opacity-0 transition-opacity duration-500 mobile-nav-overlay"
+    id="mobileNav">
+    <div class="flex flex-col space-y-8 text-center text-3xl font-black uppercase tracking-tighter mobile-nav-content">
+      <a href="/#services" class="text-white hover:text-accent transition-colors mobile-link">Work</a>
+      <a href="/#agency-mission" class="text-white hover:text-accent transition-colors mobile-link">About</a>
+      <a href="/contact"
+        class="text-accent hover:text-white transition-colors mobile-link mt-8 text-xl tracking-widest border border-accent/30 px-8 py-4 rounded-full">Work
+        with us</a>
     </div>
+  </div>
 
 
-    <main class="contact-portal-hero container">
-        <div class="portal-grid">
-            <div class="portal-left reveal-up">
-                <h1>LET'S <br> <span class="serif-italic">scale.</span></h1>
-                <div class="manifesto-statement">
-                    WE DON'T DO "GET QUOTES". WE DO QUANTIFIABLE GROWTH LOGIC FOR BRANDS THAT DEMAND MORE.
-                </div>
+  <!-- =============== MAIN CONTENT =============== -->
+  <main class="pt-[120px] pb-[120px] min-h-screen">
+    <div class="w-full max-w-[1200px] mx-auto px-6 md:px-8">
 
-                <div style="margin-top: 8rem;">
-                    <p
-                        style="font-family: var(--font-pixel); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.3em; margin-bottom: 2rem;">
-                        LOGIC FLOW / NEXT 48H</p>
-                    <div style="display: flex; gap: 4rem;">
-                        <div>
-                            <h5 style="font-size: 0.8rem; margin-bottom: 1rem;">01 / SYNC</h5>
-                            <p style="font-size: 0.8rem; color: var(--text-muted);">Audit existing funnels & data.</p>
-                        </div>
-                        <div>
-                            <h5 style="font-size: 0.8rem; margin-bottom: 1rem;">02 / BLUEPRINT</h5>
-                            <p style="font-size: 0.8rem; color: var(--text-muted);">Custom delivery roadmap.</p>
-                        </div>
-                    </div>
-                </div>
+      <!-- Two-column layout: left info / right form -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start reveal-up">
+
+        <!-- LEFT: Heading & Info -->
+        <div class="flex flex-col">
+          <p class="font-pixel text-accent text-[10px] tracking-[0.3em] uppercase mb-8 opacity-90">// ENTRY APPLICATION</p>
+
+          <h1 class="font-main text-6xl md:text-7xl lg:text-[6rem] font-black leading-[0.9] tracking-tighter uppercase text-white mb-10">
+            LET'S<br><span class="font-proof italic font-normal text-accent lowercase">scale.</span>
+          </h1>
+
+          <p class="text-white/50 text-sm leading-relaxed border-l-2 border-accent pl-6 mb-16 max-w-sm font-medium uppercase tracking-wider">
+            We don't do "get quotes". We do quantifiable growth logic for brands that demand more.
+          </p>
+
+          <!-- Process mini-timeline -->
+          <div class="mb-16">
+            <p class="font-pixel text-accent text-[9px] tracking-[0.3em] uppercase mb-8 opacity-70">LOGIC FLOW / NEXT 48H</p>
+            <div class="flex flex-col sm:flex-row gap-10">
+              <div class="border-t border-white/10 pt-6 flex-1">
+                <h5 class="font-pixel text-[9px] text-accent tracking-widest uppercase mb-3">01 / SYNC</h5>
+                <p class="text-white/40 text-sm leading-relaxed">Audit existing funnels &amp; data.</p>
+              </div>
+              <div class="border-t border-white/10 pt-6 flex-1">
+                <h5 class="font-pixel text-[9px] text-accent tracking-widest uppercase mb-3">02 / BLUEPRINT</h5>
+                <p class="text-white/40 text-sm leading-relaxed">Custom delivery roadmap.</p>
+              </div>
             </div>
+          </div>
 
-            <div class="portal-right reveal-up">
-                <div class="lead-capture-container">
-                    <div class="form-header">
-                        <h2>START THE ENGINE</h2>
-                        <p>ENTRY APPLICATION</p>
-                    </div>
-
-                    <form id="contact-form">
-                        <div class="premium-input-group">
-                            <input type="text" name="name" id="name" placeholder=" " required>
-                            <label for="name">Full Name</label>
-                        </div>
-
-                        <div class="premium-input-group">
-                            <input type="email" name="email" id="email" placeholder=" " required>
-                            <label for="email">Work Email</label>
-                        </div>
-
-                        <div class="premium-input-group">
-                            <input type="text" name="company" id="company" placeholder=" " required>
-                            <label for="company">Company / Brand</label>
-                        </div>
-
-                        <div class="premium-input-group">
-                            <textarea name="message" id="message" placeholder=" " rows="4"></textarea>
-                            <label for="message">Your Objective</label>
-                        </div>
-
-                        <button type="submit" class="btn-primary"
-                            style="width: 100%; padding: 1.5rem; font-size: 1rem;">PROVE GROWTH</button>
-                        <div id="form-status" style="margin-top: 2rem; font-size: 0.8rem; text-align: center;"></div>
-                    </form>
-                </div>
+          <!-- Contact info strip -->
+          <div class="border-t border-white/10 pt-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+              <p class="font-pixel text-accent text-[9px] tracking-[0.3em] uppercase mb-3">DIRECT CONNECT</p>
+              <a href="mailto:pixelnproof@gmail.com" class="font-proof italic text-xl text-white hover:text-accent transition-colors">pixelnproof@gmail.com</a>
             </div>
+            <div>
+              <p class="font-pixel text-accent text-[9px] tracking-[0.3em] uppercase mb-3">GLOBAL STUDIO</p>
+              <p class="font-proof italic text-xl text-white">REMOTE / <span class="text-accent">High Velocity.</span></p>
+            </div>
+          </div>
         </div>
 
-        <div class="portal-info-strip reveal-up">
-            <div class="info-segment">
-                <h4>DIRECT CONNECT</h4>
-                <div class="content"><a href="mailto:pixelnproof@gmail.com">pixelnproof@gmail.com</a></div>
-            </div>
-            <div class="info-segment right-align">
-                <h4>GLOBAL STUDIO</h4>
-                <div class="content">REMOTE / <span class="serif-italic">High Velocity.</span></div>
-            </div>
-        </div>
-    </main>
+        <!-- RIGHT: Form -->
+        <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <!-- Subtle glow -->
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,204,0,0.04)_0%,transparent_60%)] pointer-events-none"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script type="module" src="/src/main.js"></script>
-    <script>
-        // Reveal Animations
-        document.addEventListener('DOMContentLoaded', () => {
-            gsap.to('.reveal-up', {
-                opacity: 1,
-                y: 0,
-                duration: 1.2,
-                stagger: 0.2,
-                ease: 'power4.out'
-            });
-        });
-    </script>
+          <div class="relative z-10">
+            <h2 class="font-main text-2xl md:text-3xl font-black uppercase tracking-tighter text-white mb-2">Start The Engine</h2>
+            <p class="font-pixel text-accent text-[9px] tracking-[0.3em] uppercase mb-10 opacity-80">GROWTH APPLICATION</p>
+
+            <form id="contact-form" class="flex flex-col gap-8">
+
+              <!-- Name -->
+              <div class="relative pt-6 group">
+                <input type="text" name="name" id="name" placeholder=" " required
+                  class="w-full bg-transparent border-0 border-b border-white/10 pb-3 pt-1 text-white text-lg focus:outline-none focus:border-accent transition-colors peer placeholder-transparent">
+                <label for="name"
+                  class="absolute left-0 top-1 text-white/40 text-sm tracking-wide transition-all peer-placeholder-shown:top-7 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-xs peer-focus:text-accent">Full Name</label>
+              </div>
+
+              <!-- Email -->
+              <div class="relative pt-6 group">
+                <input type="email" name="email" id="email" placeholder=" " required
+                  class="w-full bg-transparent border-0 border-b border-white/10 pb-3 pt-1 text-white text-lg focus:outline-none focus:border-accent transition-colors peer placeholder-transparent">
+                <label for="email"
+                  class="absolute left-0 top-1 text-white/40 text-sm tracking-wide transition-all peer-placeholder-shown:top-7 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-xs peer-focus:text-accent">Work Email</label>
+              </div>
+
+              <!-- Company -->
+              <div class="relative pt-6 group">
+                <input type="text" name="company" id="company" placeholder=" " required
+                  class="w-full bg-transparent border-0 border-b border-white/10 pb-3 pt-1 text-white text-lg focus:outline-none focus:border-accent transition-colors peer placeholder-transparent">
+                <label for="company"
+                  class="absolute left-0 top-1 text-white/40 text-sm tracking-wide transition-all peer-placeholder-shown:top-7 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-xs peer-focus:text-accent">Company / Brand</label>
+              </div>
+
+              <!-- Message -->
+              <div class="relative pt-6 group">
+                <textarea name="message" id="message" placeholder=" " rows="4"
+                  class="w-full bg-transparent border-0 border-b border-white/10 pb-3 pt-1 text-white text-lg focus:outline-none focus:border-accent transition-colors peer placeholder-transparent resize-none"></textarea>
+                <label for="message"
+                  class="absolute left-0 top-1 text-white/40 text-sm tracking-wide transition-all peer-placeholder-shown:top-7 peer-placeholder-shown:text-base peer-focus:top-1 peer-focus:text-xs peer-focus:text-accent">Your Objective</label>
+              </div>
+
+              <button type="submit"
+                class="w-full mt-4 inline-flex justify-center items-center bg-accent text-black font-bold uppercase tracking-widest text-xs py-5 rounded-full hover:bg-white transition-all duration-300 btn-primary">
+                PROVE GROWTH &rarr;
+              </button>
+
+              <div id="form-status" class="text-center text-sm font-pixel tracking-wider opacity-0 transition-opacity"></div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

@@ -87,7 +87,7 @@
 
   <!-- Mobile Menu Overlay -->
   <div
-    class="fixed inset-0 bg-[#050505]/95 backdrop-blur-3xl z-40 hidden flex-col justify-center items-center opacity-0 transition-opacity duration-500 mobile-nav-overlay"
+    class="fixed inset-0 bg-[#050505]/95 backdrop-blur-3xl z-40 hidden flex-col justify-center items-center opacity-0 transition-opacity duration-500 mobile-nav-overlay pt-16"
     id="mobileNav">
     <div class="flex flex-col space-y-8 text-center text-3xl font-black uppercase tracking-tighter mobile-nav-content">
       <a href="#services" class="text-white hover:text-accent transition-colors mobile-link">Services</a>
@@ -125,36 +125,75 @@
       </div>
     </section>
 
-    <!-- Brands Section -->
-    <section class="py-20 border-y border-white/5 bg-secondary/50">
-      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
-        <p class="font-main text-2xl md:text-3xl font-bold tracking-tighter text-white max-w-md">
-          We work with brands ready to scale. We prioritise long-term growth partnerships over volume.
-        </p>
-        <div class="flex flex-col items-end text-right">
+    <!-- Brands / Testimonials Section -->
+    <section class="py-20 border-y border-white/5 bg-secondary/50 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between items-center gap-12 lg:gap-16">
+        
+        <!-- Horizontal Scroll Testimonials -->
+        <div class="w-full lg:w-[calc(100%-350px)] flex-shrink pointer-events-auto overflow-hidden">
+          <p class="font-pixel text-accent text-[10px] tracking-[0.3em] uppercase mb-6 opacity-90">// CLIENT RESULTS</p>
+          <div class="flex gap-6 overflow-x-auto pb-4 pt-2 pr-[20%] snap-x snap-mandatory" style="scrollbar-width:none; -ms-overflow-style:none; mask-image: linear-gradient(to right, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);">
+            
+            <!-- Testimonial 1 -->
+            <div class="w-[85vw] sm:w-[400px] flex-shrink-0 snap-center bg-[#050505] border border-white/5 rounded-[1.5rem] p-8 md:p-10 flex flex-col justify-between hover:border-white/10 transition-colors">
+              <p class="text-white/90 font-main text-xl md:text-[22px] font-bold italic tracking-tight mb-12 leading-[1.4]">
+                "Our CPA dropped <span class="text-accent underline decoration-accent decoration-2 underline-offset-[6px]">42% in 60 days.</span> They didn't redesign us — they re-architected our funnel."
+              </p>
+              <div class="flex items-center gap-5 mt-auto">
+                <div class="w-12 h-12 rounded-full border border-white/10 flex flex-shrink-0 items-center justify-center font-pixel text-[9px] text-white/50 tracking-widest">
+                  SF
+                </div>
+                <div class="flex flex-col">
+                  <h4 class="font-main text-[11px] font-black uppercase tracking-[0.15em] text-white mb-1">HEAD OF GROWTH</h4>
+                  <p class="font-pixel text-[8px] tracking-[0.3em] uppercase text-white/40">SERIES B FINTECH</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="w-[85vw] sm:w-[400px] flex-shrink-0 snap-center bg-[#050505] border border-white/5 rounded-[1.5rem] p-8 md:p-10 flex flex-col justify-between hover:border-white/10 transition-colors">
+              <p class="text-white/90 font-main text-xl md:text-[22px] font-bold italic tracking-tight mb-12 leading-[1.4]">
+                "They declined three of our initial briefs. The one they accepted <span class="text-accent underline decoration-accent decoration-2 underline-offset-[6px]">changed how we think about performance.</span>"
+              </p>
+              <div class="flex items-center gap-5 mt-auto">
+                <div class="w-12 h-12 rounded-full border border-white/10 flex flex-shrink-0 items-center justify-center font-pixel text-[9px] text-white/50 tracking-widest">
+                  D2
+                </div>
+                <div class="flex flex-col">
+                  <h4 class="font-main text-[11px] font-black uppercase tracking-[0.15em] text-white mb-1">FOUNDER</h4>
+                  <p class="font-pixel text-[8px] tracking-[0.3em] uppercase text-white/40">7-FIGURE D2C BRAND</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Side CTA -->
+        <div class="flex flex-col items-center text-center lg:items-end lg:text-right shrink-0 mt-8 lg:mt-0">
           <h3 class="text-white/30 font-main text-sm uppercase tracking-widest mb-2 font-bold">Your brand might look active.</h3>
-          <h2 class="text-accent font-main text-3xl md:text-5xl font-black tracking-tighter">But is it actually<br>CONVERTING?</h2>
+          <h2 class="text-accent font-main text-3xl md:text-5xl lg:text-5xl font-black tracking-tighter">But is it actually<br>CONVERTING?</h2>
         </div>
       </div>
     </section>
 
     <!-- The Proof System: Connecting Thread Redesign -->
     <!-- Methodology: The Proof System -->
-    <section id="method" class="py-32 bg-primary reveal-up">
+    <section id="method" class="py-20 md:py-32 bg-primary reveal-up">
       <div class="max-w-7xl mx-auto px-6">
         <p class="font-pixel text-accent text-[10px] tracking-[0.3em] uppercase mb-6 opacity-90">
           // PROPRIETARY FRAMEWORK
         </p>
-        <h2 class="font-main text-5xl md:text-7xl font-black tracking-tighter text-white mb-24 uppercase">
+        <h2 class="font-main text-3xl md:text-4xl font-black tracking-tighter text-white uppercase mb-16">
           THE PROOF SYSTEM&trade;
         </h2>
 
-        <div class="relative grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24">
+        <div class="relative flex overflow-x-auto md:grid md:grid-cols-3 gap-8 md:gap-24 pb-8 md:pb-0 snap-x snap-mandatory" style="scrollbar-width:none; -ms-overflow-style:none;">
           <!-- Connection Thread (Desktop) -->
           <div class="hidden md:block absolute top-[1.25rem] left-0 w-full h-[1px] bg-white/10 z-0"></div>
           
           <!-- Step 1 -->
-          <div class="relative z-10 group">
+          <div class="relative z-10 group w-[85vw] sm:w-[320px] flex-shrink-0 md:w-auto snap-start">
             <div class="w-10 h-10 bg-primary border border-white/20 rounded-full flex items-center justify-center mb-10 group-hover:border-accent transition-colors duration-500">
               <span class="font-pixel text-[10px] text-accent">01</span>
             </div>
@@ -166,7 +205,7 @@
             </div>
           </div>
           <!-- Step 2 -->
-          <div class="relative z-10 group">
+          <div class="relative z-10 group w-[85vw] sm:w-[320px] flex-shrink-0 md:w-auto snap-start">
             <div class="w-10 h-10 bg-primary border border-white/20 rounded-full flex items-center justify-center mb-10 group-hover:border-accent transition-colors duration-500">
               <span class="font-pixel text-[10px] text-accent">02</span>
             </div>
@@ -178,7 +217,7 @@
             </div>
           </div>
           <!-- Step 3 -->
-          <div class="relative z-10 group">
+          <div class="relative z-10 group w-[85vw] sm:w-[320px] flex-shrink-0 md:w-auto snap-start">
             <div class="w-10 h-10 bg-primary border border-white/20 rounded-full flex items-center justify-center mb-10 group-hover:border-accent transition-colors duration-500">
               <span class="font-pixel text-[10px] text-accent">03</span>
             </div>
@@ -195,17 +234,17 @@
     </section>
 
     <!-- What We Offer Section -->
-    <section id="offerings" class="py-32 bg-secondary/20 reveal-up">
+    <section id="offerings" class="py-20 md:py-32 bg-secondary/20 reveal-up">
       <div class="max-w-7xl mx-auto px-6">
         <p class="font-pixel text-accent text-[10px] tracking-[0.3em] uppercase mb-6 opacity-90">// SERVICES</p>
-        <h2 class="font-main text-5xl md:text-7xl font-black tracking-tighter text-white mb-24 uppercase">
+        <h2 class="font-main text-3xl md:text-4xl font-black tracking-tighter text-white mb-16 uppercase">
           WHAT WE <span class="text-white/20">OFFER</span>
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
+        <div class="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-x-12 md:gap-y-20 pb-8 md:pb-0 snap-x snap-mandatory" style="scrollbar-width:none; -ms-overflow-style:none;">
 
           <!-- Service 1: Brand Strategy -->
-          <div class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500">
+          <div class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-[85vw] sm:w-[320px] flex-shrink-0 md:w-auto snap-start">
             <h3 class="font-main text-xl font-black uppercase tracking-tighter text-white mb-4">Brand Strategy<br><span class="text-accent">&amp; Identity</span></h3>
             <p class="text-white/50 text-sm leading-relaxed mb-8">We help businesses build a clear brand foundation that stands out and connects with the right audience.</p>
             <ul class="space-y-2 text-[11px] font-bold uppercase tracking-[0.15em] text-white/30">
@@ -221,7 +260,7 @@
           </div>
 
           <!-- Service 2: Social Media -->
-          <div class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500">
+          <div class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-[85vw] sm:w-[320px] flex-shrink-0 md:w-auto snap-start">
             <h3 class="font-main text-xl font-black uppercase tracking-tighter text-white mb-4">Social Media<br><span class="text-accent">&amp; Content</span></h3>
             <p class="text-white/50 text-sm leading-relaxed mb-8">We create consistent, engaging content that builds trust and grows your audience.</p>
             <ul class="space-y-2 text-[11px] font-bold uppercase tracking-[0.15em] text-white/30">
@@ -237,7 +276,7 @@
           </div>
 
           <!-- Service 3: Website -->
-          <div class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500">
+          <div class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-[85vw] sm:w-[320px] flex-shrink-0 md:w-auto snap-start">
             <h3 class="font-main text-xl font-black uppercase tracking-tighter text-white mb-4">Website &amp;<br><span class="text-accent">Digital Experience</span></h3>
             <p class="text-white/50 text-sm leading-relaxed mb-8">We design and build high-converting websites that look premium and perform well.</p>
             <ul class="space-y-2 text-[11px] font-bold uppercase tracking-[0.15em] text-white/30">
@@ -252,7 +291,7 @@
           </div>
 
           <!-- Service 4: Creative Studio -->
-          <div class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500">
+          <div class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-[85vw] sm:w-[320px] flex-shrink-0 md:w-auto snap-start">
             <h3 class="font-main text-xl font-black uppercase tracking-tighter text-white mb-4">Creative &amp;<br><span class="text-accent">Design Studio</span></h3>
             <p class="text-white/50 text-sm leading-relaxed mb-8">Our design team creates high-impact visuals for marketing and brand communication.</p>
             <ul class="space-y-2 text-[11px] font-bold uppercase tracking-[0.15em] text-white/30">
@@ -267,7 +306,7 @@
           </div>
 
           <!-- Service 5: Performance Marketing -->
-          <div class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500">
+          <div class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-[85vw] sm:w-[320px] flex-shrink-0 md:w-auto snap-start">
             <h3 class="font-main text-xl font-black uppercase tracking-tighter text-white mb-4">Performance<br><span class="text-accent">Marketing</span></h3>
             <p class="text-white/50 text-sm leading-relaxed mb-8">We help brands scale through data-driven advertising and funnel optimization.</p>
             <ul class="space-y-2 text-[11px] font-bold uppercase tracking-[0.15em] text-white/30">
@@ -287,92 +326,93 @@
 
 
 
-    <section id="services" class="py-32 bg-primary reveal-up overflow-hidden">
+    <section id="services" class="py-20 md:py-32 bg-black reveal-up overflow-hidden">
       <div class="max-w-7xl mx-auto px-6 mb-12">
-        <h2 class="font-main text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">
+        <p class="font-pixel text-accent text-[10px] tracking-[0.3em] uppercase mb-6 opacity-90">// OUR WORK</p>
+        <h2 class="font-main text-3xl md:text-4xl font-black tracking-tighter text-white uppercase">
           SELECTED <span class="text-white/20">WORK</span>
         </h2>
       </div>
 
       <!-- Scrollable Card Track -->
-      <div class="flex gap-6 overflow-x-auto pb-6 px-6 md:px-10 scroll-smooth snap-x snap-mandatory no-scrollbar" style="scrollbar-width:none;">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex gap-6 overflow-x-auto pb-8 scroll-smooth snap-x snap-mandatory" style="scrollbar-width:none; -ms-overflow-style:none;">
 
         <!-- Card 1 -->
-        <a href="/work" class="group relative flex-shrink-0 w-[320px] md:w-[400px] lg:w-[440px] snap-start bg-white/[0.03] border border-white/10 rounded-2xl p-8 flex flex-col justify-between min-h-[420px] hover:border-accent transition-all duration-500 cursor-pointer overflow-hidden">
-          <!-- Background glow on hover -->
-          <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
-          <!-- Top Row -->
-          <div class="flex items-center justify-between z-10">
-            <span class="font-pixel text-[10px] text-accent tracking-[0.3em] uppercase">01</span>
-            <span class="font-pixel text-[9px] text-white/30 tracking-widest uppercase border border-white/10 px-3 py-1 rounded-full group-hover:border-accent/50 transition-colors">// FINTECH</span>
+        <a href="/work" class="group relative flex-shrink-0 w-[320px] md:w-[420px] lg:w-[460px] snap-start flex flex-col rounded-2xl overflow-hidden border border-white/10 hover:border-accent/60 transition-all duration-500 bg-white/[0.02]">
+          <!-- Visual placeholder -->
+          <div class="w-full aspect-[4/3] bg-gradient-to-br from-[#0a0a0a] to-[#1a1a1a] relative overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <span class="font-pixel text-[10px] text-white/20 tracking-[0.4em] uppercase">FINTECH</span>
           </div>
           <!-- Content -->
-          <div class="z-10">
-            <p class="font-pixel text-[9px] text-accent/60 uppercase tracking-[0.2em] mb-4">2024</p>
-            <h3 class="font-main text-5xl font-black tracking-tighter text-white leading-none uppercase mb-4 group-hover:text-accent transition-colors duration-500">SCALING.</h3>
-            <p class="text-white/40 text-sm leading-relaxed">Helped a fintech brand scale its acquisition engine — from 0–1 in paid media infrastructure and brand positioning.</p>
-          </div>
-          <!-- CTA -->
-          <div class="z-10 mt-8 flex items-center justify-between">
-            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 group-hover:text-accent transition-colors duration-300">Learn More &rarr;</span>
+          <div class="p-7 flex flex-col flex-1 gap-4">
+            <div class="flex items-center justify-between">
+              <span class="font-pixel text-[9px] text-accent tracking-[0.3em] uppercase">01 / 2024</span>
+              <span class="font-pixel text-[9px] text-white/30 tracking-widest uppercase border border-white/10 px-3 py-1 rounded-full group-hover:border-accent/50 transition-colors">PAID MEDIA</span>
+            </div>
+            <h3 class="font-main text-4xl md:text-5xl font-black tracking-tighter text-white leading-none uppercase group-hover:text-accent transition-colors duration-500">SCALING.</h3>
+            <p class="text-white/40 text-sm leading-relaxed flex-1">Helped a fintech brand scale its acquisition engine — from 0–1 in paid media infrastructure and brand positioning.</p>
+            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 group-hover:text-accent transition-colors duration-300 mt-2">Learn More &rarr;</span>
           </div>
         </a>
 
         <!-- Card 2 -->
-        <a href="/work" class="group relative flex-shrink-0 w-[320px] md:w-[400px] lg:w-[440px] snap-start bg-white/[0.03] border border-white/10 rounded-2xl p-8 flex flex-col justify-between min-h-[420px] hover:border-accent transition-all duration-500 cursor-pointer overflow-hidden">
-          <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
-          <div class="flex items-center justify-between z-10">
-            <span class="font-pixel text-[10px] text-accent tracking-[0.3em] uppercase">02</span>
-            <span class="font-pixel text-[9px] text-white/30 tracking-widest uppercase border border-white/10 px-3 py-1 rounded-full group-hover:border-accent/50 transition-colors">// E-COMMERCE</span>
+        <a href="/work" class="group relative flex-shrink-0 w-[320px] md:w-[420px] lg:w-[460px] snap-start flex flex-col rounded-2xl overflow-hidden border border-white/10 hover:border-accent/60 transition-all duration-500 bg-white/[0.02]">
+          <div class="w-full aspect-[4/3] bg-gradient-to-br from-[#0d0d0a] to-[#1a1a10] relative overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <span class="font-pixel text-[10px] text-white/20 tracking-[0.4em] uppercase">E-COMMERCE</span>
           </div>
-          <div class="z-10">
-            <p class="font-pixel text-[9px] text-accent/60 uppercase tracking-[0.2em] mb-4">2023</p>
-            <h3 class="font-main text-5xl font-black tracking-tighter text-white leading-none uppercase mb-4 group-hover:text-accent transition-colors duration-500">REVENUE.</h3>
-            <p class="text-white/40 text-sm leading-relaxed">Re-engineered a DTC brand's full revenue funnel — from creative strategy to conversion infrastructure.</p>
-          </div>
-          <div class="z-10 mt-8">
-            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 group-hover:text-accent transition-colors duration-300">Learn More &rarr;</span>
+          <div class="p-7 flex flex-col flex-1 gap-4">
+            <div class="flex items-center justify-between">
+              <span class="font-pixel text-[9px] text-accent tracking-[0.3em] uppercase">02 / 2023</span>
+              <span class="font-pixel text-[9px] text-white/30 tracking-widest uppercase border border-white/10 px-3 py-1 rounded-full group-hover:border-accent/50 transition-colors">CRO / FUNNEL</span>
+            </div>
+            <h3 class="font-main text-4xl md:text-5xl font-black tracking-tighter text-white leading-none uppercase group-hover:text-accent transition-colors duration-500">REVENUE.</h3>
+            <p class="text-white/40 text-sm leading-relaxed flex-1">Re-engineered a DTC brand's full revenue funnel — from creative strategy to conversion infrastructure.</p>
+            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 group-hover:text-accent transition-colors duration-300 mt-2">Learn More &rarr;</span>
           </div>
         </a>
 
         <!-- Card 3 -->
-        <a href="/work" class="group relative flex-shrink-0 w-[320px] md:w-[400px] lg:w-[440px] snap-start bg-white/[0.03] border border-white/10 rounded-2xl p-8 flex flex-col justify-between min-h-[420px] hover:border-accent transition-all duration-500 cursor-pointer overflow-hidden">
-          <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
-          <div class="flex items-center justify-between z-10">
-            <span class="font-pixel text-[10px] text-accent tracking-[0.3em] uppercase">03</span>
-            <span class="font-pixel text-[9px] text-white/30 tracking-widest uppercase border border-white/10 px-3 py-1 rounded-full group-hover:border-accent/50 transition-colors">// SaaS</span>
+        <a href="/work" class="group relative flex-shrink-0 w-[320px] md:w-[420px] lg:w-[460px] snap-start flex flex-col rounded-2xl overflow-hidden border border-white/10 hover:border-accent/60 transition-all duration-500 bg-white/[0.02]">
+          <div class="w-full aspect-[4/3] bg-gradient-to-br from-[#0a0a0d] to-[#10101a] relative overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <span class="font-pixel text-[10px] text-white/20 tracking-[0.4em] uppercase">SaaS</span>
           </div>
-          <div class="z-10">
-            <p class="font-pixel text-[9px] text-accent/60 uppercase tracking-[0.2em] mb-4">2024</p>
-            <h3 class="font-main text-5xl font-black tracking-tighter text-white leading-none uppercase mb-4 group-hover:text-accent transition-colors duration-500">VELOCITY.</h3>
-            <p class="text-white/40 text-sm leading-relaxed">Drove creative velocity for a B2B SaaS platform — compressing their go-to-market timeline and CRO cycles.</p>
-          </div>
-          <div class="z-10 mt-8">
-            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 group-hover:text-accent transition-colors duration-300">Learn More &rarr;</span>
+          <div class="p-7 flex flex-col flex-1 gap-4">
+            <div class="flex items-center justify-between">
+              <span class="font-pixel text-[9px] text-accent tracking-[0.3em] uppercase">03 / 2024</span>
+              <span class="font-pixel text-[9px] text-white/30 tracking-widest uppercase border border-white/10 px-3 py-1 rounded-full group-hover:border-accent/50 transition-colors">B2B / GROWTH</span>
+            </div>
+            <h3 class="font-main text-4xl md:text-5xl font-black tracking-tighter text-white leading-none uppercase group-hover:text-accent transition-colors duration-500">VELOCITY.</h3>
+            <p class="text-white/40 text-sm leading-relaxed flex-1">Drove creative velocity for a B2B SaaS platform — compressing their go-to-market timeline and CRO cycles.</p>
+            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 group-hover:text-accent transition-colors duration-300 mt-2">Learn More &rarr;</span>
           </div>
         </a>
 
         <!-- Card 4 -->
-        <a href="/work" class="group relative flex-shrink-0 w-[320px] md:w-[400px] lg:w-[440px] snap-start bg-white/[0.03] border border-white/10 rounded-2xl p-8 flex flex-col justify-between min-h-[420px] hover:border-accent transition-all duration-500 cursor-pointer overflow-hidden">
-          <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
-          <div class="flex items-center justify-between z-10">
-            <span class="font-pixel text-[10px] text-accent tracking-[0.3em] uppercase">04</span>
-            <span class="font-pixel text-[9px] text-white/30 tracking-widest uppercase border border-white/10 px-3 py-1 rounded-full group-hover:border-accent/50 transition-colors">// BRAND</span>
+        <a href="/work" class="group relative flex-shrink-0 w-[320px] md:w-[420px] lg:w-[460px] snap-start flex flex-col rounded-2xl overflow-hidden border border-white/10 hover:border-accent/60 transition-all duration-500 bg-white/[0.02]">
+          <div class="w-full aspect-[4/3] bg-gradient-to-br from-[#0d0a0a] to-[#1a1010] relative overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <span class="font-pixel text-[10px] text-white/20 tracking-[0.4em] uppercase">BRAND</span>
           </div>
-          <div class="z-10">
-            <p class="font-pixel text-[9px] text-accent/60 uppercase tracking-[0.2em] mb-4">2024</p>
-            <h3 class="font-main text-5xl font-black tracking-tighter text-white leading-none uppercase mb-4 group-hover:text-accent transition-colors duration-500">IDENTITY.</h3>
-            <p class="text-white/40 text-sm leading-relaxed">Built a complete visual identity system for an early-stage startup from brand positioning to launch-ready assets.</p>
-          </div>
-          <div class="z-10 mt-8">
-            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 group-hover:text-accent transition-colors duration-300">Learn More &rarr;</span>
+          <div class="p-7 flex flex-col flex-1 gap-4">
+            <div class="flex items-center justify-between">
+              <span class="font-pixel text-[9px] text-accent tracking-[0.3em] uppercase">04 / 2024</span>
+              <span class="font-pixel text-[9px] text-white/30 tracking-widest uppercase border border-white/10 px-3 py-1 rounded-full group-hover:border-accent/50 transition-colors">IDENTITY</span>
+            </div>
+            <h3 class="font-main text-4xl md:text-5xl font-black tracking-tighter text-white leading-none uppercase group-hover:text-accent transition-colors duration-500">IDENTITY.</h3>
+            <p class="text-white/40 text-sm leading-relaxed flex-1">Built a complete visual identity system for an early-stage startup from brand positioning to launch-ready assets.</p>
+            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 group-hover:text-accent transition-colors duration-300 mt-2">Learn More &rarr;</span>
           </div>
         </a>
 
+        </div>
       </div>
 
-      <!-- See All Work CTA -->
-      <div class="max-w-7xl mx-auto px-6 mt-12 flex items-center justify-between">
+      <!-- Footer CTA row aligned to standard container -->
+      <div class="max-w-7xl mx-auto px-6 mt-12 flex flex-col sm:flex-row gap-6 items-center justify-between">
         <p class="text-white/30 text-sm font-medium">Scroll to explore &rarr;</p>
         <a href="/work" class="inline-flex justify-center items-center bg-accent text-black font-black uppercase tracking-widest text-xs px-10 py-5 rounded-full hover:bg-white transition-all">
           See All Work &rarr;
@@ -380,8 +420,10 @@
       </div>
     </section>
 
+
+
     <!-- Why Us: Built For Builders -->
-    <section id="agency-mission" class="py-32 bg-secondary/30 reveal-up">
+    <section id="agency-mission" class="py-20 md:py-32 bg-secondary/30 reveal-up">
       <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           <div>
@@ -406,18 +448,18 @@
     </section>
 
     <!-- Packages Section -->
-    <section id="packages" class="py-32 bg-secondary/20 reveal-up">
+    <section id="packages" class="py-20 md:py-32 bg-secondary/20 reveal-up">
       <div class="max-w-7xl mx-auto px-6">
         <p class="font-pixel text-accent text-[10px] tracking-[0.3em] uppercase mb-6 opacity-90">// PACKAGES</p>
-        <h2 class="font-main text-5xl md:text-7xl font-black tracking-tighter text-white mb-24 uppercase">
+        <h2 class="font-main text-3xl md:text-4xl font-black tracking-tighter text-white mb-16 uppercase">
           PICK YOUR <span class="text-white/20">PLAN</span>
         </h2>
 
         <!-- Monthly Package Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
+        <div class="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 mb-16 md:mb-32 p-12 -m-12 items-stretch snap-x snap-mandatory" style="scrollbar-width:none; -ms-overflow-style:none;">
 
           <!-- Tier 1: Starter Growth -->
-          <div class="group relative border border-white/10 rounded-2xl p-10 flex flex-col hover:border-white/30 transition-all duration-500">
+          <div class="group relative border border-white/10 rounded-2xl p-10 flex flex-col hover:border-white/30 transition-all duration-500 w-[85vw] sm:w-[360px] flex-shrink-0 md:w-auto snap-start">
             <p class="font-pixel text-[9px] text-white/30 tracking-[0.3em] uppercase mb-6">01 / STARTER</p>
             <h3 class="font-main text-2xl font-black uppercase tracking-tighter text-white mb-2">Starter<br>Growth</h3>
             <p class="text-white/40 text-xs mb-10 leading-relaxed">Best for early-stage businesses.</p>
@@ -433,7 +475,7 @@
           </div>
 
           <!-- Tier 2: Growth Accelerator (FEATURED) -->
-          <div class="group relative border border-accent bg-accent/10 rounded-2xl p-10 flex flex-col scale-[1.02] shadow-[0_0_60px_-10px_rgba(255,204,0,0.25)]">
+          <div class="group relative border border-accent bg-accent/10 rounded-2xl p-10 flex flex-col scale-100 md:scale-[1.02] shadow-[0_0_60px_-10px_rgba(255,204,0,0.25)] w-[85vw] sm:w-[360px] flex-shrink-0 md:w-auto snap-start">
             <div class="flex items-center justify-between mb-6">
               <p class="font-pixel text-[9px] text-accent tracking-[0.3em] uppercase">02 / POPULAR</p>
               <span class="font-pixel text-[8px] bg-accent text-black px-3 py-1 rounded-full uppercase tracking-widest">Most Chosen</span>
@@ -453,7 +495,7 @@
           </div>
 
           <!-- Tier 3: Brand Scale -->
-          <div class="group relative border border-white/10 rounded-2xl p-10 flex flex-col hover:border-white/30 transition-all duration-500">
+          <div class="group relative border border-white/10 rounded-2xl p-10 flex flex-col hover:border-white/30 transition-all duration-500 w-[85vw] sm:w-[360px] flex-shrink-0 md:w-auto snap-start">
             <p class="font-pixel text-[9px] text-white/30 tracking-[0.3em] uppercase mb-6">03 / SCALE</p>
             <h3 class="font-main text-2xl font-black uppercase tracking-tighter text-white mb-2">Brand<br>Scale</h3>
             <p class="text-white/40 text-xs mb-10 leading-relaxed">Best for aggressive growth.</p>
