@@ -24,17 +24,7 @@ const initInteractions = () => {
 
   revealElements.forEach(el => observer.observe(el));
 
-  // 2. Sticky Nav Scroll Effect
-  const nav = document.getElementById('main-nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-  });
-
-  // 3. Mobile Menu Toggle
+  // 2. Mobile Menu Toggle
   const mobileToggles = document.querySelectorAll('.mobile-menu-toggle');
   const mobileNav = document.getElementById('mobileNav');
   const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -59,7 +49,7 @@ const initInteractions = () => {
     });
   });
 
-  // 4. Contact Form Handling (guard: only runs if form is present)
+  // 3. Contact Form Handling (guard: only runs if form is present)
   const contactForm = document.getElementById('contact-form');
   const statusEl = document.getElementById('form-status');
 
@@ -70,7 +60,7 @@ const initInteractions = () => {
       const data = Object.fromEntries(formData.entries());
 
       statusEl.textContent = 'Processing your application...';
-      statusEl.style.color = 'var(--text-muted)';
+      statusEl.style.color = '#6B7280';
 
       try {
         const response = await fetch('/api/contact', {
@@ -83,7 +73,6 @@ const initInteractions = () => {
           statusEl.textContent = 'Application received. Data is being processed.';
           statusEl.style.color = '#10B981';
           contactForm.reset();
-          trackEvent('form_submit', { category: 'contact' });
         } else {
           throw new Error('Verification failed');
         }
@@ -95,93 +84,5 @@ const initInteractions = () => {
   }
 };
 
-/**
- * Analytics Placeholders
- */
-const trackEvent = (name, props) => {
-  console.log(`[Analytics] Event: ${name}`, props);
-  // window.gtag?.('event', name, props);
-  // window.fbq?.('track', name, props);
-};
-
-// Global scroll helper
-window.scrollToContact = () => {
-  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-};
-
-// Phase 29: Elevated Testimonial Data
-const testimonials = [
-  {
-    quote: "Our CPA dropped 42% in 60 days. They didn't redesign us — they re-architected our funnel.",
-    punchline: "re-architected our funnel.",
-    author: "HEAD OF GROWTH",
-    company: "SERIES B FINTECH",
-    avatar: "SF"
-  },
-  {
-    quote: "They declined three of our initial briefs. The one they accepted changed how we think about performance.",
-    punchline: "changed how we think about performance.",
-    author: "FOUNDER",
-    company: "D2C BRAND — 7-FIGURE REVENUE",
-    avatar: "D2"
-  }
-];
-
-const renderTestimonials = () => {
-  const grid = document.getElementById('testimonialGrid');
-  if (!grid) return;
-
-  grid.innerHTML = testimonials.map(t => {
-    // Only italicize the punchline for readability
-    const formattedQuote = t.quote.replace(t.punchline, `<span class="serif-italic">${t.punchline}</span>`);
-
-    return `
-      <div class="testimonial-card">
-        <p class="quote">"${formattedQuote}"</p>
-        <div class="testimonial-author-block">
-          <div class="author-avatar">${t.avatar}</div>
-          <div class="author-details">
-            <span class="author-name">${t.author}</span>
-            <span class="author-company">${t.company}</span>
-          </div>
-        </div>
-      </div>
-    `;
-  }).join('');
-};
-
-document.querySelectorAll('button, a').forEach(el => {
-  el.addEventListener('click', () => {
-    trackEvent('click', { text: el.textContent.trim(), id: el.id });
-  });
-});
-
 initInteractions();
-renderTestimonials();
 
-// Phase 29: Stat Counter Animation
-const animateCounters = () => {
-  const statEls = document.querySelectorAll('.stat-number');
-  if (!statEls.length) return;
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.getAttribute('data-target'), 10);
-        let current = 0;
-        const step = Math.ceil(target / 40);
-        const timer = setInterval(() => {
-          current = Math.min(current + step, target);
-          el.textContent = current;
-          if (current >= target) clearInterval(timer);
-        }, 30);
-        observer.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  statEls.forEach(el => observer.observe(el));
-};
-
-animateCounters();

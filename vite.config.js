@@ -7,6 +7,7 @@ export default defineConfig({
             input: {
                 main: resolve(__dirname, 'index.html'),
                 contact: resolve(__dirname, 'contact.html'),
+                work: resolve(__dirname, 'work.html'),
             },
         },
     },

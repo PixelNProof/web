@@ -30,16 +30,6 @@
     content="Design that converts. Marketing that proves it. Structured growth systems for modern brands.">
   <meta property="twitter:image" content="/assets/og-image.png">
 
-  <!-- Analytics & Tracking Hook Placeholders -->
-  <!-- [GA4] -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XXXXXXXXXX');</script> -->
-  <!-- [GTM] -->
-  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
-  <!-- [Meta Pixel] -->
-  <!-- [LinkedIn Insight] -->
-  <!-- [Microsoft Clarity] -->
-
   <!-- Structured Data -->
   <script type="application/ld+json">
     {
@@ -62,315 +52,409 @@
   <!-- Preconnect to Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="/src/style.css">
 </head>
 
-<body>
-  <div class="analytical-grid"></div>
+<body
+  class="bg-primary text-white font-main antialiased selection:bg-accent selection:text-black overflow-x-hidden">
+  
+  <!-- Global Noise/Grain Overlay -->
+  <div class="fixed inset-0 w-full h-full pointer-events-none z-[9999] opacity-[0.05] contrast-150 brightness-150 mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
 
-  <!-- Fixed Sidebars (Branded Refinement) -->
-  <div class="sidebar sidebar-left">
-    <div class="sidebar-item">PIXEL // PROOF</div>
-    <div class="sidebar-item">STRATEGY</div>
-    <div class="sidebar-item">DESIGN</div>
-  </div>
-  <div class="sidebar sidebar-right">
-    <div class="sidebar-item">ENGINEERING</div>
-    <div class="sidebar-item">GROWTH</div>
-    <div class="sidebar-item">SCALE</div>
+  <div class="fixed inset-0 w-full h-full pointer-events-none z-[-1] opacity-[0.03] bg-[url('/assets/noise.png')]">
   </div>
 
-  <!-- Sticky Navigation (Creative Agency Redesign) -->
-  <nav id="main-nav">
-    <div class="container nav-content">
-      <a href="/" class="logo">
-        <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="logo-img">
+  <!-- Simplified Navigation -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-primary/80 backdrop-blur-md border-b border-white/5 px-6 py-4">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="/" class="hover:opacity-80 transition-opacity">
+        <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="h-8 w-auto">
       </a>
-      <div class="nav-links desktop-only">
-        <a href="#app">Home</a>
-        <a href="#services">Work</a>
-        <a href="#about">About</a>
-        <a href="/contact" class="btn-primary mini">Work with us</a>
+      <div class="hidden md:flex items-center space-x-8 text-[10px] font-bold uppercase tracking-widest">
+        <a href="#services" class="hover:text-accent transition-colors">Work</a>
+        <a href="#agency-mission" class="hover:text-accent transition-colors">About</a>
+        <a href="/contact" class="text-accent border border-accent/20 px-5 py-2 rounded-full hover:bg-accent hover:text-black transition-all">Work with us</a>
       </div>
-      <button class="mobile-menu-toggle" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
+      <button class="md:hidden text-white mobile-menu-toggle" aria-label="Toggle Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+        </svg>
       </button>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <!-- Mobile Menu Overlay -->
-  <div class="mobile-nav-overlay" id="mobileNav">
-    <div class="mobile-nav-content">
-      <a href="#app" class="mobile-link">Home</a>
-      <a href="#services" class="mobile-link">Work</a>
-      <a href="#about" class="mobile-link">About</a>
-      <a href="/contact" class="mobile-link active">Work with us</a>
+  <div
+    class="fixed inset-0 bg-[#050505]/95 backdrop-blur-3xl z-40 hidden flex-col justify-center items-center opacity-0 transition-opacity duration-500 mobile-nav-overlay"
+    id="mobileNav">
+    <div class="flex flex-col space-y-8 text-center text-3xl font-black uppercase tracking-tighter mobile-nav-content">
+      <a href="#services" class="text-white hover:text-accent transition-colors mobile-link">Services</a>
+      <a href="#work" class="text-white hover:text-accent transition-colors mobile-link">Work</a>
+      <a href="#agency-mission" class="text-white hover:text-accent transition-colors mobile-link">About</a>
+      <a href="/contact"
+        class="text-accent hover:text-white transition-colors mobile-link mt-8 text-xl tracking-widest border border-accent/30 px-8 py-4 rounded-full">Work
+        with us</a>
     </div>
   </div>
 
-  <!-- Floating Button Removed for cleaner UI -->
-
   <div id="app">
-    <!-- Hero -->
-    <section class="hero-oversized">
-      <div class="container">
-        <div class="hero-huge-text reveal-up">
-        <p class="hero-eyebrow">// 001 &mdash; REVENUE INFRASTRUCTURE</p>
-        <h1 class="hero-headline">
-          Design That <span class="serif-italic">converts.</span> Marketing That <span class="accent-text">Proves</span>
-          It.
+    <!-- Redesigned Hero: Left-Aligned Dramatic -->
+    <section class="min-h-screen flex flex-col justify-center px-6 pt-32 pb-20">
+      <div class="max-w-[1200px] mx-auto w-full flex flex-col items-center text-center reveal-up">
+        <h1 class="hero-headline font-main text-4xl md:text-6xl lg:text-[4.8rem] font-black leading-[1.05] tracking-tight text-white mb-12 uppercase">
+          DESIGN THAT<br>
+          <span class="font-proof italic font-normal text-accent lowercase tracking-normal">converts.</span><br>
+          MARKETING<br>
+          THAT <span class="underline decoration-accent decoration-[6px] underline-offset-[0.2em] inline-block">PROVES IT.</span>
         </h1>
-        <p class="hero-subtitle-new">
+
+        <p class="text-white/60 text-lg md:text-2xl font-light leading-relaxed mb-16 max-w-3xl">
           We build conversion infrastructure for brands that are ready to scale. Not just look good.
         </p>
-        <div class="hero-ctas">
-          <a href="/contact" class="btn-primary">Request a Growth Strategy Review &rarr;</a>
-          <a href="#services" class="btn-secondary">View Selected Work</a>
-        </div>
-        <p class="hero-micro-proof">We work with brands ready to scale.</p>
+
+        <div class="flex flex-col sm:flex-row gap-6">
+          <a href="/contact" class="inline-flex justify-center items-center bg-accent text-black font-black uppercase tracking-widest text-xs px-12 py-6 rounded-full hover:bg-white transition-all">
+            Request a Growth Strategy Review &rarr;
+          </a>
+          <a href="#services" class="inline-flex justify-center items-center text-white/60 hover:text-white font-bold uppercase tracking-widest text-[10px] px-6 py-6 transition-colors">
+            View Selected Work
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Hero Metrics Section -->
-    <section class="hero-metrics-section reveal-up">
-      <div class="container text-center">
-        <div class="hero-stat-block">
-          <div class="hero-stat">
-            <div class="stat-value">
-              <span class="stat-number" data-target="42">0</span><span class="stat-suffix">%</span>
+    <!-- Brands Section -->
+    <section class="py-20 border-y border-white/5 bg-secondary/50">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+        <p class="font-main text-2xl md:text-3xl font-bold tracking-tighter text-white max-w-md">
+          We work with brands ready to scale. We prioritise long-term growth partnerships over volume.
+        </p>
+        <div class="flex flex-col items-end text-right">
+          <h3 class="text-white/30 font-main text-sm uppercase tracking-widest mb-2 font-bold">Your brand might look active.</h3>
+          <h2 class="text-accent font-main text-3xl md:text-5xl font-black tracking-tighter">But is it actually<br>CONVERTING?</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Proof System: Connecting Thread Redesign -->
+    <!-- Methodology: The Proof System -->
+    <section id="method" class="py-32 bg-primary reveal-up">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="font-pixel text-accent text-[10px] tracking-[0.3em] uppercase mb-6 opacity-90">
+          // PROPRIETARY FRAMEWORK
+        </p>
+        <h2 class="font-main text-5xl md:text-7xl font-black tracking-tighter text-white mb-24 uppercase">
+          THE PROOF SYSTEM&trade;
+        </h2>
+
+        <div class="relative grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24">
+          <!-- Connection Thread (Desktop) -->
+          <div class="hidden md:block absolute top-[1.25rem] left-0 w-full h-[1px] bg-white/10 z-0"></div>
+          
+          <!-- Step 1 -->
+          <div class="relative z-10 group">
+            <div class="w-10 h-10 bg-primary border border-white/20 rounded-full flex items-center justify-center mb-10 group-hover:border-accent transition-colors duration-500">
+              <span class="font-pixel text-[10px] text-accent">01</span>
             </div>
-            <span class="stat-label">Avg. CPA Reduction</span>
-          </div>
-          <div class="hero-stat-divider"></div>
-          <div class="hero-stat">
-            <div class="stat-value">
-              <span class="stat-number" data-target="32">0</span><span class="stat-suffix">&times;</span>
+            <h3 class="font-main text-3xl font-black text-white uppercase mb-6 tracking-tighter">DIAGNOSE</h3>
+            <p class="text-white/60 font-medium mb-10 leading-relaxed">Funnel forensics. Stack mapping. KPI calibration.</p>
+            <div class="space-y-4">
+              <div class="h-[1px] w-8 bg-accent/30 group-hover:w-full transition-all duration-700"></div>
+              <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 group-hover:text-white transition-colors">DEEP STACK AUDIT</p>
             </div>
-            <span class="stat-label">Avg. ROAS Improvement</span>
           </div>
-          <div class="hero-stat-divider"></div>
-          <div class="hero-stat">
-            <div class="stat-value">
-              <span class="stat-number" data-target="90">0</span><span class="stat-suffix"> days</span>
+          <!-- Step 2 -->
+          <div class="relative z-10 group">
+            <div class="w-10 h-10 bg-primary border border-white/20 rounded-full flex items-center justify-center mb-10 group-hover:border-accent transition-colors duration-500">
+              <span class="font-pixel text-[10px] text-accent">02</span>
             </div>
-            <span class="stat-label">To Measurable Result</span>
+            <h3 class="font-main text-3xl font-black text-white uppercase mb-6 tracking-tighter">ARCHITECT</h3>
+            <p class="text-white/60 font-medium mb-10 leading-relaxed">Narrative systems. Acquisition loops. Asset infrastructure.</p>
+            <div class="space-y-4">
+              <div class="h-[1px] w-8 bg-accent/30 group-hover:w-full transition-all duration-700"></div>
+              <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 group-hover:text-white transition-colors">SYSTEMS DESIGN</p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="relative z-10 group">
+            <div class="w-10 h-10 bg-primary border border-white/20 rounded-full flex items-center justify-center mb-10 group-hover:border-accent transition-colors duration-500">
+              <span class="font-pixel text-[10px] text-accent">03</span>
+            </div>
+            <h3 class="font-main text-3xl font-black text-white uppercase mb-6 tracking-tighter">COMPOUND</h3>
+            <p class="text-white/60 font-medium mb-10 leading-relaxed">Regression testing. Creative velocity. CRO sprint logic.</p>
+            <div class="space-y-4">
+              <div class="h-[1px] w-8 bg-accent/30 group-hover:w-full transition-all duration-700"></div>
+              <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 group-hover:text-white transition-colors">VELOCITY UPSCALING</p>
+            </div>
           </div>
         </div>
-        <p class="hero-partnerships-line">We prioritise long-term growth partnerships over volume.</p>
+
       </div>
     </section>
 
-    <section class="premium-audit-section reveal-up">
-      <div class="container premium-audit-content">
-        <h3 class="audit-statement">Your brand might look active.</h3>
-        <h2 class="audit-headline">But is it actually<br><span class="emphasis">CONVERTING?</span></h2>
+    <!-- Packages Section -->
+    <section id="packages" class="py-32 bg-secondary/20 reveal-up">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="font-pixel text-accent text-[10px] tracking-[0.3em] uppercase mb-6 opacity-90">// PACKAGES</p>
+        <h2 class="font-main text-5xl md:text-7xl font-black tracking-tighter text-white mb-24 uppercase">
+          PICK YOUR <span class="text-white/20">PLAN</span>
+        </h2>
+
+        <!-- Monthly Package Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
+
+          <!-- Tier 1: Starter Growth -->
+          <div class="group relative border border-white/10 rounded-2xl p-10 flex flex-col hover:border-white/30 transition-all duration-500">
+            <p class="font-pixel text-[9px] text-white/30 tracking-[0.3em] uppercase mb-6">01 / STARTER</p>
+            <h3 class="font-main text-2xl font-black uppercase tracking-tighter text-white mb-2">Starter<br>Growth</h3>
+            <p class="text-white/40 text-xs mb-10 leading-relaxed">Best for early-stage businesses.</p>
+            <ul class="space-y-3 text-[11px] font-bold uppercase tracking-[0.12em] text-white/40 flex-1">
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> 12 social media posts / month</li>
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> 4 reels</li>
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> Caption writing &amp; hashtags</li>
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> Monthly performance report</li>
+            </ul>
+            <a href="/contact" class="mt-10 inline-flex justify-center items-center border border-white/20 text-white font-black uppercase tracking-widest text-[10px] px-8 py-4 rounded-full hover:border-accent hover:text-accent transition-all">
+              Get Started &rarr;
+            </a>
+          </div>
+
+          <!-- Tier 2: Growth Accelerator (FEATURED) -->
+          <div class="group relative border border-accent bg-accent/10 rounded-2xl p-10 flex flex-col scale-[1.02] shadow-[0_0_60px_-10px_rgba(255,204,0,0.25)]">
+            <div class="flex items-center justify-between mb-6">
+              <p class="font-pixel text-[9px] text-accent tracking-[0.3em] uppercase">02 / POPULAR</p>
+              <span class="font-pixel text-[8px] bg-accent text-black px-3 py-1 rounded-full uppercase tracking-widest">Most Chosen</span>
+            </div>
+            <h3 class="font-main text-2xl font-black uppercase tracking-tighter text-white mb-2">Growth<br>Accelerator</h3>
+            <p class="text-white/50 text-xs mb-10 leading-relaxed">Best for growing brands.</p>
+            <ul class="space-y-3 text-[11px] font-bold uppercase tracking-[0.12em] text-white/70 flex-1">
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> 20 social media posts / month</li>
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> 8 reels</li>
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> Story creatives</li>
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> Community management</li>
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> Monthly analytics report</li>
+            </ul>
+            <a href="/contact" class="mt-10 inline-flex justify-center items-center bg-accent text-black font-black uppercase tracking-widest text-[10px] px-8 py-4 rounded-full hover:bg-white transition-all">
+              Get Started &rarr;
+            </a>
+          </div>
+
+          <!-- Tier 3: Brand Scale -->
+          <div class="group relative border border-white/10 rounded-2xl p-10 flex flex-col hover:border-white/30 transition-all duration-500">
+            <p class="font-pixel text-[9px] text-white/30 tracking-[0.3em] uppercase mb-6">03 / SCALE</p>
+            <h3 class="font-main text-2xl font-black uppercase tracking-tighter text-white mb-2">Brand<br>Scale</h3>
+            <p class="text-white/40 text-xs mb-10 leading-relaxed">Best for aggressive growth.</p>
+            <ul class="space-y-3 text-[11px] font-bold uppercase tracking-[0.12em] text-white/40 flex-1">
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> 30 posts / month</li>
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> 12 reels</li>
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> Content strategy &amp; trend research</li>
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> Influencer collaboration support</li>
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> Paid ads creative support</li>
+              <li class="flex items-start gap-3"><span class="text-accent mt-0.5">—</span> Detailed analytics dashboard</li>
+            </ul>
+            <a href="/contact" class="mt-10 inline-flex justify-center items-center border border-white/20 text-white font-black uppercase tracking-widest text-[10px] px-8 py-4 rounded-full hover:border-accent hover:text-accent transition-all">
+              Get Started &rarr;
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Project-Based Services -->
+        <div>
+          <p class="font-pixel text-accent text-[10px] tracking-[0.3em] uppercase mb-8 opacity-90">// PROJECT-BASED SERVICES</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div class="group border border-white/10 rounded-2xl p-8 hover:border-accent transition-all duration-500 cursor-pointer">
+              <div class="flex items-start justify-between mb-6">
+                <h3 class="font-main text-xl font-black uppercase tracking-tighter text-white group-hover:text-accent transition-colors">Brand Identity</h3>
+                <span class="font-pixel text-[9px] text-accent/50 mt-1">→</span>
+              </div>
+              <p class="text-white/40 text-sm leading-relaxed">Complete brand identity systems for startups and businesses.</p>
+            </div>
+
+            <div class="group border border-white/10 rounded-2xl p-8 hover:border-accent transition-all duration-500 cursor-pointer">
+              <div class="flex items-start justify-between mb-6">
+                <h3 class="font-main text-xl font-black uppercase tracking-tighter text-white group-hover:text-accent transition-colors">Website Design<br>&amp; Development</h3>
+                <span class="font-pixel text-[9px] text-accent/50 mt-1">→</span>
+              </div>
+              <p class="text-white/40 text-sm leading-relaxed">Landing pages, business websites, and e-commerce platforms.</p>
+            </div>
+
+            <div class="group border border-white/10 rounded-2xl p-8 hover:border-accent transition-all duration-500 cursor-pointer">
+              <div class="flex items-start justify-between mb-6">
+                <h3 class="font-main text-xl font-black uppercase tracking-tighter text-white group-hover:text-accent transition-colors">Creative Retainers</h3>
+                <span class="font-pixel text-[9px] text-accent/50 mt-1">→</span>
+              </div>
+              <p class="text-white/40 text-sm leading-relaxed">Monthly design support for marketing teams and founders.</p>
+            </div>
+
+            <div class="group border border-white/10 rounded-2xl p-8 hover:border-accent transition-all duration-500 cursor-pointer">
+              <div class="flex items-start justify-between mb-6">
+                <h3 class="font-main text-xl font-black uppercase tracking-tighter text-white group-hover:text-accent transition-colors">Ad Campaign Setup</h3>
+                <span class="font-pixel text-[9px] text-accent/50 mt-1">→</span>
+              </div>
+              <p class="text-white/40 text-sm leading-relaxed">Full advertising strategy, creative production, and optimization.</p>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- The Gap Section (Problem Agitation) -->
-    <section class="the-gap-section reveal-up">
-      <div class="container">
-        <div class="split-layout">
-        <div class="left gap-content">
-          <h2 class="gap-heading">
-            Most businesses post consistently.
-            <span class="gap-subheading">Few communicate strategically.</span>
-          </h2>
-
-          <ul class="gap-list">
-            <li>Random content with no funnel logic</li>
-            <li>Weak hooks that don’t convert</li>
-            <li>No clear offer</li>
-            <li>No measurable system</li>
-            <li>Less shouting. More clarity.</li>
-          </ul>
-
-          <div class="gap-result">
-            <span class="result-label">Result?</span>
-            <p>Likes. No leads. No growth.</p>
-          </div>
-
-          <p class="gap-outro">That’s where Pixel & Proof comes in.</p>
-        </div>
-        <div class="right gap-visual">
-          <div class="placeholder-image">
-            <div class="placeholder-overlay">STRATEGY PLACEHOLDER</div>
-          </div>
-        </div>
+    <section id="services" class="py-32 bg-primary reveal-up overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 mb-12">
+        <h2 class="font-main text-5xl md:text-7xl font-black tracking-tighter text-white uppercase">
+          SELECTED <span class="text-white/20">WORK</span>
+        </h2>
       </div>
-      </div>
-    </section>
 
-    <!-- The Proof System™ (Phase 29 Elevation) -->
-    <section id="method" class="process-section reveal-up">
-      <div class="container">
-        <p class="framework-eyebrow">// PROPRIETARY FRAMEWORK</p>
-      <h2 class="section-label">THE PROOF SYSTEM&#8482;</h2>
-      <div class="methodology-blueprint">
-        <!-- Animated "Marching Ants" SVG Path -->
-        <svg class="blueprint-line" viewBox="0 0 1000 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 10 L1000 10" />
-        </svg>
-        <div class="blueprint-step">
-          <div class="step-indicator">01</div>
-          <h4>DIAGNOSE</h4>
-          <p class="step-summary">Funnel forensics. Stack mapping. KPI calibration.</p>
-          <ul class="blueprint-list">
-            <li>FUNNEL DIAGNOSTICS</li>
-            <li>STACK OPTIMIZATION</li>
-            <li>KPI CALIBRATION</li>
-          </ul>
-        </div>
-        <div class="blueprint-step">
-          <div class="step-indicator">02</div>
-          <h4>ARCHITECT</h4>
-          <p class="step-summary">Narrative systems. Acquisition loops. Asset infrastructure.</p>
-          <ul class="blueprint-list">
-            <li>NARRATIVE DESIGN</li>
-            <li>ACQUISITION LOOPS</li>
-            <li>HIGH-FIDELITY ASSETS</li>
-          </ul>
-        </div>
-        <div class="blueprint-step">
-          <div class="step-indicator">03</div>
-          <h4>COMPOUND</h4>
-          <p class="step-summary">Regression testing. Creative velocity. CRO sprint logic.</p>
-          <ul class="blueprint-list">
-            <li>REGRESSION TESTING</li>
-            <li>CREATIVE VELOCITY</li>
-            <li>CRO SPRINT LOGIC</li>
-          </ul>
-        </div>
-      </div>
-        <div class="see-process-btn">
-          <a href="/contact" class="btn-primary">REQUEST A GROWTH STRATEGY REVIEW &rarr;</a>
-        </div>
-      </div>
-    </section>
+      <!-- Scrollable Card Track -->
+      <div class="flex gap-6 overflow-x-auto pb-6 px-6 md:px-10 scroll-smooth snap-x snap-mandatory no-scrollbar" style="scrollbar-width:none;">
 
-    <!-- Selected Work (Elite Agency Execution) -->
-    <section id="services" class="case-studies-section reveal-up">
-      <div class="container">
-        <h2 class="section-label">SELECTED WORK</h2>
-        <div class="creative-work-grid">
-        <div class="work-item" data-num="01">
-          <div class="work-visual">
-            <div class="placeholder-overlay">FINTECH $50M</div>
+        <!-- Card 1 -->
+        <a href="/work" class="group relative flex-shrink-0 w-[320px] md:w-[400px] lg:w-[440px] snap-start bg-white/[0.03] border border-white/10 rounded-2xl p-8 flex flex-col justify-between min-h-[420px] hover:border-accent transition-all duration-500 cursor-pointer overflow-hidden">
+          <!-- Background glow on hover -->
+          <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
+          <!-- Top Row -->
+          <div class="flex items-center justify-between z-10">
+            <span class="font-pixel text-[10px] text-accent tracking-[0.3em] uppercase">01</span>
+            <span class="font-pixel text-[9px] text-white/30 tracking-widest uppercase border border-white/10 px-3 py-1 rounded-full group-hover:border-accent/50 transition-colors">// FINTECH</span>
           </div>
-          <div class="work-details">
-            <span class="category">STRATEGY / GROWTH</span>
-            <h4>SCALING THE <span class="serif-italic">UNSCALABLE.</span></h4>
+          <!-- Content -->
+          <div class="z-10">
+            <p class="font-pixel text-[9px] text-accent/60 uppercase tracking-[0.2em] mb-4">2024</p>
+            <h3 class="font-main text-5xl font-black tracking-tighter text-white leading-none uppercase mb-4 group-hover:text-accent transition-colors duration-500">SCALING.</h3>
+            <p class="text-white/40 text-sm leading-relaxed">Helped a fintech brand scale its acquisition engine — from 0–1 in paid media infrastructure and brand positioning.</p>
           </div>
-        </div>
-        <div class="work-item staggered" data-num="02">
-          <div class="work-visual">
-            <div class="placeholder-overlay">D2C REVENUE</div>
+          <!-- CTA -->
+          <div class="z-10 mt-8 flex items-center justify-between">
+            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 group-hover:text-accent transition-colors duration-300">Learn More &rarr;</span>
           </div>
-          <div class="work-details">
-            <span class="category">CRO / PERFORMANCE</span>
-            <h4>RE-ENGINEERING <span class="serif-italic">REVENUE.</span></h4>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="/work" class="group relative flex-shrink-0 w-[320px] md:w-[400px] lg:w-[440px] snap-start bg-white/[0.03] border border-white/10 rounded-2xl p-8 flex flex-col justify-between min-h-[420px] hover:border-accent transition-all duration-500 cursor-pointer overflow-hidden">
+          <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
+          <div class="flex items-center justify-between z-10">
+            <span class="font-pixel text-[10px] text-accent tracking-[0.3em] uppercase">02</span>
+            <span class="font-pixel text-[9px] text-white/30 tracking-widest uppercase border border-white/10 px-3 py-1 rounded-full group-hover:border-accent/50 transition-colors">// E-COMMERCE</span>
           </div>
-        </div>
-        <div class="work-item" data-num="03">
-          <div class="work-visual">
-            <div class="placeholder-overlay">SaaS ACQUISITION</div>
+          <div class="z-10">
+            <p class="font-pixel text-[9px] text-accent/60 uppercase tracking-[0.2em] mb-4">2023</p>
+            <h3 class="font-main text-5xl font-black tracking-tighter text-white leading-none uppercase mb-4 group-hover:text-accent transition-colors duration-500">REVENUE.</h3>
+            <p class="text-white/40 text-sm leading-relaxed">Re-engineered a DTC brand's full revenue funnel — from creative strategy to conversion infrastructure.</p>
           </div>
-          <div class="work-details">
-            <span class="category">PAID MEDIA / SCALE</span>
-            <h4>THE SaaS <span class="serif-italic">VELOCITY.</span></h4>
+          <div class="z-10 mt-8">
+            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 group-hover:text-accent transition-colors duration-300">Learn More &rarr;</span>
           </div>
-        </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="/work" class="group relative flex-shrink-0 w-[320px] md:w-[400px] lg:w-[440px] snap-start bg-white/[0.03] border border-white/10 rounded-2xl p-8 flex flex-col justify-between min-h-[420px] hover:border-accent transition-all duration-500 cursor-pointer overflow-hidden">
+          <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
+          <div class="flex items-center justify-between z-10">
+            <span class="font-pixel text-[10px] text-accent tracking-[0.3em] uppercase">03</span>
+            <span class="font-pixel text-[9px] text-white/30 tracking-widest uppercase border border-white/10 px-3 py-1 rounded-full group-hover:border-accent/50 transition-colors">// SaaS</span>
+          </div>
+          <div class="z-10">
+            <p class="font-pixel text-[9px] text-accent/60 uppercase tracking-[0.2em] mb-4">2024</p>
+            <h3 class="font-main text-5xl font-black tracking-tighter text-white leading-none uppercase mb-4 group-hover:text-accent transition-colors duration-500">VELOCITY.</h3>
+            <p class="text-white/40 text-sm leading-relaxed">Drove creative velocity for a B2B SaaS platform — compressing their go-to-market timeline and CRO cycles.</p>
+          </div>
+          <div class="z-10 mt-8">
+            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 group-hover:text-accent transition-colors duration-300">Learn More &rarr;</span>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="/work" class="group relative flex-shrink-0 w-[320px] md:w-[400px] lg:w-[440px] snap-start bg-white/[0.03] border border-white/10 rounded-2xl p-8 flex flex-col justify-between min-h-[420px] hover:border-accent transition-all duration-500 cursor-pointer overflow-hidden">
+          <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
+          <div class="flex items-center justify-between z-10">
+            <span class="font-pixel text-[10px] text-accent tracking-[0.3em] uppercase">04</span>
+            <span class="font-pixel text-[9px] text-white/30 tracking-widest uppercase border border-white/10 px-3 py-1 rounded-full group-hover:border-accent/50 transition-colors">// BRAND</span>
+          </div>
+          <div class="z-10">
+            <p class="font-pixel text-[9px] text-accent/60 uppercase tracking-[0.2em] mb-4">2024</p>
+            <h3 class="font-main text-5xl font-black tracking-tighter text-white leading-none uppercase mb-4 group-hover:text-accent transition-colors duration-500">IDENTITY.</h3>
+            <p class="text-white/40 text-sm leading-relaxed">Built a complete visual identity system for an early-stage startup from brand positioning to launch-ready assets.</p>
+          </div>
+          <div class="z-10 mt-8">
+            <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 group-hover:text-accent transition-colors duration-300">Learn More &rarr;</span>
+          </div>
+        </a>
+
       </div>
+
+      <!-- See All Work CTA -->
+      <div class="max-w-7xl mx-auto px-6 mt-12 flex items-center justify-between">
+        <p class="text-white/30 text-sm font-medium">Scroll to explore &rarr;</p>
+        <a href="/work" class="inline-flex justify-center items-center bg-accent text-black font-black uppercase tracking-widest text-xs px-10 py-5 rounded-full hover:bg-white transition-all">
+          See All Work &rarr;
+        </a>
       </div>
     </section>
 
-    <!-- Client Results (Phase 29 Elevation) -->
-    <section id="testimonials" class="testimonials-section reveal-up">
-      <div class="container">
-        <h2 class="section-label">CLIENT RESULTS</h2>
-        <div class="testimonial-grid" id="testimonialGrid">
-          <!-- Cards rendered dynamically via main.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Pixel & Proof (Phase 29 Elevation) -->
-    <section id="about" class="why-us-section reveal-up">
-      <div class="container">
-        <h2 class="section-label">WHY PIXEL &amp; PROOF</h2>
-      <div class="split-layout">
-        <div class="left">
-          <h2 class="massive-statement builders-headline">Built For <br>Builders.
-          </h2>
-          <p class="builders-subtext">We&rsquo;re in build mode &mdash; just like you.</p>
-        </div>
-        <div class="right builders-content">
-          <p class="builders-intro">Our operating philosophy:</p>
-          <ul class="builders-list">
-            <li>We optimise for revenue, not applause.</li>
-            <li>No account managers between you and the thinking.</li>
-            <li>Every engagement is structured. Every output is measurable.</li>
-          </ul>
-          <p class="builders-closing">
-            <span class="cross-out">No bloated teams.</span><br>
-            <span class="cross-out">No vanity metrics.</span><br>
-            <span class="highlight-text">Just precise, measurable growth.</span>
+    <!-- Why Us: Built For Builders -->
+    <section id="agency-mission" class="py-32 bg-secondary/30 reveal-up">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          <div>
+            <h2 class="font-main text-5xl md:text-8xl font-black tracking-tighter uppercase leading-[0.85] text-white mb-8">
+              Built For<br><span class="text-accent underline decoration-4 underline-offset-8">Builders.</span>
+            </h2>
+            <p class="text-white/60 text-xl font-medium">We’re in build mode — just like you.</p>
+          </div>
+          <div class="space-y-12">
+            <p class="font-pixel text-accent text-[10px] tracking-[0.3em] uppercase opacity-90 border-l-2 border-accent pl-4">
+              // OPERATING PHILOSOPHY
             </p>
+            <ul class="space-y-8 text-white/80 font-main text-lg md:text-xl font-bold italic tracking-tight">
+              <li class="flex gap-4 items-start"><span class="text-accent font-black mt-1">→</span> We optimise for revenue, not applause.</li>
+              <li class="flex gap-4 items-start"><span class="text-accent font-black mt-1">→</span> No account managers between you and the thinking.</li>
+              <li class="flex gap-4 items-start"><span class="text-accent font-black mt-1">→</span> Every engagement is structured. Every output is measurable.</li>
+            </ul>
+            <p class="text-white/40 text-sm leading-relaxed max-w-md">No bloated teams. No vanity metrics. Just precise, measurable growth.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Final CTA (Phase 29 Elevation) -->
-    <section class="final-cta-section reveal-up">
-      <div class="container">
-        <div class="cta-box-premium">
-        <div class="cta-inner">
-          <p class="cta-eyebrow">// WE ARE SELECTIVE BY DESIGN</p>
-          <h2 class="cta-title">We take 3&ndash;4 clients<br><span class="serif-italic">per quarter.</span></h2>
-          <p class="cta-subline">Is this your window?</p>
-          <div class="cta-buttons">
-            <a href="/contact" class="btn-primary">REQUEST A GROWTH STRATEGY REVIEW &rarr;</a>
-            <a href="/contact" class="btn-secondary">VIEW OUR PROCESS</a>
-          </div>
-        </div>
-      </div>
+    <!-- Selective by Design / Final CTA -->
+    <section class="py-32 bg-primary reveal-up">
+      <div class="max-w-7xl mx-auto px-6 text-center">
+        <p class="font-pixel text-accent text-[10px] tracking-[0.4em] uppercase mb-12 font-bold">// WE ARE SELECTIVE BY DESIGN</p>
+        <h2 class="font-main text-5xl md:text-8xl font-black tracking-tighter uppercase mb-16 text-white">
+          We take 3–4 clients<br>per quarter.
+        </h2>
+        <p class="text-white/60 text-xl md:text-2xl mb-24 max-w-2xl mx-auto font-medium">
+          Is this your window?
+        </p>
+        <a href="/contact" class="inline-block bg-accent text-black font-black uppercase tracking-widest text-sm px-16 py-8 rounded-full hover:bg-white transition-all">
+          Request a Growth Strategy Review &rarr;
+        </a>
       </div>
     </section>
 
-    <footer class="social-house-footer container">
-      <div class="footer-positioning">
-        <p>Pixel &amp; Proof is a boutique performance studio.<br>
-          We don&rsquo;t do retainers without results.<br>
-          We don&rsquo;t scale what isn&rsquo;t working.</p>
-      </div>
-      <div class="footer-top">
-        <div class="footer-brand">
-          <img src="/assets/logo_1.PNG" alt="P&amp;P" class="footer-logo">
-          <p class="footer-tagline">PRECISION. PROFIT. PROOF.</p>
+    <!-- Final Footer -->
+    <footer class="py-20 bg-primary border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+        <div class="flex flex-col items-center md:items-start">
+          <img src="/assets/logo_1.PNG" alt="P&P" class="h-6 w-auto mb-8 opacity-60 grayscale">
+          <p class="text-white/30 text-[10px] font-bold uppercase tracking-widest">A boutique performance studio.</p>
         </div>
-        <div class="footer-socials">
-          <a href="https://instagram.com/pixelnproof" class="social-link">INSTAGRAM <span class="arrow">↗</span></a>
-          <a href="#" class="social-link">LINKEDIN <span class="arrow">↗</span></a>
-          <a href="mailto:pixelnproof@gmail.com" class="social-link">EMAIL <span class="arrow">↗</span></a>
+        <div class="flex gap-12 text-[10px] font-bold uppercase tracking-widest">
+          <a href="https://instagram.com/pixelnproof" class="text-white/40 hover:text-accent transition-colors">Instagram</a>
+          <a href="#" class="text-white/40 hover:text-accent transition-colors">LinkedIn</a>
+          <a href="mailto:pixelnproof@gmail.com" class="text-white/40 hover:text-accent transition-colors">Email</a>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 PIXEL &amp; PROOF. ALL RIGHTS RESERVED.</p>
-        <div class="footer-nav">
-          <a href="#services">WORK</a>
-          <a href="#about">ABOUT</a>
-          <a href="/contact">CONTACT</a>
-        </div>
+        <p class="text-white/20 text-[9px] font-bold uppercase tracking-widest">© 2026 PIXEL & PROOF. ALL RIGHTS RESERVED.</p>
       </div>
     </footer>
   </div>
 
-  <!-- Environment Variable Support Hook -->
-  <script>window.ENV = { SUPABASE_URL: '', RESEND_KEY: '' };</script>
   <script type="module" src="/src/main.js"></script>
 </body>
 
