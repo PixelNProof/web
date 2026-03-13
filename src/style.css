@@ -2,18 +2,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #050505;
+  /* New Premium Font Stack */
+  --font-heading: "Helvetica Now Display", "Inter", sans-serif;
+  --font-system: "ITC Avant Garde Gothic", "Inter", sans-serif;
+  --font-editorial: "Times New Roman MT", "Times New Roman", serif;
+  --font-pixel: "Silkscreen", sans-serif;
+
+  --color-primary: #000000;
   --color-accent: #FFCC00;
   --color-secondary: #0a0a0a;
-  --color-off-white: #F5F7FA;
-  --color-muted: #6B7280;
-
-  --font-main: "Inter", sans-serif;
-  --font-proof: "Playfair Display", serif;
-  --font-pixel: "Silkscreen", cursive;
-
-  --letter-spacing-brutalist: -0.05em;
-  --letter-spacing-widest-pill: 0.3em;
+  --color-muted: #666666;
 }
 
 @layer base {
@@ -21,7 +19,7 @@
     @apply scroll-smooth;
   }
   body {
-    @apply bg-primary text-white font-main antialiased selection:bg-accent selection:text-black;
+    @apply bg-primary text-white font-[var(--font-system)] antialiased selection:bg-accent selection:text-black;
   }
 }
 
@@ -35,15 +33,32 @@
   }
 
   .fluid-h1 {
-    font-size: clamp(2.5rem, 10vw, 8.75rem); /* Mobile: ~40px, Desktop: ~140px */
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(1.75rem, 8vw, 5.5rem);
+    letter-spacing: -0.05em;
+    line-height: 0.95;
   }
   
   .fluid-h2 {
-    font-size: clamp(1.75rem, 5vw, 3.75rem); /* Mobile: ~28px, Desktop: ~60px */
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(1.5rem, 4.5vw, 3.5rem);
+    letter-spacing: -0.03em;
   }
 
-  .touch-target {
-    min-height: 48px;
+  /* Utility for Font Overrides */
+  .font-heading { font-family: var(--font-heading); }
+  .font-system { font-family: var(--font-system); }
+  .font-editorial { font-family: var(--font-editorial); }
+  .font-pixel { font-family: var(--font-pixel); }
+
+  /* Reverted Card Hover Lift */
+  .card-lift {
+    @apply transition-transform duration-500 ease-out;
+  }
+  .card-lift:hover {
+    @apply -translate-y-2;
   }
 }
 
@@ -52,6 +67,11 @@
     @apply opacity-0 translate-y-10 transition-all duration-700 ease-out;
   }
   .reveal-up.active {
-    @apply opacity-100 translate-y-0;
+    @apply opacity-100 translate-y-0 ;
+  }
+
+  /* Boutique Glow */
+  .boutique-glow {
+    background: radial-gradient(circle at center, rgba(255, 204, 0, 0.08) 0%, transparent 70%);
   }
 }
