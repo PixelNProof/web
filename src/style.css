@@ -33,6 +33,18 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  .fluid-h1 {
+    font-size: clamp(2.5rem, 10vw, 8.75rem); /* Mobile: ~40px, Desktop: ~140px */
+  }
+  
+  .fluid-h2 {
+    font-size: clamp(1.75rem, 5vw, 3.75rem); /* Mobile: ~28px, Desktop: ~60px */
+  }
+
+  .touch-target {
+    min-height: 48px;
+  }
 }
 
 @layer components {
