@@ -69,7 +69,7 @@
   <div class="fixed inset-0 w-full h-full pointer-events-none z-[-1] opacity-[0.03] bg-[url('/assets/noise.png')]">
   </div>
 
-  <!-- Navigation (exact match to index.html) -->
+  <!-- Navigation -->
   <header class="fixed top-0 left-0 w-full z-50 bg-primary/80 backdrop-blur-md border-b border-white/5 px-6 py-4">
     <nav class="max-w-7xl mx-auto flex justify-between items-center">
       <a href="/" class="hover:opacity-80 transition-opacity">
@@ -78,7 +78,7 @@
       <div class="hidden md:flex items-center space-x-8 text-[10px] font-bold uppercase tracking-widest">
         <a href="/#services" class="hover:text-accent transition-colors">Work</a>
         <a href="/#agency-mission" class="hover:text-accent transition-colors">About</a>
-        <a href="/contact" class="text-accent border border-accent/20 px-5 py-2 rounded-2xl hover:bg-accent hover:text-black transition-all">Work with us</a>
+        <a href="/contact" class="text-accent border border-accent/20 px-5 py-2 rounded-full hover:bg-accent hover:text-black transition-all">Work with us</a>
       </div>
       <button class="md:hidden text-white mobile-menu-toggle" aria-label="Toggle Menu">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -88,7 +88,7 @@
     </nav>
   </header>
 
-  <!-- Mobile Menu Overlay (exact match to index.html) -->
+  <!-- Mobile Menu Overlay -->
   <div
     class="fixed inset-0 bg-[#050505]/95 backdrop-blur-3xl z-40 hidden flex-col justify-center items-center opacity-0 transition-opacity duration-500 mobile-nav-overlay"
     id="mobileNav">
@@ -96,64 +96,84 @@
       <a href="/#services" class="text-white hover:text-accent transition-colors mobile-link">Work</a>
       <a href="/#agency-mission" class="text-white hover:text-accent transition-colors mobile-link">About</a>
       <a href="/contact"
-        class="text-accent hover:text-white transition-colors mobile-link mt-8 text-xl tracking-widest border border-accent/30 px-8 py-4 rounded-2xl">Work
+        class="text-accent hover:text-white transition-colors mobile-link mt-8 text-xl tracking-widest border border-accent/30 px-8 py-4 rounded-full">Work
         with us</a>
     </div>
   </div>
 
   <div id="app">
     <!-- Hero Section -->
-    <section class="relative min-h-[90vh] flex flex-col justify-center px-6 overflow-hidden pb-16 pt-32 lg:pt-0 lg:pb-0">
-      <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-16 lg:gap-0 items-center reveal-up">
+    <!-- min-h-screen, reduced padding for true overlay nav -->
+    <section class="relative w-full min-h-screen flex flex-col justify-center overflow-hidden pt-24 md:pt-28 pb-12">
+      
+      <!-- Global Container applied here -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full grid grid-cols-1 md:grid-cols-[65%_35%] lg:grid-cols-[60%_40%] gap-12 md:gap-8 lg:gap-0 items-center reveal-up">
         
-        <!-- Left: Content (60%) -->
-        <div class="flex flex-col items-start text-left lg:pr-12">
-          <h1 class="hero-headline fluid-h1 font-main font-black leading-[1.05] tracking-tight text-white mb-10 uppercase">
+        <!-- Left: Content (60% Desktop, 65% Tablet, 100% Mobile) -->
+        <div class="flex flex-col justify-center text-left lg:pr-12">
+          <!-- Headline fluid scaling handled mostly by Tailwind utility, forced pixel sizes as requested: text-4xl/5xl/6xl/7xl/8xl -->
+          <h1 class="hero-headline font-heading font-black leading-none tracking-tight text-white mb-6 md:mb-10 uppercase text-4xl sm:text-5xl md:text-5xl lg:text-7xl xl:text-8xl">
             DESIGN THAT<br>
-            <span class="font-accent italic font-normal text-accent lowercase tracking-normal">converts.</span><br>
+            <span class="font-editorial italic font-normal text-accent lowercase tracking-normal text-4xl sm:text-5xl md:text-5xl lg:text-7xl xl:text-8xl">converts.</span><br>
             MARKETING<br>
             THAT <span class="underline decoration-accent decoration-[6px] underline-offset-[0.2em] inline-block">PROVES IT.</span>
           </h1>
 
-          <p class="text-white/60 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-xl">
+          <p class="text-white/60 text-base lg:text-lg font-light leading-relaxed mb-8 max-w-md">
             We build clear, intentional brands for businesses ready to grow.
           </p>
 
-          <div class="flex flex-col items-start gap-8">
-            <div class="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-              <div class="flex flex-col items-start gap-4">
-                <a href="/contact"
-                  class="font-system inline-flex justify-center items-center bg-accent text-black font-black uppercase tracking-widest text-[11px] px-8 py-4 rounded-2xl hover:brightness-90 transition-all shadow-[0_0_30px_rgba(245,200,66,0.1)] whitespace-nowrap">
-                  BOOK A FREE CALL &rarr;
-                </a>
-                <p class="font-pixel text-[9px] text-white/40 font-bold uppercase tracking-widest pl-1">Free 30-min audit. No pitch. Just clarity.</p>
-              </div>
-              <a href="#services"
-                class="font-system inline-flex justify-center items-center text-white/50 hover:text-white font-bold uppercase tracking-widest text-[10px] px-4 py-4 transition-all group">
-                <span class="border-b-2 border-accent/20 group-hover:border-accent transition-colors pb-0.5">View Selected Work</span>
-                <span class="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          <div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+            <div class="flex flex-col items-start gap-3 w-full sm:w-fit">
+              <a href="/contact"
+                class="font-system inline-flex justify-center items-center bg-accent text-black font-black uppercase tracking-widest text-[11px] px-8 py-4 rounded-2xl hover:brightness-90 transition-all shadow-[0_0_30px_rgba(245,200,66,0.1)] w-fit mt-8">
+                BOOK A FREE CALL &rarr;
               </a>
+              <p class="font-pixel text-[10px] sm:text-xs text-neutral-500 font-bold uppercase tracking-wide">Free 30-min audit. No pitch. Just clarity.</p>
+            </div>
+            <!-- Ghost link - visible ml-8 on sm+ inline row -->
+            <a href="#services"
+              class="font-system inline-flex justify-center items-center text-white/50 hover:text-white font-bold uppercase tracking-widest text-[10px] px-4 py-4 transition-all group mt-0 sm:ml-8 sm:mt-8 shrink-0">
+              <span class="border-b-2 border-accent/20 group-hover:border-accent transition-colors pb-0.5">View Selected Work</span>
+              <span class="ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </a>
+          </div>
+
+          <!-- Mobile Stats Placement (Moved BELOW CTA on < md breakpoint) -->
+          <div class="md:hidden flex flex-row justify-between w-full mt-16 pt-8 border-t border-white/10 gap-2">
+            <div class="flex flex-col items-center flex-1 text-center border-t-2 border-accent pt-3">
+              <span class="text-4xl sm:text-5xl font-heading font-black text-white tracking-tighter leading-none">30+</span>
+              <span class="font-pixel text-[9px] text-neutral-400 font-bold uppercase tracking-widest mt-2">Brands</span>
+            </div>
+            <div class="flex flex-col items-center flex-1 text-center border-t-2 border-accent pt-3">
+              <span class="text-4xl sm:text-5xl font-heading font-black text-white tracking-tighter leading-none">6+</span>
+              <span class="font-pixel text-[9px] text-neutral-400 font-bold uppercase tracking-widest mt-2">Years</span>
+            </div>
+            <div class="flex flex-col items-center flex-1 text-center border-t-2 border-accent pt-3">
+              <span class="text-4xl sm:text-5xl font-heading font-black text-white tracking-tighter leading-none">5</span>
+              <span class="font-pixel text-[9px] text-neutral-400 font-medium uppercase tracking-widest mt-2">Services</span>
             </div>
           </div>
+
         </div>
 
-        <!-- Right: Raw Boutique Stats (40%) -->
-        <div class="relative flex lg:justify-end items-center h-full">
+        <!-- Right: Raw Boutique Stats (Desktop 40%, Tablet 35%, Hidden Mobile) -->
+        <div class="relative hidden md:flex flex-col justify-center h-full pr-0">
           <!-- Subtle Radial Glow -->
           <div class="absolute inset-0 boutique-glow -z-10 pointer-events-none"></div>
           
-          <div class="space-y-12 text-left py-12 lg:py-0">
-            <div class="flex flex-col items-start border-l-2 border-accent pl-6">
-              <span class="text-6xl md:text-7xl font-heading font-black text-white tracking-tighter leading-none">30+</span>
-              <span class="font-pixel text-[9px] text-accent font-bold uppercase tracking-[0.2em] mt-3">Brands worked with</span>
+          <div class="flex flex-col justify-center gap-6 lg:gap-10 text-left pr-8 lg:pr-0">
+            <div class="flex flex-col items-start border-l-2 border-accent pl-4">
+              <span class="text-5xl lg:text-6xl font-heading font-black text-white tracking-tighter leading-none">30+</span>
+              <span class="font-pixel text-[10px] lg:text-xs text-neutral-400 font-bold uppercase tracking-widest mt-1">Brands worked with</span>
             </div>
-            <div class="flex flex-col items-start border-l-2 border-accent pl-6">
-              <span class="text-6xl md:text-7xl font-heading font-black text-white tracking-tighter leading-none">6+</span>
-              <span class="font-pixel text-[9px] text-accent font-bold uppercase tracking-[0.2em] mt-3">Years</span>
+            <div class="flex flex-col items-start border-l-2 border-accent pl-4">
+              <span class="text-5xl lg:text-6xl font-heading font-black text-white tracking-tighter leading-none">6+</span>
+              <span class="font-pixel text-[10px] lg:text-xs text-neutral-400 font-bold uppercase tracking-widest mt-1">Years</span>
             </div>
-            <div class="flex flex-col items-start border-l-2 border-accent pl-6">
-              <span class="text-6xl md:text-7xl font-heading font-black text-white tracking-tighter leading-none">5</span>
-              <span class="font-pixel text-xs text-accent font-medium uppercase tracking-widest mt-3">Core Services</span>
+            <div class="flex flex-col items-start border-l-2 border-accent pl-4">
+              <span class="text-5xl lg:text-6xl font-heading font-black text-white tracking-tighter leading-none">5</span>
+              <span class="font-pixel text-[10px] lg:text-xs text-neutral-400 font-medium uppercase tracking-widest mt-1">Core Services</span>
             </div>
           </div>
         </div>
@@ -162,9 +182,9 @@
     </section>
 
 
-    <!-- Section 2: THE HOOK -->
-    <section id="hook" class="py-20 md:py-32 bg-primary reveal-up">
-      <div class="max-w-7xl mx-auto px-6">
+    <!-- Section 2: THE HOOK (Problem Section) -->
+    <section id="hook" class="w-full bg-primary py-12 md:py-16 reveal-up">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <p class="font-pixel text-accent text-xs tracking-widest font-medium uppercase mb-6 opacity-90">
           // SOUND FAMILIAR?
         </p>
@@ -175,35 +195,37 @@
           But is it actually growing?
         </h3>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <!-- Responsive Card Grid: 1 col mobile, 2 col tablet, 4 col desktop -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16 lg:mb-20">
           <!-- Card 1 -->
-          <div class="card-lift group bg-black border border-white/5 p-8 rounded-2xl hover:border-accent/30 transition-all duration-500">
+          <div class="card-lift group bg-black border border-white/5 p-6 md:p-8 rounded-2xl hover:border-accent/30 transition-all duration-500">
             <span class="font-pixel text-[10px] text-accent font-bold uppercase tracking-widest block mb-4">// 01</span>
             <h3 class="font-heading text-lg font-black text-white uppercase leading-tight">Inconsistent<br>Branding</h3>
           </div>
           <!-- Card 2 -->
-          <div class="card-lift group bg-black border border-white/5 p-8 rounded-2xl hover:border-accent/30 transition-all duration-500">
+          <div class="card-lift group bg-black border border-white/5 p-6 md:p-8 rounded-2xl hover:border-accent/30 transition-all duration-500">
             <span class="font-pixel text-[10px] text-accent font-bold uppercase tracking-widest block mb-4">// 02</span>
             <h3 class="font-heading text-lg font-black text-white uppercase leading-tight">Unclear<br>Messaging</h3>
           </div>
           <!-- Card 3 -->
-          <div class="card-lift group bg-black border border-white/5 p-8 rounded-2xl hover:border-accent/30 transition-all duration-500">
+          <div class="card-lift group bg-black border border-white/5 p-6 md:p-8 rounded-2xl hover:border-accent/30 transition-all duration-500">
             <span class="font-pixel text-[10px] text-accent font-bold uppercase tracking-widest block mb-4">// 03</span>
             <h3 class="font-heading text-lg font-black text-white uppercase leading-tight">Random Content<br>Posting</h3>
           </div>
           <!-- Card 4 -->
-          <div class="card-lift group bg-black border border-white/5 p-8 rounded-2xl hover:border-accent/30 transition-all duration-500">
+          <div class="card-lift group bg-black border border-white/5 p-6 md:p-8 rounded-2xl hover:border-accent/30 transition-all duration-500">
             <span class="font-pixel text-[10px] text-accent font-bold uppercase tracking-widest block mb-4">// 04</span>
             <h3 class="font-heading text-lg font-black text-white uppercase leading-tight">Low Audience<br>Engagement</h3>
           </div>
         </div>
 
-        <div class="mt-8 max-w-5xl reveal-up">
-          <div class="flex items-stretch gap-6 border-b border-accent/40 pb-8">
-            <div class="w-[3px] bg-accent rounded-full"></div>
+        <!-- Closing Statement -->
+        <div class="mt-8 max-w-full reveal-up">
+          <div class="flex items-start gap-4 md:gap-6 border-b border-accent/40 pb-6 md:pb-8">
+            <div class="w-[3px] bg-accent rounded-full mt-2 h-[80%]"></div>
             <div class="py-1">
-              <p class="font-system text-white text-lg md:text-xl font-bold mb-1 tracking-tight">It's not a content problem.</p>
-              <h3 class="font-heading text-xl md:text-[1.75rem] font-black text-accent uppercase leading-none tracking-tighter whitespace-nowrap">
+              <p class="font-system text-white text-base md:text-xl font-bold mb-2 md:mb-1 tracking-tight">It's not a content problem.</p>
+              <h3 class="font-heading text-2xl md:text-3xl lg:text-5xl lg:leading-none font-black text-accent uppercase tracking-tighter w-full">
                 IT'S A STRATEGY PROBLEM.
               </h3>
             </div>
@@ -212,9 +234,9 @@
       </div>
     </section>
 
-    <!-- Section: WHY WE EXIST -->
-    <section id="why" class="py-20 md:py-32 bg-primary reveal-up">
-      <div class="max-w-7xl mx-auto px-6">
+    <!-- Section: WHY WE EXIST (Belief) -->
+    <section id="why" class="w-full bg-primary py-12 md:py-16 reveal-up">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <p class="font-pixel text-accent text-xs tracking-widest font-medium uppercase mb-6 opacity-90">
           // WHY WE EXIST
         </p>
@@ -268,8 +290,8 @@
 
 
     <!-- Methodology: The Proof System -->
-    <section id="method" class="py-20 md:py-32 bg-primary reveal-up">
-      <div class="max-w-7xl mx-auto px-6">
+    <section id="method" class="w-full bg-primary py-12 md:py-16 reveal-up">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <p class="font-pixel text-accent text-xs tracking-widest font-medium uppercase mb-6 opacity-90">
           // THE PROOF SYSTEM&trade;
         </p>
@@ -341,20 +363,18 @@
     </section>
 
     <!-- What We Offer Section -->
-    <section id="offerings" class="py-20 md:py-32 bg-primary reveal-up">
-      <div class="max-w-7xl mx-auto px-6">
+    <section id="offerings" class="w-full bg-primary py-12 md:py-16 reveal-up">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <p class="font-pixel text-accent text-xs tracking-widest font-medium uppercase mb-6 opacity-90">// SERVICES</p>
-        <h2 class="fluid-h2 font-heading font-black tracking-tighter text-white mb-16 uppercase">
+        <h2 class="fluid-h2 font-heading font-black tracking-tighter text-white mb-12 md:mb-16 uppercase">
           WHAT WE <span class="text-accent">DO.</span>
         </h2>
 
-        <div
-          class="flex overflow-x-auto md:flex-wrap md:justify-center md:overflow-x-visible gap-6 md:gap-x-12 md:gap-y-20 pb-8 md:pb-0 snap-x snap-mandatory"
-          style="scrollbar-width:none; -ms-overflow-style:none;">
+        <div class="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-10 pb-8 md:pb-0">
 
           <!-- Service 1: Brand Strategy -->
           <div
-            class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-[85vw] sm:w-[320px] md:w-[340px] lg:w-[370px] flex-shrink-0 snap-start">
+            class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.75rem)] flex-shrink-0">
             <h3 class="font-heading text-xl font-black uppercase tracking-tighter text-white mb-4">Brand Strategy<br><span
                 class="text-accent">&amp; Identity</span></h3>
             <p class="font-system text-white/50 text-[15px] leading-relaxed mb-8">We help businesses build a clear brand foundation that stands out and connects with the right audience.</p>
@@ -369,7 +389,7 @@
 
           <!-- Service 2: Social Media -->
           <div
-            class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-[85vw] sm:w-[320px] md:w-[340px] lg:w-[370px] flex-shrink-0 snap-start">
+            class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.75rem)] flex-shrink-0">
             <h3 class="font-heading text-xl font-black uppercase tracking-tighter text-white mb-4">Social Media<br><span
                 class="text-accent">&amp; Content</span></h3>
             <p class="font-system text-white/50 text-[15px] leading-relaxed mb-8">We create consistent, engaging content that builds trust and grows your audience.</p>
@@ -384,7 +404,7 @@
 
           <!-- Service 3: Website -->
           <div
-            class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-[85vw] sm:w-[320px] md:w-[340px] lg:w-[370px] flex-shrink-0 snap-start">
+            class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.75rem)] flex-shrink-0">
             <h3 class="font-heading text-xl font-black uppercase tracking-tighter text-white mb-4">Website<br><span
                 class="text-accent">&amp; Experience</span></h3>
             <p class="font-system text-white/50 text-[15px] leading-relaxed mb-8">We design and build high-converting websites that look premium and perform well.</p>
@@ -399,7 +419,7 @@
 
           <!-- Service 4: Creative Studio -->
           <div
-            class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-[85vw] sm:w-[320px] md:w-[340px] lg:w-[370px] flex-shrink-0 snap-start">
+            class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.75rem)] flex-shrink-0">
             <h3 class="font-heading text-xl font-black uppercase tracking-tighter text-white mb-4">Creative<br><span
                 class="text-accent">&amp; Design</span></h3>
             <p class="font-system text-white/50 text-[15px] leading-relaxed mb-8">We create high-impact visuals for marketing and brand communication.</p>
@@ -414,7 +434,7 @@
 
           <!-- Service 5: Performance Marketing -->
           <div
-            class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-[85vw] sm:w-[320px] md:w-[340px] lg:w-[370px] flex-shrink-0 snap-start">
+            class="group border-t border-white/10 pt-10 hover:border-accent transition-colors duration-500 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.75rem)] flex-shrink-0">
             <h3 class="font-heading text-xl font-black uppercase tracking-tighter text-white mb-4">Performance<br><span
                 class="text-accent">Marketing</span></h3>
             <p class="font-system text-white/50 text-[15px] leading-relaxed mb-8">We help brands scale through data-driven advertising and funnel optimization.</p>
@@ -434,22 +454,27 @@
 
 
 
-    <section id="services" class="py-20 md:py-32 bg-primary reveal-up overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 mb-12">
-        <p class="font-pixel text-accent text-xs tracking-widest font-medium uppercase mb-6 opacity-90">// SELECTED WORK</p>
-        <h2 class="fluid-h2 font-heading font-black tracking-tighter text-white uppercase">
-          SELECTED <span class="text-accent">WORK.</span>
-        </h2>
-      </div>
+    <!-- Portfolio Section -->
+    <section id="services" class="w-full bg-primary py-12 md:py-16 reveal-up overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-6">
+          <div>
+            <p class="font-pixel text-accent text-xs tracking-widest font-medium uppercase mb-6 opacity-90">// SELECTED WORK</p>
+            <h2 class="fluid-h2 font-heading font-black tracking-tighter text-white uppercase leading-none">
+              SELECTED <span class="text-accent">WORK.</span>
+            </h2>
+          </div>
+          <a href="/work" class="font-system text-xs font-bold uppercase tracking-widest text-accent hover:text-white transition-colors border-b border-accent hover:border-white pb-1 whitespace-nowrap">
+            See All Work &rarr;
+          </a>
+        </div>
 
-      <!-- Scrollable Card Track -->
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex gap-6 overflow-x-auto pb-8 scroll-smooth snap-x snap-mandatory"
-          style="scrollbar-width:none; -ms-overflow-style:none;">
+        <!-- Grid 3 cols -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 
           <!-- Card 1 — The Modern Tint -->
           <a href="/assets/work/TheModernTint%20Brand%20Kit.pdf" target="_blank"
-            class="card-lift group relative flex-shrink-0 w-[320px] md:w-[420px] lg:w-[460px] snap-start flex flex-col rounded-3xl overflow-hidden border border-white/5 bg-[#0a0a0a]">
+            class="card-lift group relative w-full h-full flex flex-col rounded-3xl overflow-hidden border border-white/5 bg-[#0a0a0a]">
             <div class="w-full aspect-[16/10] relative overflow-hidden bg-black">
               <img src="/assets/work/TheModernTint_cover.png" alt="The Modern Tint"
                 class="w-full h-full object-cover opacity-40 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
@@ -476,7 +501,7 @@
 
           <!-- Card 2 — Flare Up -->
           <a href="/assets/work/FlareUp%20Brand%20Kit.pdf" target="_blank"
-            class="card-lift group relative flex-shrink-0 w-[320px] md:w-[420px] lg:w-[460px] snap-start flex flex-col rounded-3xl overflow-hidden border border-white/5 bg-[#0a0a0a]">
+            class="card-lift group relative w-full h-full flex flex-col rounded-3xl overflow-hidden border border-white/5 bg-[#0a0a0a]">
             <div class="w-full aspect-[16/10] relative overflow-hidden bg-black">
               <img src="/assets/work/FlareUp_cover.png" alt="Flare Up"
                 class="w-full h-full object-cover opacity-40 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
@@ -503,7 +528,7 @@
 
           <!-- Card 3 — Fintech Growth Sprint -->
           <div
-            class="card-lift group relative flex-shrink-0 w-[320px] md:w-[420px] lg:w-[460px] snap-start flex flex-col rounded-3xl overflow-hidden border border-white/5 bg-[#0a0a0a]">
+            class="card-lift group relative w-full h-full flex flex-col rounded-3xl overflow-hidden border border-white/5 bg-[#0a0a0a]">
             <div class="w-full aspect-[16/10] relative overflow-hidden bg-black flex items-center justify-center">
               <img src="/assets/work/10/10.png" alt="Fintech Growth"
                 class="w-full h-full object-cover opacity-40 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
@@ -528,15 +553,6 @@
 
         </div>
       </div>
-
-      <!-- Footer CTA row aligned to standard container -->
-      <div class="max-w-7xl mx-auto px-6 mt-12 flex flex-col sm:flex-row gap-6 items-center justify-between">
-        <div class="hidden sm:block"></div>
-        <a href="/work"
-          class="inline-flex justify-center items-center bg-accent text-black font-black uppercase tracking-widest text-xs px-10 py-5 rounded-2xl hover:brightness-90 transition-all">
-          See All Work &rarr;
-        </a>
-      </div>
     </section>
 
 
@@ -544,12 +560,12 @@
 
 
     <!-- Who We Are: Premium Founder Section -->
-    <section id="agency-mission" class="py-20 md:py-32 bg-primary reveal-up border-b border-white/5">
-      <div class="max-w-7xl mx-auto px-6">
+    <section id="agency-mission" class="w-full bg-primary py-12 md:py-16 reveal-up border-b border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
 
-          <!-- Left Column (60%): Narrative & Stats -->
-          <div class="lg:w-[60%] lg:sticky lg:top-32">
+          <!-- Left Column (55%): Narrative & Stats -->
+          <div class="lg:w-[55%] lg:sticky lg:top-32">
             <p class="font-pixel text-accent text-xs tracking-widest font-medium uppercase mb-6 opacity-90">// WHO WE ARE</p>
             <h2 class="fluid-h2 font-heading font-black tracking-tighter text-white uppercase mb-8 leading-[0.95]">
               Hi. We're Sakshi<br>and Rohan.
@@ -587,8 +603,8 @@
             </div>
           </div>
 
-          <!-- Right Column (40%): Founder Cards Stack -->
-          <div class="lg:w-[40%] w-full flex flex-col gap-6">
+          <!-- Right Column (45%): Founder Cards Stack -->
+          <div class="lg:w-[45%] w-full flex flex-col gap-6">
             <!-- Sakshi Card -->
             <div
               class="card-lift group relative bg-black border border-white/10 rounded-3xl p-5 transition-all duration-500 overflow-hidden">
@@ -646,21 +662,19 @@
     </section>
 
     <!-- Packages Section -->
-    <section id="packages" class="py-20 pt-24 md:py-32 md:pt-32 bg-primary reveal-up">
-      <div class="max-w-7xl mx-auto px-6">
+    <section id="packages" class="w-full bg-primary py-12 md:py-16 reveal-up">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <p class="font-pixel text-accent text-xs tracking-widest font-medium uppercase mb-6 opacity-90">// PACKAGES</p>
         <h2 class="fluid-h2 font-heading font-black tracking-tighter text-white mb-16 uppercase leading-[0.95]">
           SIMPLE PLANS.<br><span class="text-accent">HONEST PRICING.</span>
         </h2>
 
-        <!-- Monthly Package Cards -->
-        <div
-          class="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 mb-16 md:mb-32 p-12 -m-12 items-stretch snap-x snap-mandatory"
-          style="scrollbar-width:none; -ms-overflow-style:none;">
+        <!-- Monthly Package Cards (Grid 3 cols) -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-24 items-stretch">
 
           <!-- Tier 1: Starter Growth -->
           <div
-            class="card-lift group relative bg-black border border-white/5 rounded-3xl p-10 flex flex-col w-[85vw] sm:w-[360px] flex-shrink-0 md:w-auto snap-start">
+            class="card-lift group relative bg-black border border-white/5 rounded-3xl p-8 md:p-10 flex flex-col w-full h-full">
             <p class="font-pixel text-[10px] text-white/20 tracking-[0.3em] uppercase mb-6 font-bold">01 / STARTER</p>
             <h3 class="font-heading text-2xl font-black uppercase tracking-tighter text-white mb-1 leading-tight">Starter<br>Growth</h3>
             <p class="font-system text-[14px] text-muted font-bold mb-8 uppercase tracking-wider">₹25,000 / month</p>
@@ -682,7 +696,7 @@
 
           <!-- Tier 2: Growth (FEATURED) -->
           <div
-            class="card-lift group relative bg-[#0a0a0a] border-2 border-accent rounded-3xl p-10 flex flex-col w-[85vw] sm:w-[360px] flex-shrink-0 md:w-auto snap-start shadow-[0_0_50px_rgba(255,204,0,0.05)]">
+            class="card-lift group relative bg-[#0a0a0a] border-2 border-accent rounded-3xl p-8 md:p-10 flex flex-col w-full h-full shadow-[0_0_50px_rgba(255,204,0,0.05)]">
             <div class="flex items-center justify-between mb-6">
               <p class="font-pixel text-[10px] text-accent tracking-[0.3em] uppercase font-bold">02 / POPULAR</p>
               <span
@@ -709,7 +723,7 @@
 
           <!-- Tier 3: Brand Scale -->
           <div
-            class="card-lift group relative bg-black border border-white/5 rounded-3xl p-10 flex flex-col w-[85vw] sm:w-[360px] flex-shrink-0 md:w-auto snap-start">
+            class="card-lift group relative bg-black border border-white/5 rounded-3xl p-8 md:p-10 flex flex-col w-full h-full">
             <p class="font-pixel text-[10px] text-white/20 tracking-[0.3em] uppercase mb-6 font-bold">03 / SCALE</p>
             <h3 class="font-heading text-2xl font-black uppercase tracking-tighter text-white mb-1 leading-tight">Brand<br>Scale</h3>
             <p class="font-system text-[14px] text-muted font-bold mb-8 uppercase tracking-wider">Custom Quote</p>
@@ -798,9 +812,9 @@
     </section>
 
     <!-- Final CTA: Ready to Grow? -->
-    <section class="py-16 md:py-24 bg-black border-t border-white/5 reveal-up">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="max-w-4xl mx-auto text-center">
+    <section class="w-full bg-black py-16 md:py-20 border-t border-white/5 reveal-up">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div class="text-center">
           <p class="font-pixel text-accent text-xs tracking-widest font-medium uppercase mb-10 opacity-90">// READY TO GROW?</p>
           <h2
             class="font-heading text-4xl md:text-7xl font-black tracking-tighter text-white uppercase mb-4 leading-[0.9]">
@@ -825,13 +839,13 @@
     </section>
 
     <!-- Final Footer -->
-    <footer class="py-24 md:py-32 bg-primary border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-16 lg:gap-32">
+    <footer class="w-full bg-primary py-12 border-t border-neutral-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-12 lg:gap-24">
           <!-- Left: Brand Anchor -->
           <div class="flex flex-col items-start">
-            <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="h-6 md:h-8 w-auto mb-8 md:mb-10 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
-            <h2 class="font-heading text-xl md:text-3xl font-black text-white uppercase tracking-tighter leading-tight max-w-md">
+            <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="h-6 md:h-7 w-auto mb-6 md:mb-8 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+            <h2 class="font-heading text-lg md:text-xl md:leading-snug font-black text-white uppercase tracking-tighter leading-tight max-w-md">
               Helping businesses build clear, intentional, and impactful brands.
             </h2>
             <p class="font-system text-muted text-[10px] font-bold uppercase tracking-[0.3em] mt-6">
@@ -840,10 +854,10 @@
           </div>
           
           <!-- Right: Links Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 pl-0 lg:pl-10">
             <div>
-              <h4 class="font-system text-muted text-[10px] font-bold uppercase tracking-widest mb-6 md:mb-8 text-neutral-500">Explore</h4>
-              <nav class="flex flex-col gap-4 md:gap-5 text-[11px] font-bold uppercase tracking-widest text-white/50">
+              <h4 class="font-system text-muted text-[10px] font-bold uppercase tracking-widest mb-5 md:mb-6 text-neutral-500">Explore</h4>
+              <nav class="flex flex-col gap-3 md:gap-4 text-[11px] font-bold uppercase tracking-widest text-white/50">
                 <a href="/#services" class="hover:text-accent transition-colors">Work</a>
                 <a href="/#offerings" class="hover:text-accent transition-colors">Services</a>
                 <a href="/#packages" class="hover:text-accent transition-colors">Packages</a>
@@ -852,19 +866,19 @@
               </nav>
             </div>
             <div>
-              <h4 class="font-system text-muted text-[10px] font-bold uppercase tracking-widest mb-6 md:mb-8 text-neutral-500">Social</h4>
-              <nav class="flex flex-col gap-4 md:gap-5 text-[11px] font-bold uppercase tracking-widest text-white/50">
+              <h4 class="font-system text-muted text-[10px] font-bold uppercase tracking-widest mb-5 md:mb-6 text-neutral-500">Social</h4>
+              <nav class="flex flex-col gap-3 md:gap-4 text-[11px] font-bold uppercase tracking-widest text-white/50">
                 <a href="https://instagram.com/pixelnproof" class="hover:text-accent transition-colors">Instagram</a>
                 <a href="https://www.linkedin.com/company/pixel-n-proof" class="hover:text-accent transition-colors">LinkedIn</a>
                 <a href="https://facebook.com/pixelnproof" class="hover:text-accent transition-colors">Facebook</a>
-                <a href="mailto:pixelnproof@gmail.com" class="mt-4 inline-block text-accent hover:text-white transition-colors">Email Us &rarr;</a>
+                <a href="mailto:pixelnproof@gmail.com" class="mt-2 inline-block text-accent hover:text-white transition-colors">Email Us &rarr;</a>
               </nav>
             </div>
           </div>
         </div>
         
         <!-- Bottom: Legal -->
-        <div class="pt-12 md:pt-16 mt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="pt-8 mt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p class="text-white/20 text-[9px] font-bold uppercase tracking-[0.5em] text-center md:text-left">
             © 2026 PIXEL & PROOF. ALL RIGHTS RESERVED.
           </p>

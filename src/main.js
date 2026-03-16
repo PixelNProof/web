@@ -21,6 +21,7 @@ const initInteractions = () => {
       }
     });
   }, observerOptions);
+  revealElements.forEach(el => observer.observe(el));
 
   revealElements.forEach(el => observer.observe(el));
 
