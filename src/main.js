@@ -112,18 +112,65 @@ const initInteractions = () => {
   // 4. Strategy Form Handling
   const strategyForm = document.getElementById('strategy-form');
   const successMessage = document.getElementById('success-message');
+  
+  // Custom Multi-select Logic
+  const servicesTrigger = document.getElementById('services-trigger');
+  const servicesDropdown = document.getElementById('services-dropdown');
+  const servicesDisplay = document.getElementById('services-display');
   const otherServiceToggle = document.getElementById('service-other-toggle');
   const otherServiceContainer = document.getElementById('other-service-container');
 
-  if (otherServiceToggle && otherServiceContainer) {
-    otherServiceToggle.addEventListener('change', (e) => {
-      if (e.target.checked) {
-        otherServiceContainer.classList.remove('hidden');
-        setTimeout(() => otherServiceContainer.classList.add('opacity-100'), 10);
+  if (servicesTrigger && servicesDropdown) {
+    servicesTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = servicesDropdown.classList.contains('hidden');
+      if (isOpen) {
+        servicesDropdown.classList.remove('hidden');
+        servicesTrigger.setAttribute('data-open', 'true');
+        setTimeout(() => servicesDropdown.classList.remove('opacity-0', 'translate-y-2'), 10);
       } else {
-        otherServiceContainer.classList.remove('opacity-100');
-        setTimeout(() => otherServiceContainer.classList.add('hidden'), 300);
+        servicesDropdown.classList.add('opacity-0', 'translate-y-2');
+        servicesTrigger.setAttribute('data-open', 'false');
+        setTimeout(() => servicesDropdown.classList.add('hidden'), 300);
       }
+    });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+      if (!servicesDropdown.contains(e.target) && !servicesTrigger.contains(e.target)) {
+        servicesDropdown.classList.add('opacity-0', 'translate-y-2');
+        servicesTrigger.setAttribute('data-open', 'false');
+        setTimeout(() => servicesDropdown.classList.add('hidden'), 300);
+      }
+    });
+
+    // Update display text
+    const checkboxes = servicesDropdown.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const selected = Array.from(checkboxes)
+          .filter(c => c.checked)
+          .map(c => c.value === 'other' ? 'Other' : c.value);
+        
+        if (selected.length > 0) {
+          servicesDisplay.textContent = selected.join(', ');
+          servicesDisplay.classList.remove('text-white/30', 'italic');
+          servicesDisplay.classList.add('text-white');
+        } else {
+          servicesDisplay.textContent = 'Select services (Multi-select)';
+          servicesDisplay.classList.add('text-white/30', 'italic');
+          servicesDisplay.classList.remove('text-white');
+        }
+
+        // Toggle "Other" field
+        if (otherServiceToggle.checked) {
+          otherServiceContainer.classList.remove('hidden');
+          setTimeout(() => otherServiceContainer.classList.add('opacity-100'), 10);
+        } else {
+          otherServiceContainer.classList.remove('opacity-100');
+          setTimeout(() => otherServiceContainer.classList.add('hidden'), 300);
+        }
+      });
     });
   }
 
@@ -136,12 +183,9 @@ const initInteractions = () => {
       const formData = new FormData(strategyForm);
       const data = {};
       
-      // Process FormData to handle arrays (checkboxes) correctly
       formData.forEach((value, key) => {
         if (key === 'services') {
-          if (!data[key]) {
-            data[key] = [];
-          }
+          if (!data[key]) data[key] = [];
           data[key].push(value);
         } else {
           data[key] = value;
@@ -163,6 +207,13 @@ const initInteractions = () => {
           body: JSON.stringify(data)
         });
 
+        // BUG FIX: Safer JSON parsing
+        let result = {};
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+          result = await response.json();
+        }
+
         if (response.ok) {
           // Success State UI Transitions
           strategyForm.classList.add('hidden');
@@ -172,11 +223,9 @@ const initInteractions = () => {
               successMessage.classList.remove('opacity-0', 'translate-y-4');
             }, 50);
           }
-          // Scroll to success message
           successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } else {
-          const err = await response.json();
-          throw new Error(err.error || 'Synchronization failure');
+          throw new Error(result.error || result.details || 'Synchronization fault');
         }
       } catch (error) {
         if (statusEl) {
