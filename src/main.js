@@ -193,12 +193,15 @@ const initInteractions = () => {
       });
 
       if (statusEl) {
-        statusEl.textContent = 'TRANSMITTING STRATEGY DATA...';
+        statusEl.textContent = 'SYNCHRONIZING ROADMAP...';
         statusEl.classList.remove('opacity-0');
-        statusEl.style.color = '#FFCC00';
+        statusEl.style.color = 'var(--accent)';
       }
 
-      if (submitBtn) submitBtn.disabled = true;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.5';
+      }
 
       try {
         const response = await fetch('/api/strategy', {
@@ -207,34 +210,49 @@ const initInteractions = () => {
           body: JSON.stringify(data)
         });
 
-        // BUG FIX: Safer JSON parsing
-        let result = {};
         const contentType = response.headers.get("content-type");
-        if (contentType && contentType.indexOf("application/json") !== -1) {
-          result = await response.json();
+        let result = {};
+        if (contentType && contentType.includes("application/json")) {
+            result = await response.json();
         }
 
         if (response.ok) {
-          // Success State UI Transitions
-          strategyForm.classList.add('hidden');
-          if (successMessage) {
+          // Success State
+          const formContainer = document.getElementById('form-container');
+          const strategyForm = document.getElementById('strategy-form');
+          const successMessage = document.getElementById('success-message');
+          
+          strategyForm.style.opacity = '0';
+          setTimeout(() => {
+            strategyForm.classList.add('hidden');
             successMessage.classList.remove('hidden');
             setTimeout(() => {
-              successMessage.classList.remove('opacity-0', 'translate-y-4');
+              successMessage.classList.remove('opacity-0', 'translate-y-8');
             }, 50);
-          }
-          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Layout Shift for success
+            const roadmapSection = document.getElementById('apply');
+            roadmapSection.scrollIntoView({ behavior: 'smooth' });
+          }, 500);
+
         } else {
-          throw new Error(result.error || result.details || 'Synchronization fault');
+          // Precise error reporting
+          if (result.error === 'DATABASE_FAULT') {
+            throw new Error('Database Error. Please run the SQL in Supabase (Check Implementation Plan).');
+          }
+          throw new Error(result.error || result.details || 'Sync Fault');
         }
       } catch (error) {
         if (statusEl) {
-          statusEl.textContent = `FAULT: ${error.message.toUpperCase()}`;
+          statusEl.textContent = `CRITICAL: ${error.message.toUpperCase()}`;
           statusEl.style.color = '#EF4444';
           statusEl.classList.remove('opacity-0');
         }
       } finally {
-        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+        }
       }
     });
   }

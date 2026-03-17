@@ -27,14 +27,21 @@ export default async function handler(req, res) {
 
     // 1. Validation
     if (!name || !email || !company) {
-        return res.status(400).json({ error: 'Missing required parameters.' });
+        return res.status(400).json({ 
+            error: 'Incomplete Qualification',
+            details: 'Name, Work Email, and Company are required to sync your strategy session.'
+        });
     }
 
+    const results = {
+        supabase: false,
+        make: false,
+        resend: false
+    };
+
     try {
-        // 2. Insert into Supabase
-        // We assume a 'strategy_leads' table exists or will be created.
-        // If the user wants the table named after the sheet, we might need to handle that dynamically.
-        const { data: supabaseData, error: supabaseError } = await supabase
+        // 2. Insert into Supabase (Critical for persistence)
+        const { error: supabaseError } = await supabase
             .from('strategy_leads')
             .insert([
                 { 
@@ -43,75 +50,81 @@ export default async function handler(req, res) {
                     company: company,
                     website: website,
                     business_stage: stage,
-                    services_required: services, // JSONB or Array
+                    services_required: services,
                     current_marketing: marketing,
                     monthly_budget: budget,
                     objectives_3mo: goals,
-                    biggest_challenge: challenges,
-                    created_at: new Error().stack ? new Date().toISOString() : null // Safety check
+                    biggest_challenge: challenges
                 }
-            ])
-            .select();
+            ]);
 
         if (supabaseError) {
-            console.error('[Supabase Error]', supabaseError);
-            // We continue even if supabase fails, to try other integrations? 
-            // Or fail early? Let's fail early for data integrity.
-            throw new Error(`Database error: ${supabaseError.message}`);
+            console.error('[Supabase Fault]', supabaseError);
+            // We'll report this specifically to help the user debug (e.g. table missing)
+            return res.status(500).json({ 
+                error: 'DATABASE_FAULT',
+                details: `Supabase Error: ${supabaseError.message}. Ensure 'strategy_leads' table exists.`
+            });
         }
+        results.supabase = true;
 
         // 3. Google Sheets Integration (Make.com Webhook)
+        // Hardcoded as requested: https://hook.eu1.make.com/eder9coftiyatdm05uy62jabxdtme4wr
         const webhookUrl = 'https://hook.eu1.make.com/eder9coftiyatdm05uy62jabxdtme4wr';
         try {
-            await fetch(webhookUrl, {
+            const makeRes = await fetch(webhookUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     timestamp: new Date().toISOString(),
-                    ...req.body
+                    ...req.body,
+                    source: 'pixelnproof_web_strategy'
                 })
             });
-            console.log('[Info] Make.com webhook dispatched');
+            if (makeRes.ok) results.make = true;
         } catch (webhookError) {
-            console.error('[Make Webhook Error]', webhookError);
+            console.error('[Make.com Webhook Fault]', webhookError);
         }
 
         // 4. Send Email Notification
         try {
             await resend.emails.send({
-                from: 'Strategy Intake <onboarding@resend.dev>',
+                from: 'Pixel & Proof Strategy <onboarding@resend.dev>',
                 to: 'pixelnproof@gmail.com',
-                subject: `Strategy Session Applied: ${name} (${company})`,
+                subject: `🚨 New Strategy Lead: ${name} (${company})`,
                 html: `
-                    <h2>New Strategy Session Application</h2>
-                    <p><strong>Name:</strong> ${name}</p>
-                    <p><strong>Email:</strong> ${email}</p>
-                    <p><strong>Company:</strong> ${company}</p>
-                    <p><strong>Website:</strong> ${website || 'N/A'}</p>
-                    <hr>
-                    <p><strong>Stage:</strong> ${stage}</p>
-                    <p><strong>Services:</strong> ${Array.isArray(services) ? services.join(', ') : services}</p>
-                    <p><strong>Marketing:</strong> ${marketing}</p>
-                    <p><strong>Budget:</strong> ${budget}</p>
-                    <hr>
-                    <p><strong>Goals:</strong> ${goals}</p>
-                    <p><strong>Challenges:</strong> ${challenges}</p>
+                    <div style="font-family: sans-serif; padding: 20px; color: #333;">
+                        <h2 style="color: #FFCC00;">New Strategy Application</h2>
+                        <p><strong>Name:</strong> ${name}</p>
+                        <p><strong>Email:</strong> ${email}</p>
+                        <p><strong>Company:</strong> ${company}</p>
+                        <p><strong>Website:</strong> ${website || 'N/A'}</p>
+                        <hr style="border: 0; border-top: 1px solid #eee;">
+                        <p><strong>Stage:</strong> ${stage}</p>
+                        <p><strong>Services:</strong> ${Array.isArray(services) ? services.join(', ') : services}</p>
+                        <p><strong>Budget:</strong> ${budget}</p>
+                        <hr style="border: 0; border-top: 1px solid #eee;">
+                        <p><strong>Marketing Context:</strong><br>${marketing}</p>
+                        <p><strong>3 Month Goals:</strong><br>${goals}</p>
+                        <p><strong>Biggest Challenge:</strong><br>${challenges}</p>
+                    </div>
                 `
             });
+            results.resend = true;
         } catch (emailError) {
-            console.error('[Resend Error]', emailError);
+            console.error('[Resend Email Fault]', emailError);
         }
 
         return res.status(200).json({
             success: true,
-            message: 'Strategy application captured and synchronized.',
-            leadId: supabaseData[0].id
+            sync_status: results,
+            message: 'Application captured successfully.'
         });
 
     } catch (error) {
-        console.error('[API Error]', error);
+        console.error('[Global Sync Fault]', error);
         return res.status(500).json({
-            error: 'Internal synchronization fault.',
+            error: 'SYNCHRONIZATION_FAULT',
             details: error.message
         });
     }
