@@ -108,6 +108,87 @@ const initInteractions = () => {
       }
     });
   }
+
+  // 4. Strategy Form Handling
+  const strategyForm = document.getElementById('strategy-form');
+  const successMessage = document.getElementById('success-message');
+  const otherServiceToggle = document.getElementById('service-other-toggle');
+  const otherServiceContainer = document.getElementById('other-service-container');
+
+  if (otherServiceToggle && otherServiceContainer) {
+    otherServiceToggle.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        otherServiceContainer.classList.remove('hidden');
+        setTimeout(() => otherServiceContainer.classList.add('opacity-100'), 10);
+      } else {
+        otherServiceContainer.classList.remove('opacity-100');
+        setTimeout(() => otherServiceContainer.classList.add('hidden'), 300);
+      }
+    });
+  }
+
+  if (strategyForm) {
+    strategyForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const statusEl = strategyForm.querySelector('#form-status');
+      const submitBtn = strategyForm.querySelector('button[type="submit"]');
+
+      const formData = new FormData(strategyForm);
+      const data = {};
+      
+      // Process FormData to handle arrays (checkboxes) correctly
+      formData.forEach((value, key) => {
+        if (key === 'services') {
+          if (!data[key]) {
+            data[key] = [];
+          }
+          data[key].push(value);
+        } else {
+          data[key] = value;
+        }
+      });
+
+      if (statusEl) {
+        statusEl.textContent = 'TRANSMITTING STRATEGY DATA...';
+        statusEl.classList.remove('opacity-0');
+        statusEl.style.color = '#FFCC00';
+      }
+
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        const response = await fetch('/api/strategy', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          // Success State UI Transitions
+          strategyForm.classList.add('hidden');
+          if (successMessage) {
+            successMessage.classList.remove('hidden');
+            setTimeout(() => {
+              successMessage.classList.remove('opacity-0', 'translate-y-4');
+            }, 50);
+          }
+          // Scroll to success message
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          const err = await response.json();
+          throw new Error(err.error || 'Synchronization failure');
+        }
+      } catch (error) {
+        if (statusEl) {
+          statusEl.textContent = `FAULT: ${error.message.toUpperCase()}`;
+          statusEl.style.color = '#EF4444';
+          statusEl.classList.remove('opacity-0');
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  }
 };
 
 initInteractions();
