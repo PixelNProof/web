@@ -330,6 +330,15 @@
                           <input type="checkbox" name="services" value="Web Engineering" class="w-4 h-4 rounded border-white/20 bg-transparent text-accent focus:ring-accent accent-accent">
                           <span class="text-xs font-system text-white/70 group-hover:text-white">Web Engineering</span>
                         </label>
+                        <label class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 cursor-pointer transition-colors group">
+                          <input type="checkbox" name="services" value="other" id="service-other-toggle" class="w-4 h-4 rounded border-white/20 bg-transparent text-accent focus:ring-accent accent-accent">
+                          <span class="text-xs font-system text-white/70 group-hover:text-white">Other (we can discuss)</span>
+                        </label>
+                      </div>
+                      <!-- Other text field inside dropdown -->
+                      <div id="other-service-container" class="hidden opacity-0 border-t border-white/5 mt-2 pt-4 px-3">
+                        <input type="text" name="services_other" id="services_other" placeholder="Please specify requirements..."
+                          class="w-full bg-transparent border-0 border-b border-white/10 pb-2 text-white text-[10px] focus:outline-none focus:border-accent transition-colors font-system italic">
                       </div>
                     </div>
                   </div>
