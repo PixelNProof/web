@@ -50,41 +50,16 @@
   <div class="fixed inset-0 w-full h-full pointer-events-none z-[-1] opacity-[0.03] bg-[url('/assets/noise.png')]">
   </div>
 
-  <!-- Navigation -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-primary/80 backdrop-blur-md border-b border-white/5 px-6 py-4">
-    <nav class="max-w-7xl mx-auto flex justify-between items-center">
-      <a href="/" class="hover:opacity-80 transition-opacity">
-        <img src="/assets/logo_1.PNG" alt="Pixel &amp; Proof" class="h-8 w-auto">
-      </a>
-      <div class="hidden md:flex items-center space-x-8 text-[10px] font-bold uppercase tracking-widest">
-        <a href="/#services" class="hover:text-accent transition-colors">Work</a>
-        <a href="/#agency-mission" class="hover:text-accent transition-colors">About</a>
-        <a href="/contact" class="text-accent border border-accent/20 px-5 py-2 rounded-full hover:bg-accent hover:text-black transition-all">Work with us</a>
-      </div>
-      <button class="md:hidden text-white mobile-menu-toggle" aria-label="Toggle Menu">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
-        </svg>
-      </button>
-    </nav>
-  </header>
-
-  <!-- Mobile Menu Overlay -->
-  <div
-    class="fixed inset-0 bg-[#050505]/95 backdrop-blur-3xl z-40 hidden flex-col justify-center items-center opacity-0 transition-opacity duration-500 mobile-nav-overlay"
-    id="mobileNav">
-    <div class="flex flex-col space-y-8 text-center text-3xl font-black uppercase tracking-tighter mobile-nav-content">
-      <a href="/#services" class="text-white hover:text-accent transition-colors mobile-link">Work</a>
-      <a href="/#agency-mission" class="text-white hover:text-accent transition-colors mobile-link">About</a>
-      <a href="/contact"
-        class="text-accent hover:text-white transition-colors mobile-link mt-8 text-xl tracking-widest border border-accent/30 px-8 py-4 rounded-full">Work
-        with us</a>
-    </div>
+  <!-- Landing Page Minimal Header -->
+  <div class="w-full pt-10 pb-6 flex justify-center reveal-up">
+    <a href="/" class="hover:opacity-80 transition-opacity">
+      <img src="/assets/logo_1.PNG" alt="Pixel &amp; Proof" class="h-8 w-auto">
+    </a>
   </div>
 
   <div id="app">
     <!-- Hero Section -->
-    <section class="relative w-full min-h-screen flex flex-col justify-center overflow-hidden pt-24 md:pt-28 pb-12">
+    <section class="relative w-full flex flex-col justify-center overflow-hidden pt-12 pb-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full text-center reveal-up">
         
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-10 mx-auto">
@@ -420,48 +395,16 @@
       </div>
     </section>
 
-    <!-- Footer Trust Bar -->
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-10 opacity-20 grayscale flex justify-center border-t border-white/5">
-      <img src="/assets/logo_1.PNG" alt="Pixel &amp; Proof" class="h-5 w-auto">
-    </div>
-
-    <!-- Footer -->
-    <footer class="w-full bg-primary py-12 border-t border-neutral-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div class="lg:col-span-2">
-            <a href="/" class="hover:opacity-80 transition-opacity">
-              <img src="/assets/logo_1.PNG" alt="Pixel &amp; Proof" class="h-8 w-auto mb-6">
-            </a>
-            <p class="font-system text-white/40 text-sm max-w-xs leading-relaxed uppercase tracking-widest">
-              Design that converts. marketing that proves it. growth engineered through logic.
-            </p>
-          </div>
-          <div>
-            <h4 class="font-system text-[10px] text-accent tracking-widest uppercase mb-6 opacity-80 font-bold">// EXPLORE</h4>
-            <ul class="space-y-4 font-system text-xs font-bold uppercase tracking-[0.2em] text-white/50">
-              <li><a href="/#services" class="hover:text-accent transition-colors">Work</a></li>
-              <li><a href="/#agency-mission" class="hover:text-accent transition-colors">About</a></li>
-              <li><a href="/contact" class="hover:text-accent transition-colors">Work With Us</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-system text-[10px] text-accent tracking-widest uppercase mb-6 opacity-80 font-bold">// SOCIAL</h4>
-            <ul class="space-y-4 font-system text-xs font-bold uppercase tracking-[0.2em] text-white/50">
-              <li><a href="https://linkedin.com/company/pixelandproof" class="hover:text-accent transition-colors">LinkedIn</a></li>
-              <li><a href="https://instagram.com/pixelnproof" class="hover:text-accent transition-colors">Instagram</a></li>
-              <li><a href="https://twitter.com/pixelandproof" class="hover:text-accent transition-colors">Twitter</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p class="font-system text-[9px] text-white/30 uppercase tracking-widest font-medium">
-            © 2026 PIXEL & PROOF Agency. All rights reserved.
-          </p>
-          <div class="flex gap-8 font-system text-[9px] text-white/30 uppercase tracking-widest font-medium">
-            <a href="#" class="hover:text-accent transition-colors">Privacy</a>
-            <a href="#" class="hover:text-accent transition-colors">Terms</a>
-          </div>
+    <!-- Minimal Footer -->
+    <footer class="w-full bg-primary py-16 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
+        <p class="font-system text-[10px] text-white/30 uppercase tracking-[0.2em] font-medium order-2 md:order-1">
+          © 2026 PIXEL & PROOF Agency. <span class="hidden md:inline">·</span> All rights reserved.
+        </p>
+        <div class="flex gap-10 font-system text-[10px] text-white/30 uppercase tracking-[0.2em] font-bold order-1 md:order-2">
+          <a href="#" class="hover:text-accent transition-colors">Privacy</a>
+          <a href="#" class="hover:text-accent transition-colors">Terms</a>
+          <a href="mailto:hello@pixelandproof.agency" class="hover:text-accent transition-colors">Support</a>
         </div>
       </div>
     </footer>
