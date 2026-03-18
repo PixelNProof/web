@@ -113,39 +113,57 @@ const initInteractions = () => {
   const strategyForm = document.getElementById('strategy-form');
   const successMessage = document.getElementById('success-message');
   
-  // Custom Multi-select Logic
-  const servicesTrigger = document.getElementById('services-trigger');
-  const servicesDropdown = document.getElementById('services-dropdown');
-  const servicesDisplay = document.getElementById('services-display');
-  const otherServiceToggle = document.getElementById('service-other-toggle');
-  const otherServiceContainer = document.getElementById('other-service-container');
+  if (strategyForm) {
+    // 4a. Dropdown Shared Logic
+    const initDropdown = (triggerId, dropdownId, displayId, inputId = null) => {
+      const trigger = document.getElementById(triggerId);
+      const dropdown = document.getElementById(dropdownId);
+      const display = document.getElementById(displayId);
+      const hiddenInput = inputId ? document.getElementById(inputId) : null;
 
-  if (servicesTrigger && servicesDropdown) {
-    servicesTrigger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = servicesDropdown.classList.contains('hidden');
-      if (isOpen) {
-        servicesDropdown.classList.remove('hidden');
-        servicesTrigger.setAttribute('data-open', 'true');
-        setTimeout(() => servicesDropdown.classList.remove('opacity-0', 'translate-y-2'), 10);
-      } else {
-        servicesDropdown.classList.add('opacity-0', 'translate-y-2');
-        servicesTrigger.setAttribute('data-open', 'false');
-        setTimeout(() => servicesDropdown.classList.add('hidden'), 300);
-      }
-    });
+      if (!trigger || !dropdown) return;
 
-    // Close on click outside
-    document.addEventListener('click', (e) => {
-      if (!servicesDropdown.contains(e.target) && !servicesTrigger.contains(e.target)) {
-        servicesDropdown.classList.add('opacity-0', 'translate-y-2');
-        servicesTrigger.setAttribute('data-open', 'false');
-        setTimeout(() => servicesDropdown.classList.add('hidden'), 300);
-      }
-    });
+      const toggle = (forceClose = false) => {
+        const isOpen = !dropdown.classList.contains('hidden');
+        if (isOpen || forceClose) {
+          dropdown.classList.add('opacity-0', 'translate-y-2');
+          trigger.setAttribute('data-open', 'false');
+          setTimeout(() => dropdown.classList.add('hidden'), 300);
+        } else {
+          // Close other dropdowns first
+          document.querySelectorAll('[id$="-dropdown"]').forEach(d => {
+            if (d.id !== dropdownId) d.classList.add('hidden', 'opacity-0', 'translate-y-2');
+          });
+          document.querySelectorAll('[id$="-trigger"]').forEach(t => {
+            if (t.id !== triggerId) t.setAttribute('data-open', 'false');
+          });
 
-    // Update display text
-    const checkboxes = servicesDropdown.querySelectorAll('input[type="checkbox"]');
+          dropdown.classList.remove('hidden');
+          trigger.setAttribute('data-open', 'true');
+          setTimeout(() => dropdown.classList.remove('opacity-0', 'translate-y-2'), 10);
+        }
+      };
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggle();
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target) && !trigger.contains(e.target)) {
+          toggle(true);
+        }
+      });
+
+      return { trigger, dropdown, display, hiddenInput, toggle };
+    };
+
+    // 4b. Services Multi-select
+    const services = initDropdown('services-trigger', 'services-dropdown', 'services-display');
+    const otherServiceToggle = document.getElementById('service-other-toggle');
+    const otherServiceContainer = document.getElementById('other-service-container');
+    const checkboxes = services.dropdown.querySelectorAll('input[type="checkbox"]');
+
     checkboxes.forEach(cb => {
       cb.addEventListener('change', () => {
         const selected = Array.from(checkboxes)
@@ -153,23 +171,39 @@ const initInteractions = () => {
           .map(c => c.value === 'other' ? 'Other' : c.value);
         
         if (selected.length > 0) {
-          servicesDisplay.textContent = selected.join(', ');
-          servicesDisplay.classList.remove('text-white/30', 'italic');
-          servicesDisplay.classList.add('text-white');
+          services.display.textContent = selected.join(', ');
+          services.display.classList.remove('text-white/30', 'italic');
+          services.display.classList.add('text-white');
         } else {
-          servicesDisplay.textContent = 'Select services (Multi-select)';
-          servicesDisplay.classList.add('text-white/30', 'italic');
-          servicesDisplay.classList.remove('text-white');
+          services.display.textContent = 'Primary Services Needed...';
+          services.display.classList.add('text-white/30', 'italic');
+          services.display.classList.remove('text-white');
         }
 
-        // Toggle "Other" field
-        if (otherServiceToggle.checked) {
-          otherServiceContainer.classList.remove('hidden');
-          setTimeout(() => otherServiceContainer.classList.add('opacity-100'), 10);
-        } else {
-          otherServiceContainer.classList.remove('opacity-100');
-          setTimeout(() => otherServiceContainer.classList.add('hidden'), 300);
+        if (otherServiceToggle) {
+          if (otherServiceToggle.checked) {
+              otherServiceContainer.classList.remove('hidden');
+              setTimeout(() => otherServiceContainer.classList.add('opacity-100'), 10);
+          } else {
+              otherServiceContainer.classList.remove('opacity-100');
+              setTimeout(() => otherServiceContainer.classList.add('hidden'), 300);
+          }
         }
+      });
+    });
+
+    // 4c. Budget Single-select
+    const budget = initDropdown('budget-trigger', 'budget-dropdown', 'budget-display', 'budget-input');
+    const budgetOptions = budget.dropdown.querySelectorAll('.budget-option');
+
+    budgetOptions.forEach(opt => {
+      opt.addEventListener('click', () => {
+        const val = opt.getAttribute('data-value');
+        budget.hiddenInput.value = val;
+        budget.display.textContent = val;
+        budget.display.classList.remove('text-white/30', 'italic');
+        budget.display.classList.add('text-white');
+        budget.toggle(true); // Close dropdown
       });
     });
   }
