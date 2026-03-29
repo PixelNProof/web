@@ -1,0 +1,149 @@
+1. HERO SECTION
+H1 (Primary Headline)
+
+Concept.
+Consistency.
+Strategy.
+
+
+
+Body Text (Short Paragraph)
+
+Most brands look active but don't grow.
+They're built on guesswork, not strategy.
+Pixel & Proof fixes that.
+
+
+Primary CTA Button
+
+Book Your Free Audit (marquee)
+
+1. PROBLEM INTRO
+
+
+H2 (Section Heading)
+
+Your product isn’t the problem.
+Your brand is.
+
+Body Text
+
+You’re losing:
+
+attention
+trust
+and clients
+
+Before you even get a chance to sell.
+
+1. PROBLEM BREAKDOWN
+H3 (Mini Headings / Cards)
+
+Inconsistent
+Body: Every touchpoint feels like a different business.
+
+Unclear
+Body: People don’t get what you do—so they leave.
+
+Random
+Body: You’re posting, but nothing compounds.
+
+Invisible
+Body: The right people aren’t seeing you. And when they do, nothing sticks.
+
+CONSEQUENCE SECTION
+H2 (Impact Statement)
+
+So what happens?
+
+Body (Stacked lines for rhythm)
+
+You stay busy.
+But you don’t grow.
+
+You show up.
+But you don’t convert.
+
+And competitors with worse products?
+They win—because they look better.
+
+5. CONTRAST (BEFORE / AFTER)
+H3 (Column 1 Title)
+
+Without Pixel & Proof
+
+Body List
+✕ You’re posting—but nothing lands
+✕ Your brand feels different everywhere
+✕ Your message gets forgotten instantly
+✕ You blend into the market
+✕ You look cheaper than you are
+
+H3 (Column 2 Title — Accent Color)
+
+With Pixel & Proof
+
+Body List
+✓ You have a system that builds growth
+✓ Your brand looks consistent everywhere
+✓ Your message is clear—and remembered
+✓ You stand out in your category
+✓ You look as premium as you actually are
+
+
+
+for work : take from public dir of ours work/ use them as place holders for now till i give u some other work changes
+
+1. DIFFERENTIATION (CORE BELIEF)
+H2 (Big Statement)
+
+We don’t start with design.
+
+Accent Line (Highlight / Subhead)
+
+We start with thinking.
+
+H3 + Body (Stacked Points)
+
+Strategy Before Anything
+We define your positioning before we touch a pixel.
+
+Everything Works Together
+Your visuals, messaging, and content aren’t separate—they’re one system.
+
+Content That Earns Attention
+No random posting. Everything has a purpose.
+
+Built for Growth
+Consistency isn’t luck. It’s structure. We build that.
+
+We Work With You
+Not as vendors. As partners. Your outcomes are ours.
+
+1. SERVICES SECTION
+H2 (Section Heading)
+
+Where Strategy Meets Design.
+
+Subtext
+
+Brands that don’t just exist they grow.
+
+H3 + Body (Service Blocks)
+
+Brand Strategy & Identity
+We build the foundation—positioning, messaging, identity.
+
+Social Media & Content Systems
+Not posts. Systems that grow your brand over time.
+
+Website & Digital Experience
+Designed to convert—not just look good.
+
+Creative & Design
+Every visual has a reason behind it.
+
+Performance Marketing
+Reach the right people, not just more people.
+
+final ct and our existing form

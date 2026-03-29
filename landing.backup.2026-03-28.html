@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growth Strategy | Pixel & Proof</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+    rel="stylesheet">
+
+
+  <link rel="stylesheet" href="/src/style.css">
+
+  <style>
+    /* ─── HERO ──────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100svh;
+      min-height: 640px;
+      background: #020202;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Nav */
+    #hero-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 36px 48px 0;
+    }
+
+    #hero-menu-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: #FFCE00;
+      border-radius: 50%;
+      font-size: 10px;
+      font-weight: 900;
+      color: #020202;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 1.1;
+      text-align: center;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    #hero-menu-btn:hover {
+      transform: scale(1.08);
+    }
+
+    /* divider line */
+    #hero-rule {
+      position: absolute;
+      top: 108px;
+      left: 48px;
+      right: 48px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.12);
+      z-index: 9;
+    }
+
+    /* CENTER TEXT */
+    #hero-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .ht-line1,
+    .ht-line3 {
+      font-size: clamp(52px, 9vw, 130px);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      color: white;
+      display: block;
+    }
+
+    .ht-line2-wrap {
+      display: inline-block;
+      margin: clamp(4px, 0.5vw, 12px) 0;
+      position: relative;
+    }
+
+    .ht-line2 {
+      font-size: clamp(56px, 10vw, 140px);
+      line-height: 0.85;
+      letter-spacing: 0.01em;
+      color: #FFCE00;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      display: block;
+      position: relative;
+      transform: rotate(-6deg);
+    }
+
+    .ht-line2::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+      width: 100%;
+      height: clamp(3px, 0.45vw, 7px);
+      background: #FFCE00;
+      border-radius: 4px;
+      transform: rotate(-1deg);
+    }
+
+    .ht-line2::before {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 1%;
+      width: 98%;
+      height: 2px;
+      background: #FFCE00;
+      border-radius: 4px;
+      opacity: 0.45;
+      transform: rotate(-1deg);
+    }
+
+    .ht-line3-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(12px, 2vw, 32px);
+    }
+
+    .ht-icon {
+      width: clamp(40px, 7vw, 80px);
+      height: clamp(40px, 7vw, 80px);
+      color: #FFCE00;
+      transform: rotate(-12deg);
+      flex-shrink: 0;
+    }
+
+    /* ── CHAT BUBBLES ──────────────────────────────────────────── */
+    #hero-fl,
+    #hero-fr {
+      padding: 20px 24px;
+      border-radius: 22px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.04);
+      border: 2px solid #FFCE00;
+      z-index: 10;
+      position: absolute;
+      box-shadow: 0 8px 32px rgba(255, 206, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* LEFT BUBBLE — tilted right +3deg, tail bottom-left (zig-zag) */
+    #hero-fl {
+      bottom: 10%;
+      left: 48px;
+      max-width: 230px;
+      transform: rotate(3deg);
+    }
+
+    /* Tail: outer yellow shape */
+    #hero-fl::before {
+      content: '';
+      position: absolute;
+      bottom: -18px;
+      left: 24px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 18px 8px 0 14px;
+      border-color: #FFCE00 transparent transparent transparent;
+      filter: drop-shadow(1px 1px 0 #FFCE00);
+    }
+
+    /* Tail: inner transparent cutout */
+    #hero-fl::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 27px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 13px 5px 0 10px;
+      border-color: rgba(10, 10, 10, 0.85) transparent transparent transparent;
+    }
+
+    #hero-fl p {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    /* RIGHT BUBBLE — tilted left -2.5deg, tail bottom-right */
+    #hero-fr {
+      top: 50%;
+      transform: translateY(-50%) rotate(-2.5deg);
+      right: 48px;
+      max-width: 250px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* Tail: outer yellow shape */
+    #hero-fr::before {
+      content: '';
+      position: absolute;
+      bottom: -18px;
+      right: 24px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 18px 14px 0 8px;
+      border-color: #FFCE00 transparent transparent transparent;
+    }
+
+    /* Tail: inner transparent cutout */
+    #hero-fr::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      right: 27px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 13px 10px 0 5px;
+      border-color: rgba(10, 10, 10, 0.85) transparent transparent transparent;
+    }
+
+    #hero-fr hr {
+      display: none;
+    }
+
+    #hero-fr p {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    #hero-fr a {
+      color: #FFCE00;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 206, 0, 0.4);
+      padding-bottom: 3px;
+      width: fit-content;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    #hero-fr a:hover {
+      color: white;
+      border-color: white;
+    }
+
+
+
+
+    /* SCROLL DOT */
+    #hero-scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .scroll-pill {
+      width: 22px;
+      height: 38px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 99px;
+      display: flex;
+      justify-content: center;
+      padding-top: 5px;
+    }
+
+    .scroll-dot {
+      width: 4px;
+      height: 6px;
+      background: #FFCE00;
+      border-radius: 99px;
+      animation: bounce 1.4s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translateY(8px);
+        opacity: 0.4;
+      }
+    }
+
+    /* Responsive: hide float panels on small screens */
+    @media (max-width: 767px) {
+      #hero-nav {
+        padding: 24px 24px 0;
+      }
+
+      #hero-rule {
+        top: 90px;
+        left: 24px;
+        right: 24px;
+      }
+
+      #hero-fr {
+        display: none;
+      }
+
+      #hero-fl {
+        left: 24px;
+        bottom: 80px;
+        max-width: 200px;
+      }
+
+      #hero-scroll {
+        bottom: 24px;
+      }
+
+      #hero-menu-btn {
+        width: 52px;
+        height: 52px;
+        font-size: 9px;
+      }
+    }
+  </style>
+
+</head>
+
+<body class="selection:bg-[#FFCE00] selection:text-black">
+
+  <div class="fixed inset-0 w-full h-full pointer-events-none z-[9999] opacity-[0.03] bg-[url('/assets/noise.png')]">
+  </div>
+
+  <!-- HERO (EVET Reference Match) -->
+  <section id="hero">
+    <!-- Nav -->
+    <nav id="hero-nav">
+      <a href="/" style="display:inline-flex; align-items:center;">
+        <img src="/assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:28px; width:auto;">
+      </a>
+      <a id="hero-menu-btn" href="#contact">SAY<br>HI</a>
+    </nav>
+
+    <!-- Thin horizontal rule -->
+    <div id="hero-rule"></div>
+
+    <!-- Center Massive Text -->
+    <div id="hero-center">
+      <span class="ht-line1">Concept.</span>
+      <div class="ht-line2-wrap">
+        <span class="ht-line2">Consistency.</span>
+      </div>
+      <div class="ht-line3-row">
+        <span class="ht-line3">Strategy.</span>
+        <svg class="ht-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M8 9h.01M16 9h.01" />
+          <path d="M9 15c.83 1.5 5.17 1.5 6 0" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Bottom-left paragraph -->
+    <div id="hero-fl">
+      <p>Most brands look active but don't grow.<br>They're built on guesswork, not strategy.<br>— <strong
+          style="color:white; font-weight:500;">Pixel & Proof fixes that.</strong></p>
+    </div>
+
+    <!-- Middle-right paragraph -->
+    <div id="hero-fr">
+      <hr>
+      <p>We build intentional brands for businesses ready to grow. No pitch. Just clarity.</p>
+      <a href="#contact">Book Your Free Audit</a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div id="hero-scroll">
+      <div class="scroll-pill">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 2. THE PROBLEM FRAMEWORK (Merged & Flipped) -->
+  <section class="py-20 bg-brand-black px-6">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-start">
+
+        <!-- Left: The Failure Accordion (Sleek List) -->
+        <div class="md:col-span-4 border-t border-white/10 pt-6 order-2 md:order-1">
+          <div class="flex flex-col gap-4">
+            <!-- Accordion Item 1 -->
+            <details class="group border-b border-white/5 pb-4" open>
+              <summary class="flex justify-between items-center cursor-pointer list-none list-inside">
+                <h4 class="text-xl font-bold text-white tracking-widest uppercase transition-colors group-hover:text-accent-brand">Inconsistent</h4>
+                <span class="text-accent-brand transition-transform group-open:rotate-45 font-black text-xl">✕</span>
+              </summary>
+              <p class="mt-4 text-white/40 text-sm leading-relaxed font-light pr-12">
+                Your Instagram looks different from your website. Your website looks different from your packaging. Customers feel it even if they can't name it. And it quietly kills trust.
+              </p>
+            </details>
+
+            <!-- Accordion Item 2 -->
+            <details class="group border-b border-white/5 pb-4">
+              <summary class="flex justify-between items-center cursor-pointer list-none">
+                <h4 class="text-xl font-bold text-white tracking-widest uppercase transition-colors group-hover:text-accent-brand">Unclear</h4>
+                <span class="text-accent-brand transition-transform group-open:rotate-45 font-black text-xl">✕</span>
+              </summary>
+              <p class="mt-4 text-white/40 text-sm leading-relaxed font-light pr-12">
+                You know exactly what you do. But when someone lands on your page, they hesitate. That hesitation is a decision and it's not in your favour.
+              </p>
+            </details>
+
+            <!-- Accordion Item 3 -->
+            <details class="group border-b border-white/5 pb-4">
+              <summary class="flex justify-between items-center cursor-pointer list-none">
+                <h4 class="text-xl font-bold text-white tracking-widest uppercase transition-colors group-hover:text-accent-brand">Random</h4>
+                <span class="text-accent-brand transition-transform group-open:rotate-45 font-black text-xl">✕</span>
+              </summary>
+              <p class="mt-4 text-white/40 text-sm leading-relaxed font-light pr-12">
+                You post when you feel like it. Some things get traction, most don't. There's no system which means there's no compounding. Just effort with no direction.
+              </p>
+            </details>
+
+            <!-- Accordion Item 4 -->
+            <details class="group border-b border-white/5 pb-4">
+              <summary class="flex justify-between items-center cursor-pointer list-none">
+                <h4 class="text-xl font-bold text-white tracking-widest uppercase transition-colors group-hover:text-accent-brand">Invisible</h4>
+                <span class="text-accent-brand transition-transform group-open:rotate-45 font-black text-xl">✕</span>
+              </summary>
+              <p class="mt-4 text-white/40 text-sm leading-relaxed font-light pr-12">
+                You're not reaching the people who would actually pay for what you offer. And on the rare occasion they find you nothing on your brand makes them stay.
+              </p>
+            </details>
+          </div>
+        </div>
+
+        <!-- Right: The Headline & Narrative -->
+        <div class="md:col-span-8 border-t border-white/10 pt-6 order-1 md:order-2">
+          <div class="h-1 bg-accent-brand w-12 mb-6"></div>
+          <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tighter uppercase mb-6">
+            Great businesses get overlooked every day.<br>
+            <span class="text-accent-brand">Yours might be one of them.</span>
+          </h2>
+          
+          <div class="flex flex-col h-full justify-between">
+            <p class="text-white/80 text-xl font-light leading-relaxed mb-8">
+              Not because the product isn't good. Not because the founder isn't capable. Because <span class="text-white font-bold">the brand doesn't reflect any of it.</span> And in the three seconds someone spends deciding whether to trust you — a weak brand loses. <span class="text-accent-brand italic">Every time.</span>
+            </p>
+            
+            <div class="flex flex-col md:flex-row items-center gap-8 text-white uppercase tracking-[0.4em] font-black text-sm md:text-base border-t border-white/5 pt-8">
+              <span class="border-b border-accent-brand/30 pb-2">You are losing</span>
+              <div class="h-12 overflow-hidden bg-accent-brand px-8 rounded-full border border-white/10">
+                <div class="flex flex-col animate-[scroll_6s_infinite] text-black font-black italic uppercase">
+                  <span class="h-12 flex items-center justify-center">attention</span>
+                  <span class="h-12 flex items-center justify-center">trust</span>
+                  <span class="h-12 flex items-center justify-center">clients</span>
+                  <span class="h-12 flex items-center justify-center">attention</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @keyframes scroll {
+
+      0%,
+      25% {
+        transform: translateY(0);
+      }
+
+      33%,
+      58% {
+        transform: translateY(-25%);
+      }
+
+      66%,
+      91% {
+        transform: translateY(-50%);
+      }
+
+      100% {
+        transform: translateY(-75%);
+      }
+    }
+  </style>
+
+
+
+  <!-- 4. CONSEQUENCE SECTION (Refined Spacing & Scale) -->
+  <section class="py-20 w-full bg-brand-black">
+    <div class="w-full max-w-[1280px] mx-auto px-6">
+
+      <!-- Aligned Header -->
+      <div class="grid grid-cols-1 md:grid-cols-12 mb-20">
+        <div class="md:col-span-12 border-b border-white/5 pb-12">
+          <h2 class="text-5xl md:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter">
+            Here's what that<br>
+            <span class="text-accent-brand">actually costs you</span>
+          </h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24">
+        <!-- Effect 01 (Left Offset) -->
+        <div class="md:col-start-1 md:col-span-4">
+          <div class="flex flex-col gap-6">
+            <span class="text-white/20 uppercase tracking-widest text-[10px] font-black italic">Effect 01</span>
+            <p class="text-2xl md:text-3xl font-light text-white leading-tight tracking-tight">
+              You stay <span class="font-bold text-accent-brand">busy.</span><br>
+              But you don’t grow.
+            </p>
+          </div>
+        </div>
+
+        <!-- Effect 02 (Right Heavy) -->
+        <div class="md:col-start-6 md:col-span-7 flex flex-col gap-20">
+          <div class="flex flex-col gap-6">
+            <span class="text-white/20 uppercase tracking-widest text-[10px] font-black italic">Effect 02</span>
+            <p class="text-2xl md:text-3xl font-light text-white leading-tight tracking-tight">
+              You <span class="font-bold text-accent-brand">show up.</span><br>
+              But you don’t convert.
+            </p>
+          </div>
+          <div class="pt-12 border-t border-white/10">
+            <span class="text-accent-brand font-black italic block mb-6 text-lg tracking-widest uppercase">The Outcome:</span>
+            <p class="text-2xl text-white font-light leading-relaxed">
+              Competitors with worse products <span class="text-white/40 italic">win every single day</span>—simply because they look more established than you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CONTRAST (Reduced Padding) -->
+  <section class="py-20 w-full bg-brand-black">
+    <div class="px-6 w-full max-w-[1280px] mx-auto">
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 mb-20">
+        <div class="md:col-span-12">
+          <h2 class="text-5xl md:text-6xl font-black uppercase text-white leading-none tracking-tighter">The Contrast.</h2>
+          <p class="text-white/30 text-lg md:text-xl font-light leading-relaxed max-w-2xl mt-8">Most brands focus on aesthetics. We focus on identity systems that build long-term brand equity.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 border border-white/10 overflow-hidden rounded-[2rem]">
+
+        <!-- Column 1: Without -->
+        <div class="flex flex-col gap-10 p-10 md:p-16 bg-white/[0.01] border-b md:border-b-0 md:border-r border-white/10">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-bold text-white/20 uppercase tracking-widest">Without Us</h3>
+            <span class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white/10 text-xs">✕</span>
+          </div>
+          <ul class="flex flex-col gap-6 text-base text-white/40">
+            <li class="pb-6 border-b border-white/5 flex gap-4"><span>✕</span> <span>Posting without landing a single signal</span></li>
+            <li class="pb-6 border-b border-white/5 flex gap-4"><span>✕</span> <span>Brand feels fragmented across channels</span></li>
+            <li class="pb-6 border-b border-white/5 flex gap-4"><span>✕</span> <span>Forgotten instantly by your target audience</span></li>
+            <li class="flex gap-4"><span>✕</span> <span>Looking cheaper than your premium value</span></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: With -->
+        <div class="flex flex-col gap-10 p-10 md:p-16 bg-accent-brand/5">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-bold text-accent-brand uppercase tracking-widest">With Us</h3>
+            <span class="w-8 h-8 rounded-full bg-accent-brand/10 flex items-center justify-center text-accent-brand text-xs font-black">✓</span>
+          </div>
+          <ul class="flex flex-col gap-6 text-base">
+            <li class="pb-6 border-b border-white/5 flex gap-4 text-white/80"><span>✓</span> <span>Systems that build authority and growth</span></li>
+            <li class="pb-6 border-b border-white/5 flex gap-4 text-white/80"><span>✓</span> <span>Consistent identity at every touchpoint</span></li>
+            <li class="pb-6 border-b border-white/5 flex gap-4 text-white/80"><span>✓</span> <span>High-intent conversion through clarity</span></li>
+            <li class="flex gap-4 text-accent-brand font-bold"><span>✓</span> <span>Projecting your true premium standard</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PORTFOLIO / WORK (Unboxed Flow) -->
+  <section class="py-20 w-full bg-brand-black" id="work">
+    <div class="px-6 w-full max-w-[1280px] mx-auto">
+
+      <div class="grid grid-cols-1 md:grid-cols-12 mb-20 pb-8">
+        <div class="md:col-span-8">
+          <h3 class="text-5xl md:text-6xl font-bold tracking-tighter text-white leading-none uppercase">The Work.</h3>
+        </div>
+        <div class="md:col-span-4 flex items-end justify-start md:justify-end pb-2">
+          <a href="#contact" class="px-8 py-3 border border-white/20 rounded-full text-[10px] uppercase tracking-widest font-black hover:bg-accent-brand hover:text-black transition-all">All Projects</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24">
+        <!-- Project 1 -->
+        <div class="md:col-span-6 flex flex-col gap-10">
+          <div class="group relative overflow-hidden rounded-[2rem] aspect-[4/5] bg-white/5">
+            <img src="/work/project1.png" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" onerror="this.src='/placeholder-work.jpg'">
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="text-accent-brand font-black text-[10px] uppercase tracking-widest">Digital / Strategy</span>
+            <h4 class="text-3xl font-black uppercase text-white tracking-tighter">Project Alpha</h4>
+          </div>
+        </div>
+
+        <!-- Project 2 (Offset/Staggered) -->
+        <div class="md:col-span-6 md:mt-48 flex flex-col gap-10">
+          <div class="group relative overflow-hidden rounded-[2rem] aspect-[4/5] bg-white/5">
+            <img src="/work/project2.png" alt="Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" onerror="this.src='/placeholder-work.jpg'">
+          </div>
+          <div class="flex flex-col gap-4">
+            <span class="text-accent-brand font-black text-[10px] uppercase tracking-widest">Identity / Motion</span>
+            <h4 class="text-3xl font-black uppercase text-white tracking-tighter">Project Beta</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CORE BELIEF: PHILOSOPHY (Integrated Scale) -->
+  <section class="py-24 w-full bg-brand-black text-white">
+    <div class="px-6 w-full max-w-[1280px] mx-auto">
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-y-16 gap-x-12">
+        
+        <!-- Row 1: The Anchor (Scaled Down) -->
+        <div class="md:col-span-12 lg:col-span-8">
+          <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-6">
+            We don’t start<br>
+            <span class="text-white/5" style="-webkit-text-stroke: 1px white; color: transparent;">with design.</span>
+          </h2>
+          <div class="flex items-center gap-6 mb-12">
+            <h3 class="text-2xl md:text-3xl font-normal italic serif-italic text-white/60">
+              We start with 
+            </h3>
+            <span class="bg-accent-brand text-black px-6 py-2 not-italic font-black text-2xl md:text-3xl uppercase tracking-tighter inline-block">thinking.</span>
+          </div>
+        </div>
+
+        <!-- Row 2: The Points (Unified Grid) -->
+        <div class="md:col-span-12">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-12 border-t border-white/10 pt-12">
+            <!-- Point 01 -->
+            <div class="flex flex-col gap-3 group">
+              <span class="text-accent-brand font-black text-[10px] tracking-[0.3em] uppercase opacity-40">01 / Strategy</span>
+              <h4 class="text-lg font-bold uppercase text-white tracking-widest leading-tight">Strategy Before Anything</h4>
+              <p class="text-[14px] text-white/40 font-light leading-relaxed">We define your positioning before we touch a pixel. Purpose leads, visuals follow.</p>
+            </div>
+
+            <!-- Point 02 -->
+            <div class="flex flex-col gap-3 group">
+              <span class="text-accent-brand font-black text-[10px] tracking-[0.3em] uppercase opacity-40">02 / System</span>
+              <h4 class="text-lg font-bold uppercase text-white tracking-widest leading-tight">Everything Works Together</h4>
+              <p class="text-[14px] text-white/40 font-light leading-relaxed">Visuals, messaging, and content aren't separate silos—they're one unified system.</p>
+            </div>
+
+            <!-- Point 03 -->
+            <div class="flex flex-col gap-3 group">
+              <span class="text-accent-brand font-black text-[10px] tracking-[0.3em] uppercase opacity-40">03 / Signal</span>
+              <h4 class="text-lg font-bold uppercase text-white tracking-widest leading-tight">Content That Earns Attention</h4>
+              <p class="text-[14px] text-white/40 font-light leading-relaxed">No vanity metrics or random posting. Every signal has a clear strategic purpose and outcome.</p>
+            </div>
+
+            <!-- Point 04 -->
+            <div class="flex flex-col gap-3 group">
+              <span class="text-accent-brand font-black text-[10px] tracking-[0.3em] uppercase opacity-40">04 / Growth</span>
+              <h4 class="text-lg font-bold uppercase text-white tracking-widest leading-tight">Built for Growth</h4>
+              <p class="text-[14px] text-white/40 font-light leading-relaxed">Consistency isn't luck. It's structure. We build the architecture for your compounding growth.</p>
+            </div>
+
+            <!-- Point 05 -->
+            <div class="flex flex-col gap-3 group">
+              <span class="text-accent-brand font-black text-[10px] tracking-[0.3em] uppercase opacity-40">05 / Partner</span>
+              <h4 class="text-lg font-bold uppercase text-white tracking-widest leading-tight">We Work With You</h4>
+              <p class="text-[14px] text-white/40 font-light leading-relaxed">As strategic partners, not vendors. Your success metrics are our only true benchmarks.</p>
+            </div>
+
+            <!-- Row 6: The Supporting Detail -->
+            <div class="pt-2">
+              <p class="text-base font-light leading-relaxed border-l-2 border-accent-brand pl-6 text-white/60">Everything we build is anchored in a defined strategy before we ever touch a pixel.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. THE SOLUTION: SERVICES (Reduced Scale) -->
+  <section class="py-20 w-full bg-brand-black">
+    <div class="px-6 w-full max-w-[1280px] mx-auto">
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-24">
+        <div class="md:col-span-12 border-b border-white/5 pb-8">
+          <h3 class="text-5xl md:text-6xl font-black uppercase text-white leading-none tracking-tighter">How we<br>build equity.</h3>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24">
+
+        <!-- Pillar 01 -->
+        <div class="flex flex-col gap-10 group">
+          <div class="flex flex-col gap-8 border-t border-white/10 pt-10">
+            <div class="flex justify-between items-center">
+              <span class="text-accent-brand font-black text-[10px] uppercase tracking-widest">System</span>
+              <span class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/20 group-hover:bg-accent-brand group-hover:text-black transition-all">01</span>
+            </div>
+            <h4 class="text-3xl font-black uppercase text-white tracking-tighter">Brand Systems</h4>
+            <p class="text-white/30 text-lg leading-relaxed font-light">Architecture first, aesthetics second. We define your pulse before we design your pixels.</p>
+          </div>
+        </div>
+
+        <!-- Pillar 02 -->
+        <div class="flex flex-col gap-10 group">
+          <div class="flex flex-col gap-8 border-t border-white/10 pt-10">
+            <div class="flex justify-between items-center">
+              <span class="text-accent-brand font-black text-[10px] uppercase tracking-widest">Signal</span>
+              <span class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/20 group-hover:bg-accent-brand group-hover:text-black transition-all">02</span>
+            </div>
+            <h4 class="text-3xl font-black uppercase text-white tracking-tighter">Social Identity</h4>
+            <p class="text-white/30 text-lg leading-relaxed font-light">Unified visuals and messaging systems that turn passive scrolling into brand trust.</p>
+          </div>
+        </div>
+
+        <!-- Pillar 03 -->
+        <div class="flex flex-col gap-10 group">
+          <div class="flex flex-col gap-8 border-t border-white/10 pt-10">
+            <div class="flex justify-between items-center">
+              <span class="text-accent-brand font-black text-[10px] uppercase tracking-widest">Flow</span>
+              <span class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/20 group-hover:bg-accent-brand group-hover:text-black transition-all">03</span>
+            </div>
+            <h4 class="text-3xl font-black uppercase text-white tracking-tighter">Digital Product</h4>
+            <p class="text-white/30 text-lg leading-relaxed font-light">Websites and products tailored for a premium feel and high-intent conversion.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FINAL CTA (Balanced Spacing) -->
+  <section class="py-32 w-full bg-brand-black border-t border-white/5" id="contact">
+    <div class="px-6 w-full max-w-[1280px] mx-auto text-center flex flex-col items-center">
+
+      <div class="mb-16">
+        <span class="text-accent-brand font-black tracking-[0.5em] text-[12px] uppercase block mb-8">Ready to Scale?</span>
+        <h2 class="text-6xl md:text-7xl font-black uppercase text-white leading-none tracking-tighter">
+          Build your<br>
+          <span class="text-accent-brand">Legacy.</span>
+        </h2>
+      </div>
+
+      <div class="max-w-[800px] w-full bg-white/[0.02] border border-white/5 p-12 md:p-20 rounded-[3rem] backdrop-blur-xl">
+        <p class="text-white/40 text-xl md:text-2xl font-light mb-12 italic serif-italic">"Pixel & Proof doesn't just design websites. They design the systems that allow brands to actually breathe."</p>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+          <a href="mailto:hello@pixelnproof.com" class="px-12 py-6 bg-accent-brand text-black rounded-full font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform">Book Free Audit</a>
+          <a href="#work" class="px-12 py-6 border border-white/10 text-white rounded-full font-black uppercase tracking-widest text-xs hover:bg-white/5 transition-all">View All Work</a>
+        </div>
+      </div>
+
+      <footer class="mt-48 w-full pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10 opacity-30">
+        <span class="text-[10px] font-black uppercase tracking-widest">&copy; 2024 Pixel & Proof. All Rights Reserved.</span>
+        <div class="flex gap-8 text-[10px] font-black uppercase tracking-widest">
+          <a href="#" class="hover:text-accent-brand">Instagram</a>
+          <a href="#" class="hover:text-accent-brand">LinkedIn</a>
+          <a href="#" class="hover:text-accent-brand">Twitter</a>
+        </div>
+      </footer>
+
+    </div>
+  </section>
+
+</body>
+
+</html>
