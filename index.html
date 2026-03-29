@@ -76,69 +76,33 @@
       z-index: 9;
     }
 
-    /* CENTER TEXT */
-    #hero-center {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      pointer-events: none;
-    }
-
-    .ht-line1,
-    .ht-line3 {
-      font-size: clamp(52px, 9vw, 130px);
-      font-weight: 700;
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900;
       line-height: 0.9;
-      letter-spacing: -0.03em;
-      color: white;
-      display: block;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      text-align: center;
     }
 
-    .ht-line2-wrap {
-      display: inline-block;
-      margin: clamp(4px, 0.5vw, 12px) 0;
-      position: relative;
+    .highlight {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--brand-yellow);
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 400;
     }
 
-    .ht-line2 {
-      font-size: clamp(56px, 10vw, 140px);
-      line-height: 0.85;
-      letter-spacing: 0.01em;
-      color: #FFCE00;
-      font-family: 'Dancing Script', cursive;
-      font-weight: 700;
-      display: block;
-      position: relative;
-      transform: rotate(-6deg);
-    }
-
-    .ht-line2::after {
-      content: '';
-      position: absolute;
-      bottom: 4px;
-      left: 0;
-      width: 100%;
-      height: clamp(3px, 0.45vw, 7px);
-      background: #FFCE00;
-      border-radius: 4px;
-      transform: rotate(-1deg);
-    }
-
-    .ht-line2::before {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 1%;
-      width: 98%;
-      height: 2px;
-      background: #FFCE00;
-      border-radius: 4px;
-      opacity: 0.45;
-      transform: rotate(-1deg);
+    .hero-body {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 650px;
+      margin-bottom: 3rem;
+      font-weight: 500;
+      line-height: 1.6;
+      text-align: center;
     }
 
     .ht-line3-row {
@@ -384,19 +348,21 @@
     <div id="hero-rule"></div>
 
     <!-- Center Massive Text -->
-    <div id="hero-center">
-      <span class="ht-line1">Concept.</span>
-      <div class="ht-line2-wrap">
-        <span class="ht-line2">Consistency.</span>
+    <div id="hero-center" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10 px-6">
+      <div class="bg-black/80 text-[#FFCE00] px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8 border border-[#FFCE00]/20">
+        Attention: Modern Brands & Founders
       </div>
-      <div class="ht-line3-row">
-        <span class="ht-line3">Strategy.</span>
-        <svg class="ht-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-          stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M8 9h.01M16 9h.01" />
-          <path d="M9 15c.83 1.5 5.17 1.5 6 0" />
-        </svg>
+      <h1 class="hero-title text-white">
+        You're <span class="text-white">losing</span> <span class="highlight">attention.</span><br>
+        Your <span class="text-white">strategy</span> is the <span class="highlight">reason.</span>
+      </h1>
+      <p class="hero-body">
+        We build high-precision systems that turn aesthetic excellence into measurable revenue.
+      </p>
+      <div class="pointer-events-auto">
+        <a href="#contact" class="px-12 py-6 bg-[#FFCE00] text-black rounded-xl font-black uppercase tracking-widest text-xs hover:bg-white transition-colors duration-300">
+          Book Free Audit
+        </a>
       </div>
     </div>
 
@@ -1156,7 +1122,7 @@
       <footer
         class="mt-48 w-full py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
         <div class="flex-1 flex justify-start">
-          <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="h-6 w-auto opacity-40 grayscale">
+          <img src="public/assets/logo_1.PNG" alt="Pixel & Proof" class="h-6 w-auto opacity-40 grayscale">
         </div>
         <div class="flex-1 text-center">
           <span class="text-[9px] font-black uppercase tracking-[0.3em] text-white/20">&copy; 2026 Pixel Proof. All
