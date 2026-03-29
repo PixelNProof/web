@@ -1232,7 +1232,8 @@
                 data.source = 'brand_landing'; // Tag leads from ad landing page
                 
                 try {
-                    const response = await fetch('https://hook.eu1.make.com/0m8w89s9hmhtmgb45cnbkip3dhi4wghw', {
+                    // Placeholder for tomorrow's LP Webhook
+                    const response = await fetch('YOUR_BRAND_WEBHOOK_URL_HERE', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(data)
