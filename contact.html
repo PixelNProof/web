@@ -127,17 +127,47 @@
   <div class="fixed inset-0 w-full h-full pointer-events-none z-[9999] opacity-[0.03] bg-[url('/assets/noise.png')]">
   </div>
 
+  <style>
+    /* Mobile Menu Animation Classes */
+    .menu-active #bar1 {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .menu-active #bar2 {
+      opacity: 0;
+    }
+    .menu-active #bar3 {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  </style>
+
   <!-- Identical Nav to Home Page -->
-  <nav id="hero-nav" class="flex items-center justify-between w-full">
+  <nav id="hero-nav" class="flex items-center justify-between w-full max-w-[100vw] overflow-hidden !z-[10001]">
     <a href="/" style="display:inline-flex; align-items:center;">
-      <img src="/assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:28px; width:auto;">
+      <img src="/assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:24px; width:auto;" class="md:h-7">
     </a>
-    <div class="hidden md:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/40 mr-12">
+    <div class="hidden md:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/70 mr-12">
       <a href="/#work" class="hover:text-[#FFCE00] transition-colors">Our Work</a>
       <a href="/#agency-mission" class="hover:text-[#FFCE00] transition-colors">About</a>
     </div>
-    <a id="hero-menu-btn" href="contact.html">SAY<br>HI</a>
+    <div class="flex items-center gap-4">
+      <button id="mobile-menu-toggle" class="md:hidden flex flex-col items-center justify-center p-2 z-[10001] w-10 h-10 relative">
+        <span class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center translate-y-0.5" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all duration-300 mt-1.5" id="bar2"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all duration-300 mt-1.5 origin-center -translate-y-0.5" id="bar3"></span>
+      </button>
+      <a id="hero-menu-btn" href="contact.html">SAY<br>HI</a>
+    </div>
   </nav>
+
+  <!-- Mobile Navigation Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-black/98 z-[10000] flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-all duration-500 backdrop-blur-xl">
+    <a href="/#work" class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">Our Work</a>
+    <a href="/#agency-mission" class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">About</a>
+    <a href="contact.html" class="text-4xl font-black uppercase tracking-tighter text-accent-brand mobile-link">Say Hi</a>
+    <div class="mt-10 pt-10 border-t border-white/10 w-48 text-center">
+      <span class="text-[10px] font-black uppercase tracking-widest text-white/30">Pixel & Proof</span>
+    </div>
+  </div>
 
   <!-- Main Content -->
   <main class="pt-48 pb-32">
@@ -154,18 +184,18 @@
           </h1>
           
           <div class="flex flex-col gap-8 border-t border-white/5 pt-12">
-            <p class="text-white/60 text-xl font-light leading-relaxed">
-              We don't do "vendor" relationships. We do growth partnerships. If you're ready for high-precision design and hard data, let's talk.
+            <p class="text-white/80 text-xl font-light leading-relaxed">
+              We don't do growth partnerships. If you're ready for high-precision design and hard data, let's talk.
             </p>
             
             <div class="flex flex-col gap-6">
               <div class="flex items-center gap-4">
                 <div class="w-1.5 h-1.5 bg-accent-brand rounded-full"></div>
-                <span class="text-[10px] font-black uppercase tracking-widest text-white/40">Response within 24 hours</span>
+                <span class="text-[10px] font-black uppercase tracking-widest text-white/70">Response within 24 hours</span>
               </div>
               <div class="flex items-center gap-4">
                 <div class="w-1.5 h-1.5 bg-accent-brand rounded-full"></div>
-                <span class="text-[10px] font-black uppercase tracking-widest text-white/40">Direct founder communication</span>
+                <span class="text-[10px] font-black uppercase tracking-widest text-white/70">Direct founder communication</span>
               </div>
             </div>
           </div>
@@ -181,11 +211,17 @@
                   <label for="full_name">Full Name</label>
                   <input type="text" id="full_name" name="full_name" class="px-6 py-4 rounded-xl text-sm" placeholder="e.g. Rohan Malik" required>
                 </div>
-                <!-- Brand Name -->
+                <!-- Email -->
                 <div class="flex flex-col">
-                  <label for="brand_name">Business Name</label>
-                  <input type="text" id="brand_name" name="brand_name" class="px-6 py-4 rounded-xl text-sm" placeholder="e.g. Pixel & Proof" required>
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" class="px-6 py-4 rounded-xl text-sm" placeholder="e.g. rohan@example.com" required>
                 </div>
+              </div>
+
+              <!-- Brand Name -->
+              <div class="flex flex-col">
+                <label for="brand_name">Business Name</label>
+                <input type="text" id="brand_name" name="brand_name" class="px-6 py-4 rounded-xl text-sm" placeholder="e.g. Pixel & Proof" required>
               </div>
 
               <!-- Type of Business -->
@@ -240,6 +276,49 @@
     </div>
   </footer>
 
+  <script>
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('opacity-100');
+        if (isOpen) {
+          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+          mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+          document.body.style.overflow = '';
+          menuToggle.classList.remove('menu-active');
+        } else {
+          mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+          mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+          document.body.style.overflow = 'hidden';
+          menuToggle.classList.add('menu-active');
+        }
+      });
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+          mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+          document.body.style.overflow = '';
+          menuToggle.classList.remove('menu-active');
+        });
+      });
+    }
+
+    // Form logic
+    const form = document.getElementById('strategy-form');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for reaching out! We will get back to you within 24 hours.');
+        form.reset();
+      });
+    }
+  </script>
 </body>
 
 </html>

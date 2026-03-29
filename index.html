@@ -28,18 +28,30 @@
       flex-direction: column;
     }
 
-    /* Nav */
+    /* Mobile Menu Animation Classes */
+    .menu-active #bar1 {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .menu-active #bar2 {
+      opacity: 0;
+    }
+    .menu-active #bar3 {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    
     #hero-nav {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 10;
+      z-index: 10001; /* Above overlay trigger */
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 36px 48px 0;
     }
+
+    /* Removed problematic background glow to keep background pure black */
 
     #hero-menu-btn {
       display: flex;
@@ -90,8 +102,8 @@
 
     .ht-line1,
     .ht-line3 {
-      font-size: clamp(52px, 9vw, 130px);
-      font-weight: 700;
+      font-size: clamp(38px, 12vw, 130px);
+      font-weight: 900;
       line-height: 0.9;
       letter-spacing: -0.03em;
       color: white;
@@ -170,7 +182,7 @@
       box-shadow: 0 8px 32px rgba(255, 206, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
-    /* LEFT BUBBLE — tilted right +3deg, tail bottom-left (zig-zag) */
+    /* LEFT BUBBLE   tilted right +3deg, tail bottom-left (zig-zag) */
     #hero-fl {
       bottom: 10%;
       left: 48px;
@@ -212,7 +224,7 @@
       line-height: 1.5;
     }
 
-    /* RIGHT BUBBLE — tilted left -2.5deg, tail bottom-right */
+    /* RIGHT BUBBLE   tilted left -2.5deg, tail bottom-right */
     #hero-fr {
       top: 50%;
       transform: translateY(-50%) rotate(-2.5deg);
@@ -324,7 +336,7 @@
       }
     }
 
-    /* Responsive: hide float panels on small screens */
+    /* Responsive: tweak bubbles for small screens */
     @media (max-width: 767px) {
       #hero-nav {
         padding: 24px 24px 0;
@@ -337,14 +349,25 @@
       }
 
       #hero-fr {
-        display: none;
+        display: flex !important;
+        top: auto;
+        bottom: 100px;
+        right: 24px;
+        max-width: 170px;
+        transform: rotate(-2deg);
+        padding: 12px 16px;
       }
+      #hero-fr p { font-size: 11px; }
 
       #hero-fl {
         left: 24px;
-        bottom: 80px;
-        max-width: 200px;
+        bottom: auto;
+        top: 160px;
+        max-width: 190px;
+        transform: rotate(2deg);
+        padding: 12px 16px;
       }
+      #hero-fl p { font-size: 11px; }
 
       #hero-scroll {
         bottom: 24px;
@@ -368,16 +391,23 @@
   <!-- HERO (EVET Reference Match) -->
   <section id="hero">
     <!-- Nav -->
-    <nav id="hero-nav" class="flex items-center justify-between w-full">
+    <nav id="hero-nav" class="flex items-center justify-between w-full max-w-[100vw] overflow-hidden">
       <a href="/" style="display:inline-flex; align-items:center;">
         <img src="/assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:28px; width:auto;">
       </a>
       <div
-        class="hidden md:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/40 mr-12">
+        class="hidden md:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/70 mr-12">
         <a href="#work" class="hover:text-[#FFCE00] transition-colors">Our Work</a>
         <a href="#agency-mission" class="hover:text-[#FFCE00] transition-colors">About</a>
       </div>
-      <a id="hero-menu-btn" href="contact.html">SAY<br>HI</a>
+      <div class="flex items-center gap-4">
+        <button id="mobile-menu-toggle" class="md:hidden flex flex-col items-center justify-center p-2 z-[10001] w-10 h-10 relative">
+          <span class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center translate-y-0.5" id="bar1"></span>
+          <span class="block w-6 h-0.5 bg-white transition-all duration-300 mt-1.5" id="bar2"></span>
+          <span class="block w-6 h-0.5 bg-white transition-all duration-300 mt-1.5 origin-center -translate-y-0.5" id="bar3"></span>
+        </button>
+        <a id="hero-menu-btn" href="contact.html">SAY<br>HI</a>
+      </div>
     </nav>
 
     <!-- Thin horizontal rule -->
@@ -402,7 +432,7 @@
 
     <!-- Bottom-left paragraph -->
     <div id="hero-fl">
-      <p>Most brands look active but don't grow.<br>They're built on guesswork, not strategy.<br>— <strong
+      <p>Most brands look active but don't grow.<br>They're built on guesswork, not strategy.<br>  <strong
           style="color:white; font-weight:500;">Pixel & Proof fixes that.</strong></p>
     </div>
 
@@ -420,6 +450,51 @@
       </div>
     </div>
   </section>
+  
+  <!-- Mobile Navigation Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-black/98 z-[10000] flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-all duration-500 backdrop-blur-xl">
+    <a href="#work" class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">Our Work</a>
+    <a href="#agency-mission" class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">About</a>
+    <a href="contact.html" class="text-4xl font-black uppercase tracking-tighter text-accent-brand mobile-link">Say Hi</a>
+    <div class="mt-10 pt-10 border-t border-white/10 w-48 text-center">
+      <span class="text-[10px] font-black uppercase tracking-widest text-white/30">Pixel & Proof</span>
+    </div>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    if (menuToggle && mobileMenu) {
+      const bar1 = document.getElementById('bar1');
+      const bar2 = document.getElementById('bar2');
+      const bar3 = document.getElementById('bar3');
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('opacity-100');
+        if (isOpen) {
+          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+          mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+          document.body.style.overflow = '';
+          menuToggle.classList.remove('menu-active');
+        } else {
+          mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+          mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+          document.body.style.overflow = 'hidden';
+          menuToggle.classList.add('menu-active');
+        }
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+          mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
 
 
 
@@ -435,7 +510,7 @@
             Most design agencies make things <span class="text-accent-brand">pretty.</span><br>
             We make them <span class="text-accent-brand underline decoration-4 underline-offset-8">profitable.</span>
           </h2>
-          <p class="text-white/60 text-xl font-light leading-relaxed max-w-xl">
+          <p class="text-white/80 text-xl font-light leading-relaxed max-w-xl">
             Beautiful design without strategy is just expensive art. We combine high-end aesthetics with hard data to
             turn your website from a digital brochure into a <span class="text-white font-bold">24/7 revenue
               engine.</span>
@@ -446,23 +521,23 @@
         <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4 pt-12 lg:pt-0">
           <div
             class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl group hover:border-accent-brand/30 transition-all">
-            <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-40">01 / BRAND</span>
+            <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-70">01 / BRAND</span>
             <h4 class="text-sm font-black uppercase text-white tracking-widest leading-tight">Inconsistent<br>Branding
             </h4>
           </div>
           <div
-            class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl translate-y-8 group hover:border-accent-brand/30 transition-all">
-            <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-40">02 / SIGNAL</span>
+            class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl md:translate-y-8 group hover:border-accent-brand/30 transition-all">
+            <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-70">02 / SIGNAL</span>
             <h4 class="text-sm font-black uppercase text-white tracking-widest leading-tight">Unclear<br>Messaging</h4>
           </div>
           <div
             class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl group hover:border-accent-brand/30 transition-all">
-            <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-40">03 / CONTENT</span>
+            <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-70">03 / CONTENT</span>
             <h4 class="text-sm font-black uppercase text-white tracking-widest leading-tight">Random<br>Posting</h4>
           </div>
           <div
-            class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl translate-y-8 group hover:border-accent-brand/30 transition-all">
-            <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-40">04 / GROWTH</span>
+            class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl md:translate-y-8 group hover:border-accent-brand/30 transition-all">
+            <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-70">04 / GROWTH</span>
             <h4 class="text-sm font-black uppercase text-white tracking-widest leading-tight">Low<br>Engagement</h4>
           </div>
         </div>
@@ -474,7 +549,7 @@
           <div class="max-w-md">
             <span class="text-accent-brand font-black italic text-sm tracking-[0.3em] uppercase block mb-4">The Real
               cost of guesswork:</span>
-            <p class="text-white/40 text-[15px] leading-relaxed font-light">
+            <p class="text-white/70 text-[15px] leading-relaxed font-light">
               Most brands focus on aesthetics. We focus on identity systems that build long-term brand equity and
               conversion.
             </p>
@@ -499,7 +574,7 @@
           </h2>
         </div>
         <div class="lg:col-span-4 border-l border-white/10 pl-8 pb-4">
-          <p class="text-white/40 text-[15px] leading-relaxed font-light italic">"Consistency isn't luck. It's
+          <p class="text-white/70 text-[15px] leading-relaxed font-light italic">"Consistency isn't luck. It's
             structure."</p>
         </div>
       </div>
@@ -510,7 +585,7 @@
           <span
             class="text-accent-brand font-black text-3xl tracking-tighter opacity-10 group-hover:opacity-100 transition-all">01</span>
           <h3 class="text-2xl font-black uppercase text-white tracking-widest">Clarity</h3>
-          <p class="text-white/40 text-sm leading-relaxed font-light">Know who you are, who you're for, and what makes
+          <p class="text-white/70 text-sm leading-relaxed font-light">Know who you are, who you're for, and what makes
             you different.</p>
         </div>
         <!-- 02 Consistency -->
@@ -518,7 +593,7 @@
           <span
             class="text-accent-brand font-black text-3xl tracking-tighter opacity-10 group-hover:opacity-100 transition-all">02</span>
           <h3 class="text-2xl font-black uppercase text-white tracking-widest">Consistency</h3>
-          <p class="text-white/40 text-sm leading-relaxed font-light">Every touchpoint telling the same story, across
+          <p class="text-white/70 text-sm leading-relaxed font-light">Every touchpoint telling the same story, across
             every signal.</p>
         </div>
         <!-- 03 Strategy (Highlighted) -->
@@ -527,7 +602,7 @@
           <span
             class="text-accent-brand font-black text-3xl tracking-tighter opacity-10 group-hover:opacity-100 transition-all">03</span>
           <h3 class="text-2xl font-black uppercase text-accent-brand tracking-widest">Strategy</h3>
-          <p class="text-white/40 text-sm leading-relaxed font-light">Every decision tied to a real business goal and a
+          <p class="text-white/70 text-sm leading-relaxed font-light">Every decision tied to a real business goal and a
             measurable outcome.</p>
         </div>
       </div>
@@ -561,7 +636,7 @@
             01</div>
           <div class="flex flex-col gap-4">
             <h4 class="text-2xl font-black uppercase text-white tracking-tighter">Find the<br>real problem.</h4>
-            <p class="text-white/40 text-[15px] leading-relaxed font-light">
+            <p class="text-white/70 text-[15px] leading-relaxed font-light">
               We audit your brand, audience, and market before we touch anything. Most think they have a content
               problem. They usually have a positioning problem.
             </p>
@@ -581,7 +656,7 @@
             02</div>
           <div class="flex flex-col gap-4">
             <h4 class="text-2xl font-black uppercase text-white tracking-tighter">Build to<br>work together.</h4>
-            <p class="text-white/40 text-[15px] leading-relaxed font-light">
+            <p class="text-white/70 text-[15px] leading-relaxed font-light">
               Identity, content, campaigns, and website designed as one connected system. No more fragmented efforts or
               disconnected freelancers.
             </p>
@@ -601,7 +676,7 @@
             03</div>
           <div class="flex flex-col gap-4">
             <h4 class="text-2xl font-black uppercase text-white tracking-tighter">Get sharper<br>every month.</h4>
-            <p class="text-white/40 text-[15px] leading-relaxed font-light">
+            <p class="text-white/70 text-[15px] leading-relaxed font-light">
               We track results, test creatives, and refine what's working every single month. This is how short-term
               projects turn into long-term compounding growth.
             </p>
@@ -633,10 +708,10 @@
           Case Studies</a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 gap-6 no-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
 
         <!-- Project 01: Modern Tint -->
-        <div class="tilt-container h-full">
+        <div class="tilt-container flex-shrink-0 w-[85vw] md:w-auto snap-center h-full">
           <div
             class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
             <div class="aspect-[4/5] relative overflow-hidden">
@@ -676,7 +751,7 @@
         </div>
 
         <!-- Project 02: Flare Up -->
-        <div class="tilt-container h-full">
+        <div class="tilt-container flex-shrink-0 w-[85vw] md:w-auto snap-center h-full">
           <div
             class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
             <div class="aspect-[4/5] relative overflow-hidden">
@@ -715,7 +790,7 @@
         </div>
 
         <!-- Project 03: Fintech -->
-        <div class="tilt-container h-full">
+        <div class="tilt-container flex-shrink-0 w-[85vw] md:w-auto snap-center h-full">
           <div
             class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
             <div class="aspect-[4/5] relative overflow-hidden">
@@ -812,7 +887,7 @@
             <div class="p-10 h-full flex flex-col justify-between">
               <div>
                 <span
-                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-40 group-hover:opacity-100 transition-opacity"
+                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-70 group-hover:opacity-100 transition-opacity"
                   style="font-family: 'Playfair Display', serif; font-style: italic;">01 /</span>
                 <h4
                   class="text-xl font-black uppercase text-white tracking-widest leading-tight group-hover:translate-x-2 transition-transform duration-500">
@@ -847,7 +922,7 @@
             <div class="p-10 h-full flex flex-col justify-between">
               <div>
                 <span
-                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-40 group-hover:opacity-100 transition-opacity"
+                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-70 group-hover:opacity-100 transition-opacity"
                   style="font-family: 'Playfair Display', serif; font-style: italic;">02 /</span>
                 <h4
                   class="text-xl font-black uppercase text-white tracking-widest leading-tight group-hover:translate-x-2 transition-transform duration-500">
@@ -882,7 +957,7 @@
             <div class="p-10 h-full flex flex-col justify-between">
               <div>
                 <span
-                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-40 group-hover:opacity-100 transition-opacity"
+                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-70 group-hover:opacity-100 transition-opacity"
                   style="font-family: 'Playfair Display', serif; font-style: italic;">03 /</span>
                 <h4
                   class="text-xl font-black uppercase text-white tracking-widest leading-tight group-hover:translate-x-2 transition-transform duration-500">
@@ -917,7 +992,7 @@
             <div class="p-10 h-full flex flex-col justify-between">
               <div>
                 <span
-                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-40 group-hover:opacity-100 transition-opacity"
+                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-70 group-hover:opacity-100 transition-opacity"
                   style="font-family: 'Playfair Display', serif; font-style: italic;">04 /</span>
                 <h4
                   class="text-xl font-black uppercase text-white tracking-widest leading-tight group-hover:translate-x-2 transition-transform duration-500">
@@ -952,7 +1027,7 @@
             <div class="p-10 h-full flex flex-col justify-between">
               <div>
                 <span
-                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-40 group-hover:opacity-100 transition-opacity"
+                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-70 group-hover:opacity-100 transition-opacity"
                   style="font-family: 'Playfair Display', serif; font-style: italic;">05 /</span>
                 <h4
                   class="text-xl font-black uppercase text-white tracking-widest leading-tight group-hover:translate-x-2 transition-transform duration-500">
@@ -1015,7 +1090,7 @@
               seeing incredible brands die because of bad strategy.
             </p>
             <p class="text-white/40 text-base leading-relaxed font-light">
-              Most agencies work like factories—one-size-fits-all templates and random content posting. We work like a
+              Most agencies work like factories one-size-fits-all templates and random content posting. We work like a
               boutique workshop. We build high-precision systems that turn aesthetic excellence into measurable revenue
               for modern brands. We don't just design; we prove it works.
             </p>
@@ -1025,11 +1100,11 @@
           <div class="grid grid-cols-2 lg:grid-cols-3 gap-12 pt-12 border-t border-white/10">
             <div class="flex flex-col gap-2">
               <span class="text-3xl font-black text-white tracking-tighter">6+</span>
-              <span class="text-[9px] font-black uppercase tracking-widest text-white/30">Years of Experience</span>
+              <span class="text-[9px] font-black uppercase tracking-widest text-white/60">Years of Experience</span>
             </div>
             <div class="flex flex-col gap-2">
               <span class="text-3xl font-black text-white tracking-tighter">120%</span>
-              <span class="text-[9px] font-black uppercase tracking-widest text-white/30">Avg. Revenue Growth</span>
+              <span class="text-[9px] font-black uppercase tracking-widest text-white/60">Avg. Revenue Growth</span>
             </div>
           </div>
         </div>
@@ -1047,7 +1122,7 @@
             Transparent<br>Growth <span class="text-accent-brand">Plans.</span>
           </h2>
         </div>
-        <p class="text-white/30 text-[14px] font-light max-w-sm border-l border-white/10 pl-8 mb-2">No hidden fees. No
+        <p class="text-white/60 text-[14px] font-light max-w-sm border-l border-white/10 pl-8 mb-2">No hidden fees. No
           long-term lock-ins. Just focused strategy and high-impact execution.</p>
       </div>
 
@@ -1085,7 +1160,7 @@
             <h4 class="font-black text-[12px] uppercase tracking-widest mb-4">Full Growth</h4>
             <div class="flex items-baseline gap-2 mb-6">
               <span class="text-4xl font-black">₹40k</span>
-              <span class="opacity-40 text-xs font-bold uppercase tracking-widest">/ MONTH</span>
+              <span class="opacity-70 text-xs font-bold uppercase tracking-widest">/ MONTH</span>
             </div>
             <p class="opacity-70 text-[13px] leading-relaxed font-bold">The comprehensive system for brands ready to
               scale aggressively across all digital touchpoints.</p>
@@ -1156,13 +1231,13 @@
       <footer
         class="mt-48 w-full py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
         <div class="flex-1 flex justify-start">
-          <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="h-6 w-auto opacity-40 grayscale">
+          <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="h-6 w-auto opacity-70 grayscale">
         </div>
         <div class="flex-1 text-center">
           <span class="text-[9px] font-black uppercase tracking-[0.3em] text-white/20">&copy; 2026 Pixel Proof. All
             Rights Reserved.</span>
         </div>
-        <div class="flex-1 flex justify-end gap-8 text-white/30">
+        <div class="flex-1 flex justify-end gap-8 text-white/60">
           <a href="#" class="hover:text-accent-brand transition-colors">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path
