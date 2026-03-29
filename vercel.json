@@ -19,17 +19,5 @@
             ],
             "destination": "/brand.html"
         }
-    ],
-    "redirects": [
-        {
-            "source": "/brand",
-            "destination": "/",
-            "permanent": false
-        },
-        {
-            "source": "/brand.html",
-            "destination": "/",
-            "permanent": false
-        }
     ]
 }
