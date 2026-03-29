@@ -6,8 +6,12 @@
             "destination": "/contact.html"
         },
         {
-            "source": "/strategy",
-            "destination": "/strategy.html"
+            "source": "/brand",
+            "destination": "/brand.html"
+        },
+        {
+            "source": "/work",
+            "destination": "/work.html"
         }
     ]
 }
