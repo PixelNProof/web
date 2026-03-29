@@ -1215,6 +1215,42 @@
                 });
             });
         });
+
+        // Lead Capture Logic (Make.com Integration)
+        const strategyForm = document.getElementById('strategy-form');
+        if (strategyForm) {
+            strategyForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = strategyForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerText;
+                
+                submitBtn.innerText = 'Sending...';
+                submitBtn.disabled = true;
+
+                const formData = new FormData(strategyForm);
+                const data = Object.fromEntries(formData.entries());
+                data.source = 'brand_landing'; // Tag leads from ad landing page
+                
+                try {
+                    const response = await fetch('https://hook.eu1.make.com/0m8w89s9hmhtmgb45cnbkip3dhi4wghw', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        submitBtn.innerText = 'Sent!';
+                        strategyForm.reset();
+                        setTimeout(() => { submitBtn.innerText = originalText; submitBtn.disabled = false; }, 5000);
+                    } else {
+                        throw new Error('Server Error');
+                    }
+                } catch (error) {
+                    submitBtn.innerText = 'Error! Try Again';
+                    setTimeout(() => { submitBtn.innerText = originalText; submitBtn.disabled = false; }, 3000);
+                }
+            });
+        }
     </script>
 </body>
 </html>
