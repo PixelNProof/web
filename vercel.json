@@ -6,12 +6,30 @@
             "destination": "/contact.html"
         },
         {
-            "source": "/brand",
-            "destination": "/brand.html"
-        },
-        {
             "source": "/work",
             "destination": "/work.html"
+        },
+        {
+            "source": "/(.*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "hello.pixelnproof.com"
+                }
+            ],
+            "destination": "/brand.html"
+        }
+    ],
+    "redirects": [
+        {
+            "source": "/brand",
+            "destination": "/",
+            "permanent": false
+        },
+        {
+            "source": "/brand.html",
+            "destination": "/",
+            "permanent": false
         }
     ]
 }
