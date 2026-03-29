@@ -3,16 +3,30 @@
 @plugin "daisyui";
 
 @theme {
-  /* New Premium Font Stack */
-  --font-heading: "Helvetica Now Display", "Inter", sans-serif;
-  --font-system: "ITC Avant Garde Gothic", "Inter", sans-serif;
-  --font-editorial: "Times New Roman MT", "Times New Roman", serif;
-  --font-pixel: "Silkscreen", sans-serif;
+  /* Brand Tokens (Unique names to avoid clashing with Framework Defaults) */
+  --color-brand-yellow: #FFCE00;
+  --color-brand-black: #020202;
+  --color-brand-dark: #0a0a0a;
+  --color-accent-brand: #FFCE00; /* Keeping both for safety */
 
-  --color-primary: #000000;
-  --color-accent: #FFCC00;
-  --color-secondary: #0a0a0a;
-  --color-muted: #666666;
+  /* Font Stacks */
+  --font-heading: "Inter", sans-serif;
+  --font-serif-italic: "Playfair Display", serif;
+
+  /* Fluid Typography Scales */
+  --text-display-xl: clamp(60px, 15vw, 160px);
+  --text-display-lg: clamp(60px, 12vw, 130px);
+  --text-display-md: clamp(50px, 12vw, 110px);
+  --text-headline: clamp(40px, 8vw, 85px);
+  --text-subheadline: clamp(28px, 6vw, 65px);
+}
+
+@layer utilities {
+  .serif-italic {
+    font-family: var(--font-serif-italic);
+    font-style: italic;
+    font-weight: 400;
+  }
 }
 
 @layer base {
@@ -20,7 +34,7 @@
     @apply scroll-smooth;
   }
   body {
-    @apply bg-primary text-white font-[var(--font-system)] antialiased selection:bg-accent selection:text-black;
+    @apply bg-brand-black text-white font-[var(--font-system)] antialiased selection:bg-brand-yellow selection:text-black;
   }
 }
 
@@ -92,5 +106,14 @@
   .reveal-up {
     opacity: 1 !important;
     transform: translateY(0) !important;
+  }
+}
+
+/* Final Framework Purge: Definitively suppress any blue shadows/vignettes */
+@layer base {
+  .vignette, #vignette, [class*="vignette"] {
+    display: none !important;
+    box-shadow: none !important;
+    pointer-events: none !important;
   }
 }

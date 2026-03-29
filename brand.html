@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel & Proof | High-Performance Brand Strategy</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --brand-yellow: #FFCE00;
+            --brand-black: #000000;
+            --brand-white: #FFFFFF;
+            --brand-off-white: #FBFBFB;
+            --font-heading: 'Inter', sans-serif;
+            --font-highlight: 'Times New Roman', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-heading);
+            background-color: var(--brand-off-white);
+            color: var(--brand-black);
+            overflow-x: hidden;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 900; 
+            text-transform: uppercase;
+            line-height: 0.95;
+            letter-spacing: -0.05em; /* Tighter for premium look */
+        }
+
+        .highlight {
+            font-family: var(--font-highlight);
+            font-style: italic;
+            font-weight: 400;
+            text-transform: lowercase;
+            letter-spacing: normal;
+        }
+
+        .text-brand-yellow {
+            color: var(--brand-yellow) !important;
+        }
+
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section {
+            padding: 8rem 0;
+            position: relative;
+            background-color: var(--brand-off-white);
+        }
+    
+        #hero {
+            background-color: var(--brand-off-white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 6rem; /* Shifted higher up to meet nav */
+            padding-bottom: 4rem;
+            border-top: none;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('public/assets/Brand_herImg.svg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Subtle Parallax Effect */
+            opacity: 0.3; /* Adjusted Opacity (20-40% range) */
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.1;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+            font-weight: 900; /* Keeping hero title ultra-bold */
+        }
+
+        .hero-body {
+            font-size: 1.125rem;
+            color: rgba(0,0,0,0.7);
+            max-width: 600px;
+            margin-bottom: 3.125rem;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--brand-black);
+            color: var(--brand-white);
+            padding: 24px 48px;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 14px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button:hover {
+            background: var(--brand-yellow);
+            color: var(--brand-black);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .attention-box {
+            display: inline-block;
+            background: var(--brand-black);
+            color: var(--brand-yellow);
+            padding: 12px 28px;
+            font-weight: 900;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border-radius: 9999px; /* Pill Rounded */
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(255,206,0,0.2);
+        }
+
+        .cta-button, .btn-premium {
+            display: inline-block;
+            background: var(--brand-yellow);
+            color: var(--brand-black);
+            padding: 24px 54px;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 13px;
+            position: relative;
+            z-index: 2;
+            border-radius: 12px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover, .btn-premium:hover {
+            background: var(--brand-black);
+            color: var(--brand-yellow);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Section 2: Problem (Black) */
+        #problem {
+            background-color: var(--brand-black);
+            color: var(--brand-white);
+        }
+
+        .section-header {
+            margin-bottom: 5rem;
+            max-width: 55rem;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2.5rem;
+        }
+
+        .section-body {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.6);
+            max-width: 650px;
+            font-weight: 500;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 20px;
+        }
+        
+        .problem-grid, .choice-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
+            margin-bottom: 5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .problem-grid, .choice-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .problem-card, .choice-card {
+            padding: 40px;
+            border-radius: 24px;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+        }
+
+        .problem-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .choice-card {
+            background: var(--brand-white);
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .problem-card:hover, .choice-card:hover {
+            transform: translateY(-15px);
+        }
+
+        .problem-card:hover {
+            border-color: var(--brand-yellow);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .choice-card:hover {
+            box-shadow: 0 30px 70px rgba(0,0,0,0.06);
+            border-color: rgba(0,0,0,0.1);
+        }
+
+        .icon-placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .problem-card .icon-placeholder {
+            background: rgba(255,255,255,0.05);
+            color: var(--brand-yellow);
+        }
+
+        .choice-card .icon-placeholder {
+            background: #f5f5f5;
+            color: var(--brand-black);
+        }
+
+        .problem-card h3, .choice-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+            font-weight: 800;
+        }
+
+        .problem-card p, .choice-card p {
+            font-size: 1.0625rem;
+            line-height: 1.6;
+        }
+
+        .problem-card p {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .choice-card p {
+            color: rgba(0,0,0,0.5);
+        }
+
+        /* Section 3: Choice (Off-White) */
+        #choice {
+            background-color: var(--brand-off-white);
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 100px;
+        }
+
+        .comparison-box {
+            padding: 40px;
+            border-radius: 40px;
+        }
+
+        .comparison-box.without {
+            background: #f5f5f5;
+            color: #555;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .comparison-box.with {
+            background: var(--brand-black);
+            color: var(--brand-white);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .comparison-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            font-size: 1rem;
+            margin-bottom: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            font-weight: 500;
+        }
+
+        .comparison-box.with .check {
+            color: var(--brand-yellow);
+            font-weight: 900;
+        }
+
+        /* Section 4: Work (Yellow) */
+        #work {
+            background-color: var(--brand-yellow);
+            color: var(--brand-black);
+            perspective: 2000px;
+            text-align: center;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
+            margin-top: 80px;
+            align-items: stretch;
+        }
+
+        @media (min-width: 1024px) {
+            .work-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .work-card {
+            background: var(--brand-white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            width: 100%;
+            position: relative;
+            aspect-ratio: 1 / 1.1; /* Vertical Side-by-Side Cards */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .work-image {
+            width: 100%;
+            height: 100%;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ddd;
+            font-weight: 900;
+            font-size: 1.25rem;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @media (min-width: 768px) {
+            .work-image {
+                width: 100%; /* Cover full card as background */
+            }
+        }
+
+        .work-info {
+            padding: 50px;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            background: rgba(0,0,0,0.95);
+            color: white;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .work-card:hover .work-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .work-card:hover .work-image {
+            filter: blur(10px) scale(1.1);
+        }
+
+        .work-number {
+            font-weight: 900;
+            font-size: 0.8125rem;
+            letter-spacing: 0.1em;
+            color: var(--brand-yellow);
+            margin-bottom: 12px;
+        }
+
+        .work-info h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .work-detail {
+            margin-bottom: 1.5rem;
+        }
+
+        .work-detail h4 {
+            font-size: 0.75rem;
+            color: rgba(0,0,0,0.4);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .work-detail p {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .work-result {
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .work-result h4 {
+            display: inline-block;
+            background: var(--brand-black);
+            color: var(--brand-white);
+            padding: 0.375rem 0.875rem;
+            border-radius: 0.375rem;
+            font-size: 0.6875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .work-result p {
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+
+        /* Section 5: Founders (Black) */
+        #founders {
+            background-color: var(--brand-black);
+            color: var(--brand-white);
+            text-align: center;
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 100px;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 1024px) {
+            .founders-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .team-title {
+            font-size: 2.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .team-body {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .team-body p {
+            margin-bottom: 1.875rem;
+        }
+        
+        .founders-title {
+            font-size: 2.75rem;
+        }
+
+        .founders-body strong {
+            color: var(--brand-white);
+            font-weight: 900;
+        }
+
+        /* Section 6: Value (Off-White) */
+        #value {
+            background-color: var(--brand-off-white);
+            text-align: center;
+        }
+
+        .value-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .value-content h2 {
+            font-size: 2.75rem;
+            margin-bottom: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .value-content p {
+            font-size: 1.25rem;
+            color: rgba(0,0,0,0.6);
+            max-width: 43.75rem;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* Section 7: CTA (Black) */
+        #cta-section {
+            background-color: var(--brand-black);
+            color: var(--brand-white);
+            padding-bottom: 10rem;
+        }
+
+        .contact-card {
+            max-width: 50rem;
+            margin: 5rem auto 0;
+            background: rgba(255,255,255,0.02);
+            padding: 5rem;
+            border-radius: 3rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 2.5rem 6.25rem rgba(0,0,0,0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.875rem;
+            margin-bottom: 1.875rem;
+        }
+
+        .form-field {
+            margin-bottom: 1.875rem;
+        }
+
+        .form-field label {
+            display: block;
+            font-weight: 900;
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+            color: var(--brand-yellow);
+        }
+
+        .form-field input, .form-field textarea {
+            width: 100%;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            color: white;
+            font-family: var(--font-heading);
+            font-size: 1.0625rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-field input:focus, .form-field textarea:focus {
+            border-color: var(--brand-yellow);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 0 1.25rem rgba(255,206,0,0.05);
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1.875rem;
+            background: var(--brand-yellow);
+            color: var(--brand-black);
+            border: none;
+            border-radius: 1rem;
+            font-weight: 900;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-0.3125rem);
+            filter: brightness(1.1);
+            box-shadow: 0 1.25rem 2.5rem rgba(255,206,0,0.1);
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2.5rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            color: var(--brand-black);
+            text-decoration: none;
+        }
+
+        #hero.active-nav .logo {
+            color: var(--brand-black);
+        }
+
+        /* Global Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-grid, .founders-grid, .comparison-container, .form-row {
+                grid-template-columns: 1fr;
+            }
+            .hero-content, .founders-content, .value-content {
+                text-align: center;
+            }
+            .hero-body, .founders-body {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .section-header {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .contact-card {
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">
+            <img src="public/assets/LP_LOGO.svg" alt="Pixel & Proof" class="h-8 w-auto">
+        </a>
+    </nav>
+
+    <section id="hero">
+        <div class="container mb-8 flex justify-center reveal relative z-10">
+            <div class="attention-box mb-0">Attention: Business Owners & Founders</div>
+        </div>
+        <div class="container relative z-10">
+            <h1 class="hero-title reveal font-black text-black">
+                You’re <span class="font-black">losing</span> <span class="highlight text-brand-yellow">clients.</span><br>
+                Your <span class="font-black">brand</span> might be the <span class="highlight text-brand-yellow">reason.</span>
+            </h1>
+            <p class="hero-body reveal">
+                We fix the gaps between your <span class="text-brand-yellow font-black">content</span>, <span class="text-brand-yellow font-black">positioning</span>, and <span class="text-brand-yellow font-black">conversion</span>, so your brand actually brings in clients.
+            </p>
+            <div class="reveal mt-4">
+                <a href="#contact" class="btn-premium">Book your Free Strategy Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Problem -->
+    <section id="problem">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title font-black leading-tight">If your <span class="text-brand-yellow">brand</span> isn’t <span class="highlight text-brand-yellow">clear,</span> it won’t <span class="highlight text-brand-yellow">convert.</span></h2>
+                <p class="section-body font-bold">If people don’t instantly understand what you do, who it’s for, and why it matters — they leave.</p>
+            </div>
+            
+            <div class="problem-grid">
+                <div class="problem-card reveal">
+                    <div class="icon-placeholder">
+                        <img src="public/assets/P&P_Icons_forBalck_brandPage/1.svg" alt="01" class="w-12 h-12 object-contain">
+                    </div>
+                    <h3 class="font-black">Inconsistent</h3>
+                    <p>Every touchpoint looks different. Nothing feels connected.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <div class="icon-placeholder">
+                        <img src="public/assets/P&P_Icons_forBalck_brandPage/2.svg" alt="02" class="w-12 h-12 object-contain">
+                    </div>
+                    <h3 class="font-black">Unclear</h3>
+                    <p>People don't understand what you do or why they should care.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <div class="icon-placeholder">
+                        <img src="public/assets/P&P_Icons_forBalck_brandPage/3.svg" alt="03" class="w-12 h-12 object-contain">
+                    </div>
+                    <h3 class="font-black">Random</h3>
+                    <p>Content goes out without strategy, building absolute zero.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <div class="icon-placeholder">
+                        <img src="public/assets/P&P_Icons_forBalck_brandPage/4.svg" alt="04" class="w-12 h-12 object-contain">
+                    </div>
+                    <h3 class="font-black">Invisible</h3>
+                    <p>The right people aren't seeing you. Engagement stays flat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Choice -->
+    <section id="choice">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title font-black leading-tight">Why should you <span class="highlight text-brand-yellow">choose</span> us</h2>
+            </div>
+            
+            <div class="choice-grid">
+                <div class="choice-card reveal">
+                    <div class="icon-placeholder">
+                        <img src="public/assets/P&P_Icons_forWhite_brandPage/1.svg" alt="Strat" class="w-12 h-12 object-contain">
+                    </div>
+                    <h3 class="font-black">Strategy First</h3>
+                    <p>We understand your brand and positioning before a single pixel is placed.</p>
+                </div>
+                <div class="choice-card reveal">
+                    <div class="icon-placeholder">
+                        <img src="public/assets/P&P_Icons_forWhite_brandPage/2.svg" alt="Sys" class="w-12 h-12 object-contain">
+                    </div>
+                    <h3 class="font-black">One clear system</h3>
+                    <p>Visuals, messaging, and content built as one system for the right audience.</p>
+                </div>
+                <div class="choice-card reveal">
+                    <div class="icon-placeholder">
+                        <img src="public/assets/P&P_Icons_forWhite_brandPage/3.svg" alt="Grow" class="w-12 h-12 object-contain">
+                    </div>
+                    <h3 class="font-black">Built to grow</h3>
+                    <p>Strong brands grow through consistency. We build the systems for it.</p>
+                </div>
+                <div class="choice-card reveal">
+                    <div class="icon-placeholder">
+                        <img src="public/assets/P&P_Icons_forWhite_brandPage/4.svg" alt="Part" class="w-12 h-12 object-contain">
+                    </div>
+                    <h3 class="font-black">We partner with you</h3>
+                    <p>We work with you, not for you. Your outcomes are ours.</p>
+                </div>
+            </div>
+
+            <div class="comparison-container max-w-4xl mx-auto">
+                <div class="comparison-box without reveal">
+                    <h3>Without Pixel & Proof</h3>
+                    <ul class="comparison-list">
+                        <li>✕ Posting perfectly fine, but nothing lands</li>
+                        <li>✕ Looking inconsistent on every platform</li>
+                        <li>✕ Confusing messaging no one remembers</li>
+                        <li>✕ Zero real positioning in the market</li>
+                        <li>✕ Competitors look more credible than you</li>
+                    </ul>
+                </div>
+                <div class="comparison-box with reveal">
+                    <h3>With Pixel & Proof</h3>
+                    <ul class="comparison-list">
+                        <li><span class="check">✓</span> Content system that builds growth</li>
+                        <li><span class="check">✓</span> Recognised visual identity everywhere</li>
+                        <li><span class="check">✓</span> Clear messaging that attracts the right people</li>
+                        <li><span class="check">✓</span> True brand positioning that charges more</li>
+                        <li><span class="check">✓</span> Looking as premium as you actually are</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="reveal mt-20 flex justify-center">
+                <a href="#contact" class="btn-premium">Let's grow</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Work -->
+    <section id="work">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title font-black leading-tight">Proof, Not <span class="highlight text-black">promises.</span></h2>
+                <p class="section-body text-black/60 font-bold">Real work that shows how we think, design, and build brands that actually connect.</p>
+            </div>
+
+            <div class="work-grid">
+                <!-- Project 1 -->
+                <div class="work-card reveal group relative overflow-hidden" data-tilt>
+                    <div class="work-image absolute inset-0 z-10 transition-all duration-700 group-hover:scale-110 group-hover:blur-sm bg-neutral-100 flex items-center justify-center text-black/5 font-black text-4xl">
+                        G01
+                    </div>
+                    <div class="work-info absolute inset-0 z-20 bg-black/95 p-8 flex flex-col opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                        <div class="text-brand-yellow font-black text-[10px] tracking-[0.2em] mb-2">01.0 / GAMING</div>
+                        <h3 class="text-white text-xl font-black mb-6 leading-tight">Professional Valorant Organisation</h3>
+                        
+                        <div class="space-y-4 grow">
+                            <div>
+                                <h4 class="text-white/40 text-[9px] font-black uppercase tracking-widest mb-1">The problem:</h4>
+                                <p class="text-white/80 text-xs leading-relaxed">Looked like every other gaming team. No distinct identity.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-white/40 text-[9px] font-black uppercase tracking-widest mb-1">What we did:</h4>
+                                <p class="text-white/80 text-xs leading-relaxed">Built a bold, high-energy brand system with strong visuals.</p>
+                            </div>
+                        </div>
+
+                        <div class="work-result pt-6 border-t border-white/10 mt-6">
+                            <span class="bg-brand-yellow text-black text-[9px] font-black px-2 py-1 rounded mb-2 inline-block">RESULT:</span>
+                            <p class="text-white font-bold text-sm leading-tight">A brand built for global recognition.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="work-card reveal group relative overflow-hidden" data-tilt>
+                    <div class="work-image absolute inset-0 z-10 transition-all duration-700 group-hover:scale-110 group-hover:blur-sm bg-neutral-100 flex items-center justify-center text-black/5 font-black text-4xl">
+                        S02
+                    </div>
+                    <div class="work-info absolute inset-0 z-20 bg-black/95 p-8 flex flex-col opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                        <div class="text-brand-yellow font-black text-[10px] tracking-[0.2em] mb-2">02.0 / SKINCARE</div>
+                        <h3 class="text-white text-xl font-black mb-6 leading-tight">Dermatheory — Skincare Brand</h3>
+                        
+                        <div class="space-y-4 grow">
+                            <div>
+                                <h4 class="text-white/40 text-[9px] font-black uppercase tracking-widest mb-1">The problem:</h4>
+                                <p class="text-white/80 text-xs leading-relaxed">Generic look. No trust or differentiation.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-white/40 text-[9px] font-black uppercase tracking-widest mb-1">What we did:</h4>
+                                <p class="text-white/80 text-xs leading-relaxed">Created a clean, science-backed visual identity.</p>
+                            </div>
+                        </div>
+
+                        <div class="work-result pt-6 border-t border-white/10 mt-6">
+                            <span class="bg-brand-yellow text-black text-[9px] font-black px-2 py-1 rounded mb-2 inline-block">RESULT:</span>
+                            <p class="text-white font-bold text-sm leading-tight">A brand built to earn consumer trust.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="work-card reveal group relative overflow-hidden" data-tilt>
+                    <div class="work-image absolute inset-0 z-10 transition-all duration-700 group-hover:scale-110 group-hover:blur-sm bg-neutral-100 flex items-center justify-center text-black/5 font-black text-4xl">
+                        D03
+                    </div>
+                    <div class="work-info absolute inset-0 z-20 bg-black/95 p-8 flex flex-col opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                        <div class="text-brand-yellow font-black text-[10px] tracking-[0.2em] mb-2">03.0 / STUDIO</div>
+                        <h3 class="text-white text-xl font-black mb-6 leading-tight">The Modern Tint — Design Studio</h3>
+                        
+                        <div class="space-y-4 grow">
+                            <div>
+                                <h4 class="text-white/40 text-[9px] font-black uppercase tracking-widest mb-1">The problem:</h4>
+                                <p class="text-white/80 text-xs leading-relaxed">No clear voice. Blended in with others.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-white/40 text-[9px] font-black uppercase tracking-widest mb-1">What we did:</h4>
+                                <p class="text-white/80 text-xs leading-relaxed">Defined a distinct personality and visual direction.</p>
+                            </div>
+                        </div>
+
+                        <div class="work-result pt-6 border-t border-white/10 mt-6 text-center">
+                            <span class="bg-brand-yellow text-black text-[9px] font-black px-2 py-1 rounded mb-2 inline-block">RESULT:</span>
+                            <p class="text-white font-bold text-sm leading-tight">A sharp, modern, recognizable brand.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal mt-20 flex justify-center">
+                <a href="#contact" class="btn-premium" style="background: var(--brand-black); color: var(--brand-yellow); border: 1px solid rgba(255,206,0,0.3);">Let's work together</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="founders" class="relative overflow-hidden bg-black text-white py-24 lg:py-32">
+        <div class="container relative z-10">
+            <div class="founders-grid grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-24 items-center">
+                <!-- Left: Content -->
+                <div class="reveal text-left">
+                    <h2 class="team-title text-white font-black text-4xl lg:text-7xl mb-12 leading-[1.05] tracking-tight">
+                        Where <span class="highlight text-brand-yellow">strategy</span> meets <span class="highlight text-brand-yellow">creativity.</span>
+                    </h2>
+                    <div class="team-body text-white/70 space-y-8 text-xl max-w-2xl">
+                        <p class="leading-relaxed">
+                            <span class="text-brand-yellow font-black underline underline-offset-8 decoration-white/20">Pixel & Proof</span> is built by <strong>Sakshi Aurangabadkar & Rohan Deshpande</strong>.
+                        </p>
+                        <p class="leading-relaxed">One focuses on how your brand looks. The other focuses on how it performs. Together, they build brands that are clear, intentional, and designed to convert.</p>
+                    </div>
+                </div>
+
+                <!-- Right: Unified Cards -->
+                <div class="flex flex-col gap-8 reveal">
+                    <!-- Rohan Card -->
+                    <div class="group flex flex-col sm:flex-row items-start gap-6 bg-white/[0.03] border border-white/10 p-8 rounded-[2.5rem] transition-all duration-500 hover:border-brand-yellow/50 hover:bg-white/[0.06] hover:-translate-y-2">
+                        <div class="w-24 h-24 rounded-2xl overflow-hidden shrink-0 border-2 border-brand-yellow/20">
+                            <img src="public/assets/P&P_LP_FounderImgs/1.svg" alt="Rohan Deshpande" class="w-full h-full object-cover">
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-white font-black text-xl leading-tight">Rohan Deshpande</h4>
+                                <p class="text-brand-yellow font-black text-[10px] uppercase tracking-[0.2em] mt-1">Strategy Lead</p>
+                            </div>
+                            <p class="text-white/60 text-sm leading-relaxed">Rohan brings expertise in digital strategy and performance marketing, ensuring your brand reaches the right people and grows consistently.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sakshi Card -->
+                    <div class="group flex flex-col sm:flex-row items-start gap-6 bg-white/[0.03] border border-white/10 p-8 rounded-[2.5rem] transition-all duration-500 hover:border-brand-yellow/50 hover:bg-white/[0.06] hover:-translate-y-2">
+                        <div class="w-24 h-24 rounded-2xl overflow-hidden shrink-0 border-2 border-brand-yellow/20">
+                            <img src="public/assets/P&P_LP_FounderImgs/2.svg" alt="Sakshi Aurangabadkar" class="w-full h-full object-cover">
+                        </div>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="text-white font-black text-xl leading-tight">Sakshi Aurangabadkar</h4>
+                                <p class="text-brand-yellow font-black text-[10px] uppercase tracking-[0.2em] mt-1">Creative Lead</p>
+                            </div>
+                            <p class="text-white/60 text-sm leading-relaxed">Sakshi brings 3+ years of hands-on design experience, creating visuals that connect, build trust, and drive action.</p>
+                        </div>
+                    </div>
+
+                    <!-- Background Glow -->
+                    <div class="absolute -top-12 right-0 w-64 h-64 bg-brand-yellow/5 rounded-full blur-[100px] pointer-events-none"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Value -->
+    <section id="value">
+        <div class="container">
+            <div class="value-content reveal">
+                <h2 class="font-black leading-tight">Elevate your growth with <span class="text-brand-yellow">custom strategy</span> and <span class="text-brand-yellow">dedicated support</span></h2>
+                <p class="font-bold">No one-size-fits-all solutions. Everything we build is designed around your brand, your audience and your goals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: CTA & Form -->
+    <section id="contact" class="w-full py-20 md:py-28 bg-black flex flex-col items-center">
+        <div class="container flex flex-col items-center text-center">
+            <div class="card w-full max-w-3xl bg-[#050505] border border-white/10 shadow-2xl rounded-[2.5rem] mx-auto text-center reveal">
+                <div class="card-body items-center p-8 sm:p-14 text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white uppercase leading-tight mb-4">
+                        Ready to Build <br><span class="serif-italic text-brand-yellow text-4xl md:text-6xl lowercase">something real?</span>
+                    </h2>
+                    <p class="text-white/50 text-[15px] mb-10">Leave your details below and we'll reach out within 24 hours.</p>
+
+                    <form id="strategy-form" class="w-full space-y-6 text-left">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
+                            <div class="form-control w-full group">
+                                <label class="label mb-5">
+                                    <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">Full Name</span>
+                                </label>
+                                <input type="text" id="full_name" name="full_name" required
+                                    class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
+                                    placeholder="Jane Doe">
+                            </div>
+                            <div class="form-control w-full group">
+                                <label class="label mb-5">
+                                    <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">Email Address</span>
+                                </label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
+                                    placeholder="jane@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-control w-full group">
+                            <label class="label mb-5">
+                                <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">Business Name</span>
+                            </label>
+                            <input type="text" id="business_name" name="business_name" required
+                                class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
+                                placeholder="Company Ltd">
+                        </div>
+
+                        <div class="form-control w-full group">
+                            <label class="label mb-5">
+                                <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">Type of Business</span>
+                            </label>
+                            <input type="text" id="industry" name="industry" required
+                                class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
+                                placeholder="e.g. E-commerce">
+                        </div>
+
+                        <div class="form-control w-full group">
+                            <label class="label mb-5">
+                                <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">What do you need?</span>
+                            </label>
+                            <div class="relative">
+                                <select id="service_needed" name="service_needed" required
+                                    class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all appearance-none cursor-pointer">
+                                    <option value="" disabled selected class="bg-black">Select an option</option>
+                                    <option value="Brand Strategy & Identity" class="bg-black">Brand Strategy & Identity</option>
+                                    <option value="Social Media & Content" class="bg-black">Social Media & Content</option>
+                                    <option value="Website & Digital Experience" class="bg-black">Website & Digital Experience</option>
+                                    <option value="Creative & Design Studio" class="bg-black">Creative & Design Studio</option>
+                                    <option value="Performance Marketing" class="bg-black">Performance Marketing</option>
+                                    <option value="Not sure yet — I need guidance" class="bg-black">Not sure yet — I need guidance</option>
+                                </select>
+                                <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-control w-full group">
+                            <label class="label mb-5">
+                                <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">Your Brand & Challenges</span>
+                            </label>
+                            <textarea id="brand_description" name="brand_description" required rows="4"
+                                class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl p-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all resize-none placeholder:opacity-20"
+                                placeholder="Share your links and what you need help with..."></textarea>
+                        </div>
+
+                        <div class="form-control w-full group">
+                            <label class="label mb-5">
+                                <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">How did you hear about us?</span>
+                            </label>
+                            <div class="relative">
+                                <select id="source" name="source" required
+                                    class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all appearance-none cursor-pointer">
+                                    <option value="" disabled selected class="bg-black">Select an option</option>
+                                    <option value="Instagram" class="bg-black">Instagram</option>
+                                    <option value="LinkedIn" class="bg-black">LinkedIn</option>
+                                    <option value="Referral" class="bg-black">Referral</option>
+                                    <option value="Google" class="bg-black">Google</option>
+                                    <option value="Other" class="bg-black">Other</option>
+                                </select>
+                                <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full mt-10">
+                            <button type="submit" id="submit-btn" class="w-full h-16 bg-[#FFCE00] text-black rounded-full font-bold uppercase tracking-[0.2em] text-[13px] hover:bg-white transition-all shadow-[0_0_30px_rgba(255,206,0,0.2)] flex items-center justify-center gap-3">
+                                Let's Talk
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-black text-white py-12 md:py-16 border-t border-white/5">
+        <div class="container flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="footer-logo">
+                <img src="public/assets/logo_1.PNG" alt="Pixel & Proof" class="h-10 w-auto opacity-50 hover:opacity-100 transition-opacity">
+            </div>
+            <p class="text-white opacity-20 text-[10px] uppercase font-black tracking-[0.4em]">
+                © 2026 Pixel & Proof. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // 3D Tilt Effect
+        document.querySelectorAll('.work-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 25;
+                const rotateY = (centerX - x) / 25;
+                
+                card.style.transform = `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px)`;
+                card.style.transition = 'none';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(2000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
+                card.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+            });
+        });
+
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
