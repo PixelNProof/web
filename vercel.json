@@ -13,7 +13,7 @@
           "value": "hello.pixelnproof.com"
         }
       ],
-      "destination": "/brand/index.html"
+      "destination": "/brand/$1"
     },
     {
       "source": "/(.*)",
