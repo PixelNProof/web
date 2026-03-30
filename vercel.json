@@ -2,24 +2,6 @@
     "cleanUrls": true,
     "rewrites": [
         {
-            "source": "/contact",
-            "destination": "/contact.html"
-        },
-        {
-            "source": "/work",
-            "destination": "/work.html"
-        },
-        {
-            "source": "/",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "hello.pixelnproof.com"
-                }
-            ],
-            "destination": "/brand.html"
-        },
-        {
             "source": "/(.*)",
             "has": [
                 {
@@ -28,6 +10,14 @@
                 }
             ],
             "destination": "/brand.html"
+        },
+        {
+            "source": "/contact",
+            "destination": "/contact.html"
+        },
+        {
+            "source": "/work",
+            "destination": "/work.html"
         }
     ]
 }
