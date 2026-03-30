@@ -10,7 +10,7 @@
             "value": "hello.pixelnproof.com"
           }
         ],
-        "destination": "/brand.html"
+        "destination": "/hello/index.html"
       },
       {
         "source": "/(.*)",
@@ -20,7 +20,7 @@
             "value": "hello.pixelnproof.com"
           }
         ],
-        "destination": "/brand.html"
+        "destination": "/hello/index.html"
       }
     ],
     "afterFiles": [
