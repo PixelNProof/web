@@ -1,33 +1,40 @@
 {
-    "cleanUrls": true,
-    "rewrites": [
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "has": [
         {
-            "source": "/",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "hello.pixelnproof.com"
-                }
-            ],
-            "destination": "/hello/index.html"
-        },
-        {
-            "source": "/(.*)",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "hello.pixelnproof.com"
-                }
-            ],
-            "destination": "/hello/index.html"
-        },
-        {
-            "source": "/contact",
-            "destination": "/contact.html"
-        },
-        {
-            "source": "/work",
-            "destination": "/work.html"
+          "type": "host",
+          "value": "hello.pixelnproof.com"
         }
-    ]
+      ],
+      "destination": "/brand/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/work",
+      "destination": "/work.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/brand",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/brand/(.*)",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/brand.html",
+      "destination": "/",
+      "permanent": false
+    }
+  ]
 }
