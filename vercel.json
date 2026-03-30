@@ -12,24 +12,14 @@
       "destination": "/brand.html"
     },
     {
-      "source": "/",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
-          "value": "www.pixelnproof.com"
+          "value": "hello.pixelnproof.com"
         }
       ],
-      "destination": "/main.html"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "pixelnproof.com"
-        }
-      ],
-      "destination": "/main.html"
+      "destination": "/brand.html"
     },
     {
       "source": "/contact",
