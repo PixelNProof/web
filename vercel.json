@@ -2,6 +2,10 @@
   "cleanUrls": true,
   "rewrites": [
     {
+      "source": "/assets/(.*)",
+      "destination": "/assets/$1"
+    },
+    {
       "source": "/(.*)",
       "has": [
         {
@@ -30,36 +34,28 @@
         }
       ],
       "destination": "/main/$1"
-    },
+    }
+  ],
+  "redirects": [
     {
-      "source": "/",
+      "source": "/brand",
       "has": [
         {
           "type": "host",
           "value": "pixelnproof.com"
         }
       ],
-      "destination": "/main/index.html"
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.pixelnproof.com"
-        }
-      ],
-      "destination": "/main/index.html"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/brand",
       "destination": "/",
       "permanent": false
     },
     {
       "source": "/brand/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "pixelnproof.com"
+        }
+      ],
       "destination": "/",
       "permanent": false
     }
