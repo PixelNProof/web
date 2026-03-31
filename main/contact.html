@@ -134,10 +134,9 @@
       color: white;
       transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
       width: 100%;
-      max-width: 500px;
       outline: none;
       border-radius: 1rem;
-      padding: 1.15rem 1.5rem;
+      padding: 1rem 1.5rem; /* Reduced padding for compact look */
     }
 
     .form-card input:focus,
@@ -164,12 +163,13 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       color: white;
       border-radius: 1rem;
-      padding: 1.15rem 1.5rem;
+      padding: 1rem 1.5rem; /* Compact size */
       display: flex;
       align-items: center;
       justify-content: space-between;
       transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      font-size: 0.875rem;
+      font-size: 0.9rem; /* Slightly larger for readability */
+      font-weight: 500;
     }
 
     .custom-dropdown.active .dropdown-trigger {
@@ -199,7 +199,7 @@
       background: rgba(10, 10, 10, 0.98);
       backdrop-filter: blur(24px);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 1.25rem;
+      border-radius: 1rem; /* Unified radii to fix rectangle look */
       overflow: hidden;
       z-index: 1000;
       opacity: 0;

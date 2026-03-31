@@ -23,6 +23,17 @@
             --font-highlight: 'Times New Roman', serif;
         }
 
+        .form-card label {
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: #FFCE00;
+            margin-bottom: 0.75rem;
+            display: block;
+            opacity: 0.9;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -157,8 +168,8 @@
 
         .attention-box {
             display: inline-block;
-            background: var(--brand-black);
-            color: var(--brand-white);
+            background: var(--brand-yellow);
+            color: var(--brand-black);
             padding: 12px 24px;
             border-radius: 50px;
             font-size: 10px;
@@ -184,13 +195,14 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             color: white;
             border-radius: 1rem;
-            padding: 1.15rem 1.5rem;
+            height: 3.5rem; /* Locked height to match h-14 inputs */
+            padding: 0 1.5rem; /* Removed vertical padding, using height/flex instead */
             display: flex;
             align-items: center;
             justify-content: space-between;
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            font-size: 0.875rem;
-            max-width: 500px;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         .custom-dropdown.active .dropdown-trigger {
@@ -220,8 +232,7 @@
             background: rgba(10, 10, 10, 0.98);
             backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1.25rem;
-            max-width: 500px;
+            border-radius: 1rem; /* Unified radii to fix rectangle look */
             overflow: hidden;
             z-index: 1000;
             opacity: 0;
@@ -850,8 +861,8 @@
                 You’re <span class="font-black">losing</span> <span class="highlight text-brand-yellow">clients.</span><br>
                 Your <span class="font-black">brand</span> might be the <span class="highlight text-brand-yellow">reason.</span>
             </h1>
-            <p class="hero-body reveal">
-                We fix the gaps between your <span class="text-brand-yellow font-black">content</span>, <span class="text-brand-yellow font-black">positioning</span>, and <span class="text-brand-yellow font-black">conversion</span>, so your brand actually brings in clients.
+            <p class="hero-body reveal font-bold text-black">
+                We fix the gaps between your <span class="text-brand-yellow">content</span>, <span class="text-brand-yellow">positioning</span>, and <span class="text-brand-yellow">conversion</span>, so your brand actually brings in clients.
             </p>
             <div class="reveal mt-4">
                 <a href="#contact" class="btn-premium">Book your Free Strategy Call</a>
@@ -1137,48 +1148,37 @@
                     </h2>
                     <p class="text-white/50 text-[15px] mb-10">Leave your details below and we'll reach out within 24 hours.</p>
 
-                    <form id="strategy-form" class="w-full space-y-6 text-left">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
-                            <div class="form-control w-full group">
-                                <label class="label mb-5">
-                                    <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">Full Name</span>
-                                </label>
-                                <input type="text" id="full_name" name="full_name" required
-                                    class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
-                                    placeholder="Jane Doe">
-                            </div>
-                            <div class="form-control w-full group">
-                                <label class="label mb-5">
-                                    <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">Email Address</span>
-                                </label>
-                                <input type="email" id="email" name="email" required
-                                    class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
-                                    placeholder="jane@example.com">
-                            </div>
+                    <form id="strategy-form" class="w-full space-y-8 text-left form-card">
+                        <div class="flex flex-col">
+                            <label>Full Name</label>
+                            <input type="text" id="full_name" name="full_name" required
+                                class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
+                                placeholder="Jane Doe">
                         </div>
 
-                        <div class="form-control w-full group">
-                            <label class="label mb-5">
-                                <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">Business Name</span>
-                            </label>
+                        <div class="flex flex-col">
+                            <label>Email Address</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
+                                placeholder="jane@example.com">
+                        </div>
+
+                        <div class="flex flex-col">
+                            <label>Business Name</label>
                             <input type="text" id="business_name" name="business_name" required
-                                class="w-full max-w-[500px] bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
+                                class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
                                 placeholder="Company Ltd">
                         </div>
 
-                        <div class="form-control w-full group">
-                            <label class="label mb-5">
-                                <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">Type of Business</span>
-                            </label>
+                        <div class="flex flex-col">
+                            <label>Type of Business</label>
                             <input type="text" id="industry_type" name="industry_type" required
-                                class="w-full max-w-[500px] bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
+                                class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
                                 placeholder="e.g. E-commerce">
                         </div>
 
-                        <div class="form-control w-full group">
-                            <label class="label mb-5">
-                                <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">What do you need?</span>
-                            </label>
+                        <div class="flex flex-col">
+                            <label>What do you need?</label>
                             <div class="custom-dropdown" id="dropdown-service">
                                 <div class="dropdown-trigger">
                                     <span class="selected-text">Select an option</span>
@@ -1196,19 +1196,15 @@
                             </div>
                         </div>
 
-                        <div class="form-control w-full group">
-                            <label class="label mb-5">
-                                <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">Your Brand & Challenges</span>
-                            </label>
+                        <div class="flex flex-col">
+                            <label>Your Brand & Challenges</label>
                             <textarea id="brand_description" name="brand_description" required rows="4"
                                 class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl p-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all resize-none placeholder:opacity-20"
                                 placeholder="Share your links and what you need help with..."></textarea>
                         </div>
 
-                        <div class="form-control w-full group">
-                            <label class="label mb-3">
-                                <span class="label-text text-[10px] uppercase font-black text-[#FFCE00] tracking-[0.3em] opacity-90">How did you hear about us?</span>
-                            </label>
+                        <div class="flex flex-col">
+                            <label>How did you hear about us?</label>
                             <div class="custom-dropdown" id="dropdown-referral">
                                 <div class="dropdown-trigger">
                                     <span class="selected-text">Select an option</span>
