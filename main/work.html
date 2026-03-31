@@ -33,9 +33,12 @@
     }
 
     body {
-      opacity: 0; /* Starts hidden */
-      animation: revealIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       background: #020202;
+    }
+
+    #reveal-wrapper {
+      opacity: 0;
+      animation: revealIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     /* ─── NAV SYNC ──────────────────────────────────────────── */
@@ -115,10 +118,10 @@
     }
   </style>
 
-  <!-- Identical Nav to Home Page -->
+  <!-- Identical Global Nav -->
   <nav id="hero-nav" class="flex items-center justify-between w-full max-w-[100vw] overflow-hidden !z-[10001]">
     <a href="index.html" style="display:inline-flex; align-items:center;">
-      <img src="../assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:24px; width:auto;" class="md:h-7">
+      <img src="../assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:28px; width:auto;">
     </a>
     <div class="hidden md:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/70 mr-12">
       <a href="index.html#work" class="hover:text-[#FFCE00] transition-colors text-accent-brand">Our Work</a>
@@ -134,7 +137,7 @@
     </div>
   </nav>
 
-  <!-- Mobile Navigation Overlay -->
+  <!-- Mobile Navigation Overlay (Unified) -->
   <div id="mobile-menu" class="fixed inset-0 bg-brand-black/98 z-[10000] flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-all duration-500 backdrop-blur-xl">
     <a href="index.html#work" class="text-4xl font-black uppercase tracking-tighter text-accent-brand mobile-link">Our Work</a>
     <a href="index.html#agency-mission" class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">About</a>
@@ -144,8 +147,9 @@
     </div>
   </div>
 
+  <div id="reveal-wrapper">
   <!-- Hero Section -->
-  <section class="pt-48 pb-24 border-b border-white/5">
+    <section class="pt-48 pb-24 border-b border-white/5">
     <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
       <span
         class="text-accent-brand font-black tracking-[0.4em] text-[10px] uppercase block mb-8 text-center text-accent-brand">//
@@ -267,7 +271,7 @@
   </section>
 
   <!-- Final Footer -->
-  <footer class="py-10 w-full bg-brand-black border-t border-white/5">
+  <footer class="py-8 w-full bg-brand-black border-t border-white/5">
     <div class="max-w-[1280px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
       <div class="flex-1 flex justify-start">
         <img src="../assets/logo_1.PNG" alt="Pixel & Proof" class="h-6 w-auto opacity-40 grayscale">
@@ -298,6 +302,7 @@
       </div>
     </div>
   </footer>
+  </div>
 
   <script>
     const menuToggle = document.getElementById('mobile-menu-toggle');
