@@ -1224,11 +1224,12 @@
 
                 const formData = new FormData(strategyForm);
                 const data = Object.fromEntries(formData.entries());
-                data.source = 'brand_landing'; // Tag leads from ad landing page
+                data.source = 'landing_page';
+                data.page = window.location.pathname + window.location.hash;
+                data.timestamp = new Date().toISOString();
                 
                 try {
-                    // Placeholder for tomorrow's LP Webhook
-                    const response = await fetch('YOUR_BRAND_WEBHOOK_URL_HERE', {
+                    const response = await fetch('https://hook.eu1.make.com/0m8w89s9hmhtmgb45cnbkip3dhi4wghw', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(data)
