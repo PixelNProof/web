@@ -12,9 +12,32 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="../src/style.css">
 
   <style>
+    /* Fade-in Animation (Refined) */
+    @keyframes revealIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(12px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+    
+    html {
+      background: #020202; /* Instant dark background to prevent white flashes */
+      scroll-behavior: smooth;
+    }
+
+    body {
+      opacity: 0; /* Starts hidden */
+      animation: revealIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      background: #020202;
+    }
+
     /* ─── NAV SYNC ──────────────────────────────────────────── */
     #hero-nav {
       position: fixed;
@@ -76,7 +99,7 @@
 
 <body class="bg-brand-black selection:bg-[#FFCE00] selection:text-black overflow-x-hidden">
 
-  <div class="fixed inset-0 w-full h-full pointer-events-none z-[9999] opacity-[0.03] bg-[url('/assets/noise.png')]">
+  <div class="fixed inset-0 w-full h-full pointer-events-none z-[9999] opacity-[0.03] bg-[url('../assets/noise.png')]">
   </div>
 
   <style>
@@ -94,12 +117,12 @@
 
   <!-- Identical Nav to Home Page -->
   <nav id="hero-nav" class="flex items-center justify-between w-full max-w-[100vw] overflow-hidden !z-[10001]">
-    <a href="/" style="display:inline-flex; align-items:center;">
-      <img src="/assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:24px; width:auto;" class="md:h-7">
+    <a href="index.html" style="display:inline-flex; align-items:center;">
+      <img src="../assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:24px; width:auto;" class="md:h-7">
     </a>
     <div class="hidden md:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/70 mr-12">
-      <a href="/#work" class="hover:text-[#FFCE00] transition-colors text-accent-brand">Our Work</a>
-      <a href="/#agency-mission" class="hover:text-[#FFCE00] transition-colors">About</a>
+      <a href="index.html#work" class="hover:text-[#FFCE00] transition-colors text-accent-brand">Our Work</a>
+      <a href="index.html#agency-mission" class="hover:text-[#FFCE00] transition-colors">About</a>
     </div>
     <div class="flex items-center gap-4">
       <button id="mobile-menu-toggle" class="md:hidden flex flex-col items-center justify-center p-2 z-[10001] w-10 h-10 relative">
@@ -113,8 +136,8 @@
 
   <!-- Mobile Navigation Overlay -->
   <div id="mobile-menu" class="fixed inset-0 bg-brand-black/98 z-[10000] flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-all duration-500 backdrop-blur-xl">
-    <a href="/#work" class="text-4xl font-black uppercase tracking-tighter text-accent-brand mobile-link">Our Work</a>
-    <a href="/#agency-mission" class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">About</a>
+    <a href="index.html#work" class="text-4xl font-black uppercase tracking-tighter text-accent-brand mobile-link">Our Work</a>
+    <a href="index.html#agency-mission" class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">About</a>
     <a href="contact.html" class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">Say Hi</a>
     <div class="mt-10 pt-10 border-t border-white/10 w-48 text-center">
       <span class="text-[10px] font-black uppercase tracking-widest text-white/30">Pixel & Proof</span>
@@ -150,7 +173,7 @@
           <div
             class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
             <div class="aspect-[4/5] relative overflow-hidden">
-              <img src="/assets/work/TheModernTint_cover.png" alt="The Modern Tint"
+              <img src="../assets/work/TheModernTint_cover.png" alt="The Modern Tint"
                 class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
 
               <div
@@ -161,7 +184,7 @@
                 <h4
                   class="text-4xl font-black uppercase text-white tracking-tighter leading-none mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-200">
                   The Modern Tint</h4>
-                <a href="/assets/work/TheModernTint%20Brand%20Kit.pdf" target="_blank"
+                <a href="../assets/work/TheModernTint%20Brand%20Kit.pdf" target="_blank"
                   class="px-8 py-4 bg-accent-brand text-black rounded-full text-[10px] font-black uppercase tracking-widest transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-300 hover:scale-105">View
                   Brand Kit &rarr;</a>
               </div>
@@ -182,7 +205,7 @@
           <div
             class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
             <div class="aspect-[4/5] relative overflow-hidden">
-              <img src="/assets/work/FlareUp_cover.png" alt="Flare Up"
+              <img src="../assets/work/FlareUp_cover.png" alt="Flare Up"
                 class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
 
               <div
@@ -193,7 +216,7 @@
                 <h4
                   class="text-4xl font-black uppercase text-white tracking-tighter leading-none mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-200">
                   Flare Up</h4>
-                <a href="/assets/work/FlareUp%20Brand%20Kit.pdf" target="_blank"
+                <a href="../assets/work/FlareUp%20Brand%20Kit.pdf" target="_blank"
                   class="px-8 py-4 bg-accent-brand text-black rounded-full text-[10px] font-black uppercase tracking-widest transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-300 hover:scale-105">View
                   Brand Kit &rarr;</a>
               </div>
@@ -213,7 +236,7 @@
           <div
             class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
             <div class="aspect-[4/5] relative overflow-hidden">
-              <img src="/assets/work/10/10.png" alt="The Naksha"
+              <img src="../assets/work/10/10.png" alt="The Naksha"
                 class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
 
               <div
@@ -247,7 +270,7 @@
   <footer class="py-10 w-full bg-brand-black border-t border-white/5">
     <div class="max-w-[1280px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
       <div class="flex-1 flex justify-start">
-        <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="h-6 w-auto opacity-40 grayscale">
+        <img src="../assets/logo_1.PNG" alt="Pixel & Proof" class="h-6 w-auto opacity-40 grayscale">
       </div>
       <div class="flex-1 text-center">
         <span class="text-[9px] font-black uppercase tracking-[0.3em] text-white/20">&copy; 2026 Pixel Proof. All Rights

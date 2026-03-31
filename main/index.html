@@ -8,6 +8,7 @@
     }
   </script>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,9 +17,32 @@
     rel="stylesheet">
 
 
-  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="../src/style.css">
 
   <style>
+    /* Fade-in Animation (Refined) */
+    @keyframes revealIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(12px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+    
+    html {
+      background: #020202; /* Instant dark background to prevent white flashes */
+      scroll-behavior: smooth;
+    }
+
+    body {
+      opacity: 0; /* Starts hidden */
+      animation: revealIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      background: #020202;
+    }
+
     /* ─── HERO ──────────────────────────────────────────────── */
     #hero {
       position: relative;
@@ -187,9 +211,9 @@
 
     /* LEFT BUBBLE   tilted right +3deg, tail bottom-left (zig-zag) */
     #hero-fl {
-      bottom: 10%;
-      left: 48px;
-      max-width: 230px;
+      bottom: 15%;
+      left: 5%;
+      width: clamp(200px, 20vw, 280px);
       transform: rotate(3deg);
     }
 
@@ -229,10 +253,10 @@
 
     /* RIGHT BUBBLE   tilted left -2.5deg, tail bottom-right */
     #hero-fr {
-      top: 50%;
+      top: 45%;
       transform: translateY(-50%) rotate(-2.5deg);
-      right: 48px;
-      max-width: 250px;
+      right: 5%;
+      width: clamp(220px, 22vw, 300px);
       display: flex;
       flex-direction: column;
       gap: 14px;
@@ -388,15 +412,15 @@
 
 <body class="bg-brand-black selection:bg-[#FFCE00] selection:text-black overflow-x-hidden">
 
-  <div class="fixed inset-0 w-full h-full pointer-events-none z-[9999] opacity-[0.03] bg-[url('/assets/noise.png')]">
+  <div class="fixed inset-0 w-full h-full pointer-events-none z-[9999] opacity-[0.03] bg-[url('../assets/noise.png')]">
   </div>
 
   <!-- HERO (EVET Reference Match) -->
   <section id="hero">
     <!-- Nav -->
     <nav id="hero-nav" class="flex items-center justify-between w-full max-w-[100vw] overflow-hidden">
-      <a href="/" style="display:inline-flex; align-items:center;">
-        <img src="/assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:28px; width:auto;">
+      <a href="index.html" style="display:inline-flex; align-items:center;">
+        <img src="../assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:28px; width:auto;">
       </a>
       <div
         class="hidden md:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/70 mr-12">
@@ -443,7 +467,7 @@
     <div id="hero-fr">
       <hr>
       <p>We build intentional brands for businesses ready to grow. No pitch. Just clarity.</p>
-      <a href="contact.html">Book Your Free Audit</a>
+      <a href="#contact">Book Your Free Audit</a>
     </div>
 
     <!-- Scroll indicator -->
@@ -718,7 +742,7 @@
           <div
             class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
             <div class="aspect-[4/5] relative overflow-hidden">
-              <img src="/assets/work/TheModernTint_cover.png" alt="The Modern Tint"
+              <img src="../assets/work/TheModernTint_cover.png" alt="The Modern Tint"
                 class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
 
               <!-- Premium Overlay Layer -->
@@ -758,7 +782,7 @@
           <div
             class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
             <div class="aspect-[4/5] relative overflow-hidden">
-              <img src="/assets/work/FlareUp_cover.png" alt="Flare Up"
+              <img src="../assets/work/FlareUp_cover.png" alt="Flare Up"
                 class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
 
               <!-- Premium Overlay Layer -->
@@ -797,7 +821,7 @@
           <div
             class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
             <div class="aspect-[4/5] relative overflow-hidden">
-              <img src="/assets/work/10/10.png" alt="Fintech Growth"
+              <img src="../assets/work/10/10.png" alt="Fintech Growth"
                 class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
 
               <!-- Premium Overlay Layer -->
@@ -1062,9 +1086,9 @@
         <!-- Left: Image / Visual Focus -->
         <div class="md:col-span-12 lg:col-span-5 relative">
           <div class="aspect-square bg-white/5 rounded-[3rem] overflow-hidden relative group">
-            <img src="/assets/mission.png" alt="Pixel & Proof Founders"
+            <img src="../assets/mission.png" alt="Pixel & Proof Founders"
               class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-              onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000'">
+              onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1000'; this.onerror=null;">
             <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-transparent opacity-60">
             </div>
           </div>
@@ -1207,7 +1231,7 @@
   </section>
 
   <!-- 9. FINAL CTA (Balanced Spacing) -->
-  <section class="py-32 w-full bg-brand-black border-t border-white/5" id="contact">
+  <section class="py-24 w-full bg-brand-black border-t border-white/5" id="contact">
     <div class="px-6 w-full max-w-[1280px] mx-auto text-center flex flex-col items-center">
 
       <div class="mb-16">
@@ -1225,16 +1249,16 @@
           design brands. They design the systems that allow brands to actually breathe."</p>
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-          <a href="contact.html"
+          <a href="#contact"
             class="px-12 py-6 bg-accent-brand text-black rounded-full font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform">Book
             Free Audit</a>
         </div>
       </div>
 
       <footer
-        class="mt-48 w-full py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
+        class="mt-32 w-full py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
         <div class="flex-1 flex justify-start">
-          <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="h-6 w-auto opacity-70 grayscale">
+          <img src="../assets/logo_1.PNG" alt="Pixel & Proof" class="h-6 w-auto opacity-70 grayscale">
         </div>
         <div class="flex-1 text-center">
           <span class="text-[9px] font-black uppercase tracking-[0.3em] text-white/20">&copy; 2026 Pixel Proof. All
