@@ -259,31 +259,54 @@
                 </div>
               </div>
 
-              <!-- Brand Name -->
+              <!-- Business Name -->
               <div class="flex flex-col">
-                <label for="brand_name">Business Name</label>
-                <input type="text" id="brand_name" name="brand_name" class="px-6 py-4 rounded-xl text-sm"
+                <label for="business_name">Business Name</label>
+                <input type="text" id="business_name" name="business_name" class="px-6 py-4 rounded-xl text-sm"
                   placeholder="e.g. Pixel & Proof" required>
               </div>
 
               <!-- Type of Business -->
               <div class="flex flex-col">
-                <label for="business_type">Type of Business</label>
-                <select id="business_type" name="business_type"
-                  class="px-6 py-4 rounded-xl text-sm appearance-none cursor-pointer">
-                  <option value="startup">Startup (Early Stage)</option>
-                  <option value="ecommerce">E-commerce / D2C</option>
-                  <option value="agency">Agency / B2B</option>
-                  <option value="creator">Creator / Solo-Brand</option>
-                  <option value="other">Other</option>
+                <label for="industry_type">Type of Business</label>
+                <input type="text" id="industry_type" name="industry_type" class="px-6 py-4 rounded-xl text-sm"
+                  placeholder="e.g. E-commerce" required>
+              </div>
+
+              <!-- Service Needed -->
+              <div class="flex flex-col">
+                <label for="service_needed">What do you need?</label>
+                <select id="service_needed" name="service_needed"
+                  class="px-6 py-4 rounded-xl text-sm appearance-none cursor-pointer" required>
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="Brand Strategy & Identity">Brand Strategy & Identity</option>
+                  <option value="Social Media & Content">Social Media & Content</option>
+                  <option value="Website & Digital Experience">Website & Digital Experience</option>
+                  <option value="Creative & Design Studio">Creative & Design Studio</option>
+                  <option value="Performance Marketing">Performance Marketing</option>
+                  <option value="I need guidance">I need guidance</option>
                 </select>
               </div>
 
               <!-- Challenges -->
               <div class="flex flex-col">
-                <label for="challenges">Your Brand & Challenges</label>
-                <textarea id="challenges" name="challenges" rows="5" class="px-6 py-4 rounded-xl text-sm resize-none"
+                <label for="brand_description">Your Brand & Challenges</label>
+                <textarea id="brand_description" name="brand_description" rows="5" class="px-6 py-4 rounded-xl text-sm resize-none"
                   placeholder="What's holding you back from reaching your revenue goals?" required></textarea>
+              </div>
+
+              <!-- Referral Source -->
+              <div class="flex flex-col">
+                <label for="referral_source">How did you hear about us?</label>
+                <select id="referral_source" name="referral_source"
+                  class="px-6 py-4 rounded-xl text-sm appearance-none cursor-pointer" required>
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="Referral">Referral</option>
+                  <option value="Google">Google</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
 
               <button type="submit"
