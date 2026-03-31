@@ -100,43 +100,137 @@
       box-shadow: 0 0 20px rgba(255, 206, 0, 0.05);
     }
 
-    /* Premium Dropdown Chevron */
-    select#business_type {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23FFCE00' stroke-width='3'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7' /%3E%3C/svg%3E") !important;
-      background-repeat: no-repeat !important;
-      background-position: right 1.5rem center !important;
-      background-size: 1.25rem !important;
-      padding-right: 3.5rem !important;
-    }
-
-    /* Fix for dropdown options legibility on dark theme */
-    select option {
-      background-color: #020202 !important;
-      color: white !important;
-    }
-
-    label {
-      font-size: 10px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: #FFCE00;
-      margin-bottom: 12px;
-      display: block;
-      opacity: 0.8;
-    }
-
     .form-card {
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(10, 10, 10, 0.4);
+      backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 2.5rem;
-      padding: 3rem;
-      transition: all 0.5s ease;
+      padding: 3.5rem;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     .form-card:hover {
-      border-color: rgba(255, 206, 0, 0.2);
+      border-color: rgba(255, 206, 0, 0.15);
+      background: rgba(10, 10, 10, 0.5);
+    }
+
+    .form-card label {
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: #FFCE00;
+      margin-bottom: 0.75rem;
+      display: block;
+      opacity: 0.9;
+    }
+
+    .form-card input,
+    .form-card select,
+    .form-card textarea,
+    .custom-dropdown {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: white;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      width: 100%;
+      max-width: 500px;
+      outline: none;
+      border-radius: 1rem;
+      padding: 1.15rem 1.5rem;
+    }
+
+    .form-card input:focus,
+    .form-card select:focus,
+    .form-card textarea:focus {
+      border-color: #FFCE00;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 30px rgba(255, 206, 0, 0.05);
+    }
+
+    .form-card select {
+      display: none; /* Hide native selects */
+    }
+
+    .custom-dropdown {
+      position: relative;
+      width: 100%;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .dropdown-trigger {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: white;
+      border-radius: 1rem;
+      padding: 1.15rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      font-size: 0.875rem;
+    }
+
+    .custom-dropdown.active .dropdown-trigger {
+      border-color: #FFCE00;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 30px rgba(255, 206, 0, 0.05);
+    }
+
+    .dropdown-trigger .chevron {
+      width: 1rem;
+      height: 1rem;
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      opacity: 0.6;
+      color: #FFCE00;
+    }
+
+    .custom-dropdown.active .chevron {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: 0;
+      right: 0;
+      background: rgba(10, 10, 10, 0.98);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .custom-dropdown.active .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-option {
+      padding: 1rem 1.5rem;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-option:hover {
+      background: rgba(255, 206, 0, 0.1);
+      color: #FFCE00;
+    }
+
+    .dropdown-option.selected {
+      background: rgba(255, 206, 0, 0.15);
+      color: #FFCE00;
+      font-weight: 700;
     }
 
     @media (max-width: 767px) {
@@ -275,17 +369,22 @@
 
               <!-- Service Needed -->
               <div class="flex flex-col">
-                <label for="service_needed">What do you need?</label>
-                <select id="service_needed" name="service_needed"
-                  class="px-6 py-4 rounded-xl text-sm appearance-none cursor-pointer" required>
-                  <option value="" disabled selected>Select an option</option>
-                  <option value="Brand Strategy & Identity">Brand Strategy & Identity</option>
-                  <option value="Social Media & Content">Social Media & Content</option>
-                  <option value="Website & Digital Experience">Website & Digital Experience</option>
-                  <option value="Creative & Design Studio">Creative & Design Studio</option>
-                  <option value="Performance Marketing">Performance Marketing</option>
-                  <option value="I need guidance">I need guidance</option>
-                </select>
+                <label>What do you need?</label>
+                <div class="custom-dropdown" id="dropdown-service">
+                  <div class="dropdown-trigger">
+                    <span class="selected-text">Select an option</span>
+                    <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
+                  </div>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-option" data-value="Brand Strategy & Identity">Brand Strategy & Identity</div>
+                    <div class="dropdown-option" data-value="Social Media & Content">Social Media & Content</div>
+                    <div class="dropdown-option" data-value="Website & Digital Experience">Website & Digital Experience</div>
+                    <div class="dropdown-option" data-value="Creative & Design Studio">Creative & Design Studio</div>
+                    <div class="dropdown-option" data-value="Performance Marketing">Performance Marketing</div>
+                    <div class="dropdown-option" data-value="I need guidance">I need guidance</div>
+                  </div>
+                  <input type="hidden" name="service_needed" id="service_needed" required>
+                </div>
               </div>
 
               <!-- Challenges -->
@@ -297,16 +396,21 @@
 
               <!-- Referral Source -->
               <div class="flex flex-col">
-                <label for="referral_source">How did you hear about us?</label>
-                <select id="referral_source" name="referral_source"
-                  class="px-6 py-4 rounded-xl text-sm appearance-none cursor-pointer" required>
-                  <option value="" disabled selected>Select an option</option>
-                  <option value="Instagram">Instagram</option>
-                  <option value="LinkedIn">LinkedIn</option>
-                  <option value="Referral">Referral</option>
-                  <option value="Google">Google</option>
-                  <option value="Other">Other</option>
-                </select>
+                <label>How did you hear about us?</label>
+                <div class="custom-dropdown" id="dropdown-referral">
+                  <div class="dropdown-trigger">
+                    <span class="selected-text">Select an option</span>
+                    <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
+                  </div>
+                  <div class="dropdown-menu">
+                    <div class="dropdown-option" data-value="Instagram">Instagram</div>
+                    <div class="dropdown-option" data-value="LinkedIn">LinkedIn</div>
+                    <div class="dropdown-option" data-value="Referral">Referral</div>
+                    <div class="dropdown-option" data-value="Google">Google</div>
+                    <div class="dropdown-option" data-value="Other">Other</div>
+                  </div>
+                  <input type="hidden" name="referral_source" id="referral_source" required>
+                </div>
               </div>
 
               <button type="submit"
@@ -387,6 +491,42 @@
         });
       });
     }
+
+    // Custom Dropdown Initialization
+    document.querySelectorAll('.custom-dropdown').forEach(dropdown => {
+      const trigger = dropdown.querySelector('.dropdown-trigger');
+      const options = dropdown.querySelectorAll('.dropdown-option');
+      const input = dropdown.querySelector('input[type="hidden"]');
+      const selectedText = dropdown.querySelector('.selected-text');
+
+      trigger.addEventListener('click', (e) => {
+        // Close other dropdowns
+        document.querySelectorAll('.custom-dropdown').forEach(other => {
+          if (other !== dropdown) other.classList.remove('active');
+        });
+        dropdown.classList.toggle('active');
+        e.stopPropagation();
+      });
+
+      options.forEach(option => {
+        option.addEventListener('click', () => {
+          const value = option.dataset.value;
+          input.value = value;
+          selectedText.innerText = value;
+          options.forEach(opt => opt.classList.remove('selected'));
+          option.classList.add('selected');
+          dropdown.classList.remove('active');
+          
+          // Trigger validation check if needed
+          input.dispatchEvent(new Event('change'));
+        });
+      });
+    });
+
+    // Click outside to close
+    window.addEventListener('click', () => {
+      document.querySelectorAll('.custom-dropdown').forEach(d => d.classList.remove('active'));
+    });
 
     // Lead Capture Logic (Make.com Integration)
     const strategyForm = document.getElementById('strategy-form');

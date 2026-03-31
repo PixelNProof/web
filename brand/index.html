@@ -158,16 +158,101 @@
         .attention-box {
             display: inline-block;
             background: var(--brand-black);
-            color: var(--brand-yellow);
-            padding: 12px 28px;
+            color: var(--brand-white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 10px;
             font-weight: 900;
-            font-size: 11px;
-            letter-spacing: 0.15em;
             text-transform: uppercase;
-            border-radius: 9999px; /* Pill Rounded */
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 206, 0, 0.3);
             position: relative;
             z-index: 2;
-            border: 1px solid rgba(255,206,0,0.2);
+        }
+
+        /* Custom Premium Dropdowns */
+        .custom-dropdown {
+            position: relative;
+            width: 100%;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .dropdown-trigger {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: white;
+            border-radius: 1rem;
+            padding: 1.15rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            font-size: 0.875rem;
+            max-width: 500px;
+        }
+
+        .custom-dropdown.active .dropdown-trigger {
+            border-color: #FFCE00;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 30px rgba(255, 206, 0, 0.05);
+        }
+
+        .dropdown-trigger .chevron {
+            width: 1rem;
+            height: 1rem;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            opacity: 0.6;
+            color: #FFCE00;
+        }
+
+        .custom-dropdown.active .chevron {
+            transform: rotate(180deg);
+            opacity: 1;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.25rem;
+            max-width: 500px;
+            overflow: hidden;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .custom-dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-option {
+            padding: 1rem 1.5rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-option:hover {
+            background: rgba(255, 206, 0, 0.1);
+            color: #FFCE00;
+        }
+
+        .dropdown-option.selected {
+            background: rgba(255, 206, 0, 0.15);
+            color: #FFCE00;
+            font-weight: 700;
         }
 
         .cta-button, .btn-premium {
@@ -1077,7 +1162,7 @@
                                 <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">Business Name</span>
                             </label>
                             <input type="text" id="business_name" name="business_name" required
-                                class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
+                                class="w-full max-w-[500px] bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
                                 placeholder="Company Ltd">
                         </div>
 
@@ -1086,7 +1171,7 @@
                                 <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">Type of Business</span>
                             </label>
                             <input type="text" id="industry_type" name="industry_type" required
-                                class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
+                                class="w-full max-w-[500px] bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all placeholder:opacity-20"
                                 placeholder="e.g. E-commerce">
                         </div>
 
@@ -1094,20 +1179,20 @@
                             <label class="label mb-5">
                                 <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">What do you need?</span>
                             </label>
-                            <div class="relative">
-                                <select id="service_needed" name="service_needed" required
-                                    class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all appearance-none cursor-pointer">
-                                    <option value="" disabled selected class="bg-black">Select an option</option>
-                                    <option value="Brand Strategy & Identity" class="bg-black">Brand Strategy & Identity</option>
-                                    <option value="Social Media & Content" class="bg-black">Social Media & Content</option>
-                                    <option value="Website & Digital Experience" class="bg-black">Website & Digital Experience</option>
-                                    <option value="Creative & Design Studio" class="bg-black">Creative & Design Studio</option>
-                                    <option value="Performance Marketing" class="bg-black">Performance Marketing</option>
-                                    <option value="Not sure yet  <span></span>  I need guidance" class="bg-black">Not sure yet  <span></span>  I need guidance</option>
-                                </select>
-                                <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            <div class="custom-dropdown" id="dropdown-service">
+                                <div class="dropdown-trigger">
+                                    <span class="selected-text">Select an option</span>
+                                    <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
                                 </div>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-option" data-value="Brand Strategy & Identity">Brand Strategy & Identity</div>
+                                    <div class="dropdown-option" data-value="Social Media & Content">Social Media & Content</div>
+                                    <div class="dropdown-option" data-value="Website & Digital Experience">Website & Digital Experience</div>
+                                    <div class="dropdown-option" data-value="Creative & Design Studio">Creative & Design Studio</div>
+                                    <div class="dropdown-option" data-value="Performance Marketing">Performance Marketing</div>
+                                    <div class="dropdown-option" data-value="I need guidance">I need guidance</div>
+                                </div>
+                                <input type="hidden" name="service_needed" id="service_needed" required>
                             </div>
                         </div>
 
@@ -1121,22 +1206,22 @@
                         </div>
 
                         <div class="form-control w-full group">
-                            <label class="label mb-5">
-                                <span class="label-text text-[11px] uppercase font-bold text-[#FFCE00] tracking-[0.2em]">How did you hear about us?</span>
+                            <label class="label mb-3">
+                                <span class="label-text text-[10px] uppercase font-black text-[#FFCE00] tracking-[0.3em] opacity-90">How did you hear about us?</span>
                             </label>
-                            <div class="relative">
-                                <select id="referral_source" name="referral_source" required
-                                    class="w-full bg-[#0a0a0a] border border-white/10 text-white rounded-2xl h-14 px-6 outline-none focus:border-brand-yellow focus:shadow-[0_0_20px_rgba(255,206,0,0.1)] transition-all appearance-none cursor-pointer">
-                                    <option value="" disabled selected class="bg-black">Select an option</option>
-                                    <option value="Instagram" class="bg-black">Instagram</option>
-                                    <option value="LinkedIn" class="bg-black">LinkedIn</option>
-                                    <option value="Referral" class="bg-black">Referral</option>
-                                    <option value="Google" class="bg-black">Google</option>
-                                    <option value="Other" class="bg-black">Other</option>
-                                </select>
-                                <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            <div class="custom-dropdown" id="dropdown-referral">
+                                <div class="dropdown-trigger">
+                                    <span class="selected-text">Select an option</span>
+                                    <svg class="chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
                                 </div>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-option" data-value="Instagram">Instagram</div>
+                                    <div class="dropdown-option" data-value="LinkedIn">LinkedIn</div>
+                                    <div class="dropdown-option" data-value="Referral">Referral</div>
+                                    <div class="dropdown-option" data-value="Google">Google</div>
+                                    <div class="dropdown-option" data-value="Other">Other</div>
+                                </div>
+                                <input type="hidden" name="referral_source" id="referral_source" required>
                             </div>
                         </div>
 
@@ -1177,6 +1262,38 @@
         }, { threshold: 0.15 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Custom Dropdown Initialization
+        document.querySelectorAll('.custom-dropdown').forEach(dropdown => {
+            const trigger = dropdown.querySelector('.dropdown-trigger');
+            const options = dropdown.querySelectorAll('.dropdown-option');
+            const input = dropdown.querySelector('input[type="hidden"]');
+            const selectedText = dropdown.querySelector('.selected-text');
+
+            trigger.addEventListener('click', (e) => {
+                document.querySelectorAll('.custom-dropdown').forEach(other => {
+                    if (other !== dropdown) other.classList.remove('active');
+                });
+                dropdown.classList.toggle('active');
+                e.stopPropagation();
+            });
+
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    const value = option.dataset.value;
+                    input.value = value;
+                    selectedText.innerText = value;
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    option.classList.add('selected');
+                    dropdown.classList.remove('active');
+                    input.dispatchEvent(new Event('change'));
+                });
+            });
+        });
+
+        window.addEventListener('click', () => {
+            document.querySelectorAll('.custom-dropdown').forEach(d => d.classList.remove('active'));
+        });
 
         // 3D Tilt Effect
         document.querySelectorAll('.work-card').forEach(card => {
