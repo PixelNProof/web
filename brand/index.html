@@ -842,6 +842,7 @@
                 padding: 40px;
             }
         }
+
     </style>
 </head>
 <body>
@@ -1221,6 +1222,11 @@
                             </div>
                         </div>
 
+                        <!-- Honeypot -->
+                        <div class="hidden" aria-hidden="true">
+                            <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
                         <div class="w-full mt-10">
                             <button type="submit" id="submit-btn" class="w-full h-16 bg-[#FFCE00] text-black rounded-full font-bold uppercase tracking-[0.2em] text-[13px] hover:bg-white transition-all shadow-[0_0_30px_rgba(255,206,0,0.2)] flex items-center justify-center gap-3">
                                 Let's Talk
@@ -1326,9 +1332,15 @@
 
         // Lead Capture Logic (Make.com Integration)
         const strategyForm = document.getElementById('strategy-form');
+
         if (strategyForm) {
             strategyForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
+
+                // Honeypot check
+                const honey = strategyForm.querySelector('input[name="website"]').value;
+                if (honey) return;
+
                 const submitBtn = strategyForm.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerText;
                 
@@ -1349,18 +1361,22 @@
                     });
 
                     if (response.ok) {
-                        submitBtn.innerText = 'Sent!';
-                        strategyForm.reset();
-                        setTimeout(() => { submitBtn.innerText = originalText; submitBtn.disabled = false; }, 5000);
+                        window.location.href = 'thank-you.html';
                     } else {
                         throw new Error('Server Error');
                     }
                 } catch (error) {
-                    submitBtn.innerText = 'Error! Try Again';
-                    setTimeout(() => { submitBtn.innerText = originalText; submitBtn.disabled = false; }, 3000);
+                    if (error.message !== 'Server Error') {
+                        window.location.href = 'thank-you.html';
+                    } else {
+                        submitBtn.innerText = 'Error! Try Again';
+                        setTimeout(() => { submitBtn.innerText = originalText; submitBtn.disabled = false; }, 3000);
+                    }
                 }
             });
         }
     </script>
+
+    <!-- Thank You Modal Removed -->
 </body>
 </html>

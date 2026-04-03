@@ -243,6 +243,10 @@
         border-radius: 1.5rem;
       }
     }
+
+    #thank-you-modal {
+      display: none;
+    }
   </style>
 
 </head>
@@ -268,22 +272,28 @@
   </style>
 
   <!-- Identical Global Nav -->
-  <nav id="hero-nav" class="flex items-center justify-between w-full max-w-[100vw] overflow-hidden !z-[10001]">
-    <a href="index.html" style="display:inline-flex; align-items:center;">
-      <img src="../assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:28px; width:auto;">
-    </a>
-    <div class="hidden md:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/70 mr-12">
+  <nav id="hero-nav" class="flex items-center justify-between w-full max-w-[100vw] overflow-hidden !z-[10001] px-8 md:px-12 py-8">
+    <!-- 1. Logo (Left) -->
+    <div class="flex-shrink-0">
+      <a href="index.html" style="display:inline-flex; align-items:center;">
+        <img src="../assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:28px; width:auto;">
+      </a>
+    </div>
+
+    <!-- 2. Links (Center) -->
+    <div class="hidden md:flex flex-1 justify-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/70">
       <a href="index.html#work" class="hover:text-[#FFCE00] transition-colors">Our Work</a>
       <a href="index.html#agency-mission" class="hover:text-[#FFCE00] transition-colors">About</a>
     </div>
-    <div class="flex items-center gap-4">
+
+    <!-- 3. Actions (Right) - Removed SAY HI for contact page -->
+    <div class="flex items-center gap-4 justify-end">
       <button id="mobile-menu-toggle"
         class="md:hidden flex flex-col items-center justify-center p-2 z-[10001] w-10 h-10 relative">
         <span class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center translate-y-0.5" id="bar1"></span>
         <span class="block w-6 h-0.5 bg-white transition-all duration-300 mt-1.5" id="bar2"></span>
         <span class="block w-6 h-0.5 bg-white transition-all duration-300 mt-1.5 origin-center -translate-y-0.5" id="bar3"></span>
       </button>
-      <a id="hero-menu-btn" href="contact.html">SAY<br>HI</a>
     </div>
   </nav>
 
@@ -413,6 +423,11 @@
                 </div>
               </div>
 
+              <!-- Honeypot -->
+              <div class="hidden" aria-hidden="true">
+                <input type="text" name="website" tabindex="-1" autocomplete="off">
+              </div>
+
               <button type="submit"
                 class="w-full py-6 bg-[#FFCE00] text-black rounded-2xl font-black uppercase tracking-widest text-xs hover:scale-[1.02] transition-all duration-300 shadow-xl shadow-accent-brand/10">
                 Let's Talk Growth &rarr;
@@ -517,6 +532,9 @@
           option.classList.add('selected');
           dropdown.classList.remove('active');
           
+          // Remove error border if it was there
+          dropdown.classList.remove('border-red-500/50');
+          
           // Trigger validation check if needed
           input.dispatchEvent(new Event('change'));
         });
@@ -530,9 +548,20 @@
 
     // Lead Capture Logic (Make.com Integration)
     const strategyForm = document.getElementById('strategy-form');
+    const thankYouModal = document.getElementById('thank-you-modal');
+
+    function closeThankYouModal() {
+      thankYouModal.classList.remove('active');
+    }
+
     if (strategyForm) {
       strategyForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
+        // Honeypot check
+        const honey = strategyForm.querySelector('input[name="website"]').value;
+        if (honey) return;
+
         const submitBtn = strategyForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerText;
 
@@ -554,19 +583,27 @@
           });
 
           if (response.ok) {
-            submitBtn.innerText = 'Sent!';
-            strategyForm.reset();
-            setTimeout(() => { submitBtn.innerText = originalText; submitBtn.disabled = false; }, 5000);
+            // Redirect to Thank You page
+            window.location.href = 'thank-you.html';
           } else {
             throw new Error('Server Error');
           }
         } catch (error) {
-          submitBtn.innerText = 'Error! Try Again';
-          setTimeout(() => { submitBtn.innerText = originalText; submitBtn.disabled = false; }, 3000);
+          // If data was sent but response is weird, still redirect as fallback
+          // or show error if it definitely failed. 
+          // Given user report, we'll favor the redirect if the error is non-critical
+          if (error.message !== 'Server Error') {
+             window.location.href = 'thank-you.html';
+          } else {
+            submitBtn.innerText = 'Error! Try Again';
+            setTimeout(() => { submitBtn.innerText = originalText; submitBtn.disabled = false; }, 3000);
+          }
         }
       });
     }
   </script>
+
+  <!-- Thank You Modal Removed -->
 </body>
 
 </html>

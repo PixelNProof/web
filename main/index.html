@@ -132,7 +132,7 @@
 
     .ht-line1,
     .ht-line3 {
-      font-size: clamp(38px, 12vw, 130px);
+      font-size: clamp(34px, 10vw, 130px);
       font-weight: 900;
       line-height: 0.9;
       letter-spacing: -0.03em;
@@ -147,7 +147,7 @@
     }
 
     .ht-line2 {
-      font-size: clamp(56px, 10vw, 140px);
+      font-size: clamp(48px, 9vw, 140px);
       line-height: 0.85;
       letter-spacing: 0.01em;
       color: #FFCE00;
@@ -369,7 +369,8 @@
     /* Responsive: tweak bubbles for small screens */
     @media (max-width: 767px) {
       #hero-nav {
-        padding: 24px 24px 0;
+        padding: 24px 20px 0;
+        gap: 12px;
       }
 
       #hero-rule {
@@ -419,15 +420,22 @@
   </div>
 
   <!-- Identical Global Nav -->
-  <nav id="hero-nav" class="flex items-center justify-between w-full max-w-[100vw] overflow-hidden !z-[10001]">
-    <a href="index.html" style="display:inline-flex; align-items:center;">
-      <img src="../assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:28px; width:auto;">
-    </a>
-    <div class="hidden md:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/70 mr-12">
+  <nav id="hero-nav" class="flex items-center justify-between w-full max-w-[100vw] overflow-hidden !z-[10001] px-8 md:px-12 py-8">
+    <!-- 1. Logo (Left) -->
+    <div class="flex-shrink-0">
+      <a href="index.html" style="display:inline-flex; align-items:center;">
+        <img src="../assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:28px; width:auto;">
+      </a>
+    </div>
+
+    <!-- 2. Links (Center) -->
+    <div class="hidden md:flex flex-1 justify-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/70">
       <a href="#work" class="hover:text-[#FFCE00] transition-colors">Our Work</a>
       <a href="#agency-mission" class="hover:text-[#FFCE00] transition-colors">About</a>
     </div>
-    <div class="flex items-center gap-4">
+
+    <!-- 3. Actions (Right) -->
+    <div class="flex items-center gap-4 justify-end">
       <button id="mobile-menu-toggle"
         class="md:hidden flex flex-col items-center justify-center p-2 z-[10001] w-10 h-10 relative">
         <span class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center translate-y-0.5" id="bar1"></span>
@@ -482,7 +490,7 @@
     <div id="hero-fr">
       <hr>
       <p>We build intentional brands for businesses ready to grow. No pitch. Just clarity.</p>
-      <a href="#contact">Book Your Free Audit</a>
+      <a href="contact.html">Book Your Free Audit</a>
     </div>
 
     <!-- Scroll indicator -->
@@ -494,14 +502,7 @@
   </section>
   
   <!-- Mobile Navigation Overlay -->
-  <div id="mobile-menu" class="fixed inset-0 bg-brand-black/98 z-[10000] flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-all duration-500 backdrop-blur-xl">
-    <a href="#work" class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">Our Work</a>
-    <a href="#agency-mission" class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">About</a>
-    <a href="contact.html" class="text-4xl font-black uppercase tracking-tighter text-accent-brand mobile-link">Say Hi</a>
-    <div class="mt-10 pt-10 border-t border-white/10 w-48 text-center">
-      <span class="text-[10px] font-black uppercase tracking-widest text-white/30">Pixel & Proof</span>
-    </div>
-  </div>
+  <!-- Removed duplicate entry to prevent ID conflicts -->
 
   <script>
     const menuToggle = document.getElementById('mobile-menu-toggle');
@@ -530,9 +531,10 @@
 
       mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
-          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'opacity-100');
           mobileMenu.classList.add('opacity-0', 'pointer-events-none');
           document.body.style.overflow = '';
+          menuToggle.classList.remove('menu-active');
         });
       });
     }
@@ -1282,7 +1284,7 @@
           design brands. They design the systems that allow brands to actually breathe."</p>
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-          <a href="#contact"
+          <a href="contact.html"
             class="px-12 py-6 bg-accent-brand text-black rounded-full font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform">Book
             Free Audit</a>
         </div>

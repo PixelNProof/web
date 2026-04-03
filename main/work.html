@@ -93,7 +93,8 @@
 
     @media (max-width: 767px) {
       #hero-nav {
-        padding: 24px 24px;
+        padding: 24px 20px;
+        gap: 12px;
       }
     }
   </style>
@@ -118,16 +119,22 @@
     }
   </style>
 
-  <!-- Identical Global Nav -->
-  <nav id="hero-nav" class="flex items-center justify-between w-full max-w-[100vw] overflow-hidden !z-[10001]">
-    <a href="index.html" style="display:inline-flex; align-items:center;">
-      <img src="../assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:28px; width:auto;">
-    </a>
-    <div class="hidden md:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/70 mr-12">
+  <nav id="hero-nav" class="flex items-center justify-between w-full max-w-[100vw] overflow-hidden !z-[10001] px-8 md:px-12 py-8">
+    <!-- 1. Logo (Left) -->
+    <div class="flex-shrink-0">
+      <a href="index.html" style="display:inline-flex; align-items:center;">
+        <img src="../assets/logo_1.PNG" alt="PIXEL & PROOF" style="height:28px; width:auto;">
+      </a>
+    </div>
+
+    <!-- 2. Links (Center) -->
+    <div class="hidden md:flex flex-1 justify-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/70">
       <a href="index.html#work" class="hover:text-[#FFCE00] transition-colors text-accent-brand">Our Work</a>
       <a href="index.html#agency-mission" class="hover:text-[#FFCE00] transition-colors">About</a>
     </div>
-    <div class="flex items-center gap-4">
+
+    <!-- 3. Actions (Right) -->
+    <div class="flex items-center gap-4 justify-end">
       <button id="mobile-menu-toggle" class="md:hidden flex flex-col items-center justify-center p-2 z-[10001] w-10 h-10 relative">
         <span class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center translate-y-0.5" id="bar1"></span>
         <span class="block w-6 h-0.5 bg-white transition-all duration-300 mt-1.5" id="bar2"></span>
@@ -155,7 +162,7 @@
         class="text-accent-brand font-black tracking-[0.4em] text-[10px] uppercase block mb-8 text-center text-accent-brand">//
         THE PORTFOLIO</span>
       <h1
-        class="text-6xl md:text-9xl font-black tracking-tighter text-white uppercase leading-[0.85] text-center mb-16">
+        class="text-[clamp(42px,12vw,60px)] md:text-9xl font-black tracking-tighter text-white uppercase leading-[0.9] text-center mb-16">
         SELECTED<br>
         <span class="text-white/10 italic serif-italic" style="font-family: 'Playfair Display', serif;">Proof.</span>
       </h1>

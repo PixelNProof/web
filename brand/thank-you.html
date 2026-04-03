@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Pixel & Proof</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --brand-yellow: #FFCE00;
+            --brand-black: #000000;
+            --brand-white: #FFFFFF;
+            --brand-off-white: #FBFBFB;
+            --font-heading: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-heading);
+            background-color: var(--brand-black);
+            color: var(--brand-white);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Fade-in Animation */
+        @keyframes revealIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(12px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        #reveal-wrapper {
+            opacity: 0;
+            animation: revealIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Nav (Logo Only) */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 60px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            color: var(--brand-yellow);
+        }
+
+        h1.thank-you-headline {
+            font-size: clamp(42px, 10vw, 110px);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            margin-bottom: 32px;
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .received-row {
+            position: relative;
+            /* Optical centering: offset the width of the period */
+            margin-right: -0.35em;
+        }
+
+        .dot {
+            position: absolute;
+        }
+
+        .thank-you-sub {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 600px;
+            margin-bottom: 60px;
+            line-height: 1.5;
+        }
+
+        .text-brand-yellow {
+            color: var(--brand-yellow) !important;
+            font-weight: 700;
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .primary-cta {
+            background: var(--brand-yellow);
+            color: var(--brand-black);
+            padding: 24px 40px;
+            border-radius: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 13px;
+        }
+
+        .primary-cta:hover {
+            background: var(--brand-white);
+            color: var(--brand-black);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 206, 0, 0.1);
+        }
+
+        .secondary-link {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .secondary-link:hover {
+            color: var(--brand-white);
+        }
+
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 9px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="selection:bg-[#FFCE00] selection:text-black">
+
+    <div id="reveal-wrapper">
+        <!-- Nav (Centered Logo Only) -->
+        <nav>
+            <a href="index.html">
+                <img src="/assets/logo_1.PNG" alt="Pixel & Proof" style="height:32px; width:auto;">
+            </a>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="success-icon">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+
+            <h1 class="thank-you-headline">
+                <span>Message</span>
+                <span class="received-row">Received<span class="dot">.</span></span>
+            </h1>
+
+            <p class="thank-you-sub">
+                We've received your strategy request. <span class="text-brand-yellow">Pixel & Proof</span> will be in touch within 24 hours. Book your free strategy call below.
+            </p>
+
+            <div class="cta-container">
+                <a href="https://calendly.com/hello-pixelnproof/30min" target="_blank" class="primary-cta">
+                    Let's talk on call &rarr;
+                </a>
+                <a href="index.html" class="secondary-link">Back to Home</a>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <span class="footer-text">
+                &copy; 2026 PIXEL & PROOF. ALL RIGHTS RESERVED.
+            </span>
+        </footer>
+    </div>
+
+</body>
+</html>
