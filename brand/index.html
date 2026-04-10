@@ -17,6 +17,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://tluxbmfziquoagqgkyka.supabase.co">
     
+    <!-- Preloads for Performance -->
+    <link rel="preload" href="/assets/Brand_herImg.svg" as="image">
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrWc/+t398.woff2" as="font" type="font/woff2" crossorigin>
+    
     <style>
         :root {
             --brand-yellow: #FFCE00;
@@ -1249,7 +1253,7 @@
     <footer class="footer bg-black text-white py-12 md:py-16 border-t border-white/5">
         <div class="container flex flex-col md:flex-row justify-between items-center gap-12">
             <div class="footer-logo">
-                <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="h-10 w-auto opacity-50 hover:opacity-100 transition-opacity">
+                <img src="/assets/logo_1.PNG" alt="Pixel & Proof" width="164" height="40" loading="lazy" decoding="async" class="h-10 w-auto opacity-50 hover:opacity-100 transition-opacity">
             </div>
             <p class="text-white opacity-20 text-[10px] uppercase font-black tracking-[0.4em]">
                 © 2026 Pixel & Proof. All rights reserved.
