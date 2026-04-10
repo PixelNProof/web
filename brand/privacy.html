@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,13 +18,9 @@
         :root {
             --brand-yellow: #FFCE00;
             --brand-black: #000000;
-            --brand-white: #FFFFFF;
             --brand-off-white: #FBFBFB;
             --font-heading: 'Inter', sans-serif;
-            --font-highlight: 'Times New Roman', serif;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: var(--font-heading);
@@ -32,15 +28,13 @@
             color: var(--brand-black);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
         }
 
-        .highlight {
-            font-family: var(--font-highlight);
+        .serif-highlight {
+            font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 400;
             text-transform: lowercase;
-            letter-spacing: normal;
         }
 
         nav {
@@ -49,7 +43,7 @@
             background: rgba(251, 251, 251, 0.95);
             backdrop-filter: blur(16px);
             padding: 24px 40px;
-            z-index: 100;
+            z-index: 1000;
             border-bottom: 1px solid rgba(0,0,0,0.05);
             display: flex;
             justify-content: space-between;
@@ -57,139 +51,124 @@
         }
 
         .logo-img {
-            height: 28px;
+            height: 24px;
             width: auto;
-            filter: brightness(0); /* Make white logo black for light theme */
+            /* Using a multi-step filter for maximum clarity on the white->black conversion */
+            filter: invert(100%) grayscale(100%) brightness(10%) contrast(100%);
+            opacity: 0.8;
         }
 
-        .policy-content {
-            max-width: 850px;
+        .policy-container {
+            max-width: 720px;
             margin: 160px auto 100px;
             padding: 0 24px;
         }
 
-        .meta-tag {
+        .meta-text {
             font-size: 11px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.3em;
             color: var(--brand-yellow);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             display: block;
         }
 
         h1 {
-            font-size: clamp(48px, 12vw, 110px);
+            font-size: clamp(48px, 12vw, 90px);
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: -0.06em;
-            line-height: 0.85;
+            letter-spacing: -0.05em;
+            line-height: 0.9;
             margin-bottom: 40px;
             color: var(--brand-black);
         }
 
         h2 {
-            font-size: clamp(22px, 4vw, 28px);
+            font-size: 24px;
             font-weight: 900;
             text-transform: uppercase;
-            margin: 64px 0 24px;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
+            margin: 60px 0 24px;
+            letter-spacing: -0.02em;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 16px;
         }
 
-        h2::before {
+        h2::after {
             content: "";
-            width: 32px;
-            height: 4px;
-            background: var(--brand-yellow);
-            margin-top: 14px;
-            flex-shrink: 0;
+            flex-grow: 1;
+            height: 1px;
+            background: rgba(0,0,0,0.1);
         }
 
         p {
             margin-bottom: 24px;
             font-size: 18px;
             color: rgba(0,0,0,0.7);
-            font-weight: 400;
-            letter-spacing: -0.01em;
         }
 
         ul {
             margin-bottom: 32px;
-            list-style: none;
-            padding-left: 48px;
+            padding-left: 24px;
         }
 
         li {
-            position: relative;
-            padding: 12px 0;
+            padding: 8px 0;
             font-size: 17px;
             color: rgba(0,0,0,0.8);
-            border-bottom: 1px solid rgba(0,0,0,0.03);
-        }
-
-        li::before {
-            content: "•";
-            position: absolute;
-            left: -24px;
-            color: var(--brand-yellow);
-            font-weight: 900;
+            list-style: disc;
         }
 
         .table-wrap {
-            width: 100%;
-            overflow-x: auto;
-            margin: 48px 0;
-            border: 1px solid rgba(0,0,0,0.08);
-            border-radius: 12px;
+            margin: 40px 0;
             background: white;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.05);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         th, td {
             padding: 20px;
-            border-bottom: 1px solid rgba(0,0,0,0.04);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
         }
 
         th {
-            background: #FAFAFA;
+            background: #fafafa;
+            color: var(--brand-yellow);
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            font-size: 11px;
-            color: rgba(0,0,0,0.4);
+            font-size: 10px;
         }
 
-        .contact-info {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(0,0,0,0.05);
-            margin-top: 60px;
+        .contact-block {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 4px solid var(--brand-yellow);
         }
 
         footer {
             padding: 80px 0;
-            background: #fdfdfd;
-            border-top: 1px solid rgba(0,0,0,0.05);
             text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            background: #fdfdfd;
         }
 
-        #say-hi-btn {
-            background: var(--brand-yellow);
-            padding: 12px 24px;
-            border-radius: 50px;
-            color: black;
+        .btn-hi {
+            background: var(--brand-black);
+            color: var(--brand-yellow);
             font-weight: 900;
+            padding: 12px 24px;
+            border-radius: 100px;
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -197,13 +176,12 @@
             transition: transform 0.2s;
         }
 
-        #say-hi-btn:hover { transform: scale(1.05); }
+        .btn-hi:hover { transform: scale(1.05); }
 
         @media (max-width: 767px) {
-            h1 { font-size: 64px; }
+            h1 { font-size: 56px; }
             nav { padding: 20px; }
-            .policy-content { margin-top: 120px; }
-            ul { padding-left: 24px; }
+            .policy-container { margin-top: 120px; }
         }
     </style>
 </head>
@@ -213,17 +191,19 @@
         <a href="index.html">
             <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="logo-img">
         </a>
-        <a href="index.html#contact" id="say-hi-btn">SAY HI</a>
+        <a href="index.html#contact" class="btn-hi">Say Hi</a>
     </nav>
 
-    <div class="policy-content">
-        <span class="meta-tag">Pixel & Proof | Editorial</span>
-        <h1>Privacy <br><span class="highlight">Policy.</span></h1>
-        
-        <div style="margin-bottom: 60px;">
-            <p><strong>Effective Date:</strong> April 10, 2026 | <strong>Last Updated:</strong> April 10, 2026</p>
-            <p style="font-size: 14px; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.1em;">Applies to: pixelnproof.com · hello.pixelnproof.com<br>Jurisdiction: India (IT Act 2000 · DPDP Act 2023)</p>
-        </div>
+    <main class="policy-container">
+        <header>
+            <span class="meta-text">Legal & Clarity</span>
+            <h1>Privacy <br><span class="serif-highlight">Policy.</span></h1>
+            <p style="font-weight: 900; margin-top: 20px; font-size: 14px; opacity: 0.4; letter-spacing: 0.1em; text-transform: uppercase;">
+                Effective Date: April 10, 2026 | Last Updated: April 10, 2026
+            </p>
+        </header>
+
+        <p><strong>Applies to:</strong> pixelnproof.com · hello.pixelnproof.com<br><strong>Jurisdiction:</strong> India (IT Act 2000 · DPDP Act 2023)</p>
 
         <section>
             <h2>1. Who We Are</h2>
@@ -336,23 +316,22 @@
         </section>
 
         <section>
-            <h2>12. Contact us</h2>
-            <div class="contact-info">
-                <p><strong>Pixel & Proof</strong></p>
-                <p>Email: <span class="highlight">hello@pixelnproof.com</span></p>
-                <p>Website: pixelnproof.com</p>
-                <p>Grievance Contact: hello@pixelnproof.com</p>
-                <p style="margin-top: 32px; font-size: 15px; border-top: 1px solid rgba(0,0,0,0.05); pt-8">This policy is governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts of India.</p>
-                <p style="font-size: 11px; font-weight: 900; text-transform: uppercase; tracking-widest; opacity: 0.3; margin-top: 12px;">© 2026 Pixel & Proof. All rights reserved. <span class="highlight">Made to Matter.</span></p>
+            <h2>12. Contact US</h2>
+            <div class="contact-block">
+                <p><strong>Pixel & Proof</strong><br>
+                Email: hello@pixelnproof.com<br>
+                Website: pixelnproof.com<br>
+                Grievance Contact: hello@pixelnproof.com</p>
+                <p style="font-size: 14px; opacity: 0.6; margin-top: 32px;">This policy is governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts of India.</p>
             </div>
         </section>
-    </div>
+    </main>
 
     <footer>
-        <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="logo-img mx-auto">
-        <div class="text-[10px] font-black uppercase tracking-[0.4em] transform scale-90 opacity-20 mt-6">
+        <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="logo-img mx-auto mb-8">
+        <p style="font-size: 10px; font-weight: 900; opacity: 0.2; letter-spacing: 0.4em; text-transform: uppercase;">
             © 2026 Pixel & Proof. All Rights Reserved.
-        </div>
+        </p>
     </footer>
 </body>
 
