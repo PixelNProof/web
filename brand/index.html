@@ -12,6 +12,10 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://tluxbmfziquoagqgkyka.supabase.co">
     
     <style>
         :root {
@@ -1383,14 +1387,14 @@
                     const supabaseSuccess = results[1].status === 'fulfilled' && results[1].value.ok;
 
                     if (makeSuccess || supabaseSuccess) {
-                        // Redirect using a path that works both locally and on Vercel
-                        window.location.href = window.location.hostname === 'localhost' ? 'thank-you.html' : '/thank-you';
+                        // Redirect using relative path that works with Vercel host rewrites
+                        window.location.href = 'thank-you.html';
                     } else {
                         throw new Error('Server Error');
                     }
                 } catch (error) {
                     if (error.message !== 'Server Error') {
-                        window.location.href = window.location.hostname === 'localhost' ? 'thank-you.html' : '/thank-you';
+                        window.location.href = 'thank-you.html';
                     } else {
                         submitBtn.innerText = 'Error! Try Again';
                         setTimeout(() => { submitBtn.innerText = originalText; submitBtn.disabled = false; }, 3000);
