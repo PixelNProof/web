@@ -606,14 +606,14 @@
 
           if (makeSuccess || supabaseSuccess) {
             // Redirect using a path that works both locally and on Vercel
-            window.location.href = window.location.hostname === 'localhost' ? 'thank-you.html' : '/thank-you';
+            window.location.href = window.location.hostname === 'localhost' || window.location.protocol === 'file:' ? 'thank-you/' : '/thank-you';
           } else {
             throw new Error('Server Error');
           }
         } catch (error) {
           // Fallback to redirect if any likely succeeded
           if (error.message !== 'Server Error') {
-            window.location.href = window.location.hostname === 'localhost' ? 'thank-you.html' : '/thank-you';
+            window.location.href = window.location.hostname === 'localhost' || window.location.protocol === 'file:' ? 'thank-you/' : '/thank-you';
           } else {
             submitBtn.innerText = 'Error! Try Again';
             setTimeout(() => { submitBtn.innerText = originalText; submitBtn.disabled = false; }, 3000);
