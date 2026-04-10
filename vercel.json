@@ -15,6 +15,36 @@
       "destination": "/public/$1"
     },
     {
+      "source": "/thank-you",
+      "has": [
+        {
+          "type": "host",
+          "value": "hello.pixelnproof.com"
+        }
+      ],
+      "destination": "/brand/thank-you.html"
+    },
+    {
+      "source": "/thank-you",
+      "has": [
+        {
+          "type": "host",
+          "value": "pixelnproof.com"
+        }
+      ],
+      "destination": "/main/thank-you.html"
+    },
+    {
+      "source": "/thank-you",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.pixelnproof.com"
+        }
+      ],
+      "destination": "/main/thank-you.html"
+    },
+    {
       "source": "/(.*)",
       "has": [
         {
