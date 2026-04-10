@@ -25,18 +25,20 @@
   <style>
     /* Fade-in Animation (Refined) */
     @keyframes revealIn {
-      from { 
-        opacity: 0; 
-        transform: translateY(12px); 
+      from {
+        opacity: 0;
+        transform: translateY(12px);
       }
-      to { 
-        opacity: 1; 
-        transform: translateY(0); 
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
-    
+
     html {
-      background: #020202; /* Instant dark background to prevent white flashes */
+      background: #020202;
+      /* Instant dark background to prevent white flashes */
       scroll-behavior: smooth;
     }
 
@@ -65,19 +67,22 @@
     .menu-active #bar1 {
       transform: translateY(8px) rotate(45deg);
     }
+
     .menu-active #bar2 {
       opacity: 0;
     }
+
     .menu-active #bar3 {
       transform: translateY(-8px) rotate(-45deg);
     }
-    
+
     #hero-nav {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 10001; /* Above overlay trigger */
+      z-index: 10001;
+      /* Above overlay trigger */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -391,7 +396,10 @@
         transform: rotate(-2deg);
         padding: 12px 16px;
       }
-      #hero-fr p { font-size: 11px; }
+
+      #hero-fr p {
+        font-size: 11px;
+      }
 
       #hero-fl {
         left: 24px;
@@ -401,7 +409,10 @@
         transform: rotate(2deg);
         padding: 12px 16px;
       }
-      #hero-fl p { font-size: 11px; }
+
+      #hero-fl p {
+        font-size: 11px;
+      }
 
       #hero-scroll {
         bottom: 24px;
@@ -423,16 +434,19 @@
   </div>
 
   <!-- Identical Global Nav -->
-  <nav id="hero-nav" class="flex items-center justify-between w-full max-w-[100vw] overflow-hidden !z-[10001] px-8 md:px-12 py-8">
+  <nav id="hero-nav"
+    class="flex items-center justify-between w-full max-w-[100vw] overflow-hidden !z-[10001] px-8 md:px-12 py-8">
     <!-- 1. Logo (Left) -->
     <div class="flex-shrink-0">
       <a href="index.html" style="display:inline-flex; align-items:center;">
-        <img src="../assets/logo_1.PNG" alt="PIXEL & PROOF" width="153" height="28" decoding="async" style="height:28px; width:auto;">
+        <img src="../assets/logo_1.PNG" alt="PIXEL & PROOF" width="153" height="28" decoding="async"
+          style="height:28px; width:auto;">
       </a>
     </div>
 
     <!-- 2. Links (Center) -->
-    <div class="hidden md:flex flex-1 justify-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/70">
+    <div
+      class="hidden md:flex flex-1 justify-center gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-white/70">
       <a href="#work" class="hover:text-[#FFCE00] transition-colors">Our Work</a>
       <a href="#agency-mission" class="hover:text-[#FFCE00] transition-colors">About</a>
     </div>
@@ -441,19 +455,25 @@
     <div class="flex items-center gap-4 justify-end">
       <button id="mobile-menu-toggle"
         class="md:hidden flex flex-col items-center justify-center p-2 z-[10001] w-10 h-10 relative">
-        <span class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center translate-y-0.5" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center translate-y-0.5"
+          id="bar1"></span>
         <span class="block w-6 h-0.5 bg-white transition-all duration-300 mt-1.5" id="bar2"></span>
-        <span class="block w-6 h-0.5 bg-white transition-all duration-300 mt-1.5 origin-center -translate-y-0.5" id="bar3"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all duration-300 mt-1.5 origin-center -translate-y-0.5"
+          id="bar3"></span>
       </button>
       <a id="hero-menu-btn" href="contact.html">SAY<br>HI</a>
     </div>
   </nav>
 
   <!-- Mobile Navigation Overlay (Unified) -->
-  <div id="mobile-menu" class="fixed inset-0 bg-brand-black/98 z-[10000] flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-all duration-500 backdrop-blur-xl">
-    <a href="#work" class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">Our Work</a>
-    <a href="#agency-mission" class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">About</a>
-    <a href="contact.html" class="text-4xl font-black uppercase tracking-tighter text-accent-brand mobile-link">Say Hi</a>
+  <div id="mobile-menu"
+    class="fixed inset-0 bg-brand-black/98 z-[10000] flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-all duration-500 backdrop-blur-xl">
+    <a href="#work"
+      class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">Our Work</a>
+    <a href="#agency-mission"
+      class="text-4xl font-black uppercase tracking-tighter text-white hover:text-accent-brand mobile-link">About</a>
+    <a href="contact.html" class="text-4xl font-black uppercase tracking-tighter text-accent-brand mobile-link">Say
+      Hi</a>
     <div class="mt-10 pt-10 border-t border-white/10 w-48 text-center">
       <span class="text-[10px] font-black uppercase tracking-widest text-white/30">Pixel & Proof</span>
     </div>
@@ -463,869 +483,946 @@
     <!-- HERO (EVET Reference Match) -->
     <section id="hero">
 
-    <!-- Thin horizontal rule -->
-    <div id="hero-rule"></div>
+      <!-- Thin horizontal rule -->
+      <div id="hero-rule"></div>
 
-    <!-- Center Massive Text -->
-    <div id="hero-center">
-      <span class="ht-line1">Concept.</span>
-      <div class="ht-line2-wrap">
-        <span class="ht-line2">Consistency.</span>
+      <!-- Center Massive Text -->
+      <div id="hero-center">
+        <span class="ht-line1">Concept.</span>
+        <div class="ht-line2-wrap">
+          <span class="ht-line2">Consistency.</span>
+        </div>
+        <div class="ht-line3-row">
+          <span class="ht-line3">Strategy.</span>
+          <svg class="ht-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M8 9h.01M16 9h.01" />
+            <path d="M9 15c.83 1.5 5.17 1.5 6 0" />
+          </svg>
+        </div>
       </div>
-      <div class="ht-line3-row">
-        <span class="ht-line3">Strategy.</span>
-        <svg class="ht-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-          stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M8 9h.01M16 9h.01" />
-          <path d="M9 15c.83 1.5 5.17 1.5 6 0" />
-        </svg>
+
+      <!-- Bottom-left paragraph -->
+      <div id="hero-fl">
+        <p>Most brands look active but don't grow.<br>They're built on guesswork, not strategy.<br> <strong
+            style="color:#FFCE00; font-weight:700;">Pixel & Proof fixes that.</strong></p>
       </div>
-    </div>
 
-    <!-- Bottom-left paragraph -->
-    <div id="hero-fl">
-      <p>Most brands look active but don't grow.<br>They're built on guesswork, not strategy.<br>  <strong
-          style="color:#FFCE00; font-weight:700;">Pixel & Proof fixes that.</strong></p>
-    </div>
-
-    <!-- Middle-right paragraph -->
-    <div id="hero-fr">
-      <hr>
-      <p>We build intentional brands for businesses ready to grow. No pitch. Just clarity.</p>
-      <a href="contact.html">Book Your Free Audit</a>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div id="hero-scroll">
-      <div class="scroll-pill">
-        <div class="scroll-dot"></div>
+      <!-- Middle-right paragraph -->
+      <div id="hero-fr">
+        <hr>
+        <p>We build intentional brands for businesses ready to grow. No pitch. Just clarity.</p>
+        <a href="contact.html">Book Your Free Audit</a>
       </div>
-    </div>
-  </section>
-  
-  <!-- Mobile Navigation Overlay -->
-  <!-- Removed duplicate entry to prevent ID conflicts -->
 
-  <script>
-    const menuToggle = document.getElementById('mobile-menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+      <!-- Scroll indicator -->
+      <div id="hero-scroll">
+        <div class="scroll-pill">
+          <div class="scroll-dot"></div>
+        </div>
+      </div>
+    </section>
 
-    if (menuToggle && mobileMenu) {
-      const bar1 = document.getElementById('bar1');
-      const bar2 = document.getElementById('bar2');
-      const bar3 = document.getElementById('bar3');
+    <!-- Mobile Navigation Overlay -->
+    <!-- Removed duplicate entry to prevent ID conflicts -->
 
-      menuToggle.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.contains('opacity-100');
-        if (isOpen) {
-          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-          mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-          document.body.style.overflow = '';
-          menuToggle.classList.remove('menu-active');
-        } else {
-          mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-          mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-          document.body.style.overflow = 'hidden';
-          menuToggle.classList.add('menu-active');
+    <script>
+      const menuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      if (menuToggle && mobileMenu) {
+        const bar1 = document.getElementById('bar1');
+        const bar2 = document.getElementById('bar2');
+        const bar3 = document.getElementById('bar3');
+
+        menuToggle.addEventListener('click', () => {
+          const isOpen = mobileMenu.classList.contains('opacity-100');
+          if (isOpen) {
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = '';
+            menuToggle.classList.remove('menu-active');
+          } else {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            document.body.style.overflow = 'hidden';
+            menuToggle.classList.add('menu-active');
+          }
+        });
+
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'opacity-100');
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = '';
+            menuToggle.classList.remove('menu-active');
+          });
+        });
+      }
+    </script>
+
+
+
+    <!-- 2. THE HOOK (Problem Section - Precise Sync) -->
+    <section id="hook" class="py-24 bg-brand-black">
+      <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+
+          <!-- Left: Narrative -->
+          <div class="lg:col-span-7 flex flex-col gap-8">
+            <span class="text-accent-brand font-black text-[10px] tracking-[0.4em] uppercase block">// THE
+              REALITY</span>
+            <h2 class="text-5xl md:text-7xl font-black uppercase text-white/80 leading-[0.9] tracking-tighter">
+              The Real Cost of<br>
+              <span class="text-accent-brand">Guesswork.</span>
+            </h2>
+            <p class="text-white/80 text-xl font-light leading-relaxed max-w-xl">
+              We blend design with clear thinking; so your brand doesn’t just look good, it brings in clients.
+            </p>
+          </div>
+
+          <!-- Right: The 4 Cards Grid (Mesh Offset) -->
+          <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4 pt-12 lg:pt-0">
+            <div
+              class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl group hover:border-accent-brand/30 transition-all">
+              <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-70">01 / BRAND</span>
+              <h4 class="text-sm font-black uppercase text-white tracking-widest leading-tight">Inconsistent<br>Branding
+              </h4>
+            </div>
+            <div
+              class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl md:translate-y-8 group hover:border-accent-brand/30 transition-all">
+              <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-70">02 / SIGNAL</span>
+              <h4 class="text-sm font-black uppercase text-white tracking-widest leading-tight">Unclear<br>Messaging
+              </h4>
+            </div>
+            <div
+              class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl group hover:border-accent-brand/30 transition-all">
+              <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-70">03 / CONTENT</span>
+              <h4 class="text-sm font-black uppercase text-white tracking-widest leading-tight">Random<br>Posting</h4>
+            </div>
+            <div
+              class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl md:translate-y-8 group hover:border-accent-brand/30 transition-all">
+              <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-70">04 / GROWTH</span>
+              <h4 class="text-sm font-black uppercase text-white tracking-widest leading-tight">Low<br>Engagement</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem Statement Highlight -->
+        <div class="mt-20 pt-16 border-t border-white/5">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+            <div class="max-w-md">
+              <span class="text-accent-brand font-black italic text-sm tracking-[0.3em] uppercase block mb-4">The Real
+                cost of guesswork:</span>
+              <p class="text-white/70 text-[15px] leading-relaxed font-light">
+                Most brands invest in how they look. Very few invest in how they work. We focus on identity systems that
+                build equity and drive results.
+              </p>
+            </div>
+            <h3 class="text-4xl md:text-6xl font-black text-white/80 uppercase tracking-tighter text-right">Because in
+              the end,<br>it’s always a <span class="text-accent-brand">strategy problem.</span></h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. WHY WE EXIST (Editorial Mesh - Sync from Index) -->
+    <section id="why" class="py-24 bg-brand-black border-t border-white/5">
+      <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end mb-24">
+          <div class="lg:col-span-8">
+            <span class="text-accent-brand font-black text-[10px] tracking-[0.4em] uppercase block mb-6">// OUR
+              BELIEF</span>
+            <h2 class="text-5xl md:text-7xl font-black uppercase text-white/80 leading-[0.9] tracking-tighter">
+              Great brands<br>aren’t built <span class="text-accent-brand italic serif-italic normal-case"
+                style="font-family: 'Playfair Display', serif;">by chance.</span>
+            </h2>
+          </div>
+          <div class="lg:col-span-4 border-l border-white/10 pl-8 pb-4">
+            <p class="text-white/70 text-[15px] leading-relaxed font-light italic">They’re built with structure.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24 relative">
+          <!-- 01 Clarity -->
+          <div class="flex flex-col gap-6 relative group">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-full bg-brand-black border border-accent-brand text-accent-brand flex items-center justify-center font-black text-xs group-hover:bg-accent-brand group-hover:text-black transition-all">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-black uppercase text-white/90 tracking-widest">Clarity</h3>
+            <p class="text-white/80 text-sm leading-relaxed font-light">Know who you are, who you're for, and what makes
+              you different.</p>
+          </div>
+          <!-- 02 Consistency -->
+          <div class="flex flex-col gap-6 relative group mt-12 md:mt-0">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-full bg-brand-black border border-accent-brand text-accent-brand flex items-center justify-center font-black text-xs group-hover:bg-accent-brand group-hover:text-black transition-all">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 17L12 22L22 17" />
+                  <path d="M2 12L12 17L22 12" />
+                  <path d="M12 2L2 7L12 12L22 7L12 2Z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-black uppercase text-white/90 tracking-widest">Consistency</h3>
+            <p class="text-white/80 text-sm leading-relaxed font-light">Every touchpoint telling the same story, across
+              every signal.</p>
+          </div>
+          <!-- 03 Strategy (Highlighted) -->
+          <div
+            class="flex flex-col gap-6 relative group mt-12 md:mt-0 border-l border-accent-brand/20 pl-12 md:pl-0 lg:border-none lg:pl-0">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-full bg-brand-black border border-accent-brand text-accent-brand flex items-center justify-center font-black text-xs group-hover:bg-accent-brand group-hover:text-black transition-all">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-black uppercase text-accent-brand tracking-widest">Strategy</h3>
+            <p class="text-white/80 text-sm leading-relaxed font-light">Every decision tied to a real business goal and
+              a
+              measurable outcome.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. THE PROOF SYSTEM™ (Integrated Flow) -->
+    <section id="method" class="py-24 w-full bg-brand-black overflow-hidden">
+      <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
+
+        <div class="grid grid-cols-1 md:grid-cols-12 mb-20">
+          <div class="md:col-span-8">
+            <span class="text-accent-brand font-black tracking-[0.4em] text-[10px] uppercase block mb-6">// THE PROOF
+              SYSTEM™</span>
+            <h2 class="text-5xl md:text-7xl font-black uppercase text-white/80 leading-[0.9] tracking-tighter">
+              Here comes<br>
+              <span class="text-accent-brand italic serif-italic normal-case"
+                style="font-family: 'Playfair Display', serif;">Pixel&Proof.</span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 lg:gap-24 relative">
+          <!-- Connecting Line (Desktop) -->
+          <div class="hidden md:block absolute top-[1.25rem] left-0 w-full h-[1px] bg-white/5 z-0"></div>
+
+          <!-- Step 01: AUDIT -->
+          <div class="relative z-10 flex flex-col gap-8 group">
+            <div
+              class="w-10 h-10 rounded-full bg-brand-black border border-accent-brand text-accent-brand flex items-center justify-center font-black text-xs group-hover:bg-accent-brand group-hover:text-black transition-all">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h4 class="text-2xl font-black uppercase text-white tracking-tighter">Find the<br>real problem.</h4>
+              <p class="text-white/70 text-[15px] leading-relaxed font-light">
+                We audit your brand, audience, and market before we touch anything. Most think they have a content
+                problem. They usually have a positioning problem.
+              </p>
+              <ul
+                class="mt-4 space-y-2 text-[10px] font-black uppercase tracking-widest text-accent-brand/60 border-l border-accent-brand/20 pl-4">
+                <li>Brand audit</li>
+                <li>Audience analysis</li>
+                <li>KPI mapping</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 02: BUILD -->
+          <div class="relative z-10 flex flex-col gap-8 group">
+            <div
+              class="w-10 h-10 rounded-full bg-brand-black border border-accent-brand text-accent-brand flex items-center justify-center font-black text-xs group-hover:bg-accent-brand group-hover:text-black transition-all">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                <path d="M2 17l10 5 10-5" />
+                <path d="M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h4 class="text-2xl font-black uppercase text-white tracking-tighter">Build to<br>work together.</h4>
+              <p class="text-white/70 text-[15px] leading-relaxed font-light">
+                Identity, content, campaigns, and website designed as one connected system. No more fragmented efforts
+                or
+                disconnected freelancers.
+              </p>
+              <ul
+                class="mt-4 space-y-2 text-[10px] font-black uppercase tracking-widest text-accent-brand/60 border-l border-accent-brand/20 pl-4">
+                <li>Brand identity</li>
+                <li>Content strategy</li>
+                <li>Campaign setup</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 03: PROOF -->
+          <div class="relative z-10 flex flex-col gap-8 group">
+            <div
+              class="w-10 h-10 rounded-full bg-brand-black border border-accent-brand text-accent-brand flex items-center justify-center font-black text-xs group-hover:bg-accent-brand group-hover:text-black transition-all">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div class="flex flex-col gap-4">
+              <h4 class="text-2xl font-black uppercase text-white tracking-tighter">Get sharper<br>every month.</h4>
+              <p class="text-white/70 text-[15px] leading-relaxed font-light">
+                We track results, test creatives, and refine what's working every single month. This is how short-term
+                projects turn into long-term compounding growth.
+              </p>
+              <ul
+                class="mt-4 space-y-2 text-[10px] font-black uppercase tracking-widest text-accent-brand/60 border-l border-accent-brand/20 pl-4">
+                <li>Performance tracking</li>
+                <li>Creative testing</li>
+                <li>Monthly reporting</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PORTFOLIO / WORK (Compact 3D Reveal) -->
+    <section class="py-24 w-full bg-brand-black border-t border-white/5" id="work">
+      <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
+
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20 pb-4 border-b border-white/5 gap-8">
+          <div class="max-w-xl">
+            <span class="text-accent-brand font-black tracking-[0.4em] text-[10px] uppercase block mb-4">// THE
+              PORTFOLIO</span>
+            <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white/80 leading-[0.9] uppercase">
+              Selected<br>Work.</h3>
+          </div>
+          <a href="work.html"
+            class="px-8 py-4 border border-white/10 rounded-full text-[9px] uppercase tracking-[0.2em] font-black hover:bg-accent-brand hover:text-black transition-all mb-4">All
+            Case Studies</a>
+        </div>
+
+        <div
+          class="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 gap-6 no-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
+
+          <!-- Project 01: Modern Tint -->
+          <div class="tilt-container flex-shrink-0 w-[85vw] md:w-auto snap-center h-full">
+            <div
+              class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
+              <div class="aspect-[4/5] relative overflow-hidden">
+                <img src="../assets/work/TheModernTint_cover.png" alt="The Modern Tint"
+                  class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
+
+                <!-- Premium Overlay Layer -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col items-center justify-center text-center p-12 z-20 backdrop-blur-[2px]">
+                  <span
+                    class="text-accent-brand font-black text-[9px] uppercase tracking-[0.4em] mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-100">01
+                    / BRANDING</span>
+                  <h4
+                    class="text-4xl font-black uppercase text-white tracking-tighter leading-none mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-200">
+                    <span class="italic serif-italic normal-case block mb-1 text-2xl font-light"
+                      style="font-family: 'Playfair Display', serif;">The</span>
+                    Modern Tint
+                  </h4>
+                  <p
+                    class="text-white text-[11px] leading-relaxed max-w-[200px] mb-8 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-300">
+                    Full identity system for a D2C design studio launching soon.</p>
+                  <div
+                    class="w-12 h-[1px] bg-accent-brand transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-400">
+                  </div>
+                </div>
+
+                <!-- Default Static Info -->
+                <div class="absolute bottom-10 left-10 group-hover:opacity-0 transition-opacity duration-500">
+                  <span
+                    class="text-accent-brand font-black text-[9px] uppercase tracking-[0.3em] mb-2 block opacity-50">01
+                    /
+                    BRANDING</span>
+                  <h4 class="text-2xl font-black uppercase text-white tracking-tighter leading-none">The Modern<br>Tint
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 02: Flare Up -->
+          <div class="tilt-container flex-shrink-0 w-[85vw] md:w-auto snap-center h-full">
+            <div
+              class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
+              <div class="aspect-[4/5] relative overflow-hidden">
+                <img src="../assets/work/FlareUp_cover.png" alt="Flare Up" width="400" height="500" loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
+
+                <!-- Premium Overlay Layer -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col items-center justify-center text-center p-12 z-20 backdrop-blur-[2px]">
+                  <span
+                    class="text-accent-brand font-black text-[9px] uppercase tracking-[0.4em] mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-100">02
+                    / GAMING</span>
+                  <h4
+                    class="text-4xl font-black uppercase text-white tracking-tighter leading-none mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-200">
+                    <span class="italic serif-italic normal-case block mb-1 text-2xl font-light"
+                      style="font-family: 'Playfair Display', serif;">The</span>
+                    Flare Up
+                  </h4>
+                  <p
+                    class="text-white text-[11px] leading-relaxed max-w-[200px] mb-8 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-300">
+                    Complete brand system for a professional Valorant organisation.</p>
+                  <div
+                    class="w-12 h-[1px] bg-accent-brand transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-400">
+                  </div>
+                </div>
+
+                <!-- Default Static Info -->
+                <div class="absolute bottom-10 left-10 group-hover:opacity-0 transition-opacity duration-500">
+                  <span
+                    class="text-accent-brand font-black text-[9px] uppercase tracking-[0.3em] mb-2 block opacity-50">02
+                    /
+                    GAMING</span>
+                  <h4 class="text-2xl font-black uppercase text-white tracking-tighter leading-none">Flare<br>Up</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 03: Fintech -->
+          <div class="tilt-container flex-shrink-0 w-[85vw] md:w-auto snap-center h-full">
+            <div
+              class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
+              <div class="aspect-[4/5] relative overflow-hidden">
+                <img src="../assets/work/10/10.png" alt="Fintech Growth" width="400" height="500" loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
+
+                <!-- Premium Overlay Layer -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col items-center justify-center text-center p-12 z-20 backdrop-blur-[2px]">
+                  <span
+                    class="text-accent-brand font-black text-[9px] uppercase tracking-[0.4em] mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-100">03
+                    / PERFORMANCE</span>
+                  <h4
+                    class="text-4xl font-black uppercase text-white tracking-tighter leading-none mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-200">
+                    <span class="italic serif-italic normal-case block mb-1 text-2xl font-light"
+                      style="font-family: 'Playfair Display', serif;">The</span>
+                    Fintech Growth
+                  </h4>
+                  <p
+                    class="text-white text-[11px] leading-relaxed max-w-[200px] mb-8 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-300">
+                    Full funnel rebuild and creative strategy for a Series B fintech.</p>
+                  <div
+                    class="w-12 h-[1px] bg-accent-brand transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-400">
+                  </div>
+                </div>
+
+                <!-- Default Static Info -->
+                <div class="absolute bottom-10 left-10 group-hover:opacity-0 transition-opacity duration-500">
+                  <span
+                    class="text-accent-brand font-black text-[9px] uppercase tracking-[0.3em] mb-2 block opacity-50">03
+                    /
+                    PERFORMANCE</span>
+                  <h4 class="text-2xl font-black uppercase text-white tracking-tighter leading-none">Fintech<br>Growth
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .tilt-container {
+        perspective: 1000px;
+      }
+
+      .tilt-card {
+        transform-style: preserve-3d;
+        will-change: transform;
+        cursor: pointer;
+      }
+
+      /* Mobile Interaction Fix */
+      @media (max-width: 1024px) {
+        .tilt-card.is-active .group-hover\:opacity-100 {
+          opacity: 1 !important;
+          transform: translate(0) !important;
+          pointer-events: auto;
         }
-      });
 
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'opacity-100');
-          mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-          document.body.style.overflow = '';
-          menuToggle.classList.remove('menu-active');
+        .tilt-card.is-active .group-hover\:grayscale-0 {
+          filter: grayscale(0) !important;
+          opacity: 1 !important;
+        }
+
+        .tilt-card.is-active .group-hover\:opacity-0 {
+          opacity: 0 !important;
+        }
+      }
+    </style>
+
+    <script>
+      document.querySelectorAll('.tilt-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          if (window.innerWidth < 1024) return;
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = (y - centerY) / 40;
+          const rotateY = (centerX - x) / 40;
+          card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        });
+
+        // Mobile Toggle logic
+        card.addEventListener('click', () => {
+          if (window.innerWidth < 1024) {
+            const isActive = card.classList.contains('is-active');
+            document.querySelectorAll('.tilt-card').forEach(c => c.classList.remove('is-active'));
+            if (!isActive) card.classList.add('is-active');
+          }
         });
       });
-    }
-  </script>
+    </script>
 
-
-
-  <!-- 2. THE HOOK (Problem Section - Precise Sync) -->
-  <section id="hook" class="py-24 bg-brand-black">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-
-        <!-- Left: Narrative -->
-        <div class="lg:col-span-7 flex flex-col gap-8">
-          <span class="text-accent-brand font-black text-[10px] tracking-[0.4em] uppercase block">// THE REALITY</span>
-          <h2 class="text-5xl md:text-7xl font-black uppercase text-white/80 leading-[0.9] tracking-tighter">
-            The Real Cost of<br>
-            <span class="text-accent-brand">Guesswork.</span>
-          </h2>
-          <p class="text-white/80 text-xl font-light leading-relaxed max-w-xl">
-            We blend design with clear thinking; so your brand doesn’t just look good, it brings in clients.
-          </p>
-        </div>
-
-        <!-- Right: The 4 Cards Grid (Mesh Offset) -->
-        <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4 pt-12 lg:pt-0">
-          <div
-            class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl group hover:border-accent-brand/30 transition-all">
-            <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-70">01 / BRAND</span>
-            <h4 class="text-sm font-black uppercase text-white tracking-widest leading-tight">Inconsistent<br>Branding
-            </h4>
-          </div>
-          <div
-            class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl md:translate-y-8 group hover:border-accent-brand/30 transition-all">
-            <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-70">02 / SIGNAL</span>
-            <h4 class="text-sm font-black uppercase text-white tracking-widest leading-tight">Unclear<br>Messaging</h4>
-          </div>
-          <div
-            class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl group hover:border-accent-brand/30 transition-all">
-            <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-70">03 / CONTENT</span>
-            <h4 class="text-sm font-black uppercase text-white tracking-widest leading-tight">Random<br>Posting</h4>
-          </div>
-          <div
-            class="bg-white/[0.03] border border-white/5 p-8 rounded-3xl md:translate-y-8 group hover:border-accent-brand/30 transition-all">
-            <span class="text-accent-brand font-black text-[10px] mb-4 block opacity-70">04 / GROWTH</span>
-            <h4 class="text-sm font-black uppercase text-white tracking-widest leading-tight">Low<br>Engagement</h4>
-          </div>
-        </div>
-      </div>
-
-      <!-- Problem Statement Highlight -->
-      <div class="mt-20 pt-16 border-t border-white/5">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-10">
-          <div class="max-w-md">
-            <span class="text-accent-brand font-black italic text-sm tracking-[0.3em] uppercase block mb-4">The Real
-              cost of guesswork:</span>
-            <p class="text-white/70 text-[15px] leading-relaxed font-light">
-              Most brands invest in how they look. Very few invest in how they work. We focus on identity systems that build equity and drive results.
-            </p>
-          </div>
-          <h3 class="text-4xl md:text-6xl font-black text-white/80 uppercase tracking-tighter text-right">Because in the end,<br>it’s always a <span
-              class="text-accent-brand">strategy problem.</span></h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. WHY WE EXIST (Editorial Mesh - Sync from Index) -->
-  <section id="why" class="py-24 bg-brand-black border-t border-white/5">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end mb-24">
-        <div class="lg:col-span-8">
-          <span class="text-accent-brand font-black text-[10px] tracking-[0.4em] uppercase block mb-6">// OUR
-            BELIEF</span>
-          <h2 class="text-5xl md:text-7xl font-black uppercase text-white/80 leading-[0.9] tracking-tighter">
-            Great brands<br>aren’t built <span class="text-accent-brand italic serif-italic normal-case"
-              style="font-family: 'Playfair Display', serif;">by chance.</span>
-          </h2>
-        </div>
-        <div class="lg:col-span-4 border-l border-white/10 pl-8 pb-4">
-          <p class="text-white/70 text-[15px] leading-relaxed font-light italic">They’re built with structure.</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24 relative">
-        <!-- 01 Clarity -->
-        <div class="flex flex-col gap-6 relative group">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-full bg-brand-black border border-accent-brand text-accent-brand flex items-center justify-center font-black text-xs group-hover:bg-accent-brand group-hover:text-black transition-all">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            </div>
-          </div>
-          <h3 class="text-2xl font-black uppercase text-white/90 tracking-widest">Clarity</h3>
-          <p class="text-white/80 text-sm leading-relaxed font-light">Know who you are, who you're for, and what makes
-            you different.</p>
-        </div>
-        <!-- 02 Consistency -->
-        <div class="flex flex-col gap-6 relative group mt-12 md:mt-0">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-full bg-brand-black border border-accent-brand text-accent-brand flex items-center justify-center font-black text-xs group-hover:bg-accent-brand group-hover:text-black transition-all">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17L12 22L22 17"/><path d="M2 12L12 17L22 12"/><path d="M12 2L2 7L12 12L22 7L12 2Z"/></svg>
-            </div>
-          </div>
-          <h3 class="text-2xl font-black uppercase text-white/90 tracking-widest">Consistency</h3>
-          <p class="text-white/80 text-sm leading-relaxed font-light">Every touchpoint telling the same story, across
-            every signal.</p>
-        </div>
-        <!-- 03 Strategy (Highlighted) -->
-        <div
-          class="flex flex-col gap-6 relative group mt-12 md:mt-0 border-l border-accent-brand/20 pl-12 md:pl-0 lg:border-none lg:pl-0">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-full bg-brand-black border border-accent-brand text-accent-brand flex items-center justify-center font-black text-xs group-hover:bg-accent-brand group-hover:text-black transition-all">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-            </div>
-          </div>
-          <h3 class="text-2xl font-black uppercase text-accent-brand tracking-widest">Strategy</h3>
-          <p class="text-white/80 text-sm leading-relaxed font-light">Every decision tied to a real business goal and a
-            measurable outcome.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. THE PROOF SYSTEM™ (Integrated Flow) -->
-  <section id="method" class="py-24 w-full bg-brand-black overflow-hidden">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
-
-      <div class="grid grid-cols-1 md:grid-cols-12 mb-20">
-        <div class="md:col-span-8">
-          <span class="text-accent-brand font-black tracking-[0.4em] text-[10px] uppercase block mb-6">// THE PROOF
-            SYSTEM™</span>
-          <h2 class="text-5xl md:text-7xl font-black uppercase text-white/80 leading-[0.9] tracking-tighter">
-            Here comes<br>
-            <span class="text-accent-brand italic serif-italic normal-case"
-              style="font-family: 'Playfair Display', serif;">Pixel&Proof.</span>
-          </h2>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 lg:gap-24 relative">
-        <!-- Connecting Line (Desktop) -->
-        <div class="hidden md:block absolute top-[1.25rem] left-0 w-full h-[1px] bg-white/5 z-0"></div>
-
-        <!-- Step 01: AUDIT -->
-        <div class="relative z-10 flex flex-col gap-8 group">
-          <div
-            class="w-10 h-10 rounded-full bg-brand-black border border-accent-brand text-accent-brand flex items-center justify-center font-black text-xs group-hover:bg-accent-brand group-hover:text-black transition-all">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
-          <div class="flex flex-col gap-4">
-            <h4 class="text-2xl font-black uppercase text-white tracking-tighter">Find the<br>real problem.</h4>
-            <p class="text-white/70 text-[15px] leading-relaxed font-light">
-              We audit your brand, audience, and market before we touch anything. Most think they have a content
-              problem. They usually have a positioning problem.
-            </p>
-            <ul
-              class="mt-4 space-y-2 text-[10px] font-black uppercase tracking-widest text-accent-brand/60 border-l border-accent-brand/20 pl-4">
-              <li>Brand audit</li>
-              <li>Audience analysis</li>
-              <li>KPI mapping</li>
-            </ul>
+    <!-- 5. WHAT WE DO (Offerings - 3D Reveal Cards) -->
+    <section id="services" class="py-24 bg-brand-black border-t border-white/5">
+      <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-20">
+          <div class="lg:col-span-8">
+            <span class="text-accent-brand font-black text-[10px] tracking-[0.4em] uppercase block mb-6">// WHAT WE
+              DO</span>
+            <h2 class="text-4xl md:text-6xl font-black uppercase text-white/80 leading-[0.9] tracking-tighter">
+              High Precision<br><span class="text-accent-brand">Brand Systems.</span>
+            </h2>
           </div>
         </div>
 
-        <!-- Step 02: BUILD -->
-        <div class="relative z-10 flex flex-col gap-8 group">
-          <div
-            class="w-10 h-10 rounded-full bg-brand-black border border-accent-brand text-accent-brand flex items-center justify-center font-black text-xs group-hover:bg-accent-brand group-hover:text-black transition-all">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-          <div class="flex flex-col gap-4">
-            <h4 class="text-2xl font-black uppercase text-white tracking-tighter">Build to<br>work together.</h4>
-            <p class="text-white/70 text-[15px] leading-relaxed font-light">
-              Identity, content, campaigns, and website designed as one connected system. No more fragmented efforts or
-              disconnected freelancers.
-            </p>
-            <ul
-              class="mt-4 space-y-2 text-[10px] font-black uppercase tracking-widest text-accent-brand/60 border-l border-accent-brand/20 pl-4">
-              <li>Brand identity</li>
-              <li>Content strategy</li>
-              <li>Campaign setup</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Step 03: PROOF -->
-        <div class="relative z-10 flex flex-col gap-8 group">
-          <div
-            class="w-10 h-10 rounded-full bg-brand-black border border-accent-brand text-accent-brand flex items-center justify-center font-black text-xs group-hover:bg-accent-brand group-hover:text-black transition-all">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <div class="flex flex-col gap-4">
-            <h4 class="text-2xl font-black uppercase text-white tracking-tighter">Get sharper<br>every month.</h4>
-            <p class="text-white/70 text-[15px] leading-relaxed font-light">
-              We track results, test creatives, and refine what's working every single month. This is how short-term
-              projects turn into long-term compounding growth.
-            </p>
-            <ul
-              class="mt-4 space-y-2 text-[10px] font-black uppercase tracking-widest text-accent-brand/60 border-l border-accent-brand/20 pl-4">
-              <li>Performance tracking</li>
-              <li>Creative testing</li>
-              <li>Monthly reporting</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. PORTFOLIO / WORK (Compact 3D Reveal) -->
-  <section class="py-24 w-full bg-brand-black border-t border-white/5" id="work">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
-
-      <div class="flex flex-col md:flex-row justify-between items-end mb-20 pb-4 border-b border-white/5 gap-8">
-        <div class="max-w-xl">
-          <span class="text-accent-brand font-black tracking-[0.4em] text-[10px] uppercase block mb-4">// THE
-            PORTFOLIO</span>
-          <h3 class="text-5xl md:text-7xl font-black tracking-tighter text-white/80 leading-[0.9] uppercase">
-            Selected<br>Work.</h3>
-        </div>
-        <a href="work.html"
-          class="px-8 py-4 border border-white/10 rounded-full text-[9px] uppercase tracking-[0.2em] font-black hover:bg-accent-brand hover:text-black transition-all mb-4">All
-          Case Studies</a>
-      </div>
-
-      <div class="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 gap-6 no-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
-
-        <!-- Project 01: Modern Tint -->
-        <div class="tilt-container flex-shrink-0 w-[85vw] md:w-auto snap-center h-full">
-          <div
-            class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
-            <div class="aspect-[4/5] relative overflow-hidden">
-              <img src="../assets/work/TheModernTint_cover.png" alt="The Modern Tint"
-                class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
-
-              <!-- Premium Overlay Layer -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- 01 Brand Strategy & Identity -->
+          <div class="tilt-container group h-80 relative z-10 hover:z-20">
+            <div
+              class="tilt-card relative h-full bg-white/[0.02] border border-white/5 transition-all duration-500 hover:border-accent-brand/30 overflow-hidden group-hover:bg-white/[0.05]">
+              <!-- Vertical Marker -->
               <div
-                class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col items-center justify-center text-center p-12 z-20 backdrop-blur-[2px]">
-                <span
-                  class="text-accent-brand font-black text-[9px] uppercase tracking-[0.4em] mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-100">01
-                  / BRANDING</span>
-                <h4
-                  class="text-4xl font-black uppercase text-white tracking-tighter leading-none mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-200">
-                  <span class="italic serif-italic normal-case block mb-1 text-2xl font-light"
-                    style="font-family: 'Playfair Display', serif;">The</span>
-                  Modern Tint
-                </h4>
-                <p
-                  class="text-white text-[11px] leading-relaxed max-w-[200px] mb-8 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-300">
-                  Full identity system for a D2C design studio launching soon.</p>
-                <div
-                  class="w-12 h-[1px] bg-accent-brand transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-400">
+                class="absolute left-0 top-12 bottom-12 w-[2px] bg-accent-brand/20 group-hover:bg-accent-brand transition-all duration-500">
+              </div>
+
+              <div class="p-10 h-full flex flex-col justify-between">
+                <div>
+                  <span
+                    class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-70 group-hover:opacity-100 transition-opacity"
+                    style="font-family: 'Playfair Display', serif; font-style: italic;">01 /</span>
+                  <h4
+                    class="text-xl font-black uppercase text-white tracking-widest leading-tight group-hover:translate-x-2 transition-transform duration-500">
+                    Brand Strategy<br>& Identity</h4>
                 </div>
               </div>
 
-              <!-- Default Static Info -->
-              <div class="absolute bottom-10 left-10 group-hover:opacity-0 transition-opacity duration-500">
-                <span
-                  class="text-accent-brand font-black text-[9px] uppercase tracking-[0.3em] mb-2 block opacity-50">01 /
-                  BRANDING</span>
-                <h4 class="text-2xl font-black uppercase text-white tracking-tighter leading-none">The Modern<br>Tint
-                </h4>
+              <!-- Slide-up Glass Reveal -->
+              <div
+                class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out bg-white/[0.03] backdrop-blur-xl border-t border-white/10 p-10 z-20 h-full flex flex-col justify-center gap-6">
+                <ul class="text-sm font-black uppercase tracking-widest text-accent-brand space-y-5">
+                  <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
+                    Brand
+                    strategy</li>
+                  <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
+                    Logo
+                    design</li>
+                  <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
+                    Visual identity</li>
+                </ul>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Project 02: Flare Up -->
-        <div class="tilt-container flex-shrink-0 w-[85vw] md:w-auto snap-center h-full">
-          <div
-            class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
-            <div class="aspect-[4/5] relative overflow-hidden">
-              <img src="../assets/work/FlareUp_cover.png" alt="Flare Up" width="400" height="500" loading="lazy" decoding="async"
-                class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
-
-              <!-- Premium Overlay Layer -->
+          <!-- 02 Social Media & Content -->
+          <div class="tilt-container h-80 relative z-10 hover:z-20">
+            <div
+              class="tilt-card relative h-full bg-white/[0.02] border border-white/5 transition-all duration-500 hover:border-accent-brand/30 overflow-hidden group">
+              <!-- Vertical Marker -->
               <div
-                class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col items-center justify-center text-center p-12 z-20 backdrop-blur-[2px]">
-                <span
-                  class="text-accent-brand font-black text-[9px] uppercase tracking-[0.4em] mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-100">02
-                  / GAMING</span>
-                <h4
-                  class="text-4xl font-black uppercase text-white tracking-tighter leading-none mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-200">
-                  <span class="italic serif-italic normal-case block mb-1 text-2xl font-light"
-                    style="font-family: 'Playfair Display', serif;">The</span>
-                  Flare Up
-                </h4>
-                <p
-                  class="text-white text-[11px] leading-relaxed max-w-[200px] mb-8 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-300">
-                  Complete brand system for a professional Valorant organisation.</p>
-                <div
-                  class="w-12 h-[1px] bg-accent-brand transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-400">
+                class="absolute left-0 top-12 bottom-12 w-[2px] bg-accent-brand/20 group-hover:bg-accent-brand transition-all duration-500">
+              </div>
+
+              <div class="p-10 h-full flex flex-col justify-between">
+                <div>
+                  <span
+                    class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-70 group-hover:opacity-100 transition-opacity"
+                    style="font-family: 'Playfair Display', serif; font-style: italic;">02 /</span>
+                  <h4
+                    class="text-xl font-black uppercase text-white tracking-widest leading-tight group-hover:translate-x-2 transition-transform duration-500">
+                    Social Media<br>& Content</h4>
                 </div>
               </div>
 
-              <!-- Default Static Info -->
-              <div class="absolute bottom-10 left-10 group-hover:opacity-0 transition-opacity duration-500">
-                <span
-                  class="text-accent-brand font-black text-[9px] uppercase tracking-[0.3em] mb-2 block opacity-50">02 /
-                  GAMING</span>
-                <h4 class="text-2xl font-black uppercase text-white tracking-tighter leading-none">Flare<br>Up</h4>
+              <!-- Slide-up Glass Reveal -->
+              <div
+                class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out bg-white/[0.03] backdrop-blur-xl border-t border-white/10 p-10 z-20 h-full flex flex-col justify-center gap-6">
+                <ul class="text-sm font-black uppercase tracking-widest text-accent-brand space-y-5">
+                  <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
+                    Social strategy</li>
+                  <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
+                    Post
+                    & reel design</li>
+                  <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
+                    Content planning</li>
+                </ul>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Project 03: Fintech -->
-        <div class="tilt-container flex-shrink-0 w-[85vw] md:w-auto snap-center h-full">
-          <div
-            class="tilt-card relative h-full bg-white/[0.03] border border-white/5 rounded-[2.5rem] transition-all duration-500 hover:border-accent-brand/40 overflow-hidden group">
-            <div class="aspect-[4/5] relative overflow-hidden">
-              <img src="../assets/work/10/10.png" alt="Fintech Growth" width="400" height="500" loading="lazy" decoding="async"
-                class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
-
-              <!-- Premium Overlay Layer -->
+          <!-- 03 Website & Experience -->
+          <div class="tilt-container h-80 relative z-10 hover:z-20">
+            <div
+              class="tilt-card relative h-full bg-white/[0.02] border border-white/5 transition-all duration-500 hover:border-accent-brand/30 overflow-hidden group">
+              <!-- Vertical Marker -->
               <div
-                class="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col items-center justify-center text-center p-12 z-20 backdrop-blur-[2px]">
-                <span
-                  class="text-accent-brand font-black text-[9px] uppercase tracking-[0.4em] mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-100">03
-                  / PERFORMANCE</span>
-                <h4
-                  class="text-4xl font-black uppercase text-white tracking-tighter leading-none mb-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-200">
-                  <span class="italic serif-italic normal-case block mb-1 text-2xl font-light"
-                    style="font-family: 'Playfair Display', serif;">The</span>
-                  Fintech Growth
-                </h4>
-                <p
-                  class="text-white text-[11px] leading-relaxed max-w-[200px] mb-8 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 delay-300">
-                  Full funnel rebuild and creative strategy for a Series B fintech.</p>
-                <div
-                  class="w-12 h-[1px] bg-accent-brand transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-400">
+                class="absolute left-0 top-12 bottom-12 w-[2px] bg-accent-brand/20 group-hover:bg-accent-brand transition-all duration-500">
+              </div>
+
+              <div class="p-10 h-full flex flex-col justify-between">
+                <div>
+                  <span
+                    class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-70 group-hover:opacity-100 transition-opacity"
+                    style="font-family: 'Playfair Display', serif; font-style: italic;">03 /</span>
+                  <h4
+                    class="text-xl font-black uppercase text-white tracking-widest leading-tight group-hover:translate-x-2 transition-transform duration-500">
+                    Website<br>& Experience</h4>
                 </div>
               </div>
 
-              <!-- Default Static Info -->
-              <div class="absolute bottom-10 left-10 group-hover:opacity-0 transition-opacity duration-500">
-                <span
-                  class="text-accent-brand font-black text-[9px] uppercase tracking-[0.3em] mb-2 block opacity-50">03 /
-                  PERFORMANCE</span>
-                <h4 class="text-2xl font-black uppercase text-white tracking-tighter leading-none">Fintech<br>Growth
-                </h4>
+              <!-- Slide-up Glass Reveal -->
+              <div
+                class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out bg-white/[0.03] backdrop-blur-xl border-t border-white/10 p-10 z-20 h-full flex flex-col justify-center gap-6">
+                <ul class="text-sm font-black uppercase tracking-widest text-accent-brand space-y-5">
+                  <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
+                    UI/UX
+                    design</li>
+                  <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
+                    Landing pages</li>
+                  <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span> CMS
+                    build</li>
+                </ul>
               </div>
             </div>
           </div>
+
+          <!-- 04 Creative & Design -->
+          <div class="tilt-container h-80 relative z-10 hover:z-20">
+            <div
+              class="tilt-card relative h-full bg-white/[0.02] border border-white/5 transition-all duration-500 hover:border-accent-brand/30 overflow-hidden group">
+              <!-- Vertical Marker -->
+              <div
+                class="absolute left-0 top-12 bottom-12 w-[2px] bg-accent-brand/20 group-hover:bg-accent-brand transition-all duration-500">
+              </div>
+
+              <div class="p-10 h-full flex flex-col justify-between">
+                <div>
+                  <span
+                    class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-70 group-hover:opacity-100 transition-opacity"
+                    style="font-family: 'Playfair Display', serif; font-style: italic;">04 /</span>
+                  <h4
+                    class="text-xl font-black uppercase text-white tracking-widest leading-tight group-hover:translate-x-2 transition-transform duration-500">
+                    Creative<br>& Design</h4>
+                </div>
+              </div>
+
+              <!-- Slide-up Glass Reveal -->
+              <div
+                class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out bg-white/[0.03] backdrop-blur-xl border-t border-white/10 p-10 z-20 h-full flex flex-col justify-center gap-6">
+                <ul class="text-sm font-black uppercase tracking-widest text-accent-brand space-y-5">
+                  <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
+                    Marketing ads</li>
+                  <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
+                    Pitch
+                    decks</li>
+                  <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
+                    Motion graphics</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
-  </section>
-
-  <style>
-    .tilt-container {
-      perspective: 1000px;
-    }
-
-    .tilt-card {
-      transform-style: preserve-3d;
-      will-change: transform;
-      cursor: pointer;
-    }
-
-    /* Mobile Interaction Fix */
-    @media (max-width: 1024px) {
-      .tilt-card.is-active .group-hover\:opacity-100 {
-        opacity: 1 !important;
-        transform: translate(0) !important;
-        pointer-events: auto;
-      }
-      .tilt-card.is-active .group-hover\:grayscale-0 {
-        filter: grayscale(0) !important;
-        opacity: 1 !important;
-      }
-      .tilt-card.is-active .group-hover\:opacity-0 {
-        opacity: 0 !important;
-      }
-    }
-  </style>
-
-  <script>
-    document.querySelectorAll('.tilt-card').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        if (window.innerWidth < 1024) return;
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / 40;
-        const rotateY = (centerX - x) / 40;
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-      });
-      
-      // Mobile Toggle logic
-      card.addEventListener('click', () => {
-        if (window.innerWidth < 1024) {
-          const isActive = card.classList.contains('is-active');
-          document.querySelectorAll('.tilt-card').forEach(c => c.classList.remove('is-active'));
-          if (!isActive) card.classList.add('is-active');
-        }
-      });
-    });
-  </script>
-
-  <!-- 5. WHAT WE DO (Offerings - 3D Reveal Cards) -->
-  <section id="services" class="py-24 bg-brand-black border-t border-white/5">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-20">
-        <div class="lg:col-span-8">
-          <span class="text-accent-brand font-black text-[10px] tracking-[0.4em] uppercase block mb-6">// WHAT WE
-            DO</span>
-          <h2 class="text-4xl md:text-6xl font-black uppercase text-white/80 leading-[0.9] tracking-tighter">
-            High Precision<br><span class="text-accent-brand">Brand Systems.</span>
-          </h2>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- 01 Brand Strategy & Identity -->
-        <div class="tilt-container group h-80 relative z-10 hover:z-20">
-          <div
-            class="tilt-card relative h-full bg-white/[0.02] border border-white/5 transition-all duration-500 hover:border-accent-brand/30 overflow-hidden group-hover:bg-white/[0.05]">
-            <!-- Vertical Marker -->
-            <div
-              class="absolute left-0 top-12 bottom-12 w-[2px] bg-accent-brand/20 group-hover:bg-accent-brand transition-all duration-500">
-            </div>
-
-            <div class="p-10 h-full flex flex-col justify-between">
-              <div>
-                <span
-                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-70 group-hover:opacity-100 transition-opacity"
-                  style="font-family: 'Playfair Display', serif; font-style: italic;">01 /</span>
-                <h4
-                  class="text-xl font-black uppercase text-white tracking-widest leading-tight group-hover:translate-x-2 transition-transform duration-500">
-                  Brand Strategy<br>& Identity</h4>
-              </div>
-            </div>
-
-            <!-- Slide-up Glass Reveal -->
-            <div
-              class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out bg-white/[0.03] backdrop-blur-xl border-t border-white/10 p-10 z-20 h-full flex flex-col justify-center gap-6">
-              <ul class="text-sm font-black uppercase tracking-widest text-accent-brand space-y-5">
-                <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span> Brand
-                  strategy</li>
-                <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span> Logo
-                  design</li>
-                <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
-                  Visual identity</li>
-              </ul>
-            </div>
+    </section>
+    <!-- 9. MISSION: THE FOUNDERS (Integrated Bios) -->
+    <section id="agency-mission" class="py-24 w-full bg-brand-black border-t border-white/5">
+      <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-0">
+          <div class="lg:col-span-12">
+            <span class="text-accent-brand font-black tracking-[0.4em] text-[10px] uppercase block mb-6">// OUR
+              MISSION</span>
+            <h2 class="text-5xl md:text-7xl font-black uppercase text-white/80 leading-[0.9] tracking-tighter">
+              The faces<br>behind the <span class="text-accent-brand italic serif-italic normal-case"
+                style="font-family: 'Playfair Display', serif;">strategy.</span>
+            </h2>
           </div>
         </div>
 
-        <!-- 02 Social Media & Content -->
-        <div class="tilt-container h-80 relative z-10 hover:z-20">
-          <div
-            class="tilt-card relative h-full bg-white/[0.02] border border-white/5 transition-all duration-500 hover:border-accent-brand/30 overflow-hidden group">
-            <!-- Vertical Marker -->
-            <div
-              class="absolute left-0 top-12 bottom-12 w-[2px] bg-accent-brand/20 group-hover:bg-accent-brand transition-all duration-500">
-            </div>
+        <!-- Unified Content Grid: Manifesto + Founders -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center pt-16 border-t border-white/5">
 
-            <div class="p-10 h-full flex flex-col justify-between">
-              <div>
-                <span
-                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-70 group-hover:opacity-100 transition-opacity"
-                  style="font-family: 'Playfair Display', serif; font-style: italic;">02 /</span>
-                <h4
-                  class="text-xl font-black uppercase text-white tracking-widest leading-tight group-hover:translate-x-2 transition-transform duration-500">
-                  Social Media<br>& Content</h4>
+          <!-- Left: Manifesto Narrative (lg:col-span-6) -->
+          <div class="lg:col-span-6 flex flex-col gap-10">
+            <div class="flex gap-8 items-start">
+              <!-- Vertical Brand Line -->
+              <div class="hidden lg:block w-[1px] bg-accent-brand/30 h-64 shrink-0 relative">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[3px] h-12 bg-accent-brand"></div>
+              </div>
+
+              <div class="flex flex-col gap-10">
+                <h3
+                  class="text-white/90 text-2xl md:text-3xl font-black uppercase tracking-tighter leading-tight max-w-xl">
+                  We started Pixel & Proof with a simple frustration: seeing incredible brands die because of <span
+                    class="text-accent-brand italic serif-italic normal-case px-2"
+                    style="font-family: 'Playfair Display', serif;">bad strategy.</span>
+                </h3>
+
+                <div class="flex flex-col gap-8 max-w-xl">
+                  <div class="h-[1px] w-12 bg-white/10"></div>
+
+                  <p class="text-white/80 text-xl md:text-2xl font-light leading-relaxed">
+                    One focuses on how your brand looks. The other focuses on how it performs. Together, we build
+                    systems that turn <span class="text-accent-brand font-medium italic serif-italic normal-case"
+                      style="font-family: 'Playfair Display', serif;">aesthetic excellence</span> into
+                    measurable revenue.
+                  </p>
+
+                  <p class="text-white/80 text-lg md:text-xl font-light leading-relaxed">
+                    We don't just design; we <span
+                      class="text-accent-brand font-black uppercase tracking-widest text-xs inline-block border-b border-accent-brand/30 pb-0.5 ml-1">prove
+                      it works.</span>
+                  </p>
+                </div>
               </div>
             </div>
-
-            <!-- Slide-up Glass Reveal -->
-            <div
-              class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out bg-white/[0.03] backdrop-blur-xl border-t border-white/10 p-10 z-20 h-full flex flex-col justify-center gap-6">
-              <ul class="text-sm font-black uppercase tracking-widest text-accent-brand space-y-5">
-                <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
-                  Social strategy</li>
-                <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span> Post
-                  & reel design</li>
-                <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
-                  Content planning</li>
-              </ul>
-            </div>
           </div>
-        </div>
 
-        <!-- 03 Website & Experience -->
-        <div class="tilt-container h-80 relative z-10 hover:z-20">
-          <div
-            class="tilt-card relative h-full bg-white/[0.02] border border-white/5 transition-all duration-500 hover:border-accent-brand/30 overflow-hidden group">
-            <!-- Vertical Marker -->
+          <!-- Right: Founders (lg:col-span-6 - vertical stack) -->
+          <div class="lg:col-span-6 flex flex-col gap-8">
+            <!-- Rohan Card -->
             <div
-              class="absolute left-0 top-12 bottom-12 w-[2px] bg-accent-brand/20 group-hover:bg-accent-brand transition-all duration-500">
-            </div>
-
-            <div class="p-10 h-full flex flex-col justify-between">
-              <div>
-                <span
-                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-70 group-hover:opacity-100 transition-opacity"
-                  style="font-family: 'Playfair Display', serif; font-style: italic;">03 /</span>
-                <h4
-                  class="text-xl font-black uppercase text-white tracking-widest leading-tight group-hover:translate-x-2 transition-transform duration-500">
-                  Website<br>& Experience</h4>
+              class="group flex flex-col sm:flex-row items-start gap-8 bg-white/[0.02] border border-white/5 p-10 rounded-[3rem] transition-all duration-500 hover:border-accent-brand/30 hover:bg-white/[0.04]">
+              <div
+                class="w-32 h-32 rounded-[2rem] overflow-hidden shrink-0 border-2 border-accent-brand/20 group-hover:border-accent-brand transition-all">
+                <img src="../assets/P&P_LP_FounderImgs/1.svg" alt="Rohan Deshpande"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700">
               </div>
-            </div>
-
-            <!-- Slide-up Glass Reveal -->
-            <div
-              class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out bg-white/[0.03] backdrop-blur-xl border-t border-white/10 p-10 z-20 h-full flex flex-col justify-center gap-6">
-              <ul class="text-sm font-black uppercase tracking-widest text-accent-brand space-y-5">
-                <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span> UI/UX
-                  design</li>
-                <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
-                  Landing pages</li>
-                <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span> CMS
-                  build</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- 04 Creative & Design -->
-        <div class="tilt-container h-80 relative z-10 hover:z-20">
-          <div
-            class="tilt-card relative h-full bg-white/[0.02] border border-white/5 transition-all duration-500 hover:border-accent-brand/30 overflow-hidden group">
-            <!-- Vertical Marker -->
-            <div
-              class="absolute left-0 top-12 bottom-12 w-[2px] bg-accent-brand/20 group-hover:bg-accent-brand transition-all duration-500">
-            </div>
-
-            <div class="p-10 h-full flex flex-col justify-between">
-              <div>
-                <span
-                  class="block text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-8 opacity-70 group-hover:opacity-100 transition-opacity"
-                  style="font-family: 'Playfair Display', serif; font-style: italic;">04 /</span>
-                <h4
-                  class="text-xl font-black uppercase text-white tracking-widest leading-tight group-hover:translate-x-2 transition-transform duration-500">
-                  Creative<br>& Design</h4>
-              </div>
-            </div>
-
-            <!-- Slide-up Glass Reveal -->
-            <div
-              class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out bg-white/[0.03] backdrop-blur-xl border-t border-white/10 p-10 z-20 h-full flex flex-col justify-center gap-6">
-              <ul class="text-sm font-black uppercase tracking-widest text-accent-brand space-y-5">
-                <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
-                  Marketing ads</li>
-                <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span> Pitch
-                  decks</li>
-                <li class="flex items-center gap-5"><span class="w-1.5 h-1.5 bg-accent-brand rounded-full"></span>
-                  Motion graphics</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-  <!-- 9. MISSION: THE FOUNDERS (Integrated Bios) -->
-  <section id="agency-mission" class="py-24 w-full bg-brand-black border-t border-white/5">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-0">
-        <div class="lg:col-span-12">
-          <span class="text-accent-brand font-black tracking-[0.4em] text-[10px] uppercase block mb-6">// OUR MISSION</span>
-          <h2 class="text-5xl md:text-7xl font-black uppercase text-white/80 leading-[0.9] tracking-tighter">
-            The faces<br>behind the <span class="text-accent-brand italic serif-italic normal-case"
-              style="font-family: 'Playfair Display', serif;">strategy.</span>
-          </h2>
-        </div>
-      </div>
-
-      <!-- Unified Content Grid: Manifesto + Founders -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center pt-16 border-t border-white/5">
-        
-        <!-- Left: Manifesto Narrative (lg:col-span-6) -->
-        <div class="lg:col-span-6 flex flex-col gap-10">
-          <div class="flex gap-8 items-start">
-            <!-- Vertical Brand Line -->
-            <div class="hidden lg:block w-[1px] bg-accent-brand/30 h-64 shrink-0 relative">
-              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[3px] h-12 bg-accent-brand"></div>
-            </div>
-            
-            <div class="flex flex-col gap-10">
-              <h3 class="text-white/90 text-2xl md:text-3xl font-black uppercase tracking-tighter leading-tight max-w-xl">
-                We started Pixel & Proof with a simple frustration: seeing incredible brands die because of <span class="text-accent-brand italic serif-italic normal-case px-2" style="font-family: 'Playfair Display', serif;">bad strategy.</span>
-              </h3>
-              
-              <div class="flex flex-col gap-8 max-w-xl">
-                <div class="h-[1px] w-12 bg-white/10"></div>
-
-                <p class="text-white/80 text-xl md:text-2xl font-light leading-relaxed">
-                  One focuses on how your brand looks. The other focuses on how it performs. Together, we build systems that turn <span class="text-accent-brand font-medium italic serif-italic normal-case" style="font-family: 'Playfair Display', serif;">aesthetic excellence</span> into 
-                  measurable revenue.
+              <div class="flex flex-col gap-4">
+                <div>
+                  <h4 class="text-white/90 font-black text-2xl uppercase tracking-tighter">Rohan Deshpande</h4>
+                  <p class="text-accent-brand font-black text-[10px] uppercase tracking-[0.3em] mt-1">Strategic Partner
+                  </p>
+                </div>
+                <p class="text-white/80 text-sm leading-relaxed font-light">
+                  Rohan brings expertise in digital strategy, ensuring your brand reaches the right people and grows
+                  consistently through high-precision systems.
                 </p>
+              </div>
+            </div>
 
-                <p class="text-white/80 text-lg md:text-xl font-light leading-relaxed">
-                  We don't just design; we <span class="text-accent-brand font-black uppercase tracking-widest text-xs inline-block border-b border-accent-brand/30 pb-0.5 ml-1">prove it works.</span>
+            <!-- Sakshi Card -->
+            <div
+              class="group flex flex-col sm:flex-row items-start gap-8 bg-white/[0.02] border border-white/5 p-10 rounded-[3rem] transition-all duration-500 hover:border-accent-brand/30 hover:bg-white/[0.04]">
+              <div
+                class="w-32 h-32 rounded-[2rem] overflow-hidden shrink-0 border-2 border-accent-brand/20 group-hover:border-accent-brand transition-all">
+                <img src="../assets/P&P_LP_FounderImgs/2.svg" alt="Sakshi Aurangabadkar"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700">
+              </div>
+              <div class="flex flex-col gap-4">
+                <div>
+                  <h4 class="text-white/90 font-black text-2xl uppercase tracking-tighter">Sakshi Aurangabadkar</h4>
+                  <p class="text-accent-brand font-black text-[10px] uppercase tracking-[0.3em] mt-1">Creative Partner
+                  </p>
+                </div>
+                <p class="text-white/80 text-sm leading-relaxed font-light">
+                  Sakshi brings <strong>3+ years</strong> of hands-on design experience, creating visuals that connect,
+                  build trust, and drive action for modern brands.
                 </p>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Right: Founders (lg:col-span-6 - vertical stack) -->
-        <div class="lg:col-span-6 flex flex-col gap-8">
-          <!-- Rohan Card -->
-          <div class="group flex flex-col sm:flex-row items-start gap-8 bg-white/[0.02] border border-white/5 p-10 rounded-[3rem] transition-all duration-500 hover:border-accent-brand/30 hover:bg-white/[0.04]">
-            <div class="w-32 h-32 rounded-[2rem] overflow-hidden shrink-0 border-2 border-accent-brand/20 group-hover:border-accent-brand transition-all">
-              <img src="../assets/P&P_LP_FounderImgs/1.svg" alt="Rohan Deshpande" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700">
-            </div>
-            <div class="flex flex-col gap-4">
-              <div>
-                <h4 class="text-white/90 font-black text-2xl uppercase tracking-tighter">Rohan Deshpande</h4>
-                <p class="text-accent-brand font-black text-[10px] uppercase tracking-[0.3em] mt-1">Strategic Partner</p>
-              </div>
-              <p class="text-white/80 text-sm leading-relaxed font-light">
-                Rohan brings expertise in digital strategy, ensuring your brand reaches the right people and grows consistently through high-precision systems.
-              </p>
-            </div>
-          </div>
-
-          <!-- Sakshi Card -->
-          <div class="group flex flex-col sm:flex-row items-start gap-8 bg-white/[0.02] border border-white/5 p-10 rounded-[3rem] transition-all duration-500 hover:border-accent-brand/30 hover:bg-white/[0.04]">
-            <div class="w-32 h-32 rounded-[2rem] overflow-hidden shrink-0 border-2 border-accent-brand/20 group-hover:border-accent-brand transition-all">
-              <img src="../assets/P&P_LP_FounderImgs/2.svg" alt="Sakshi Aurangabadkar" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700">
-            </div>
-            <div class="flex flex-col gap-4">
-              <div>
-                <h4 class="text-white/90 font-black text-2xl uppercase tracking-tighter">Sakshi Aurangabadkar</h4>
-                <p class="text-accent-brand font-black text-[10px] uppercase tracking-[0.3em] mt-1">Creative Partner</p>
-              </div>
-              <p class="text-white/80 text-sm leading-relaxed font-light">
-                Sakshi brings <strong>3+ years</strong> of hands-on design experience, creating visuals that connect, build trust, and drive action for modern brands.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 10. PRICING: PACKAGES (Systematic Tiers) -->
-  <section id="packages" class="py-24 w-full bg-brand-black border-t border-white/5">
-    <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-        <div class="max-w-2xl">
-          <span class="text-accent-brand font-black tracking-[0.4em] text-[10px] uppercase block mb-6">// PRICING</span>
-          <h2 class="text-4xl md:text-5xl font-black uppercase text-white/80 leading-[0.9] tracking-tighter">
-            Transparent<br>Growth <span class="text-accent-brand">Plans.</span>
-          </h2>
-        </div>
-        <p class="text-white/80 text-[14px] font-light max-w-sm border-l border-white/10 pl-8 mb-2">No hidden fees. No
-          long-term lock-ins. Just focused strategy and high-impact execution.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 lg:gap-8">
-        <!-- Starter Growth -->
-        <div
-          class="bg-white/[0.02] border border-white/5 rounded-[2.5rem] p-10 flex flex-col gap-10 hover:border-accent-brand/20 transition-all duration-500 hover:bg-white/[0.03]">
-          <div>
-            <h4 class="text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-2">// BUILD YOUR PRESENCE</h4>
-            <div class="flex items-baseline gap-2 mb-6">
-              <span class="text-4xl font-black text-white/90 uppercase tracking-tighter">Starter Growth</span>
-            </div>
-            <p class="text-white/80 text-[13px] leading-relaxed">Perfect for startups and creators looking to establish
-              a professional social presence and brand identity.</p>
+    <!-- 10. PRICING: PACKAGES (Systematic Tiers) -->
+    <section id="packages" class="py-24 w-full bg-brand-black border-t border-white/5">
+      <div class="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div class="max-w-2xl">
+            <span class="text-accent-brand font-black tracking-[0.4em] text-[10px] uppercase block mb-6">//
+              PRICING</span>
+            <h2 class="text-4xl md:text-5xl font-black uppercase text-white/80 leading-[0.9] tracking-tighter">
+              Transparent<br>Growth <span class="text-accent-brand">Plans.</span>
+            </h2>
           </div>
-          <ul class="flex-1 space-y-4 text-white/80 text-[12px] font-medium border-t border-white/5 pt-8">
-            <li class="flex gap-3">✓ <span>Brand Guidelines Update</span></li>
-            <li class="flex gap-3">✓ <span>8-10 Custom Posts / Month</span></li>
-            <li class="flex gap-3">✓ <span>2-3 High-Impact Reels</span></li>
-            <li class="flex gap-3">✓ <span>Monthly Performance Sync</span></li>
-          </ul>
-          <a href="contact.html"
-            class="w-full py-5 border border-white/20 rounded-2xl text-[11px] font-black uppercase tracking-widest hover:bg-white/5 text-center transition-all">Get
-            Started</a>
+          <p class="text-white/80 text-[14px] font-light max-w-sm border-l border-white/10 pl-8 mb-2">No hidden fees. No
+            long-term lock-ins. Just focused strategy and high-impact execution.</p>
         </div>
 
-        <!-- Growth (Most Popular) -->
-        <div
-          class="bg-accent-brand border border-accent-brand rounded-[2.5rem] p-10 flex flex-col gap-10 transform scale-105 shadow-2xl shadow-accent-brand/10 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 lg:gap-8">
+          <!-- Starter Growth -->
           <div
-            class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-accent-brand text-[8px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">
-            Most Popular</div>
-          <div class="text-black">
-            <h4 class="text-black font-black text-[10px] uppercase tracking-[0.4em] mb-2">// GROW WITH STRATEGY</h4>
-            <div class="flex items-baseline gap-2 mb-6">
-              <span class="text-4xl font-black uppercase tracking-tighter">Full Growth</span>
+            class="bg-white/[0.02] border border-white/5 rounded-[2.5rem] p-10 flex flex-col gap-10 hover:border-accent-brand/20 transition-all duration-500 hover:bg-white/[0.03]">
+            <div>
+              <h4 class="text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-2">// BUILD YOUR
+                PRESENCE</h4>
+              <div class="flex items-baseline gap-2 mb-6">
+                <span class="text-4xl font-black text-white/90 uppercase tracking-tighter">Starter Growth</span>
+              </div>
+              <p class="text-white/80 text-[13px] leading-relaxed">Perfect for startups and creators looking to
+                establish
+                a professional social presence and brand identity.</p>
             </div>
-            <p class="opacity-70 text-[13px] leading-relaxed font-bold">The comprehensive system for brands ready to
-              scale aggressively across all digital touchpoints.</p>
+            <ul class="flex-1 space-y-4 text-white/80 text-[12px] font-medium border-t border-white/5 pt-8">
+              <li class="flex gap-3">✓ <span>Brand Guidelines Update</span></li>
+              <li class="flex gap-3">✓ <span>8-10 Custom Posts / Month</span></li>
+              <li class="flex gap-3">✓ <span>2-3 High-Impact Reels</span></li>
+              <li class="flex gap-3">✓ <span>Monthly Performance Sync</span></li>
+            </ul>
+            <a href="contact.html"
+              class="w-full py-5 border border-white/20 rounded-2xl text-[11px] font-black uppercase tracking-widest hover:bg-white/5 text-center transition-all">Get
+              Started</a>
           </div>
-          <ul class="flex-1 space-y-4 text-black text-[12px] font-bold border-t border-black/10 pt-8">
-            <li class="flex gap-3">✓ <span>Full Content System & Strategy</span></li>
-            <li class="flex gap-3">✓ <span>15+ Custom Posts / Month</span></li>
-            <li class="flex gap-3">✓ <span>4-6 High-Impact Reels</span></li>
-            <li class="flex gap-3">✓ <span>Strategic Ad Management</span></li>
-            <li class="flex gap-3">✓ <span>Website Audit & CRO</span></li>
-          </ul>
-          <a href="contact.html"
-            class="w-full py-5 bg-black text-accent-brand rounded-2xl text-[11px] font-black uppercase tracking-widest hover:scale-[1.02] text-center transition-all shadow-xl">Secure
-            Your Spot</a>
-        </div>
 
-        <!-- Brand Scale (Custom) -->
-        <div
-          class="bg-white/[0.02] border border-white/5 rounded-[2.5rem] p-10 flex flex-col gap-10 hover:border-accent-brand/20 transition-all duration-500 hover:bg-white/[0.03]">
-          <div>
-            <h4 class="text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-2">// SCALE EVERYTHING</h4>
-            <div class="flex items-baseline gap-2 mb-6">
-              <span class="text-4xl font-black text-white/90 uppercase tracking-tighter">Brand Scale</span>
+          <!-- Growth (Most Popular) -->
+          <div
+            class="bg-accent-brand border border-accent-brand rounded-[2.5rem] p-10 flex flex-col gap-10 transform scale-105 shadow-2xl shadow-accent-brand/10 relative z-10">
+            <div
+              class="absolute -top-4 left-1/2 -translate-x-1/2 bg-black text-accent-brand text-[8px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest">
+              Most Popular</div>
+            <div class="text-black">
+              <h4 class="text-black font-black text-[10px] uppercase tracking-[0.4em] mb-2">// GROW WITH STRATEGY</h4>
+              <div class="flex items-baseline gap-2 mb-6">
+                <span class="text-4xl font-black uppercase tracking-tighter">Full Growth</span>
+              </div>
+              <p class="opacity-70 text-[13px] leading-relaxed font-bold">The comprehensive system for brands ready to
+                scale aggressively across all digital touchpoints.</p>
             </div>
-            <p class="text-white/80 text-[13px] leading-relaxed">Tailored, high-impact partnership for established
-              brands needing a complete digital overhaul and scaling.</p>
+            <ul class="flex-1 space-y-4 text-black text-[12px] font-bold border-t border-black/10 pt-8">
+              <li class="flex gap-3">✓ <span>Full Content System & Strategy</span></li>
+              <li class="flex gap-3">✓ <span>15+ Custom Posts / Month</span></li>
+              <li class="flex gap-3">✓ <span>4-6 High-Impact Reels</span></li>
+              <li class="flex gap-3">✓ <span>Strategic Ad Management</span></li>
+              <li class="flex gap-3">✓ <span>Website Audit & CRO</span></li>
+            </ul>
+            <a href="contact.html"
+              class="w-full py-5 bg-black text-accent-brand rounded-2xl text-[11px] font-black uppercase tracking-widest hover:scale-[1.02] text-center transition-all shadow-xl">Secure
+              Your Spot</a>
           </div>
-          <ul class="flex-1 space-y-4 text-white/80 text-[12px] font-medium border-t border-white/5 pt-8">
-            <li class="flex gap-3">✓ <span>Everything in Growth Plan</span></li>
-            <li class="flex gap-3">✓ <span>Full Website Design & Build</span></li>
-            <li class="flex gap-3">✓ <span>Unlimited Search/Social Ads</span></li>
-            <li class="flex gap-3">✓ <span>Founders Direct Support</span></li>
-            <li class="flex gap-3">✓ <span>Custom Production / Shoots</span></li>
-          </ul>
-          <a href="contact.html"
-            class="w-full py-5 border border-white/20 rounded-2xl text-[11px] font-black uppercase tracking-widest hover:bg-white/5 text-center transition-all">Talk
-            to Founders</a>
+
+          <!-- Brand Scale (Custom) -->
+          <div
+            class="bg-white/[0.02] border border-white/5 rounded-[2.5rem] p-10 flex flex-col gap-10 hover:border-accent-brand/20 transition-all duration-500 hover:bg-white/[0.03]">
+            <div>
+              <h4 class="text-accent-brand font-black text-[10px] uppercase tracking-[0.4em] mb-2">// SCALE EVERYTHING
+              </h4>
+              <div class="flex items-baseline gap-2 mb-6">
+                <span class="text-4xl font-black text-white/90 uppercase tracking-tighter">Brand Scale</span>
+              </div>
+              <p class="text-white/80 text-[13px] leading-relaxed">Tailored, high-impact partnership for established
+                brands needing a complete digital overhaul and scaling.</p>
+            </div>
+            <ul class="flex-1 space-y-4 text-white/80 text-[12px] font-medium border-t border-white/5 pt-8">
+              <li class="flex gap-3">✓ <span>Everything in Growth Plan</span></li>
+              <li class="flex gap-3">✓ <span>Full Website Design & Build</span></li>
+              <li class="flex gap-3">✓ <span>Unlimited Search/Social Ads</span></li>
+              <li class="flex gap-3">✓ <span>Founders Direct Support</span></li>
+              <li class="flex gap-3">✓ <span>Custom Production / Shoots</span></li>
+            </ul>
+            <a href="contact.html"
+              class="w-full py-5 border border-white/20 rounded-2xl text-[11px] font-black uppercase tracking-widest hover:bg-white/5 text-center transition-all">Talk
+              to Founders</a>
+          </div>
         </div>
-      </div>
-  </section>
+    </section>
 
-  <!-- 9. FINAL CTA (Balanced Spacing) -->
-  <section class="py-16 w-full bg-brand-black border-t border-white/5" id="contact">
-    <div class="px-6 w-full max-w-[1280px] mx-auto text-center flex flex-col items-center">
+    <!-- 9. FINAL CTA (Balanced Spacing) -->
+    <section class="py-16 w-full bg-brand-black border-t border-white/5" id="contact">
+      <div class="px-6 w-full max-w-[1280px] mx-auto text-center flex flex-col items-center">
 
-      <div class="mb-16">
-        <span class="text-accent-brand font-black tracking-[0.5em] text-[12px] uppercase block mb-8">Ready to
-          Scale?</span>
+        <div class="mb-16">
+          <span class="text-accent-brand font-black tracking-[0.5em] text-[12px] uppercase block mb-8">Ready to
+            Scale?</span>
           <h2 class="text-5xl md:text-6xl font-black uppercase text-white/80 leading-none tracking-tighter">
             Build your<br>
             <span class="text-accent-brand">Legacy.</span>
           </h2>
+        </div>
+
+        <div
+          class="max-w-[800px] w-full bg-white/[0.02] border border-white/5 p-12 md:p-20 rounded-[3rem] backdrop-blur-xl">
+          <p class="text-white/80 text-xl md:text-2xl font-light mb-12 italic serif-italic">"Pixel & Proof doesn't just
+            design brands. They design the systems that allow brands to actually breathe."</p>
+
+          <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+            <a href="contact.html"
+              class="px-12 py-6 bg-accent-brand text-black rounded-full font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform">Book
+              Free Audit</a>
+          </div>
+        </div>
+
+        <footer
+          class="mt-24 w-full py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
+          <div class="flex-1 flex justify-start">
+            <img src="../assets/logo_1.PNG" alt="Pixel & Proof" width="131" height="24" loading="lazy" decoding="async"
+              class="h-6 w-auto opacity-70 grayscale">
+          </div>
+          <div class="flex-1 text-center flex flex-col items-center gap-2">
+            <span class="text-[9px] font-black uppercase tracking-[0.3em] text-white/20">&copy; 2026 Pixel Proof. All
+              Rights Reserved.</span>
+            <a href="privacy.html" class="text-[8px] font-bold uppercase tracking-[0.2em] text-white/10 hover:text-accent-brand transition-colors">Privacy Policy</a>
+          </div>
+          <div class="flex-1 flex justify-end gap-8 text-white/80">
+            <a href="#" class="hover:text-accent-brand transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.439-.645-1.439-1.44s.644-1.44 1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="#" class="hover:text-accent-brand transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+            <a href="#" class="hover:text-accent-brand transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+          </div>
+        </footer>
+
       </div>
-
-      <div
-        class="max-w-[800px] w-full bg-white/[0.02] border border-white/5 p-12 md:p-20 rounded-[3rem] backdrop-blur-xl">
-        <p class="text-white/80 text-xl md:text-2xl font-light mb-12 italic serif-italic">"Pixel & Proof doesn't just
-          design brands. They design the systems that allow brands to actually breathe."</p>
-
-        <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-          <a href="contact.html"
-            class="px-12 py-6 bg-accent-brand text-black rounded-full font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform">Book
-            Free Audit</a>
-        </div>
-      </div>
-
-      <footer
-        class="mt-24 w-full py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
-        <div class="flex-1 flex justify-start">
-          <img src="../assets/logo_1.PNG" alt="Pixel & Proof" width="131" height="24" loading="lazy" decoding="async" class="h-6 w-auto opacity-70 grayscale">
-        </div>
-        <div class="flex-1 text-center">
-          <span class="text-[9px] font-black uppercase tracking-[0.3em] text-white/20">&copy; 2026 Pixel Proof. All
-            Rights Reserved.</span>
-        </div>
-        <div class="flex-1 flex justify-end gap-8 text-white/80">
-          <a href="#" class="hover:text-accent-brand transition-colors">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c.796 0 1.441.645 1.441 1.44s-.645 1.44-1.441 1.44c-.795 0-1.439-.645-1.439-1.44s.644-1.44 1.439-1.44z" />
-            </svg>
-          </a>
-          <a href="#" class="hover:text-accent-brand transition-colors">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-            </svg>
-          </a>
-          <a href="#" class="hover:text-accent-brand transition-colors">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-            </svg>
-          </a>
-        </div>
-      </footer>
-
-    </div>
-  </section>
+    </section>
   </div>
 
 </body>

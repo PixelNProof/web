@@ -11,6 +11,8 @@ export default defineConfig({
                 brand: resolve(__dirname, 'brand/index.html'),
                 mainThankYou: resolve(__dirname, 'main/thank-you.html'),
                 brandThankYou: resolve(__dirname, 'brand/thank-you.html'),
+                mainPrivacy: resolve(__dirname, 'main/privacy.html'),
+                brandPrivacy: resolve(__dirname, 'brand/privacy.html'),
             },
         },
     },
