@@ -9,6 +9,8 @@ export default defineConfig({
                 contact: resolve(__dirname, 'main/contact.html'),
                 work: resolve(__dirname, 'main/work.html'),
                 brand: resolve(__dirname, 'brand/index.html'),
+                mainThankYou: resolve(__dirname, 'main/thank-you.html'),
+                brandThankYou: resolve(__dirname, 'brand/thank-you.html'),
             },
         },
     },
