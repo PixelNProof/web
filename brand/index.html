@@ -882,28 +882,28 @@
             <div class="problem-grid">
                 <div class="problem-card reveal">
                     <div class="icon-placeholder">
-                        <img src="/assets/P&P_Icons_forBalck_brandPage/1.svg" alt="01" class="w-12 h-12 object-contain">
+                        <img src="/assets/P&P_Icons_forBalck_brandPage/1.svg" alt="01" class="w-12 h-12 object-contain" loading="lazy">
                     </div>
                     <h3 class="font-black">Inconsistent</h3>
                     <p>Every touchpoint looks different. Nothing feels connected.</p>
                 </div>
                 <div class="problem-card reveal">
                     <div class="icon-placeholder">
-                        <img src="/assets/P&P_Icons_forBalck_brandPage/2.svg" alt="02" class="w-12 h-12 object-contain">
+                        <img src="/assets/P&P_Icons_forBalck_brandPage/2.svg" alt="02" class="w-12 h-12 object-contain" loading="lazy">
                     </div>
                     <h3 class="font-black">Unclear</h3>
                     <p>People don't understand what you do or why they should care.</p>
                 </div>
                 <div class="problem-card reveal">
                     <div class="icon-placeholder">
-                        <img src="/assets/P&P_Icons_forBalck_brandPage/3.svg" alt="03" class="w-12 h-12 object-contain">
+                        <img src="/assets/P&P_Icons_forBalck_brandPage/3.svg" alt="03" class="w-12 h-12 object-contain" loading="lazy">
                     </div>
                     <h3 class="font-black">Random</h3>
                     <p>Content goes out without strategy, building absolute zero.</p>
                 </div>
                 <div class="problem-card reveal">
                     <div class="icon-placeholder">
-                        <img src="/assets/P&P_Icons_forBalck_brandPage/4.svg" alt="04" class="w-12 h-12 object-contain">
+                        <img src="/assets/P&P_Icons_forBalck_brandPage/4.svg" alt="04" class="w-12 h-12 object-contain" loading="lazy">
                     </div>
                     <h3 class="font-black">Invisible</h3>
                     <p>The right people aren't seeing you. Engagement stays flat.</p>
@@ -922,28 +922,28 @@
             <div class="choice-grid">
                 <div class="choice-card reveal">
                     <div class="icon-placeholder">
-                        <img src="/assets/P&P_Icons_forWhite_brandPage/1.svg" alt="Strat" class="w-12 h-12 object-contain">
+                        <img src="/assets/P&P_Icons_forWhite_brandPage/1.svg" alt="Strat" class="w-12 h-12 object-contain" loading="lazy">
                     </div>
                     <h3 class="font-black">Strategy First</h3>
                     <p>We understand your brand and positioning before a single pixel is placed.</p>
                 </div>
                 <div class="choice-card reveal">
                     <div class="icon-placeholder">
-                        <img src="/assets/P&P_Icons_forWhite_brandPage/2.svg" alt="Sys" class="w-12 h-12 object-contain">
+                        <img src="/assets/P&P_Icons_forWhite_brandPage/2.svg" alt="Sys" class="w-12 h-12 object-contain" loading="lazy">
                     </div>
                     <h3 class="font-black">One clear system</h3>
                     <p>Visuals, messaging, and content built as one system for the right audience.</p>
                 </div>
                 <div class="choice-card reveal">
                     <div class="icon-placeholder">
-                        <img src="/assets/P&P_Icons_forWhite_brandPage/3.svg" alt="Grow" class="w-12 h-12 object-contain">
+                        <img src="/assets/P&P_Icons_forWhite_brandPage/3.svg" alt="Grow" class="w-12 h-12 object-contain" loading="lazy">
                     </div>
                     <h3 class="font-black">Built to grow</h3>
                     <p>Strong brands grow through consistency. We build the systems for it.</p>
                 </div>
                 <div class="choice-card reveal">
                     <div class="icon-placeholder">
-                        <img src="/assets/P&P_Icons_forWhite_brandPage/4.svg" alt="Part" class="w-12 h-12 object-contain">
+                        <img src="/assets/P&P_Icons_forWhite_brandPage/4.svg" alt="Part" class="w-12 h-12 object-contain" loading="lazy">
                     </div>
                     <h3 class="font-black">We partner with you</h3>
                     <p>We work with you, not for you. Your outcomes are ours.</p>
@@ -1097,7 +1097,7 @@
                     <!-- Rohan Card -->
                     <div class="group flex flex-col sm:flex-row items-start gap-6 bg-white/[0.03] border border-white/10 p-8 rounded-[2.5rem] transition-all duration-500 hover:border-brand-yellow/50 hover:bg-white/[0.06] hover:-translate-y-2">
                         <div class="w-24 h-24 rounded-2xl overflow-hidden shrink-0 border-2 border-brand-yellow/20">
-                            <img src="/assets/P&P_LP_FounderImgs/1.svg" alt="Rohan Deshpande" class="w-full h-full object-cover">
+                            <img src="/assets/P&P_LP_FounderImgs/1.svg" alt="Rohan Deshpande" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="space-y-3">
                             <div>
@@ -1111,7 +1111,7 @@
                     <!-- Sakshi Card -->
                     <div class="group flex flex-col sm:flex-row items-start gap-6 bg-white/[0.03] border border-white/10 p-8 rounded-[2.5rem] transition-all duration-500 hover:border-brand-yellow/50 hover:bg-white/[0.06] hover:-translate-y-2">
                         <div class="w-24 h-24 rounded-2xl overflow-hidden shrink-0 border-2 border-brand-yellow/20">
-                            <img src="/assets/P&P_LP_FounderImgs/2.svg" alt="Sakshi Aurangabadkar" class="w-full h-full object-cover">
+                            <img src="/assets/P&P_LP_FounderImgs/2.svg" alt="Sakshi Aurangabadkar" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div class="space-y-3">
                             <div>
@@ -1353,21 +1353,44 @@
                 data.page = window.location.pathname + window.location.hash;
                 data.timestamp = new Date().toISOString();
                 
+                const supabaseUrl = 'https://tluxbmfziquoagqgkyka.supabase.co/rest/v1/brand_leads';
+                const supabaseKey = 'sb_publishable_8f0ECMT7WsHB-BZjEL0VHw_DMm92bke';
+
                 try {
-                    const response = await fetch('https://hook.eu1.make.com/0m8w89s9hmhtmgb45cnbkip3dhi4wghw', {
+                    // Send to Make.com (includes everything)
+                    const makePromise = fetch('https://hook.eu1.make.com/0m8w89s9hmhtmgb45cnbkip3dhi4wghw', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(data)
                     });
 
-                    if (response.ok) {
-                        window.location.href = 'thank-you.html';
+                    // Send to Supabase (remove metadata/honeypot fields not in table schema)
+                    const { timestamp, website, ...supabaseData } = data;
+                    const supabasePromise = fetch(supabaseUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'apikey': supabaseKey,
+                            'Authorization': `Bearer ${supabaseKey}`,
+                            'Prefer': 'return=minimal'
+                        },
+                        body: JSON.stringify(supabaseData)
+                    });
+
+                    // Wait for both to be attempted
+                    const results = await Promise.allSettled([makePromise, supabasePromise]);
+                    const makeSuccess = results[0].status === 'fulfilled' && results[0].value.ok;
+                    const supabaseSuccess = results[1].status === 'fulfilled' && results[1].value.ok;
+
+                    if (makeSuccess || supabaseSuccess) {
+                        // Redirect using a path that works both locally and on Vercel
+                        window.location.href = window.location.hostname === 'localhost' ? 'thank-you.html' : '/thank-you';
                     } else {
                         throw new Error('Server Error');
                     }
                 } catch (error) {
                     if (error.message !== 'Server Error') {
-                        window.location.href = 'thank-you.html';
+                        window.location.href = window.location.hostname === 'localhost' ? 'thank-you.html' : '/thank-you';
                     } else {
                         submitBtn.innerText = 'Error! Try Again';
                         setTimeout(() => { submitBtn.innerText = originalText; submitBtn.disabled = false; }, 3000);

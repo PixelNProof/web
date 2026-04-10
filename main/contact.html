@@ -575,25 +575,45 @@
         data.page = window.location.pathname + window.location.hash;
         data.timestamp = new Date().toISOString();
 
+        const supabaseUrl = 'https://tluxbmfziquoagqgkyka.supabase.co/rest/v1/main_leads';
+        const supabaseKey = 'sb_publishable_8f0ECMT7WsHB-BZjEL0VHw_DMm92bke';
+
         try {
-          const response = await fetch('https://hook.eu1.make.com/0m8w89s9hmhtmgb45cnbkip3dhi4wghw', {
+          // Send to Make.com (includes everything)
+          const makePromise = fetch('https://hook.eu1.make.com/0m8w89s9hmhtmgb45cnbkip3dhi4wghw', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
           });
 
-          if (response.ok) {
-            // Redirect to Thank You page
-            window.location.href = 'thank-you.html';
+          // Send to Supabase (remove metadata/honeypot fields not in table schema)
+          const { timestamp, website, ...supabaseData } = data;
+          const supabasePromise = fetch(supabaseUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': supabaseKey,
+              'Authorization': `Bearer ${supabaseKey}`,
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify(supabaseData)
+          });
+
+          // Wait for both to be attempted
+          const results = await Promise.allSettled([makePromise, supabasePromise]);
+          const makeSuccess = results[0].status === 'fulfilled' && results[0].value.ok;
+          const supabaseSuccess = results[1].status === 'fulfilled' && results[1].value.ok;
+
+          if (makeSuccess || supabaseSuccess) {
+            // Redirect using a path that works both locally and on Vercel
+            window.location.href = window.location.hostname === 'localhost' ? 'thank-you.html' : '/thank-you';
           } else {
             throw new Error('Server Error');
           }
         } catch (error) {
-          // If data was sent but response is weird, still redirect as fallback
-          // or show error if it definitely failed. 
-          // Given user report, we'll favor the redirect if the error is non-critical
+          // Fallback to redirect if any likely succeeded
           if (error.message !== 'Server Error') {
-             window.location.href = 'thank-you.html';
+             window.location.href = '/thank-you';
           } else {
             submitBtn.innerText = 'Error! Try Again';
             setTimeout(() => { submitBtn.innerText = originalText; submitBtn.disabled = false; }, 3000);
