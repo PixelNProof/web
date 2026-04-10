@@ -13,22 +13,16 @@
   <link rel="stylesheet" href="../src/style.css">
 
   <style>
-    html {
-      background: #020202;
-    }
-
+    html { background: #020202; }
     body {
       background: #020202;
       color: rgba(255, 255, 255, 0.9);
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
     }
-
     #hero-nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 10001;
       display: flex;
       justify-content: space-between;
@@ -38,17 +32,12 @@
       background: rgba(2, 2, 2, 0.8);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-
     .policy-container {
       max-width: 800px;
       margin: 160px auto 100px;
       padding: 0 24px;
     }
-
-    .policy-header {
-      margin-bottom: 60px;
-    }
-
+    .policy-header { margin-bottom: 60px; }
     .policy-header h1 {
       font-size: clamp(40px, 8vw, 80px);
       font-weight: 900;
@@ -58,122 +47,46 @@
       color: #FFCE00;
       margin-bottom: 16px;
     }
-
     .meta-info {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.2em;
       color: rgba(255, 255, 255, 0.4);
     }
-
     h2 {
-      font-size: 24px;
-      font-weight: 800;
+      font-size: 20px;
+      font-weight: 900;
       text-transform: uppercase;
       margin: 48px 0 24px;
       color: #FFCE00;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.05em;
     }
-
-    h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin: 32px 0 16px;
-      color: white;
-    }
-
-    p {
-      margin-bottom: 20px;
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    ul {
-      margin-bottom: 24px;
-      padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 12px;
-      color: rgba(255, 255, 255, 0.7);
-    }
-
+    p { margin-bottom: 20px; color: rgba(255, 255, 255, 0.7); }
+    ul { margin-bottom: 24px; padding-left: 20px; list-style: square; }
+    li { margin-bottom: 12px; color: rgba(255, 255, 255, 0.7); }
     .table-container {
       overflow-x: auto;
       margin: 32px 0;
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
     }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
-
-    th, td {
-      text-align: left;
-      padding: 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    th {
-      background: rgba(255, 255, 255, 0.02);
-      color: #FFCE00;
-      text-transform: uppercase;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      font-size: 11px;
-    }
-
-    .serif-italic {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-weight: 400;
-    }
-
-    footer {
-      padding: 60px 0 40px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      text-align: center;
-    }
-
-    .footer-logo {
-      height: 24px;
-      opacity: 0.5;
-      margin-bottom: 24px;
-    }
-
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { text-align: left; padding: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    th { background: rgba(255, 255, 255, 0.02); color: #FFCE00; text-transform: uppercase; font-weight: 900; letter-spacing: 0.1em; font-size: 10px; }
+    .serif-italic { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; }
+    footer { padding: 60px 0 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; }
     #hero-menu-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 60px;
-      background: #FFCE00;
-      border-radius: 50%;
-      font-size: 10px;
-      font-weight: 900;
-      color: #020202;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      line-height: 1.1;
-      text-align: center;
-      text-decoration: none;
+      display: flex; align-items: center; justify-content: center;
+      width: 60px; height: 60px; background: #FFCE00; border-radius: 50%;
+      font-size: 10px; font-weight: 900; color: #020202; text-transform: uppercase;
+      letter-spacing: 0.08em; line-height: 1.1; text-align: center; text-decoration: none;
       transition: transform 0.2s;
     }
-
-    #hero-menu-btn:hover {
-      transform: scale(1.08);
-    }
-
+    #hero-menu-btn:hover { transform: scale(1.08); }
     @media (max-width: 767px) {
-      #hero-nav {
-        padding: 24px;
-      }
-      .policy-container {
-        margin-top: 120px;
-      }
+      #hero-nav { padding: 24px; }
+      .policy-container { margin-top: 120px; }
     }
   </style>
 </head>
@@ -192,19 +105,19 @@
 
   <main class="policy-container">
     <header class="policy-header">
-      <div class="meta-info">Privacy Policy</div>
-      <h1>Safe & <span class="serif-italic">Solid.</span></h1>
+      <div class="meta-info">PIXEL & PROOF</div>
+      <h1>Privacy <span class="serif-italic">Policy.</span></h1>
       <div class="meta-info">Effective: April 10, 2026 | Last Updated: April 10, 2026</div>
     </header>
 
-    <section>
-      <p>Pixel & Proof is a digital growth and branding studio based in India, helping businesses build clear, intentional, and impactful brands. Our services include Brand Strategy & Identity, Social Media & Content Systems, Website & Digital Experience, Creative Design, and Performance Marketing. This policy applies to both our main website (pixelnproof.com) and our landing page (hello.pixelnproof.com).</p>
+    <div class="opacity-80">
+      <p><strong>Applies to:</strong> pixelnproof.com · hello.pixelnproof.com</p>
       <p><strong>Jurisdiction:</strong> India (IT Act 2000 · DPDP Act 2023)</p>
-    </section>
+    </div>
 
     <section>
       <h2>1. Who We Are</h2>
-      <p>Pixel & Proof is a digital growth and branding studio based in India. This policy applies to our main website (pixelnproof.com) and our landing page (hello.pixelnproof.com).</p>
+      <p>Pixel & Proof is a digital growth and branding studio based in India, helping businesses build clear, intentional, and impactful brands. Our services include Brand Strategy & Identity, Social Media & Content Systems, Website & Digital Experience, Creative Design, and Performance Marketing. This policy applies to both our main website (pixelnproof.com) and our landing page (hello.pixelnproof.com).</p>
     </section>
 
     <section>
@@ -214,7 +127,7 @@
         <li><strong>Contact & Lead Forms</strong> — When you submit an enquiry, we collect your name, email address, phone number, business name, and the details you share in your message.</li>
         <li><strong>Analytics Data (Google Analytics)</strong> — We collect anonymised data including pages visited, time on site, device and browser type, geographic location (city/country), and traffic source.</li>
         <li><strong>Advertising Data (Meta Pixel)</strong> — We track page views and form interactions to serve and optimise ads on Facebook and Instagram.</li>
-        <li><strong>Cookies</strong> — We use cookies and similar technologies for site performance, analytics, and ad targeting.</li>
+        <li><strong>Cookies</strong> — We use cookies and similar technologies for site performance, analytics, and ad targeting. See Section 4 for details.</li>
       </ul>
       <p>We do not collect sensitive personal data such as financial details, government ID numbers, biometric data, or health information.</p>
     </section>
@@ -253,21 +166,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Google Analytics</td>
-              <td>Website analytics</td>
-              <td>policies.google.com/privacy</td>
-            </tr>
-            <tr>
-              <td>Meta Pixel</td>
-              <td>Ad targeting & conversion tracking</td>
-              <td>facebook.com/privacy/policy</td>
-            </tr>
-            <tr>
-              <td>Google Fonts</td>
-              <td>Typography</td>
-              <td>policies.google.com/privacy</td>
-            </tr>
+            <tr><td>Google Analytics</td><td>Website analytics</td><td>policies.google.com/privacy</td></tr>
+            <tr><td>Meta Pixel</td><td>Ad targeting & conversion tracking</td><td>facebook.com/privacy/policy</td></tr>
+            <tr><td>Google Fonts</td><td>Typography</td><td>policies.google.com/privacy</td></tr>
           </tbody>
         </table>
       </div>
@@ -303,23 +204,43 @@
         <li><strong>Right to Correction</strong> — Request correction of inaccurate or incomplete data</li>
         <li><strong>Right to Erasure</strong> — Request deletion of your data, subject to legal obligations</li>
         <li><strong>Right to Withdraw Consent</strong> — Withdraw consent to processing at any time</li>
-        <li><strong>Right to Redressal</strong> — Raise a concern about how your data is handled</li>
+        <li><strong>Right to Grievance Redressal</strong> — Raise a concern about how your data is handled</li>
         <li><strong>Right to Nominate</strong> — Nominate someone to exercise your rights in case of death or incapacity</li>
       </ul>
       <p>To exercise any of these rights, contact us at <strong>hello@pixelnproof.com</strong>. We will respond within 15 business days.</p>
     </section>
 
     <section>
-      <h2>9. Policy Redlines</h2>
-      <p><strong>Children's Privacy:</strong> Our websites are not directed at individuals under the age of 18. If you believe a minor has submitted data, please contact us.</p>
-      <p><strong>Third-Party Links:</strong> We are not responsible for the privacy practices of external sites reached via links on our pages.</p>
-      <p><strong>Policy Updates:</strong> We update this policy periodically. Continued use of the site constitutes acceptance of updates.</p>
+      <h2>9. Children's Privacy</h2>
+      <p>Our websites are not directed at individuals under the age of 18. We do not knowingly collect personal data from minors. If you believe a minor has submitted data through our site, please contact us immediately at hello@pixelnproof.com.</p>
+    </section>
+
+    <section>
+      <h2>10. Third-Party Links</h2>
+      <p>Our websites may contain links to external sites, social media platforms, or partner pages. These sites operate independently and have their own privacy policies. Pixel & Proof is not responsible for the privacy practices or content of any external website.</p>
+    </section>
+
+    <section>
+      <h2>11. Policy Updates</h2>
+      <p>We may update this policy periodically to reflect changes in our practices or legal requirements. The "Last Updated" date at the top of this page will reflect any changes. Continued use of our website after updates constitutes your acceptance of the revised policy.</p>
+    </section>
+
+    <section>
+      <h2>12. Contact Us</h2>
+      <div class="opacity-70 text-sm space-y-2">
+        <p><strong>Pixel & Proof</strong><br>
+        Email: hello@pixelnproof.com<br>
+        Website: pixelnproof.com<br>
+        Grievance Contact: hello@pixelnproof.com</p>
+        <p>This policy is governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts of India.</p>
+        <p>&copy; 2026 Pixel & Proof. All rights reserved. Made to Matter.</p>
+      </div>
     </section>
 
     <footer class="mt-24 w-full py-8 border-t border-white/5 flex flex-col items-center gap-6">
-      <img src="../assets/logo_1.PNG" alt="Pixel & Proof" class="footer-logo">
+      <img src="../assets/logo_1.PNG" alt="Pixel & Proof" style="height:24px; width:auto; opacity:0.3; filter:grayscale(100%);">
       <div class="text-[9px] font-black uppercase tracking-[0.3em] text-white/20">
-        &copy; 2026 Pixel Proof. All Rights Reserved. Made to Matter.
+        &copy; 2026 Pixel Proof. All Rights Reserved.
       </div>
     </footer>
   </main>

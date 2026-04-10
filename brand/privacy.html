@@ -21,13 +21,10 @@
             --brand-white: #FFFFFF;
             --brand-off-white: #FBFBFB;
             --font-heading: 'Inter', sans-serif;
+            --font-highlight: 'Times New Roman', serif;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: var(--font-heading);
@@ -35,82 +32,109 @@
             color: var(--brand-black);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .highlight {
+            font-family: var(--font-highlight);
+            font-style: italic;
+            font-weight: 400;
+            text-transform: lowercase;
+            letter-spacing: normal;
         }
 
         nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(251, 251, 251, 0.9);
-            backdrop-filter: blur(10px);
+            top: 0; left: 0; right: 0;
+            background: rgba(251, 251, 251, 0.95);
+            backdrop-filter: blur(16px);
             padding: 24px 40px;
             z-index: 100;
             border-bottom: 1px solid rgba(0,0,0,0.05);
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
 
+        .logo-img {
+            height: 28px;
+            width: auto;
+            filter: brightness(0); /* Make white logo black for light theme */
+        }
+
         .policy-content {
-            max-width: 800px;
-            margin: 140px auto 100px;
+            max-width: 850px;
+            margin: 160px auto 100px;
             padding: 0 24px;
         }
 
-        h1 {
-            font-size: clamp(48px, 10vw, 100px);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.05em;
-            line-height: 0.9;
-            margin-bottom: 24px;
-            color: var(--brand-black);
-        }
-
         .meta-tag {
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.3em;
             color: var(--brand-yellow);
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             display: block;
         }
 
-        h2 {
-            font-size: 28px;
+        h1 {
+            font-size: clamp(48px, 12vw, 110px);
             font-weight: 900;
             text-transform: uppercase;
-            margin: 60px 0 24px;
-            letter-spacing: -0.02em;
-            border-left: 4px solid var(--brand-yellow);
-            padding-left: 20px;
+            letter-spacing: -0.06em;
+            line-height: 0.85;
+            margin-bottom: 40px;
+            color: var(--brand-black);
         }
 
-        p {
-            margin-bottom: 24px;
-            font-size: 17px;
-            color: rgba(0,0,0,0.7);
-        }
-
-        ul {
-            margin-bottom: 32px;
-            list-style: none;
-        }
-
-        li {
-            padding: 16px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            font-size: 16px;
-            color: rgba(0,0,0,0.8);
+        h2 {
+            font-size: clamp(22px, 4vw, 28px);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin: 64px 0 24px;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
             display: flex;
             align-items: flex-start;
             gap: 16px;
         }
 
+        h2::before {
+            content: "";
+            width: 32px;
+            height: 4px;
+            background: var(--brand-yellow);
+            margin-top: 14px;
+            flex-shrink: 0;
+        }
+
+        p {
+            margin-bottom: 24px;
+            font-size: 18px;
+            color: rgba(0,0,0,0.7);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        ul {
+            margin-bottom: 32px;
+            list-style: none;
+            padding-left: 48px;
+        }
+
+        li {
+            position: relative;
+            padding: 12px 0;
+            font-size: 17px;
+            color: rgba(0,0,0,0.8);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+
         li::before {
-            content: "→";
+            content: "•";
+            position: absolute;
+            left: -24px;
             color: var(--brand-yellow);
             font-weight: 900;
         }
@@ -118,48 +142,68 @@
         .table-wrap {
             width: 100%;
             overflow-x: auto;
-            margin: 40px 0;
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 8px;
+            margin: 48px 0;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 12px;
+            background: white;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         th, td {
-            padding: 16px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
         }
 
         th {
-            background: #f0f0f0;
+            background: #FAFAFA;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             font-size: 11px;
+            color: rgba(0,0,0,0.4);
+        }
+
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.05);
+            margin-top: 60px;
         }
 
         footer {
             padding: 80px 0;
-            background: white;
+            background: #fdfdfd;
             border-top: 1px solid rgba(0,0,0,0.05);
             text-align: center;
         }
 
-        .footer-logo {
-            height: 32px;
-            margin-bottom: 24px;
-            opacity: 0.8;
+        #say-hi-btn {
+            background: var(--brand-yellow);
+            padding: 12px 24px;
+            border-radius: 50px;
+            color: black;
+            font-weight: 900;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: transform 0.2s;
         }
 
+        #say-hi-btn:hover { transform: scale(1.05); }
+
         @media (max-width: 767px) {
-            h1 { font-size: 56px; }
+            h1 { font-size: 64px; }
             nav { padding: 20px; }
-            .policy-content { margin-top: 100px; }
+            .policy-content { margin-top: 120px; }
+            ul { padding-left: 24px; }
         }
     </style>
 </head>
@@ -167,70 +211,146 @@
 <body>
     <nav>
         <a href="index.html">
-            <img src="/assets/logo_1.PNG" alt="Pixel & Proof" style="height:32px; width:auto;">
+            <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="logo-img">
         </a>
+        <a href="index.html#contact" id="say-hi-btn">SAY HI</a>
     </nav>
 
     <div class="policy-content">
-        <span class="meta-tag">Terms & Redlines</span>
-        <h1>Privacy <br><span style="color:var(--brand-yellow)">Policy.</span></h1>
-        <p style="font-weight: 700;">Effective Date: April 10, 2026</p>
+        <span class="meta-tag">Pixel & Proof | Editorial</span>
+        <h1>Privacy <br><span class="highlight">Policy.</span></h1>
+        
+        <div style="margin-bottom: 60px;">
+            <p><strong>Effective Date:</strong> April 10, 2026 | <strong>Last Updated:</strong> April 10, 2026</p>
+            <p style="font-size: 14px; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.1em;">Applies to: pixelnproof.com · hello.pixelnproof.com<br>Jurisdiction: India (IT Act 2000 · DPDP Act 2023)</p>
+        </div>
 
         <section>
-            <p>Pixel & Proof is a digital growth and branding studio based in India, helping businesses build clear, intentional, and impactful brands. This policy applies to both our main website (pixelnproof.com) and our landing page (hello.pixelnproof.com).</p>
+            <h2>1. Who We Are</h2>
+            <p>Pixel & Proof is a digital growth and branding studio based in India, helping businesses build clear, intentional, and impactful brands. Our services include Brand Strategy & Identity, Social Media & Content Systems, Website & Digital Experience, Creative Design, and Performance Marketing. This policy applies to both our main website (pixelnproof.com) and our landing page (hello.pixelnproof.com).</p>
         </section>
 
         <section>
-            <h2>01. We Collect</h2>
+            <h2>2. Information We Collect</h2>
+            <p>We collect information in the following ways:</p>
             <ul>
-                <li><strong>Contact & Lead Forms</strong> — Name, email, phone, business name, and project details.</li>
-                <li><strong>Analytics Data</strong> — Google Analytics data (pages, device type, location).</li>
-                <li><strong>Advertising Data</strong> — Meta Pixel tracking for ad optimisation.</li>
-                <li><strong>Cookies</strong> — For site performance and targeting.</li>
+                <li><strong>Contact & Lead Forms</strong> — When you submit an enquiry, we collect your name, email address, phone number, business name, and the details you share in your message.</li>
+                <li><strong>Analytics Data (Google Analytics)</strong> — We collect anonymised data including pages visited, time on site, device and browser type, geographic location (city/country), and traffic source.</li>
+                <li><strong>Advertising Data (Meta Pixel)</strong> — We track page views and form interactions to serve and optimise ads on Facebook and Instagram.</li>
+                <li><strong>Cookies</strong> — We use cookies and similar technologies for site performance, analytics, and ad targeting. See Section 4 for details.</li>
             </ul>
+            <p>We do not collect sensitive personal data such as financial details, government ID numbers, biometric data, or health information.</p>
         </section>
 
         <section>
-            <h2>02. Usage</h2>
-            <p>We use your data to respond to enquiries, analyse performance, run Meta ad campaigns, and comply with Indian legal obligations. We never sell your data.</p>
+            <h2>3. How We Use Your Data</h2>
+            <ul>
+                <li>To respond to enquiries and service requests submitted via our contact forms</li>
+                <li>To analyse website performance and improve user experience</li>
+                <li>To run and optimise paid advertising campaigns on Meta platforms</li>
+                <li>To send relevant communications about our services where consent exists</li>
+                <li>To comply with applicable legal obligations under Indian law</li>
+            </ul>
+            <p>We do not sell, rent, or trade your personal data to any third party for commercial purposes.</p>
         </section>
 
         <section>
-            <h2>03. Third-Party</h2>
+            <h2>4. Cookies & Tracking</h2>
+            <ul>
+                <li><strong>Essential Cookies</strong> — Required for the website to function. Cannot be disabled.</li>
+                <li><strong>Analytics Cookies (Google Analytics)</strong> — Track visits, sessions, and behaviour to help us improve the site.</li>
+                <li><strong>Advertising Cookies (Meta Pixel)</strong> — Track interactions to serve targeted ads and measure campaign performance on Facebook and Instagram.</li>
+            </ul>
+            <p>You can control or disable cookies through your browser settings. To opt out of Google Analytics, visit: tools.google.com/dlpage/gaoptout</p>
+        </section>
+
+        <section>
+            <h2>5. Third-Party Services</h2>
             <div class="table-wrap">
                 <table>
                     <thead>
                         <tr>
                             <th>Service</th>
                             <th>Purpose</th>
-                            <th>Privacy Link</th>
+                            <th>Privacy Policy</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Google Analytics</td><td>Analytics</td><td>policies.google.com/privacy</td></tr>
-                        <tr><td>Meta Pixel</td><td>Ad Tracking</td><td>facebook.com/privacy/policy</td></tr>
+                        <tr><td>Google Analytics</td><td>Website analytics</td><td>policies.google.com/privacy</td></tr>
+                        <tr><td>Meta Pixel</td><td>Ad targeting & conversion tracking</td><td>facebook.com/privacy/policy</td></tr>
                         <tr><td>Google Fonts</td><td>Typography</td><td>policies.google.com/privacy</td></tr>
                     </tbody>
                 </table>
             </div>
+            <p>These services may transfer data outside India. By using our website, you acknowledge and consent to such transfers.</p>
         </section>
 
         <section>
-            <h2>04. Your Rights</h2>
-            <p>Under the DPDP Act 2023, you have rights to access, correction, erasure, and withdrawal of consent. Reach us at hello@pixelnproof.com.</p>
+            <h2>6. Data Sharing</h2>
+            <p>We only share your data in these circumstances:</p>
+            <ul>
+                <li><strong>Service Providers</strong> — Google and Meta, who process data on our behalf for the purposes stated above</li>
+                <li><strong>Legal Obligation</strong> — When required by law, court order, or government authority under the IT Act 2000 or applicable Indian legislation</li>
+                <li><strong>Business Transfer</strong> — In the event of a merger or acquisition, with prior notice where possible</li>
+                <li><strong>Your Consent</strong> — In any other situation, only with your explicit prior consent</li>
+            </ul>
         </section>
 
         <section>
-            <h2>05. Redlines</h2>
-            <p><strong>Retention:</strong> Enquiry data is kept for up to 2 years. Analytics data is kept for 14-26 months.</p>
-            <p><strong>Children:</strong> We do not collect data from anyone under 18.</p>
-            <p><strong>Updates:</strong> This policy updates periodically. Continued use constitutes acceptance.</p>
+            <h2>7. Data Retention</h2>
+            <ul>
+                <li><strong>Enquiry form data</strong> — Retained for up to 2 years from the date of submission or last interaction</li>
+                <li><strong>Analytics data (Google Analytics)</strong> — Retained for 14–26 months as per Google's standard retention periods</li>
+                <li><strong>Advertising data (Meta Pixel)</strong> — Retained as per Meta's standard data processing policies</li>
+            </ul>
+            <p>Once data is no longer required, it is securely deleted or anonymised.</p>
+        </section>
+
+        <section>
+            <h2>8. Your Rights</h2>
+            <p>Under the Digital Personal Data Protection (DPDP) Act, 2023, you have the following rights:</p>
+            <ul>
+                <li><strong>Right to Access</strong> — Request a summary of the personal data we hold about you</li>
+                <li><strong>Right to Correction</strong> — Request correction of inaccurate or incomplete data</li>
+                <li><strong>Right to Erasure</strong> — Request deletion of your data, subject to legal obligations</li>
+                <li><strong>Right to Withdraw Consent</strong> — Withdraw consent to processing at any time</li>
+                <li><strong>Right to Grievance Redressal</strong> — Raise a concern about how your data is handled</li>
+                <li><strong>Right to Nominate</strong> — Nominate someone to exercise your rights in case of death or incapacity</li>
+            </ul>
+            <p>To exercise any of these rights, contact us at <strong>hello@pixelnproof.com</strong>. We will respond within 15 business days.</p>
+        </section>
+
+        <section>
+            <h2>9. Children's Privacy</h2>
+            <p>Our websites are not directed at individuals under the age of 18. We do not knowingly collect personal data from minors. If you believe a minor has submitted data through our site, please contact us immediately at hello@pixelnproof.com.</p>
+        </section>
+
+        <section>
+            <h2>10. Third-Party Links</h2>
+            <p>Our websites may contain links to external sites, social media platforms, or partner pages. These sites operate independently and have their own privacy policies. Pixel & Proof is not responsible for the privacy practices or content of any external website.</p>
+        </section>
+
+        <section>
+            <h2>11. Policy Updates</h2>
+            <p>We may update this policy periodically to reflect changes in our practices or legal requirements. The "Last Updated" date at the top of this page will reflect any changes. Continued use of our website after updates constitutes your acceptance of the revised policy.</p>
+        </section>
+
+        <section>
+            <h2>12. Contact us</h2>
+            <div class="contact-info">
+                <p><strong>Pixel & Proof</strong></p>
+                <p>Email: <span class="highlight">hello@pixelnproof.com</span></p>
+                <p>Website: pixelnproof.com</p>
+                <p>Grievance Contact: hello@pixelnproof.com</p>
+                <p style="margin-top: 32px; font-size: 15px; border-top: 1px solid rgba(0,0,0,0.05); pt-8">This policy is governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts of India.</p>
+                <p style="font-size: 11px; font-weight: 900; text-transform: uppercase; tracking-widest; opacity: 0.3; margin-top: 12px;">© 2026 Pixel & Proof. All rights reserved. <span class="highlight">Made to Matter.</span></p>
+            </div>
         </section>
     </div>
 
     <footer>
-        <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="footer-logo mx-auto">
-        <div class="text-[10px] font-black uppercase tracking-[0.4em] opacity-30 mt-6">
+        <img src="/assets/logo_1.PNG" alt="Pixel & Proof" class="logo-img mx-auto">
+        <div class="text-[10px] font-black uppercase tracking-[0.4em] transform scale-90 opacity-20 mt-6">
             © 2026 Pixel & Proof. All Rights Reserved.
         </div>
     </footer>
